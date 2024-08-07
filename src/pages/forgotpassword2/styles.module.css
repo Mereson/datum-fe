@@ -4,9 +4,6 @@
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
 }
-::placeholder{
-    
-}
 :root{
     --background-color: #132985;
     --text-black: #1E1E1E;
