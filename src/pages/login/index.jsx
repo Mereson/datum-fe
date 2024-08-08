@@ -9,30 +9,43 @@ export const Login = () => {
       <section className={styles["left-section"]}>
         <div className={styles["form-section"]}>
           <form action="submit">
-            <h1>Welcome 🤗</h1>
-            <label htmlFor="username"> Username </label>
-            <input
-              type="text"
-              placeholder="Enter email/Username"
-              id="name"
-              name="name"
-              required
-            />
+            <div className={styles.headersection}>
+              <h1>Welcome 🤗</h1>
+            </div>
+            <div className={styles.label}>
+              <label htmlFor="username"> Username </label>
+              <div className={styles.input}>
+                <input
+                  className={styles.inputtext}
+                  type="text"
+                  placeholder="Enter email/Username"
+                  id="name"
+                  name="name"
+                  required
+                />
+              </div>
+            </div>
 
-            <label htmlFor="email">Password</label>
-            <input
-              type="email"
-              placeholder="Enter password"
-              id="email"
-              name="email"
-              required
-            />
+            <div className={styles.label}>
+              <label htmlFor="email">Password</label>
+              <div className={styles.input}>
+                <input
+                  className={styles.inputtext}
+                  type="email"
+                  placeholder="Enter password"
+                  id="email"
+                  name="email"
+                  required
+                />
+              </div>
+            </div>
 
             {/* <img src={union} alt="show-password" /> */}
 
             <p className={styles.forgotpassword}>Forgot password?</p>
-
-            <Button content="Login" className={styles.btn} />
+            <div className={styles.buttonsection}>
+              <Button content="Login" className={styles.btn} />
+            </div>
           </form>
         </div>
       </section>

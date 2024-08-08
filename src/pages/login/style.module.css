@@ -1,20 +1,32 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  /* border: 2px solid red; */
 }
-/* .styles.header {
-  font-size: large;
-  font-weight: 700;
-  line-height: 48.41px;
-  text-align: left;
-} */
+
 .left-section {
   width: 50%;
   display: flex;
   align-items: center;
-  /* padding-left: 1.875rem; */
+  justify-content: center;
+  /* border: 2px solid green; */
 }
-input {
+
+.form-section {
+  /* border: 2px solid yellow; */
+  width: 491px;
+  height: 436px;
+}
+
+.headersection {
+  color: #000;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.input {
   background-color: #ececec;
   display: flex;
   padding: 16px;
@@ -23,16 +35,41 @@ input {
   align-items: flex-start;
   gap: 4px;
   align-self: stretch;
+  border-radius: 8px;
 }
+.inputtext {
+  background-color: #ececec;
+}
+
 .bluebutton {
   background-color: #132985;
   color: #ffffff;
   width: 30%;
 }
+
 .forgotpassword {
   color: #132985;
+  text-align: end;
 }
 
+.buttonsection {
+  width: 100%;
+  height: 53px;
+  border-radius: 8px;
+  display: inline-flex;
+  background-color: #132985;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 41px;
+}
+.label {
+  margin-top: 24px;
+}
+
+/* this is for the right section of the page  */
 .right-section {
   width: 50%;
   background-color: #132985;
@@ -47,8 +84,6 @@ input {
   justify-content: center;
   align-items: center;
   padding: 0 40px;
-  /* background: linear-gradient(90deg, #ffffff 0%, #1811e7 35%); */
-  /* border: 1px solid; */
   height: 600px;
   border-radius: 40px;
   background: linear-gradient(
@@ -61,12 +96,4 @@ input {
 .image {
   height: 450px;
   width: 282px;
-}
-.form-section > h1 {
-  color: #000;
-  font-family: Inter;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 }
