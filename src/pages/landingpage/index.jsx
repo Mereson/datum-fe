@@ -1,5 +1,19 @@
+import {
+  About,
+  Footer,
+  Hero,
+  Navbar,
+  Services,
+} from "../../components/landingPage"
+
 export const LandingPage = () => {
   return (
-    <div>Landing Page</div>
+    <>
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <Footer />
+    </>
   )
 }
