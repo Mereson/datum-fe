@@ -1,5 +1,6 @@
 import styles from "./style.module.css";
 import schoolchild from "../../assets/schoolchild.png";
+import { Button } from "../../components/button";
 // import union from "../../assets/union.png";
 
 export const Login = () => {
@@ -10,33 +11,28 @@ export const Login = () => {
           <form action="submit">
             <h1>Welcome 🤗</h1>
             <label htmlFor="username"> Username </label>
-            <br></br>
             <input
               type="text"
               placeholder="Enter email/Username"
               id="name"
               name="name"
               required
-            ></input>
-            <br></br>
+            />
 
-            <label htmlFor="email">Email</label>
-            <br></br>
+            <label htmlFor="email">Password</label>
             <input
               type="email"
               placeholder="Enter password"
               id="email"
               name="email"
               required
-            ></input>
-            <br></br>
+            />
+
             {/* <img src={union} alt="show-password" /> */}
 
             <p className={styles.forgotpassword}>Forgot password?</p>
 
-            <button className={styles.bluebutton} type="submit">
-              Login
-            </button>
+            <Button content="Login" className={styles.btn} />
           </form>
         </div>
       </section>

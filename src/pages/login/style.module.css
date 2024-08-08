@@ -12,7 +12,7 @@
   width: 50%;
   display: flex;
   align-items: center;
-  padding-left: 1.875rem;
+  /* padding-left: 1.875rem; */
 }
 input {
   background-color: #ececec;
@@ -48,7 +48,7 @@ input {
   align-items: center;
   padding: 0 40px;
   /* background: linear-gradient(90deg, #ffffff 0%, #1811e7 35%); */
-  border: 1px solid;
+  /* border: 1px solid; */
   height: 600px;
   border-radius: 40px;
   background: linear-gradient(
