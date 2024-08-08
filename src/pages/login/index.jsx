@@ -25,9 +25,10 @@ export const Login = () => {
               />
             </div>
 
-            <div className={styles.label}>
-              <label htmlFor="email">Password</label>
+            {/* This is the label for Password  */}
 
+            <div className={styles.label}>
+              <label htmlFor="email">Password </label>
               <input
                 className={styles.inputtext}
                 type="email"
@@ -36,9 +37,8 @@ export const Login = () => {
                 name="email"
                 required
               />
+              {/* <img src={union} alt="show-password"/>  */}
             </div>
-
-            {/* <img src={union} alt="show-password" /> */}
 
             <p className={styles.forgotpassword}>Forgot password?</p>
             <div className={styles.buttonsection}>
