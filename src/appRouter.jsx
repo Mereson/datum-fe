@@ -15,10 +15,10 @@ const router = createBrowserRouter([
 		path: "/forgotpassword2",
 		element: <ForgotPassword2 />,
 	},
-    // {
-	// 	path: "/",
-	// 	element: <LandingPage />,
-	// }
+    {
+		path: "/landingpage",
+		element: <LandingPage />,
+	}
 ]);
 
 export default router;
