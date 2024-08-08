@@ -4,6 +4,7 @@
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
 }
+
 :root{
     --background-color: #132985;
     --text-black: #1E1E1E;
@@ -27,6 +28,7 @@
     height: 80vh;
     background-color: var(--modal-white);
     border-radius: 40px;
+    padding: 0rem 7rem;
 }
 .box1 form{
     width: 80%;
@@ -39,6 +41,9 @@
     line-height: 48.41px;
     margin-bottom: 0.3rem;
 }
+.desc{
+    font-size: 14px;
+}
 .otps{
     margin: 2rem auto 2rem;
     width: 85%;
@@ -47,7 +52,7 @@
 }
 .otpfield{   
     width: 20%;
-    height: 10vh;
+    height: 8vh;
     background-color: var(--textfield-txt);
     border-radius: 5px;
     text-align: center;
@@ -80,16 +85,17 @@
     }
     .box1{
         width: 100%;
+        padding: 0rem 0rem;
     }
     .box1 form .title{
         font-size: 25px;
-        margin-bottom: 2rem;
+        margin-bottom: 2rem;       
     }
     .otps{   
        gap: 1rem;
     }
     .otpfield{   
-        /* width: 20%; */
+        width: 20%;
         height: 8vh;       
     }
     .resend{
