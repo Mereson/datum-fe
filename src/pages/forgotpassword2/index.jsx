@@ -7,7 +7,7 @@ export const ForgotPassword2 = () => {
         <div className={styles.box1}>
             <form>
                 <p className={styles.title}>Enter verification code</p>
-                <p>Check your email for the verification code, enter the 4 digits sent to you.</p>
+                <p className={styles.desc}>Check your email for the verification code, enter the 4 digits sent to you.</p>
                 <div className={styles.otps}>
                     <input type="text" className={styles.otpfield} />
                     <input type="text" className={styles.otpfield} />
