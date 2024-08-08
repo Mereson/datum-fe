@@ -14,30 +14,28 @@ export const Login = () => {
             </div>
             <div className={styles.label}>
               <label htmlFor="username"> Username </label>
-              <div className={styles.input}>
-                <input
-                  className={styles.inputtext}
-                  type="text"
-                  placeholder="Enter email/Username"
-                  id="name"
-                  name="name"
-                  required
-                />
-              </div>
+
+              <input
+                className={styles.inputtext}
+                type="text"
+                placeholder="Enter email/Username"
+                id="name"
+                name="name"
+                required
+              />
             </div>
 
             <div className={styles.label}>
               <label htmlFor="email">Password</label>
-              <div className={styles.input}>
-                <input
-                  className={styles.inputtext}
-                  type="email"
-                  placeholder="Enter password"
-                  id="email"
-                  name="email"
-                  required
-                />
-              </div>
+
+              <input
+                className={styles.inputtext}
+                type="email"
+                placeholder="Enter password"
+                id="email"
+                name="email"
+                required
+              />
             </div>
 
             {/* <img src={union} alt="show-password" /> */}

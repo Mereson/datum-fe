@@ -1,6 +1,5 @@
 .container {
   display: flex;
-  /* border: 2px solid red; */
 }
 
 .left-section {
@@ -8,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 2px solid green; */
 }
 
 .form-section {
@@ -25,7 +23,7 @@
   line-height: normal;
 }
 
-.input {
+.label > input {
   background-color: #ececec;
   display: flex;
   padding: 16px;
@@ -35,15 +33,13 @@
   gap: 4px;
   align-self: stretch;
   border-radius: 8px;
-}
-.inputtext {
-  background-color: #ececec;
+  width: 491px;
 }
 
-.bluebutton {
-  background-color: #132985;
-  color: #ffffff;
-  width: 30%;
+.inputtext {
+  background-color: #ececec;
+  width: 450px;
+  word-wrap: break-word;
 }
 
 .forgotpassword {
