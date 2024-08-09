@@ -16,11 +16,11 @@ const router = createBrowserRouter([
 		element: <ForgotPassword2 />,
 	},
 	{
-		path: "/",
+		path: "/forgotpassword3",
 		element: <ForgotPassword3 />,
 	},
     {
-		path: "/landingpage",
+		path: "/",
 		element: <LandingPage />,
 	}
 ]);
