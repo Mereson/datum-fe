@@ -2,9 +2,16 @@ import styles from "./style.module.css";
 import schoolchild from "../../assets/schoolchild.png";
 import { Button } from "../../components/button";
 import { Link } from "react-router-dom";
-// import union from "../../assets/union.png";
+import { LuEye, LuEyeOff } from "react-icons/lu";
+import { useState } from "react";
 
 export const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  // Funtion for the shoW and hide password
+  const showeye = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className={styles.container}>
       <section className={styles["left-section"]}>
@@ -26,26 +33,33 @@ export const Login = () => {
               />
             </div>
 
-            {/* This is the label for Password  */}
+            {/* This is the label for Password */}
 
             <div className={styles.label}>
               <label htmlFor="email">Password </label>
-              <input
-                className={styles.inputtext}
-                type="password"
-                placeholder="Enter password"
-                id="email"
-                name="email"
-                required
-              />
-              {/* <img src={union} alt="show-password"/>  */}
+
+              <div className={styles.hide} onClick={showeye}>
+                <input
+                  className={styles.inputtext}
+                  type={showPassword ? "password" : "text"}
+                  placeholder="Enter password"
+                  id="email"
+                  name="email"
+                  required
+                />
+                {showPassword ? (
+                  <LuEyeOff onClick={showeye} className={styles.hideicon} />
+                ) : (
+                  <LuEye onClick={showeye} className={styles.hideicon} />
+                )}
+              </div>
             </div>
 
-            <Link to = '/forgotpassword'>
+            <Link to="/forgotpassword">
               <p className={styles.forgotpassword}>Forgot password?</p>
             </Link>
             <div className={styles.buttonsection}>
-              <Button link={'/'} content="Login" className={styles.btn} />
+              <Button link={"/"} content="Login" className={styles.btn} />
             </div>
           </form>
         </div>
