@@ -4,7 +4,7 @@ import {
   Hero,
   Navbar,
   Services,
-} from "../../components/landingPage"
+} from "../../components/landingPage";
 
 export const LandingPage = () => {
   return (
@@ -15,5 +15,5 @@ export const LandingPage = () => {
       <Services />
       <Footer />
     </>
-  )
-}
+  );
+};
