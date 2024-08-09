@@ -16,7 +16,7 @@ export const ForgotPassword2 = () => {
                 </div>
                 <p>00 : 30</p>
                 <div className={styles.resend}>Didn't recieve a code? <span>Resend code</span></div>
-                <Link to = '/forgotpassword2'>
+                <Link to = '/forgotpassword3'>
                     <button className={styles.sendbtn}>Verify</button>
                 </Link>
             </form>            
