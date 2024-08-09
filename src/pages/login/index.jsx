@@ -1,6 +1,7 @@
 import styles from "./style.module.css";
 import schoolchild from "../../assets/schoolchild.png";
 import { Button } from "../../components/button";
+import { Link } from "react-router-dom";
 // import union from "../../assets/union.png";
 
 export const Login = () => {
@@ -40,9 +41,11 @@ export const Login = () => {
               {/* <img src={union} alt="show-password"/>  */}
             </div>
 
-            <p className={styles.forgotpassword}>Forgot password?</p>
+            <Link to = '/forgotpassword'>
+              <p className={styles.forgotpassword}>Forgot password?</p>
+            </Link>
             <div className={styles.buttonsection}>
-              <Button content="Login" className={styles.btn} />
+              <Button link={'/'} content="Login" className={styles.btn} />
             </div>
           </form>
         </div>
