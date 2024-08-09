@@ -10,8 +10,8 @@
 }
 
 .form-section {
-  width: 491px;
-  height: 436px;
+  width: 30.688rem;
+  height: 27.25rem;
 }
 
 .headersection {
@@ -37,13 +37,14 @@
 
 .inputtext {
   background-color: #ececec;
-  width: 450px;
+  width: 100%;
   word-wrap: break-word;
 }
 
 .forgotpassword {
   color: #132985;
   text-align: end;
+  padding-top: 1rem;
 }
 
 .buttonsection {
