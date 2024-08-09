@@ -9,7 +9,7 @@ export const Hero = () => {
         <h1 className="font-bold text-5xl leading-[58.48px]">
           Streamline Your School Management with Ease.
         </h1>
-        <Button text={"Get started"} style={"text-xl font-bold py-3 w-[190px]"} />
+        <Button link={"/login"} text={"Get started"} style={"text-xl font-bold py-3 w-[190px]"} />
       </article>
     </section>
   )

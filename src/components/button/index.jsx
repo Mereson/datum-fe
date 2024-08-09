@@ -1,10 +1,14 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-export const Button = ({ content, className, onClick }) => {
+export const Button = ({ content, className, link }) => {
   return (
-    <div onClick={onClick} className={className}>
-      {content}
-    </div>
+    
+    <Link to={link}>
+      <div className={className}>
+        {content}
+      </div>
+    </Link>
   );
 };
 

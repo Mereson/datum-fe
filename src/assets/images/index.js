@@ -6,6 +6,8 @@ import Facebook from "./facebook.png";
 import Instagram from "./insta.png";
 import X from "./x.png";
 import Youtube from "./youtube.png";
+import successicon from './successicon.png'
+import closeicon from './closeicon.png'
 
 export {
   HeroImg,
@@ -16,4 +18,6 @@ export {
   Instagram,
   X,
   Youtube,
+  successicon,
+  closeicon
 };
