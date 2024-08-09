@@ -65,13 +65,13 @@ export const Login = () => {
         </div>
       </section>
       <section className={styles["right-section"]}>
-        <div className={styles.imagecontainer}>
+        <figure className={styles.imagecontainer}>
           <img
             className={styles.image}
             src={schoolchild}
             alt="schoolchild and teacher"
           />
-        </div>
+        </figure>
       </section>
     </div>
   );
