@@ -1,5 +1,3 @@
-// export * from "./footer";
-
-export * from "./landingPage";
-
+export * from "./landingPage"
 export * from "./modal"
+export * from "./layoutComponents"
