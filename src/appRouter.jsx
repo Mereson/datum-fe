@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { LandingPage, Login, ForgotPassword, ForgotPassword2, ForgotPassword3 } from "./pages";
+import { LandingPage, Login, ForgotPassword, ForgotPassword2, ForgotPassword3, } from "./pages";
 
 const router = createBrowserRouter([
 	{
@@ -22,7 +22,8 @@ const router = createBrowserRouter([
     {
 		path: "/",
 		element: <LandingPage />,
-	}
+	},
+	
 ]);
 
 export default router;

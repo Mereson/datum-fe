@@ -60,8 +60,6 @@ export const ForgotPassword3 = () => {
                     <button type="submit" className={styles.sendbtn}>Reset password</button>
                 </form>
             </div>
-
-            {/* <SuccessModal */}
             
             <SuccessModal isVisible={isModalVisible} onClose={closeModal} />
 

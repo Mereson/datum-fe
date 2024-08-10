@@ -13,7 +13,7 @@ export const LandingPage = () => {
       <Hero />
       <About />
       <Services />
-      <Footer />
+      <Footer />      
     </>
   );
 };
