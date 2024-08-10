@@ -36,7 +36,7 @@ export const StudentSidebar = () => {
           </div>
           <div>
             <SidebarNavItem
-              to={"/"}
+              to={"/students/notification"}
               Icon={SbNotification}
               label={"Notifications"}
             />
@@ -44,12 +44,7 @@ export const StudentSidebar = () => {
         </div>
       </div>
       <div className="pt-11">
-        <SidebarNavItem
-          to={"/"}
-          Icon={SbLogout}
-          label="Log out"
-        //   hover={"#f4901f"}
-        />
+        <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
       </div>
     </aside>
   )
