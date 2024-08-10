@@ -3,9 +3,9 @@ import { StudentSidebar } from "../../components"
 
 export const StudentLayout = () => {
   return (
-    <>
+    <main className="flex">
       <StudentSidebar />
       <Outlet />
-    </>
+    </main>
   )
 }
