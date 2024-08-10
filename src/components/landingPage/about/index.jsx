@@ -1,7 +1,5 @@
 import { AboutImg } from "../../../assets"
 import styles from './styles.module.css'
-import { Button } from "../button"
-import { Overview } from "../overview"
 
 export const About = () => {
   return (

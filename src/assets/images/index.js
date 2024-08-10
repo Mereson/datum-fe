@@ -8,6 +8,8 @@ import X from "./x.png";
 import Youtube from "./youtube.png";
 import successicon from "./successicon.png"
 import closeicon from './closeicon.png'
+// import callicon from './callicon.png'
+// import emailicon from '/emailicon.png'
 
 export {
   HeroImg,
@@ -19,5 +21,7 @@ export {
   X,
   Youtube,
   successicon,
-  closeicon
+  closeicon,
+  // callicon,
+  // emailicon
 };

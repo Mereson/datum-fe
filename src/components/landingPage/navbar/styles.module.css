@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;  
-    padding: 0rem 6rem;
+    padding: 2rem 6rem;
     color: var(--textfield-bg);
     background-color: var(--background-color) ;
 }
@@ -48,7 +48,7 @@ nav ul li a:hover{
 
 @media (max-width:667px){
     .datumnavbar{  
-        padding: 0rem 1.5rem;
+        padding: 2rem;
         color: var(--textfield-bg);
     }
     .brand{
@@ -76,7 +76,7 @@ nav ul li a:hover{
         display: block;
         position: absolute;
         right: 1.5rem;
-        top: 1rem;
+        top: 1.6rem;
         width: 2.25rem;
         height: 2rem;
         color: var(--textfield-bg);

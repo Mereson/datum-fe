@@ -20,9 +20,9 @@
     --datum-yellow: #F4901F;
 }
 
-.herocontainer{
+.hero_container{
     color: var(--textfield-bg);
-    background-color: var(--background-color);
+    background-color: var(--background-color);    
 }
 .hero{
     display: flex;
@@ -51,6 +51,9 @@
 }
 
 @media (max-width:667px){
+    .hero_container{
+        margin-top: -0.1rem;
+    }
     .hero{
         flex-direction: column-reverse;
         padding: 1rem 2rem 4rem;

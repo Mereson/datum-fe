@@ -1,6 +1,5 @@
 import { Analytics, Ease, Engagement } from "../../../assets"
 import styles from './styles.module.css'
-import { Card } from "../card"
 
 export const Services = () => {
   return (

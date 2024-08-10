@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --background-color: #132985;
+    --text-black: #1E1E1E;
+    --modal-white: #F4F4F4;
+    --textfield-bg: #ECECEC;
+    --textfield-txt: #BFBFBF;
+    --textfield-eyecolor: #7C7B7B;
+    --success: #28B411;
+    --success-btn:#369926;
+    --datum-yellow: #F4901F;
+    --services-container: #D0D4E7;
+}
+
+.services_container{    
+    padding: 4rem 6rem;
+    background-color: var(--services-container);
+}
+
+
+
+@media (max-width:667px){
+    .about_container{
+        padding: 2rem 2rem;
+    }
+       
+}
