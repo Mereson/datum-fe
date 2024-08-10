@@ -5,6 +5,7 @@ import {
   ForgotPassword,
   ForgotPassword2,
   ForgotPassword3,
+  ErrorPage,
 } from "./pages"
 import { StudentLayout } from "./layout"
 import { StudentsDashboard } from "./pages/students/dashboard"
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <StudentsDashboard />,
+      },
+      {
+        path: "notification",
+        element: <ErrorPage />,
       },
     ],
   },
