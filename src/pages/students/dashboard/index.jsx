@@ -24,7 +24,7 @@ export const StudentsDashboard = () => {
           percentage={percentage}
         />
 
-        <div className="col-span-2 mt-6 py-4 bg-[#fafafa] h-[292px] rounded-2xl">
+        <div className="col-span-2 mt-6 py-4 bg-[#fafafa] h-[292px] shadow-sm rounded-2xl">
           <h3 className="px-14 text-lg font-bold">Performance</h3>
           <GradesBarChart subjects={subjects} />
         </div>
