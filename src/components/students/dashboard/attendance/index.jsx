@@ -4,7 +4,7 @@ import { CircularProgressBar } from "../progressBar"
 
 export const StudentsAttendance = ({ score, total, percentage }) => {
   return (
-    <div className=" bg-[#fafafa] h-[309px] pl-11 pt-[30px] rounded-2xl">
+    <div className=" bg-[#fafafa] h-[309px] pl-11 pt-[30px] shadow-sm rounded-2xl">
       <div>
         <h4 className="font-bold text-lg pb-11">Attendance</h4>
         <CircularProgressBar
