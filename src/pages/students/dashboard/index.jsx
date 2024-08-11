@@ -1,4 +1,5 @@
 import {
+  ActivitySection,
   CoreSubjects,
   GradesBarChart,
   SearchBox,
@@ -9,7 +10,6 @@ import {
 export const StudentsDashboard = () => {
   const score = 14
   const total = 20
-
   const percentage = Math.floor((score / total) * 100)
 
   return (
@@ -29,13 +29,7 @@ export const StudentsDashboard = () => {
           <GradesBarChart subjects={subjects} />
         </div>
       </section>
-      <section className="bg-[#ffff] w-[29%] ">
-        <div className="bg-[#ffff] px-3 pb-10">
-          <div className="h-[174px] mt-4 mb-7">hey</div>
-          <div className="h-[408px] bg-[#ffffff] border border-[#ededed] rounded-2xl"></div>
-          <div className="h-[318px] bg-[#ffffff] mt-5 border border-[#ededed] rounded-2xl"></div>
-        </div>
-      </section>
+      <ActivitySection />
     </section>
   )
 }
