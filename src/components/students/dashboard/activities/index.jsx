@@ -6,7 +6,7 @@ export const Activites = () => {
     <div className="h-[408px] bg-[#ffffff] border border-[#ededed] rounded-2xl py-7 pl-10">
       <h3 className="text-lg font-bold pb-5">Activities</h3>
       <div>
-        <Activity title={"Mid term break"} circle={"#132985"}>
+        <Activity title={"Mid term break"} circle={"border-[#132985]"}>
           <ul className="pt-2 pl-1 list-disc text-[#5c5c5c] text-sm list-inside">
             <li>
               <span className="font-semibold text-[13px]">Start Date: </span>
@@ -18,7 +18,7 @@ export const Activites = () => {
             </li>
           </ul>
         </Activity>
-        <Activity title={"Holiday Activities"} circle={"#f4901f"}>
+        <Activity title={"Holiday Activities"} circle={"border-[#f4901f]"}>
           <ul className="pt-2 pl-1 list-disc text-[#5c5c5c] text-sm list-inside">
             <li>
               <span className="font-semibold text-[13px]">Start Date: </span>
@@ -36,7 +36,7 @@ export const Activites = () => {
         </Activity>
         <Activity
           title={"Resumption Date"}
-          circle={"#439f6e"}
+          circle={"border-[#439f6e]"}
           border="border-none"
         >
           <p className=" text-[#5c5c5c] text-sm pt-2">
@@ -53,7 +53,7 @@ const Activity = ({ title, circle, children, border = "border-l-[1px]" }) => {
   return (
     <div className={`border-[#b8b8b8b3] ${border} pb-7 pl-[26.8px] relative`}>
       <div
-        className={`w-[13.8px] h-[14.47px] rounded-full border-[2px] border-[${circle}] absolute left-[-7px] bg-[#f4f4f4]`}
+        className={`w-[13.8px] h-[14.47px] rounded-full border-[2px] ${circle} absolute left-[-7px] bg-[#f4f4f4]`}
       ></div>
       <h5 className="leading-none text-[15px] font-semibold">{title}</h5>
       {children}

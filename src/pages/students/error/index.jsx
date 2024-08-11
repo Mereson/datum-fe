@@ -1,5 +1,8 @@
 export const ErrorPage = () => {
   return (
-    <div>$04 or something like that</div>
+    <div>
+      404 or something like that
+      
+    </div>
   )
 }

@@ -1,4 +1,5 @@
 import { Activites } from "../activities"
+import { CustomCalendar } from "../customCalender"
 
 export const ActivitySection = () => {
   return (
@@ -17,7 +18,9 @@ export const ActivitySection = () => {
           </div>
         </div>
         <Activites />
-        <div className="h-[318px] bg-[#ffffff] mt-5 border border-[#ededed] rounded-2xl"></div>
+        <div className="h-[318px] bg-[#ffffff] mt-5 border border-[#ededed] rounded-2xl">
+          <CustomCalendar />
+        </div>
       </div>
     </section>
   )
