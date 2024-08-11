@@ -5,6 +5,8 @@ import SbNotification from "./notification"
 import SbResults from "./results"
 import SbSubject from "./subject"
 import SbSearch from "./search"
+import SbEmojiWave from "./emoji"
+import SbEmojiThumbsUp from "./emoji2"
 
 export {
   SbAttendance,
@@ -14,4 +16,6 @@ export {
   SbResults,
   SbSubject,
   SbSearch,
+  SbEmojiWave,
+  SbEmojiThumbsUp
 }
