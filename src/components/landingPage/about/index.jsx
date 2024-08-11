@@ -1,4 +1,4 @@
-import { AboutImg } from "../../../assets"
+import { AboutImg, aboutus } from "../../../assets"
 import styles from './styles.module.css'
 
 export const About = () => {
@@ -30,7 +30,7 @@ export const About = () => {
           <button className={styles.aboutusleft_btn}>Get Started</button>
         </div>
         <div className={styles.aboutusright}>
-          <img src={AboutImg} alt="" className={styles.aboutright_img} />
+          <img src={aboutus} alt="" className={styles.aboutright_img} />
         </div>
       </div>
     </section>    

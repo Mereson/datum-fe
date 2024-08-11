@@ -21,7 +21,7 @@
 }
 
 .about_container{    
-    padding: 4rem 6rem;
+    padding: 4rem 0rem 4rem 6rem;
 }
 .about_container > p{
     font-size: 30px;
@@ -73,11 +73,10 @@
     width: 30%;
 }
 .aboutusright{
-    padding: 2rem;
+    padding: 0rem;
+    margin-bottom: 1.5rem;
+    background-color: red;
 }
-
-
-
 
 @media (max-width:667px){
     .about_container{
@@ -97,7 +96,10 @@
         font-weight: 400;
         padding-right: 0rem;
     }
+    .aboutusleft > button{
+        width: 40%;
+    }
     .aboutusright{
-        padding: 2rem;
+        padding: 0rem;
     }
 }
