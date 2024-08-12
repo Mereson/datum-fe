@@ -1,0 +1,73 @@
+/* Styles for the modal overlay */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(19, 41, 133, 0.51);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modalContent {
+    background: white;
+    padding: 20px;
+    padding-top: 3rem;
+    border-radius: 10px;
+    display: grid;   
+    place-items: center;
+    width: 30%;
+    height: 230px;
+    position: absolute;
+    top: 120px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+} 
+.modalContent .title{
+    color: var(--success);
+    font-size: 20px;
+    font-weight: 600;
+}
+.modalContent > p{
+  font-size: 11px;
+}
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 17%;
+    /* font-size: 16px; */
+  }  
+  .goback{
+    display: grid;
+    background-color: var(--success-btn);
+    color: var(--modal-white);
+    padding: 0.3rem 4rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-size: 12px;    
+  }
+
+  @media (max-width:667px){
+    
+    .modalContent {
+        text-align: center;
+        top: 65px;
+        width: 90%;
+        height: 350px;
+    }
+    .goback{
+        padding: 0.7rem 4rem;
+        margin-top: 1rem;
+      }
+}
+
+
+
+
+
