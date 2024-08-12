@@ -93,7 +93,7 @@ input:focus {
   color: #f4901f;
   text-decoration: underline;
 }
-.buttonsection {
+.btn {
   width: 100%;
   height: 50px;
   border-radius: 8px;

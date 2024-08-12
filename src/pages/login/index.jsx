@@ -58,7 +58,11 @@ export const Login = () => {
               <p className={styles.forgotpassword}>Forgot password?</p>
             </Link>
             <div className={styles.buttonsection}>
-              <Button link={"/students/dashboard"} content="Login" className={styles.btn} />
+              <Button
+                link={"/students/dashboard"}
+                content="Login"
+                className={styles.btn}
+              />
             </div>
           </form>
         </div>
