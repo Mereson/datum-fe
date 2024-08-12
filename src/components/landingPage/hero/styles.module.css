@@ -28,13 +28,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 6rem 4rem;
+    gap: 2rem;
+    padding: 1rem 6rem 0rem;    
 }
 .heroleft{
     width: 50%;
 }
 .heroleft > p{
-    font-size: 38px;
+    font-size: 35px;
     line-height: 3rem;
     font-weight: 700;
 }
@@ -48,7 +49,9 @@
 }
 .heroimage{
     width: 100%;
+    /* margin-bottom: rem; */
 }
+
 
 @media (max-width:667px){
     .hero_container{

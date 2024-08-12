@@ -1,4 +1,5 @@
 import HeroImg from "./hero-img.png";
+import HeroStripes from "./stripe.png";
 import AboutImg from "./about-img.png";
 import DatumLogo from "./Logo.png";
 import Linkedin from "./linkedin.png";
@@ -8,10 +9,11 @@ import X from "./x.png";
 import Youtube from "./youtube.png";
 import successicon from "./successicon.png"
 import closeicon from './closeicon.png'
-import aboutus from './aboutus-img.jpeg'
+import aboutus from './aboutus-img.png'
 
 export {
   HeroImg,
+  HeroStripes,
   AboutImg,
   DatumLogo,
   Linkedin,

@@ -1,5 +1,7 @@
 import { AboutImg, aboutus } from "../../../assets"
 import styles from './styles.module.css'
+import { Link } from "react-router-dom";
+
 
 export const About = () => {
   return (
@@ -27,7 +29,9 @@ export const About = () => {
             Datum is dedicated to personalized feedback through innovative technology, 
             transforming how schools manage and engage with their students.
           </p>
-          <button className={styles.aboutusleft_btn}>Get Started</button>
+          <Link to = "/login">
+            <button className={styles.aboutusleft_btn}>Get Started</button>
+          </Link>
         </div>
         <div className={styles.aboutusright}>
           <img src={aboutus} alt="" className={styles.aboutright_img} />

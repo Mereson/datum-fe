@@ -21,7 +21,7 @@
 }
 
 .about_container{    
-    padding: 4rem 0rem 4rem 6rem;
+    padding: 4rem 0rem;
 }
 .about_container > p{
     font-size: 30px;
@@ -31,7 +31,7 @@
 }
 .whyus{
     display: grid;
-    padding: 2rem 0rem;
+    padding: 4rem 6rem;
     gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -51,6 +51,7 @@
     display: flex;
     align-items: center;
     margin-top: 1rem;
+    padding: 0rem 0rem 0rem 6rem;
 }
 .aboutusleft{
     width: 50%;
@@ -64,31 +65,32 @@
     color: var(--background-color);
     margin-bottom: 1rem;
 }
-.aboutusleft > button{
+.aboutusleft .aboutusleft_btn{
     background-color: var(--datum-yellow);
     color: var(--modal-white);
     border-radius: 8px;
     margin-top: 2rem;
     padding: 0.5rem;
-    width: 30%;
+    width: 35%;
 }
 .aboutusright{
+    width: 50%;
     padding: 0rem;
     margin-bottom: 1.5rem;
-    background-color: red;
 }
 
 @media (max-width:667px){
     .about_container{
-        padding: 2rem;
+        padding: 2rem 2rem;
     }
     .whyus{
-        
+        padding: 4rem 0rem;
         gap: 1rem;
         grid-template-columns: repeat(1, 1fr);
     }  
     .aboutus{
         flex-direction: column-reverse;
+        padding: 0rem 0rem;
     }
     .aboutusleft{
         width: 100%;
@@ -96,10 +98,11 @@
         font-weight: 400;
         padding-right: 0rem;
     }
-    .aboutusleft > button{
-        width: 40%;
+    .aboutusleft .aboutusleft_btn{
+        width: 50%;
     }
     .aboutusright{
+        width: 100%;
         padding: 0rem;
     }
 }
