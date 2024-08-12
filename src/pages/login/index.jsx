@@ -13,16 +13,15 @@ export const Login = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <section className={styles["left-section"]}>
-        <div className={styles["form-section"]}>
+    <section className={styles.login_container}>
+      <div className={styles.login}>
+        <div className={styles.login_left}>
           <form action="submit">
             <div className={styles.headersection}>
               <h1>Welcome 🤗</h1>
             </div>
             <div className={styles.label}>
               <label htmlFor="username"> Username </label>
-
               <input
                 className={styles.inputtext}
                 type="text"
@@ -63,16 +62,17 @@ export const Login = () => {
             </div>
           </form>
         </div>
-      </section>
-      <section className={styles["right-section"]}>
-        <figure className={styles.imagecontainer}>
-          <img
-            className={styles.image}
-            src={schoolchild}
-            alt="schoolchild and teacher"
-          />
-        </figure>
-      </section>
-    </div>
+
+        <div className={styles.login_right}>
+          <figure className={styles.imagecontainer}>
+            <img
+              className={styles.image}
+              src={schoolchild}
+              alt="schoolchild and teacher"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
   );
 };
