@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --background-color: #132985;
+    --text-black: #1E1E1E;
+    --modal-white: #F4F4F4;
+    --textfield-bg: #ECECEC;
+    --textfield-txt: #BFBFBF;
+    --textfield-eyecolor: #7C7B7B;
+    --success: #28B411;
+    --success-btn:#369926;
+    --datum-yellow: #F4901F;
+    --services-container: #D0D4E7;
+}
+
+.about_container{    
+    padding: 4rem 0rem;
+}
+.about_container > p{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--background-color);
+}
+.whyus{
+    display: grid;
+    padding: 4rem 6rem;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+.whyuscard{
+    border-radius: 16px;
+    padding: 24px;
+    min-width: 30vh;
+    font-size: 14px;
+    background-color: var(--textfield-bg);
+}
+.whyuscard > h2{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.aboutus{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0rem 0rem 0rem 6rem;
+}
+.aboutusleft{
+    width: 50%;
+    font-size: 16px;
+    font-weight: 400;
+    padding-right: 7rem;
+}
+.aboutusleft > h2{
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--background-color);
+    margin-bottom: 1rem;
+}
+.aboutusleft .aboutusleft_btn{
+    background-color: var(--datum-yellow);
+    color: var(--modal-white);
+    border-radius: 8px;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    width: 35%;
+}
+.aboutusright{
+    width: 50%;
+    padding: 0rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width:667px){
+    .about_container{
+        padding: 2rem 2rem;
+    }
+    .whyus{
+        padding: 4rem 0rem;
+        gap: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+    }  
+    .aboutus{
+        flex-direction: column-reverse;
+        padding: 0rem 0rem;
+    }
+    .aboutusleft{
+        width: 100%;
+        font-size: 16px;
+        font-weight: 400;
+        padding-right: 0rem;
+    }
+    .aboutusleft .aboutusleft_btn{
+        width: 50%;
+    }
+    .aboutusright{
+        width: 100%;
+        padding: 0rem;
+    }
+}

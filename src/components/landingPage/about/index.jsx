@@ -1,26 +1,42 @@
-import { AboutImg } from "../../../assets"
-import { Button } from "../button"
-import { Overview } from "../overview"
+import { AboutImg, aboutus } from "../../../assets"
+import styles from './styles.module.css'
+import { Link } from "react-router-dom";
+
 
 export const About = () => {
   return (
-    <section>
-      <Overview />
-      <section className="flex px-[103px] py-[30px] items-center justify-between">
-        <article className="w-[434px]">
-          <h3 className="font-bold text-3xl text-[#132985] pb-4">About Us</h3>
-          <p className="font-normal text-base pb-8">
-            Datum is committed to revolutionizing school management and student
-            engagement through innovative technology, delivering personalized
-            feedback to enhance the educational experience.
+    <section className={styles.about_container}>
+      <p>Why Choose Us?</p>
+      <div className={styles.whyus}>
+        <div className={styles.whyuscard}>
+          <h2>Efficiency</h2>
+          <p>Our services are designed to streamline your processes and save time.</p>
+        </div>
+        <div className={styles.whyuscard}>
+          <h2>Data-Driven</h2>
+          <p>Our analytics tools help you receive personalized feedback based on real-time data.</p>
+        </div>
+        <div className={styles.whyuscard}>
+          <h2>User-Friendly</h2>
+          <p>Our intuitive design ensures a hassle-free experience for all users.</p>
+        </div>
+      </div>
+
+      <div className={styles.aboutus}>
+        <div className={styles.aboutusleft}>
+          <h2>About Us</h2>
+          <p>
+            Datum is dedicated to personalized feedback through innovative technology, 
+            transforming how schools manage and engage with their students.
           </p>
-          <Button
-            text={"Learn more"}
-            style={"text-lg font-medium text-white py-[9px] w-[173px]"}
-          />
-        </article>
-        <img src={AboutImg} className="h-[404px] w-[491px]" alt="about image" />
-      </section>
-    </section>
+          <Link to = "/login">
+            <button className={styles.aboutusleft_btn}>Get Started</button>
+          </Link>
+        </div>
+        <div className={styles.aboutusright}>
+          <img src={aboutus} alt="" className={styles.aboutright_img} />
+        </div>
+      </div>
+    </section>    
   )
 }
