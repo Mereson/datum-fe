@@ -24,43 +24,44 @@ export const ForgotPassword3 = () => {
     setIsModalVisible(false);
   };
 
-  return (
-    <div className={styles.fpassword}>
-      <div className={styles.box1}>
-        <form onSubmit={handleResetPassword}>
-          <p className={styles.title}>Set new password</p>
-          <p className={styles.desc}>
-            Create a new password to secure your account.
-          </p>
-          <div className={styles.fields}>
-            <input
-              type={showPassword ? "text" : "password"}
-              className={styles.textfield}
-              placeholder="Enter new password"
-            />
-            <div className={styles.hide} onClick={togglePasswordVisibility}>
-              {showPassword ? <LuEye /> : <LuEyeOff />}
+    return (
+        <div className={styles.fpassword}>
+            <div className={styles.box1}>
+                <form onSubmit={handleResetPassword}>
+                    <p className={styles.title}>Set new password</p>
+                    <p className={styles.desc}>Create a new password to secure your account.</p>
+                    <div className={styles.fields}>
+                        <input 
+                            type={showPassword ? 'text' : 'password'} 
+                            className={styles.textfield} 
+                            placeholder='Enter new password' 
+                        />
+                        <div 
+                            className={styles.hide} 
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? <LuEye /> : <LuEyeOff />}
+                        </div>
+                    </div>
+                    <div className={styles.fields}>
+                        <input 
+                            type={showPassword ? 'text' : 'password'} 
+                            className={styles.textfield} 
+                            placeholder='Confirm password'
+                        />
+                        <div 
+                            className={styles.hide} 
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? <LuEye /> : <LuEyeOff />}
+                        </div>
+                    </div>
+                    <button type="submit" className={styles.sendbtn}>Reset password</button>
+                </form>
             </div>
-          </div>
-          <div className={styles.fields}>
-            <input
-              type={showPassword ? "text" : "password"}
-              className={styles.textfield}
-              placeholder="Confirm password"
-            />
-            <div className={styles.hide} onClick={togglePasswordVisibility}>
-              {showPassword ? <LuEye /> : <LuEyeOff />}
-            </div>
-          </div>
-          <button type="submit" className={styles.sendbtn}>
-            Reset password
-          </button>
-        </form>
-      </div>
+            
+            <SuccessModal isVisible={isModalVisible} onClose={closeModal} />
 
-      {/* <SuccessModal */}
-
-      <SuccessModal isVisible={isModalVisible} onClose={closeModal} />
-    </div>
-  );
+        </div>
+    );
 };

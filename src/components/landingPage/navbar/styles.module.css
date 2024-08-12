@@ -1,0 +1,87 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --background-color: #132985;
+    --text-black: #1E1E1E;
+    --modal-white: #F4F4F4;
+    --textfield-bg: #ECECEC;
+    --textfield-txt: #BFBFBF;
+    --textfield-eyecolor: #7C7B7B;
+    --success: #28B411;
+    --success-btn:#369926;
+    --datum-yellow: #F4901F;
+}
+
+.datumnavs a[class='active']{
+    color: var(--datum-yellow);
+}
+
+.datumnavbar{      
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+    padding: 2rem 6rem;
+    color: var(--textfield-bg);
+    background-color: var(--background-color) ;
+}
+.brand{
+    width: 12%;
+}
+.menu{
+    display: none;
+}
+.datumnavs > ul{
+    display: flex;
+    gap: 3rem;
+}
+nav ul li a:hover{
+    color: var(--datum-yellow);
+}
+
+@media (max-width:667px){
+    .datumnavbar{  
+        padding: 2rem;
+        color: var(--textfield-bg);
+    }
+    .brand{
+        width: 35%;
+    }
+    .datumnavs > ul{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 3.7rem;
+        gap: 1rem;
+        left: 0;
+        right: 0;
+        width: 100%;
+        bottom:0;
+        align-items: center;
+        padding: 1.5rem 0;
+        background-color: var(--background-color);
+    }
+    
+    .datumnavs > ul.open{
+        display: flex; 
+        gap: 1.5rem;
+    } 
+    .menu{
+        display: block;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.6rem;
+        width: 2.25rem;
+        height: 2rem;
+        color: var(--textfield-bg);
+    }
+}
+
+

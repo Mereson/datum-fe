@@ -1,24 +1,58 @@
-import { NavLink } from "react-router-dom"
-import { Datum, Logo } from "../../../assets"
+import React, {useState} from 'react'
+import { Link, NavLink } from "react-router-dom"
+import styles from './styles.module.css'
+import { DatumLogo } from "../../../assets"
+import { FiMenu } from "react-icons/fi";
 
 export const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <nav className="bg-[#f4f4f4] px-[100px] flex gap-[251px] h-[112px] ">
-      <figure className="flex gap-1 items-center justify-center">
-        <img src={Logo} className="size-9" alt="logo" />
-        <img src={Datum} className="h-6" alt="brand name" />
-      </figure>
-      <ul className="col-span-2 flex items-center text-lg font-bold gap-10">
-        <li>
-          <NavLink>Home</NavLink>
-        </li>
-        <li>
-          <NavLink>About Us</NavLink>
-        </li>
-        <li>
-          <NavLink>Services</NavLink>
-        </li>
-      </ul>
-    </nav>
+    <header className={styles.datumnavbar}>
+      <div className={styles.brand}><img src={DatumLogo} alt=""/></div>
+      
+      <div>        
+        <FiMenu 
+          className={styles.menu}
+          onClick={() => {
+              setMenuOpen(!menuOpen) 
+          }}        
+        />
+      </div>
+
+      <nav className={styles.datumnavs}>        
+        <ul className={menuOpen ? `${styles.open}` : '' }>
+          <li>
+            <NavLink 
+              to = '/'
+              onClick={() => {
+                  setMenuOpen(!menuOpen) 
+              }}
+            >
+              Home
+            </NavLink> 
+          </li>
+          <li>
+            <Link 
+              to = '/#aboutus'
+              onClick={() => {
+                  setMenuOpen(!menuOpen) 
+              }}
+            >
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to = '/#services'
+              onClick={() => {
+                  setMenuOpen(!menuOpen) 
+              }}
+            >
+              Service
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   )
 }

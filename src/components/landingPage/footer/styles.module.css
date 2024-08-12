@@ -1,0 +1,86 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  scroll-behavior: smooth;
+}
+
+:root{
+  --background-color: #132985;
+  --text-black: #1E1E1E;
+  --modal-white: #F4F4F4;
+  --textfield-bg: #ECECEC;
+  --textfield-txt: #BFBFBF;
+  --textfield-eyecolor: #7C7B7B;
+  --success: #28B411;
+  --success-btn:#369926;
+  --datum-yellow: #F4901F;
+  --services-container: #D0D4E7;
+}
+
+.footer_container {  
+  background-color: var(--background-color); 
+}
+.footer{
+  display: grid;
+  color: var(--textfield-bg);
+  padding: 2rem 6rem;
+  grid-template-columns: repeat(3, 1fr);
+  
+}
+.brand{
+  width: 35%;
+  margin-bottom: 2rem;
+}
+.footer .socials{
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--services-container);
+}
+.footer_card > .card_title{
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.useful_links{
+  font-size: 12px;
+  color: var(--textfield-txt);
+}
+.useful_links > span{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.copywright{
+  padding: 1.5rem 6rem;
+  color: var(--textfield-txt);
+  font-size: 10px;
+  background-color: var(--background-color); 
+}
+
+@media (max-width: 667px){
+  .footer_container {    
+    background-color: var(--background-color); 
+  }
+  .footer{
+    padding: 2rem;
+    grid-template-columns: repeat(1, 1fr);
+    font-size: 14px;
+  }
+ 
+  .footer_card > .card_title{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  .copywright{
+    padding: 2rem;
+    font-size: 12px;
+    text-align: center;
+  }
+}
