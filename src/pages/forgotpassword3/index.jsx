@@ -1,29 +1,28 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import React, { useState } from 'react';
-import { SuccessModal } from '../../components';
-
+import { useState } from "react";
+import { SuccessModal } from "../../components";
 
 export const ForgotPassword3 = () => {
-    const [showPassword, setShowPassword] = useState(false);
-    const [isModalVisible, setIsModalVisible] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-    // Function to toggle password visibility
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
+  // Function to toggle password visibility
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
-    // Function to show the success modal
-    const handleResetPassword = (event) => {
-        event.preventDefault(); // Prevent the default form submission
-        setIsModalVisible(true);
-    };
+  // Function to show the success modal
+  const handleResetPassword = (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    setIsModalVisible(true);
+  };
 
-    // Function to close the modal
-    const closeModal = () => {
-        setIsModalVisible(false);
-    };
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
 
     return (
         <div className={styles.fpassword}>
