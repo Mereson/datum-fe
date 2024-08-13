@@ -21,7 +21,7 @@ export const CheckResults = () => {
             ))}
             <div>
               <p className="pb-1 font-bold text-[#444444]">Current Class</p>
-              <div className="w-full px-[16px] py-[13px] bg-[#ececec] rounded-lg text-sm text-[#bfbfbf] cursor-pointer">
+              <div className="w-full px-[16px] py-[13px] bg-[#ececec] rounded-lg text-sm text-[#7e7d7d]">
                 SSS1
               </div>
             </div>
