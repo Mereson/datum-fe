@@ -7,6 +7,7 @@ import {
   ForgotPassword3,
   ErrorPage,
   CheckResults,
+  ResultAnalysis,
 } from "./pages"
 import { StudentLayout } from "./layout"
 import { StudentsDashboard } from "./pages/students/dashboard"
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "notification",
         element: <ErrorPage />,
+      },
+      {
+        path: "resultAnalysis",
+        element: <ResultAnalysis /> ,
       },
     ],
   },

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import {
   Datum,
   Logo,
@@ -14,14 +15,14 @@ export const StudentSidebar = () => {
   return (
     <aside className="h-[100vh] w-[220px] pl-8 pr-16 pb-10 bg-[#fafafa] flex flex-col justify-between">
       <div>
-        <i className="pt-8 flex items-center gap-1">
+        <Link className="pt-8 flex items-center gap-1" to={"/"}>
           <img
             src={Logo}
             className="h-[25px] w-[25.97px]"
             alt="datum logo icon"
           />
           <img src={Datum} className="h-[14.14px]" alt="datum logo Title" />
-        </i>
+        </Link>
         <div className="pt-[80px] flex flex-col gap-7">
           <div className="flex flex-col gap-8">
             <SidebarNavItem
