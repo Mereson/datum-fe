@@ -7,10 +7,11 @@ import {
   ForgotPassword3,
   ErrorPage,
   CheckResults,
-  ViewResults,
+  ResultAnalysis,
 } from "./pages";
 import { StudentLayout } from "./layout";
 import { StudentsDashboard } from "./pages/students/dashboard";
+import { ViewResults } from "./pages/students/viewResults";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "notification",
         element: <ErrorPage />,
+      },
+      {
+        path: "resultAnalysis",
+        element: <ResultAnalysis />,
       },
     ],
   },

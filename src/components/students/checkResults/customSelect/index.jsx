@@ -1,29 +1,36 @@
 import PropTypes from "prop-types"
+import { useSelectStore } from "../../../../store"
+import styles from "./style.module.css"
 import { useState } from "react"
+import { DropdownIcon } from "../../../../assets"
 
-export const CustomSelect = ({ query, options }) => {
-  const [selected, setSelected] = useState(query)
-  const [isOpen, setIsOpen] = useState(false)
+export const CustomSelect = ({ query, options, index }) => {
+  const { openSelectIndex, setOpenSelectIndex, closeSelect } = useSelectStore()
+  const isOpen = openSelectIndex === index
+  const [selectedOption, setSelectedOption] = useState(query) // State to store the selected option
 
   const handleSelect = (option) => {
-    setSelected(option)
-    setIsOpen(false)
+    setSelectedOption(option) // Update the selected option state
+    closeSelect()
   }
 
   return (
     <div className="relative w-[500px]">
       <div
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-[16px] py-[13px] bg-[#ececec] rounded-lg text-sm text-[#bfbfbf] cursor-pointer"
+        onClick={() => setOpenSelectIndex(index)}
+        className="w-full px-[16px] flex justify-between py-[13px] bg-[#ececec] rounded-lg text-sm text-[#585858] cursor-pointer"
       >
-        {selected}
+        {selectedOption}
+        <DropdownIcon isOpen={isOpen} />
       </div>
 
       {isOpen && (
-        <ul className="absolute w-full bg-white z-10 shadow-lg rounded-b-lg">
-          {options.map((option, index) => (
+        <ul
+          className={`${styles.scrollbar} absolute w-full bg-white z-10 shadow-lg rounded-b-lg max-h-[156px] overflow-y-auto`}
+        >
+          {options.map((option, i) => (
             <li
-              key={index}
+              key={i}
               onClick={() => handleSelect(option)}
               className="px-[16px] py-[13px] cursor-pointer hover:bg-[#ececec] text-black"
             >
@@ -39,4 +46,5 @@ export const CustomSelect = ({ query, options }) => {
 CustomSelect.propTypes = {
   query: PropTypes.string,
   options: PropTypes.array,
+  index: PropTypes.number.isRequired,
 }

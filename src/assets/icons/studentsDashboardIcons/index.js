@@ -7,6 +7,7 @@ import SbSubject from "./subject"
 import SbSearch from "./search"
 import SbEmojiWave from "./emoji"
 import SbEmojiThumbsUp from "./emoji2"
+import DropdownIcon  from "./dropdown"
 
 export {
   SbAttendance,
@@ -17,5 +18,6 @@ export {
   SbSubject,
   SbSearch,
   SbEmojiWave,
-  SbEmojiThumbsUp
+  SbEmojiThumbsUp,
+  DropdownIcon
 }

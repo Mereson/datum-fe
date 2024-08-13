@@ -1,5 +1,5 @@
-import { CustomSelect } from "../../../components";
 import { Button } from "../../../components/button";
+import { Dropdown } from "../../../components";
 
 export const CheckResults = () => {
   return (
@@ -11,14 +11,17 @@ export const CheckResults = () => {
         <form>
           <div className="grid gap-6">
             {options.map(({ id, name, query, items }) => (
-              <div key={id}>
-                <p className="pb-1 font-bold text-[#444444]">{name}</p>
-                <CustomSelect query={query} options={items} />
-              </div>
+              <Dropdown
+                key={id}
+                id={id}
+                name={name}
+                query={query}
+                items={items}
+              />
             ))}
             <div>
               <p className="pb-1 font-bold text-[#444444]">Current Class</p>
-              <div className="w-full px-[16px] py-[13px] bg-[#ececec] rounded-lg text-sm text-[#bfbfbf] cursor-pointer">
+              <div className="w-full px-[16px] py-[13px] bg-[#ececec] rounded-lg text-sm text-[#7e7d7d]">
                 SSS1
               </div>
             </div>
@@ -41,7 +44,7 @@ const options = [
     id: 1,
     name: "Class",
     query: "Select Class",
-    items: ["JSS 1", "JSS 2", "JSS 3"],
+    items: ["JSS 1", "JSS 2", "JSS 3", "SSS 1", "SSS 2", "SSS 3"],
   },
   {
     id: 2,

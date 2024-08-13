@@ -1,4 +1,4 @@
 export * from "./dashboard";
 export * from "./checkResults";
-export * from "./viewResults";
+export * from "./resultAnalysis";
 export * from "./error";
