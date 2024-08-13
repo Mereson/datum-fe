@@ -1,5 +1,5 @@
-import { Dropdown } from "../../../components"
-import { Button } from "../../../components/button"
+import { Button } from "../../../components/button";
+import { Dropdown } from "../../../components";
 
 export const CheckResults = () => {
   return (
@@ -26,6 +26,7 @@ export const CheckResults = () => {
               </div>
             </div>
             <Button
+              link={"/students/viewResults"}
               content="Check"
               className={
                 "bg-[#132985] w-full py-[8px] mt-4 text-center rounded-lg text-[18px] font-bold text-white cursor-pointer"
@@ -35,8 +36,8 @@ export const CheckResults = () => {
         </form>
       </main>
     </section>
-  )
-}
+  );
+};
 
 const options = [
   {
@@ -51,4 +52,4 @@ const options = [
     query: "Select Term",
     items: ["First term", "Second term", "Third term"],
   },
-]
+];
