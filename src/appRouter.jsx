@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter } from "react-router-dom";
 import {
   LandingPage,
   Login,
@@ -7,9 +7,10 @@ import {
   ForgotPassword3,
   ErrorPage,
   CheckResults,
-} from "./pages"
-import { StudentLayout } from "./layout"
-import { StudentsDashboard } from "./pages/students/dashboard"
+  ViewResults,
+} from "./pages";
+import { StudentLayout } from "./layout";
+import { StudentsDashboard } from "./pages/students/dashboard";
 
 const router = createBrowserRouter([
   {
@@ -46,11 +47,15 @@ const router = createBrowserRouter([
         element: <CheckResults />,
       },
       {
+        path: "viewResults",
+        element: <ViewResults />,
+      },
+      {
         path: "notification",
         element: <ErrorPage />,
       },
     ],
   },
-])
+]);
 
-export default router
+export default router;
