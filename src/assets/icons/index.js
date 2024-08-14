@@ -7,3 +7,4 @@ import Ease from "./ease.svg"
 export { Logo, Datum, Engagement, Analytics, Ease }
 
 export * from "./studentsDashboardIcons"
+export * from "./adminSidebarIcons"

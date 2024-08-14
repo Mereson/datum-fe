@@ -7,7 +7,7 @@ export const SidebarNavItem = ({ to, Icon, label }) => {
       {({ isActive }) => (
         <>
           <i
-            className={`px-[9px] py-[8px] rounded-lg ${
+            className={`px-[9px] py-[7px] rounded-lg ${
               isActive
                 ? "bg-[#132985]"
                 : `bg-[#efefef] group-hover:bg-[#132a85ec] transition-colors duration-200`
