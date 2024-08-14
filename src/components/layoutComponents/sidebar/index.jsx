@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import {
   Datum,
   Logo,
@@ -8,8 +8,8 @@ import {
   SbNotification,
   SbResults,
   SbSubject,
-} from "../../../assets"
-import { SidebarNavItem } from "../sidebarNav"
+} from "../../../assets";
+import { SidebarNavItem } from "../sidebarNav";
 
 export const StudentSidebar = () => {
   return (
@@ -30,7 +30,11 @@ export const StudentSidebar = () => {
               Icon={SbHome}
               label={"Home"}
             />
-            <SidebarNavItem to={"/"} Icon={SbSubject} label={"Subject"} />
+            <SidebarNavItem
+              to={"/students/uploadResult1"}
+              Icon={SbSubject}
+              label={"Subject"}
+            />
             <SidebarNavItem to={"/"} Icon={SbAttendance} label={"Attendance"} />
             <SidebarNavItem
               to={"/students/checkResults"}
@@ -52,5 +56,5 @@ export const StudentSidebar = () => {
         <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
       </div>
     </aside>
-  )
-}
+  );
+};
