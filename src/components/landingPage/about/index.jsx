@@ -29,7 +29,7 @@ export const About = () => {
             Datum is dedicated to personalized feedback through innovative technology, 
             transforming how schools manage and engage with their students.
           </p>
-          <Link to = "/login">
+          <Link to = "/admin/dashboard">
             <button className={styles.aboutusleft_btn}>Get Started</button>
           </Link>
         </div>
