@@ -35,7 +35,11 @@ export const StudentSidebar = () => {
               Icon={SbSubject}
               label={"Subject"}
             />
-            <SidebarNavItem to={"/"} Icon={SbAttendance} label={"Attendance"} />
+            <SidebarNavItem
+              to={"/students/attendance"}
+              Icon={SbAttendance}
+              label={"Attendance"}
+            />
             <SidebarNavItem
               to={"/students/checkResults"}
               Icon={SbResults}
