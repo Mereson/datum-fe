@@ -63,10 +63,10 @@
   font-weight: 700;
   color: var(--background-color);
 }
-.herobtn:focus {
+/* .herobtn:focus {
   background-color: #f4901f;
-  color: #fafafa;
-}
+  color: #fafafa; } */
+
 .herobtn:hover {
   color: #f4901f;
 }
@@ -98,6 +98,8 @@
   .heroleft > .hero_caption {
     color: #d0d4e7;
     padding-top: 13px;
+    font-size: 34px;
+    font-weight: 700;
   }
   .hero_stripe {
     width: 100%;

@@ -26,7 +26,7 @@ export const CheckResults = () => {
               </div>
             </div>
             <Button
-              link={"/students/viewResults"}
+              link={"/students/checkResults/viewResults"}
               content="Check"
               className={
                 "bg-[#132985] w-full py-[8px] mt-4 text-center rounded-lg text-[18px] font-bold text-white cursor-pointer"
