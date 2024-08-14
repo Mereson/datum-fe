@@ -8,11 +8,13 @@ import {
   ErrorPage,
   CheckResults,
   ResultAnalysis,
+  AdminDashboard,
+  StudentsDashboard,
+  UploadResult1,
+  ViewResults,
+  AddStudents,
 } from "./pages";
-import { StudentLayout } from "./layout";
-import { StudentsDashboard } from "./pages/students/dashboard";
-import { ViewResults } from "./pages/students/viewResults";
-import { UploadResult1 } from "./pages/teacherss/uploadResult1";
+import { AdminLayout, StudentLayout } from "./layout";
 
 const router = createBrowserRouter([
   {
@@ -61,8 +63,22 @@ const router = createBrowserRouter([
         element: <ErrorPage />,
       },
       {
+        path: "attendance",
+        element: <AddStudents />,
+      },
+      {
         path: "checkResults/resultAnalysis",
         element: <ResultAnalysis />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        path: "dashboard",
+        element: <AdminDashboard />,
       },
     ],
   },
