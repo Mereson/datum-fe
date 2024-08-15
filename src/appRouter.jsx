@@ -12,6 +12,7 @@ import {
   StudentsDashboard,
   UploadResult1,
   ViewResults,
+  AddStudents,
   AddTeacher,
 } from "./pages";
 import { AdminLayout, StudentLayout } from "./layout";
@@ -63,10 +64,6 @@ const router = createBrowserRouter([
         element: <ErrorPage />,
       },
       {
-        path: "attendance",
-        element: <AddTeacher />,
-      },
-      {
         path: "checkResults/resultAnalysis",
         element: <ResultAnalysis />,
       },
@@ -79,6 +76,30 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <AdminDashboard />,
+      },
+      {
+        path: "students",
+        element: <AddStudents />,
+      },
+      {
+        path: "teachers",
+        element: <AddTeacher />,
+      },
+      {
+        path: "parents",
+        element: <ErrorPage />,
+      },
+      {
+        path: "attendance",
+        element: <ErrorPage />,
+      },
+      {
+        path: "result",
+        element: <ErrorPage />,
+      },
+      {
+        path: "notification",
+        element: <ErrorPage />,
       },
     ],
   },

@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+.label {
+  /* margin-top: 24px;   */
+  width: 31.25rem;
+}
+
+.label label {
+  font-weight: 700;
+  color: #444444;
+}
+.label > input {
+  display: grid;
+  padding: 14px;
+  place-content: center;
+  gap: 4px;
+  align-self: stretch;
+  border-radius: 8px;
+  background-color: #ececec;
+  width: 100%;
+  height: 46px;
+  position: relative;
+}
