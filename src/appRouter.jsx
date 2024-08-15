@@ -12,7 +12,7 @@ import {
   StudentsDashboard,
   UploadResult1,
   ViewResults,
-  AddStudents,
+  AddTeacher,
 } from "./pages";
 import { AdminLayout, StudentLayout } from "./layout";
 
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path: "attendance",
-        element: <AddStudents />,
+        element: <AddTeacher />,
       },
       {
         path: "checkResults/resultAnalysis",
