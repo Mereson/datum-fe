@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter } from "react-router-dom";
 import {
   LandingPage,
   Login,
@@ -13,9 +13,9 @@ import {
   UploadResult1,
   ViewResults,
   AddStudents,
-  AddTeachers,
-} from "./pages"
-import { AdminLayout, StudentLayout } from "./layout"
+  AddTeacher,
+} from "./pages";
+import { AdminLayout, StudentLayout } from "./layout";
 
 const router = createBrowserRouter([
   {
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
       },
       {
         path: "teachers",
-        element: <AddTeachers />,
+        element: <AddTeacher />,
       },
       {
         path: "parents",
@@ -103,6 +103,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-])
+]);
 
-export default router
+export default router;
