@@ -49,7 +49,7 @@ export const AddTeacher = () => {
         />
 
         <div className={styles.label}>
-          <label htmlFor="Date of Birth"> Religion </label>
+          <label htmlFor="Date of Birth"> Date of Birth </label>
           <input
             className={styles.inputtext}
             type="text"
@@ -59,7 +59,14 @@ export const AddTeacher = () => {
             required
           />
         </div>
-        <Dropdown />
+
+        <Dropdown
+          id={2}
+          name={"Blood Group"}
+          query={"Select Blood Group"}
+          items={["A+", "A-", "B+", "O+", "O-"]}
+        />
+
         <div className={styles.label}>
           <label htmlFor="Religion"> Religion </label>
           <input
@@ -72,9 +79,44 @@ export const AddTeacher = () => {
           />
         </div>
 
-        <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
-          Educational Background
-        </h6>
+        <div className="grid mt-2 gap-6">
+          <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
+            Educational Background
+          </h6>
+
+          <Dropdown
+            id={3}
+            name={"Qualification"}
+            query={"Select qualification"}
+            items={["SSCE/NECO", "HND/Bachelor's Degree", " Master's Degree"]}
+          />
+
+          <Dropdown
+            id={4}
+            name={"Grade Level"}
+            query={"Select grade level"}
+            items={["04", "05", "06"]}
+          />
+
+          <Dropdown
+            id={5}
+            name={"Step"}
+            query={"Select step"}
+            items={["A+", "A-", "B+", "O+", "O-"]}
+          />
+        </div>
+
+        <div className="grid mt-2 gap-6">
+          <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
+            Teaching Details
+          </h6>
+          <Dropdown
+            id={5}
+            name={"Step"}
+            query={"Select class(es)"}
+            items={["01", "02", "03", "04", "05", "06"]}
+          />
+        </div>
       </div>
 
       <Button
