@@ -20,7 +20,7 @@ export const AddTeacher = () => {
 
       <h6 className="mt-2.5  text-[#696969] font-bold">Personal Information</h6>
 
-      <div className="grid mt-2 gap-6">
+      <div className="grid mt-2 gap-6 pb-8">
         <div className={styles.label}>
           <label htmlFor="First Name"> First Name </label>
           <input
@@ -78,8 +78,8 @@ export const AddTeacher = () => {
             required
           />
         </div>
-
-        <div className="grid mt-2 gap-6">
+        {/* This is a div for the Educational Background of the teacher  */}
+        <div className="grid mt-2 gap-6 pt-10">
           <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
             Educational Background
           </h6>
@@ -124,7 +124,8 @@ export const AddTeacher = () => {
           />
         </div>
 
-        <div className="grid mt-2 gap-6">
+        {/* This is another container for Teachears Details */}
+        <div className="grid mt-2 gap-6 pt-10">
           <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
             Teaching Details
           </h6>
@@ -148,7 +149,8 @@ export const AddTeacher = () => {
           </div>
         </div>
 
-        <div className="grid mt-2 gap-6">
+        {/* This the last container in the form */}
+        <div className="grid mt-2 gap-6 pt-10">
           <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
             Contact Information
           </h6>
@@ -245,49 +247,15 @@ export const AddTeacher = () => {
             />
           </div>
         </div>
-      </div>
 
-      <Button
-        link={"/students/checkResults/resultAnalysis"}
-        content="Submit"
-        className={
-          "bg-[#132985] w-[100%] py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-        }
-      />
+        <Button
+          link={"/students/checkResults/resultAnalysis"}
+          content="Submit"
+          className={
+            "bg-[#132985] w-[100%] py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
+          }
+        />
+      </div>
     </div>
   );
 };
-
-// const options = [
-//   {
-//     id: 1,
-//     name: "Gender",
-//     query: "Select Gender",
-//     items: ["Male", "Female"],
-//   },
-//   {
-//     id: 2,
-//     name: "Date Of Birth",
-//     query: "DD/MM/YYYY",
-//   },
-
-//   {
-//     id: 3,
-//     name: "Blood Group",
-//     query: "Select blood group",
-//     items: ["A+", "A", "B+", "0-", "0+"],
-//   },
-// ];
-
-//   {
-//     id: 4,
-//     name: "Religion",
-//   },
-
-//   {
-//     id: 5,
-//     name: "Qualification",
-//     query: "Select qualification",
-//     items: ["SSCE", "HND/Bachelor's Degree", "Master's Degree"],
-//   },
-// ];
