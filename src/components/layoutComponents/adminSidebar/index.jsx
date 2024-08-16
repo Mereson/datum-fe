@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import {
   Datum,
   Logo,
@@ -10,8 +10,8 @@ import {
   SbResults,
   studentIcon,
   teachersIcon,
-} from "../../../assets"
-import { SidebarNavItem } from "../sidebarNav"
+} from "../../../assets";
+import { SidebarNavItem } from "../sidebarNav";
 
 export const AdminSidebar = () => {
   return (
@@ -33,7 +33,7 @@ export const AdminSidebar = () => {
               label={"Home"}
             />
             <SidebarNavItem
-              to={"/admin/students"}
+              to={"/admin/addParents"}
               Icon={studentIcon}
               label={"Students"}
             />
@@ -73,5 +73,5 @@ export const AdminSidebar = () => {
         <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
       </div>
     </aside>
-  )
-}
+  );
+};
