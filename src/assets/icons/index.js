@@ -8,3 +8,4 @@ export { Logo, Datum, Engagement, Analytics, Ease }
 
 export * from "./studentsDashboardIcons"
 export * from "./adminSidebarIcons"
+export * from "./adminDashboard"
