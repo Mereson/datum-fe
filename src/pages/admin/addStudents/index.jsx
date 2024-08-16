@@ -3,12 +3,12 @@ import schoolteacher from "../../../assets/images/fineteacher.png";
 import { Dropdown } from "../../../components";
 import { Button } from "../../../components/button";
 
-export const AddTeacher = () => {
+export const AddStudents = () => {
   return (
-    <div className="bg-[#f4f4f4] w-[100%] grid place-items-center overflow-auto ">
+    <div className="bg-[#f4f4f4] w-[100%] grid place-items-center overflow-auto pt-8">
       <div className="grid place-items-center">
         <h2 className=" text-center text-[40px] font-bold text-[#696969] pb-8 ">
-          {`Teacher's`} Details
+          {`Student's`} Details
         </h2>
         <div className="my-8 grid place-items-center  text-base">
           <img src={schoolteacher} />
