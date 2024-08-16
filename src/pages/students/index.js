@@ -3,3 +3,4 @@ export * from "./checkResults";
 export * from "./resultAnalysis";
 export * from "./viewResults";
 export * from "./error";
+export * from "./subjectAnalysis";
