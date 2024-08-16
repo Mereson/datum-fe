@@ -1,21 +1,14 @@
 import styles from "./style.module.css";
-// import schoolteacher from "../../../assets/images/fineteacher.png";
 import { Dropdown } from "../../../components";
 import { Button } from "../../../components/button";
 
-export const AddStudents = () => {
+export const AddParents = () => {
   return (
     <div className="bg-[#f4f4f4] w-[100%] grid place-items-center overflow-auto ">
       <div className="grid place-items-center">
         <h2 className=" text-center text-[40px] font-bold text-[#696969] pb-8 ">
           Parent Details
         </h2>
-        {/* <div className="my-8 grid place-items-center  text-base">
-          <img src={schoolteacher} />
-          <p className=" w-[100%] text-[# ] text-[1.125] text-[#444444] grid place-items-center  ">
-            Upload Photo{" "}
-          </p>
-        </div> */}
       </div>
 
       {/* <h6 className="mt-2.5  text-[#696969] font-bold">Personal Information</h6> */}
