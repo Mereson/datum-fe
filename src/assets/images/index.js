@@ -25,3 +25,5 @@ export {
   closeicon,
   aboutus, 
 };
+
+export * from "./admin"
