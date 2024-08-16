@@ -16,6 +16,7 @@ import {
   AddTeacher,
 } from "./pages";
 import { AdminLayout, StudentLayout } from "./layout";
+import { AddParents } from "./pages/admin/addParents";
 
 const router = createBrowserRouter([
   {
@@ -78,7 +79,11 @@ const router = createBrowserRouter([
         element: <AdminDashboard />,
       },
       {
-        path: "students",
+        path: "addParents",
+        element: <AddParents />,
+      },
+      {
+        path: "addParents/addStudents",
         element: <AddStudents />,
       },
       {

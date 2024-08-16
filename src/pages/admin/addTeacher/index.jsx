@@ -5,7 +5,7 @@ import { Button } from "../../../components/button";
 
 export const AddTeacher = () => {
   return (
-    <div className="bg-[#f4f4f4] w-[100%] grid place-items-center overflow-auto ">
+    <div className="bg-[#f4f4f4] w-[100%] grid place-items-center overflow-auto pt-8">
       <div className="grid place-items-center">
         <h2 className=" text-center text-[40px] font-bold text-[#696969] pb-8 ">
           {`Teacher's`} Details
