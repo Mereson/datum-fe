@@ -11,8 +11,6 @@ export const AddParents = () => {
         </h2>
       </div>
 
-      {/* <h6 className="mt-2.5  text-[#696969] font-bold">Personal Information</h6> */}
-
       <div className="grid mt-2 gap-6 pb-8">
         <div className={styles.label}>
           <label htmlFor="Name"> Parent Full Name </label>

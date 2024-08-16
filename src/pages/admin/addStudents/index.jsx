@@ -1,5 +1,5 @@
 import styles from "./style.module.css";
-import schoolteacher from "../../../assets/images/fineteacher.png";
+import Schoolchild from "../../../assets/images/Schoolchild.png";
 import { Dropdown } from "../../../components";
 import { Button } from "../../../components/button";
 
@@ -11,7 +11,7 @@ export const AddStudents = () => {
           {`Student's`} Details
         </h2>
         <div className="my-8 grid place-items-center  text-base">
-          <img src={schoolteacher} />
+          <img src={Schoolchild} />
           <p className=" w-[100%] text-[# ] text-[1.125] text-[#444444] grid place-items-center  ">
             Upload Photo{" "}
           </p>
@@ -78,75 +78,51 @@ export const AddStudents = () => {
             required
           />
         </div>
-        {/* This is a div for the Educational Background of the teacher  */}
+
+        {/* This is a div for the school details of the student  */}
         <div className="grid mt-2 gap-6 pt-10">
           <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
-            Educational Background
+            School Details
           </h6>
 
           <Dropdown
             id={3}
-            name={"Qualification"}
-            query={"Select qualification"}
-            items={["SSCE/NECO", "HND/Bachelor's Degree", " Master's Degree"]}
+            name={"Class"}
+            query={"Select Class"}
+            items={["JSS1", "JSS2", " JSS3", "SSS1", "SSS2", "SSS3"]}
           />
 
           <Dropdown
             id={4}
-            name={"Grade Level"}
-            query={"Select grade level"}
-            items={["04", "05", "06"]}
+            name={"Entry Year"}
+            query={"Select year"}
+            items={[
+              "2020",
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025",
+              "2026",
+              "2027",
+            ]}
           />
 
           <Dropdown
             id={5}
-            name={"Step"}
-            query={"Select step"}
+            name={"Graduation Year"}
+            query={"Select graduation year"}
             items={[
-              "01",
-              "02",
-              "03",
-              "04",
-              "05",
-              "06",
-              "07",
-              "08",
-              "09",
-              "10",
-              "11",
-              "12",
-              "13",
-              "14",
-              "15",
-              "16",
-              "17",
+              "2020",
+              "2021",
+              "2022",
+              "2023",
+              "2024",
+              "2025",
+              "2026",
+              "2027",
             ]}
           />
-        </div>
-
-        {/* This is another container for Teachears Details */}
-        <div className="grid mt-2 gap-6 pt-10">
-          <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
-            Teaching Details
-          </h6>
-          <Dropdown
-            id={6}
-            name={"Class"}
-            query={"Select class(es)"}
-            items={["JSS1", "JSS2", "JSS3", "SSS1", "SSS2", "SSS3"]}
-          />
-
-          <div className={styles.label}>
-            <label htmlFor="Subject"> Subject</label>
-            <input
-              className={styles.inputtext}
-              type="text"
-              placeholder="Subject Name"
-              id="subject"
-              name="subjects"
-              required
-            />
-          </div>
         </div>
 
         {/* This the last container in the form */}
