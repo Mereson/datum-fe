@@ -6,7 +6,7 @@ export const SidebarNavItem = ({ to, Icon, label }) => {
     <NavLink to={to} className={() => `flex items-center gap-[10px] group `}>
       {({ isActive }) => (
         <>
-          <i
+          <span
             className={`px-[9px] py-[7px] rounded-lg ${
               isActive
                 ? "bg-[#132985]"
@@ -14,7 +14,7 @@ export const SidebarNavItem = ({ to, Icon, label }) => {
             }`}
           >
             <Icon color={isActive ? "#FFFFFF" : "#8A8A8A"} />
-          </i>
+          </span>
           <p
             className={`font-bold text-[15px] ${
               isActive

@@ -1,10 +1,11 @@
-const studentIcon = ({ color }) => {
+import PropTypes from "prop-types"
+const StudentIcon = ({ color }) => {
   return (
     <svg
       width="16"
       height="16"
       viewBox="0 0 16 16"
-      fill="none"
+      fill={"none"}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -32,4 +33,8 @@ const studentIcon = ({ color }) => {
   )
 }
 
-export default studentIcon
+StudentIcon.propTypes = {
+  color: PropTypes.string,
+}
+
+export default StudentIcon

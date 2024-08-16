@@ -1,5 +1,5 @@
-import parentsIcon from "./parents"
-import studentIcon from "./student"
-import teachersIcon from "./teachers"
+import ParentsIcon from "./parents"
+import StudentIcon from "./student"
+import TeachersIcon from "./teachers"
 
-export { parentsIcon, studentIcon, teachersIcon }
+export { ParentsIcon, StudentIcon, TeachersIcon }

@@ -71,18 +71,18 @@ export const GradesBarChart = ({ subjects, bool = false }) => {
         <YAxis tickCount={10} hide={true} />
         <CartesianGrid vertical={false} horizontal={bool} />
         <XAxis
-          dataKey="subject"
+          dataKey="name"
           axisLine={false} // Hide the axis line
           tickLine={false} // Hide the tick lines
         />
         <Tooltip />
         <Bar
-          dataKey="grade"
+          dataKey="Total"
           barSize={40} // Adjust bar width here
           shape={(props) => (
             <CustomBar {...props} fill={getBarColor(props.value)} />
           )}
-          label={<LabelList dataKey="grade" position="top" />}
+          label={<LabelList dataKey="Total" position="top" />}
         />
       </BarChart>
     </ResponsiveContainer>
