@@ -11,7 +11,7 @@ export const AddStudents = () => {
           {`Student's`} Details
         </h2>
         <div className="my-8 grid place-items-center  text-base">
-          <img src={Schoolchild} />
+          <img src={Schoolchild} className=" rounded-full" />
           <p className=" w-[100%] text-[# ] text-[1.125] text-[#444444] grid place-items-center  ">
             Upload Photo{" "}
           </p>
@@ -132,25 +132,12 @@ export const AddStudents = () => {
           </h6>
 
           <div className={styles.label}>
-            <label htmlFor="Number"> Phone Number </label>
+            <label htmlFor="Location"> Address </label>
             <input
               className={styles.inputtext}
               type="text"
-              placeholder="08014196669"
-              id="number"
-              name="number"
-              required
-            />
-          </div>
-
-          <div className={styles.label}>
-            <label htmlFor="Email">Email</label>
-            <input
-              className={styles.inputtext}
-              type="text"
-              placeholder="example@gmail.com"
-              id="email"
-              name="email"
+              id="Address"
+              name="Address"
               required
             />
           </div>
@@ -208,17 +195,6 @@ export const AddStudents = () => {
               placeholder="Select local government of origin"
               id="state"
               name="state"
-              required
-            />
-          </div>
-
-          <div className={styles.label}>
-            <label htmlFor="Location"> Address </label>
-            <input
-              className={styles.inputtext}
-              type="text"
-              id="Address"
-              name="Address"
               required
             />
           </div>
