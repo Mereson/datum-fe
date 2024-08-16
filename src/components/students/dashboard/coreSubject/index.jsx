@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 export const CoreSubjects = ({ subjects }) => {
   return (
-    <div className="bg-[#fafafa] h-[309px] gap-4 pt-6 px-6 shadow-sm rounded-2xl">
+    <div className="bg-[#fafafa] pb-[41px] gap-4 pt-6 px-6 shadow-sm rounded-2xl">
       <table className="w-full border-collapse">
         <thead>
           <tr>
@@ -35,7 +35,7 @@ CoreSubjects.propTypes = {
   subjects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-      subject: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       topics: PropTypes.number.isRequired,
     })
   ).isRequired,

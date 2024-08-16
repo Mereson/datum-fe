@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-const parentsIcon = ({ color }) => {
+const ParentsIcon = ({ color }) => {
   return (
     <svg
       width="16"
@@ -19,8 +19,8 @@ const parentsIcon = ({ color }) => {
   )
 }
 
-parentsIcon.propTypes = {
+ParentsIcon.propTypes = {
   color: PropTypes.string,
 }
 
-export default parentsIcon
+export default ParentsIcon

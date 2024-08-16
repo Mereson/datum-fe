@@ -26,16 +26,22 @@ table {
 th,
 td {
   padding: 10px;
-  border: 1px solid #ddd;
   text-align: left;
 }
 th {
   background-color: #f4f4f4;
   font-weight: bold;
-
-  border-radius: 12px;
 }
 
 tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+thead {
+  border-bottom: 1px solid #d0d4e7;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+tbody:last-child {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }

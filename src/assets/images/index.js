@@ -10,6 +10,7 @@ import Youtube from "./youtube.png";
 import successicon from "./successicon.png"
 import closeicon from './closeicon.png'
 import aboutus from './aboutus-img.png'
+import SchoolChild from "./Schoolchild.png"
 
 export {
   HeroImg,
@@ -24,4 +25,8 @@ export {
   successicon,
   closeicon,
   aboutus, 
+  SchoolChild
 };
+
+export * from "./admin"
+// export * from "./students"

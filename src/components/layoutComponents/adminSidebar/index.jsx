@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 import {
   Datum,
   Logo,
-  parentsIcon,
+  ParentsIcon,
   SbAttendance,
   SbHome,
   SbLogout,
   SbNotification,
   SbResults,
-  studentIcon,
-  teachersIcon,
-} from "../../../assets";
-import { SidebarNavItem } from "../sidebarNav";
+  StudentIcon,
+  TeachersIcon,
+} from "../../../assets"
+import { SidebarNavItem } from "../sidebarNav"
 
 export const AdminSidebar = () => {
   return (
@@ -34,17 +34,17 @@ export const AdminSidebar = () => {
             />
             <SidebarNavItem
               to={"/admin/addParents"}
-              Icon={studentIcon}
+              Icon={StudentIcon}
               label={"Students"}
             />
             <SidebarNavItem
               to={"/admin/teachers"}
-              Icon={teachersIcon}
+              Icon={TeachersIcon}
               label={"Teachers"}
             />
             <SidebarNavItem
               to={"/admin/parents"}
-              Icon={parentsIcon}
+              Icon={ParentsIcon}
               label={"Parents"}
             />
             <SidebarNavItem

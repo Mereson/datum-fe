@@ -4,7 +4,13 @@ import styles from "./style.module.css"
 import { useState } from "react"
 import { DropdownIcon } from "../../../../assets"
 
-export const CustomSelect = ({ query, options, index }) => {
+export const CustomSelect = ({
+  query,
+  options,
+  index,
+  width = "w-[500px]",
+  padding = "px-[16px] py-[13px]",
+}) => {
   const { openSelectIndex, setOpenSelectIndex, closeSelect } = useSelectStore()
   const isOpen = openSelectIndex === index
   const [selectedOption, setSelectedOption] = useState(query) // State to store the selected option
@@ -15,10 +21,10 @@ export const CustomSelect = ({ query, options, index }) => {
   }
 
   return (
-    <div className="relative w-[500px]">
+    <div className={`relative ${width}`}>
       <div
         onClick={() => setOpenSelectIndex(index)}
-        className="w-full px-[16px] flex justify-between py-[13px] bg-[#ececec] rounded-lg text-sm text-[#585858] cursor-pointer"
+        className={`${padding} w-full flex justify-between bg-[#ececec] rounded-lg text-sm text-[#585858] cursor-pointer`}
       >
         {selectedOption}
         <DropdownIcon isOpen={isOpen} />
@@ -32,7 +38,7 @@ export const CustomSelect = ({ query, options, index }) => {
             <li
               key={i}
               onClick={() => handleSelect(option)}
-              className="px-[16px] py-[13px] cursor-pointer hover:bg-[#ececec] text-black"
+              className={`${padding} cursor-pointer hover:bg-[#ececec] text-black`}
             >
               {option}
             </li>
@@ -44,7 +50,9 @@ export const CustomSelect = ({ query, options, index }) => {
 }
 
 CustomSelect.propTypes = {
+  width: PropTypes.string,
   query: PropTypes.string,
   options: PropTypes.array,
   index: PropTypes.number.isRequired,
+  padding: PropTypes.string,
 }

@@ -1,4 +1,5 @@
-const teachersIcon = ({color}) => {
+import PropTypes from "prop-types"
+const TeachersIcon = ({ color }) => {
   return (
     <svg
       width="16"
@@ -17,4 +18,8 @@ const teachersIcon = ({color}) => {
   )
 }
 
-export default teachersIcon
+TeachersIcon.propTypes = {
+  color: PropTypes.string,
+}
+
+export default TeachersIcon
