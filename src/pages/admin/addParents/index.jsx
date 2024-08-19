@@ -13,17 +13,17 @@ export const AddParents = () => {
 
       <div className="grid mt-2 gap-6 pb-8">
         <div className={styles.label}>
-          <label htmlFor="Name"> Parent Full Name </label>
+          <label htmlFor="Name"> Surname </label>
           <input
             className={styles.inputtext}
             type="text"
             id="name"
-            name="name"
+            name="Surname"
             required
           />
         </div>
         <div className={styles.label}>
-          <label htmlFor="Occupation"> {"Parent's"} Occupation </label>
+          <label htmlFor="Name"> Other name </label>
           <input
             className={styles.inputtext}
             type="text"
@@ -34,22 +34,22 @@ export const AddParents = () => {
         </div>
 
         <div className={styles.label}>
-          <label htmlFor="Address"> {"Parent's"} Address </label>
-          <input
-            className={styles.inputtext}
-            type="text"
-            id="address"
-            name="address"
-            required
-          />
-        </div>
-
-        <div className={styles.label}>
-          <label htmlFor="Number"> {"Parent's Phone Number"}</label>
+          <label htmlFor="Number"> Phone number </label>
           <input
             className={styles.inputtext}
             type="text"
             placeholder="0801 419 6669"
+            id="name"
+            name="name"
+            required
+          />
+        </div>
+
+        <div className={styles.label}>
+          <label htmlFor="Name"> First Name</label>
+          <input
+            className={styles.inputtext}
+            type="text"
             id="name"
             name="name"
             required
@@ -70,7 +70,7 @@ export const AddParents = () => {
 
         <Dropdown
           id={1}
-          name={"Relationship with student"}
+          name={"Relationship"}
           query={"Select relationship with student"}
           items={["Father", "Mother", "Uncle", "Aunt", "Brother", "Sister"]}
         />
