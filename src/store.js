@@ -8,3 +8,4 @@ export const useSelectStore = create((set) => ({
     })),
   closeSelect: () => set({ openSelectIndex: null }),
 }))
+
