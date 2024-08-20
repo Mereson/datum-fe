@@ -1,17 +1,9 @@
 import { Link } from "react-router-dom"
-import {
-  ParentsIcon,
-  SbAttendance,
-  SbHome,
-  SbLogout,
-  SbResults,
-  StudentIcon,
-  TeachersIcon,
-} from "../../../assets"
-import { SidebarNavItem } from "../sidebarNav"
 import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
+import { SidebarNavItem } from "../sidebarNav"
+import { ParentsIcon, SbAttendance, SbHome, SbLogout, StudentIcon, TeachersIcon } from "../../../assets"
 
-export const AdminSidebar = () => {
+export const TeacherSidebar = () => {
   return (
     <aside className="h-[100vh] w-[250px] pl-6 pb-7 bg-[#132985] flex flex-col justify-between">
       <div>
@@ -25,36 +17,31 @@ export const AdminSidebar = () => {
         <div className="pt-[70px] flex flex-col gap-6 w-full">
           <div className="flex flex-col w-full">
             <SidebarNavItem
-              to="/admin/dashboard"
+              to="/teacher/dashboard"
               Icon={SbHome}
               label={"Dashboard"}
             />
             <SidebarNavItem
-              to={"/admin/teachers"}
-              Icon={TeachersIcon}
-              label={"Teachers"}
-            />
-            <SidebarNavItem
-              to={"/admin/studentsList"}
+              to={"/teacher/students"}
               Icon={StudentIcon}
               label={"Students"}
             />
             <SidebarNavItem
-              to={"/admin/parents"}
-              Icon={ParentsIcon}
-              label={"Parents"}
-            />
-            <SidebarNavItem
-              to={"/admin/attendance"}
+              to={"/teacher/attendance"}
               Icon={SbAttendance}
-              label={"Academics"}
+              label={"Attendance"}
             />
             <SidebarNavItem
-              to={"/admin/result"}
-              Icon={SbResults}
-              label={"Payments"}
+              to={"/teacher/timetable"}
+              Icon={TeachersIcon}
+              label={"Timetable"}
             />
 
+            <SidebarNavItem
+              to={"/teacher/schemeOfWork"}
+              Icon={ParentsIcon}
+              label={"Scheme Of Work"}
+            />
             <hr className="" />
           </div>
         </div>

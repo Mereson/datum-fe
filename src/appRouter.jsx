@@ -17,8 +17,10 @@ import {
   SubjectAnalysis,
   StudentsList,
   AddParents,
+  TeachersDashboard,
+  AddTeacher,
 } from "./pages"
-import { AdminLayout, StudentLayout } from "./layout"
+import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
 import Api2 from "./api/api2"
 
@@ -106,10 +108,10 @@ const router = createBrowserRouter([
         path: "studentsList/addStudents",
         element: <AddStudents />,
       },
-      // {
-      //   path: "teachers",
-      //   element: <AddTeacher />,
-      // },
+      {
+        path: "teachers",
+        element: <AddTeacher />,
+      },
       {
         path: "parents",
         element: <ErrorPage />,
@@ -128,6 +130,32 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "teacher",
+    element: <TeacherLayout />,
+    children: [
+      {
+        path: "dashboard",
+        element: <TeachersDashboard />
+      },
+      {
+        path: "students",
+        element: <ErrorPage />,
+      },
+      {
+        path: "attendance",
+        element: <ErrorPage />,
+      },
+      {
+        path: "timetable",
+        element: <ErrorPage />,
+      },
+      {
+        path: "schemeOfWork",
+        element: <ErrorPage />,
+      },
+    ]
+  }
 ])
 
 export default router

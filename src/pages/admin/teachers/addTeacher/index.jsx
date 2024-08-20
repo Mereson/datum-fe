@@ -1,7 +1,7 @@
 import styles from "./style.module.css";
-import schoolteacher from "../../../assets/images/fineteacher.png";
-import { Dropdown } from "../../../components";
-import { Button } from "../../../components/button";
+import { Dropdown } from "../../../../components";
+import { Button } from "../../../../components/button";
+import { SchoolTeacher } from "../../../../assets";
 
 export const AddTeacher = () => {
   return (
@@ -11,7 +11,7 @@ export const AddTeacher = () => {
           {`Teacher's`} Details
         </h2>
         <div className="my-8 grid place-items-center  text-base">
-          <img src={schoolteacher} />
+          <img src={SchoolTeacher} />
           <p className=" w-[100%] text-[# ] text-[1.125] text-[#444444] grid place-items-center  ">
             Upload Photo{" "}
           </p>

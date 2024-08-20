@@ -9,14 +9,14 @@ export const SidebarNavItem = ({ to, Icon, label }) => {
       {({ isActive }) => (
 
         <NavLinkItem isActive={isActive} duration={duration}>
-          <div className={`flex items-center py-1 pl-6 rounded-l-full transition-all ${duration} ease-in-out ${isActive ? "bg-[#F4F4F4]" : "bg-[#132985]"} `} >
+          <div className={`flex items-center py-[3.7px] pl-6 rounded-l-full transition-all ${duration} ease-in-out ${isActive ? "bg-[#F4F4F4]" : "bg-[#132985]"} `} >
             <figure
-              className={`px-[9px] py-[7px] flex items-center transition-all ${duration} ease-in-out`}
+              className={`px-[9px] py-[6px] flex items-center transition-all ${duration} ease-in-out`}
             >
               <Icon color={isActive ? "#132985" : "#F4F4F4"} />
             </figure>
             <p
-              className={`font-medium text-[15px] text-center transition-all ${duration} ${isActive
+              className={`font-medium text-[13px] text-center transition-all ${duration} ${isActive
                 ? "text-[#132985]"
                 : `text-[#F4F4F4] group-hover:text-[#a6adcfec] transition-colors duration-200`
                 }`}
@@ -36,11 +36,11 @@ const NavLinkItem = ({ children, isActive, duration }) => {
   return (
     <>
       <div className={`ml-9 transition-all ${duration} ease-in-out ${isActive ? "bg-[#F4F4F4]" : "bg-[#132985]"}`}>
-        <div class="h-3 bg-[#132985] rounded-br-full"></div>
+        <div class="h-[11px] bg-[#132985] rounded-br-full"></div>
       </div>
       {children}
       <div className={`ml-9 transition-all ${duration} ease-in-out ${isActive ? "bg-[#F4F4F4]" : "bg-[#132985]"}`}>
-        <div class="h-3 bg-[#132985] rounded-tr-full"></div>
+        <div class="h-[11px] bg-[#132985] rounded-tr-full"></div>
       </div>
     </>
   )
