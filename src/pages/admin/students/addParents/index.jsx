@@ -1,3 +1,4 @@
+import Proptypes from "prop-types"
 import { Dropdown } from "../../../../components"
 import { Button } from "../../../../components/button"
 
@@ -85,4 +86,8 @@ const FormInput = ({ title = "Name" }) => {
       />
     </div>
   )
+}
+
+FormInput.propTypes = {
+  title: Proptypes.string,
 }
