@@ -1,0 +1,20 @@
+.apiForm input {
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
+}
+
+.apiForm {
+  padding-left: 20px;
+}
+
+.apiForm div {
+  display: grid;
+}
+
+.apiForm button {
+  width: 60px;
+  height: 30px;
+  color: #fff;
+  background-color: aquamarine;
+}
