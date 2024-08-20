@@ -5,7 +5,7 @@ import { useState } from "react"
 
 const Api = () => {
 
-  const {parent, setParentsData, resetForm} = useCreateStudentForm()
+  const {parent, setParentsData, resetStudentForm} = useCreateStudentForm()
 
 
   const handleInput = (e) => {
@@ -17,7 +17,7 @@ const Api = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(parent)
-    resetForm()
+    resetStudentForm()
   }
 
   return (

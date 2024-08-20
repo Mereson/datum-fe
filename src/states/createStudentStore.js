@@ -69,7 +69,7 @@ export const useCreateStudentForm = create((set) => ({
     set((state) => ({
       students: state.students.filter((_, i) => i !== index),
     })),
-  resetForm: () =>
+  resetStudentForm: () =>
     set({
       parent: {
         surname: "",

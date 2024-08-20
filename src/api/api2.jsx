@@ -34,7 +34,7 @@ const Api2 = () => {
               <input type="text" name="surName" value={student.surName} onChange={(e) => handleInput(e, index)} />
             </div>
             <div>
-              <label htmlFor="first name">Firat Name</label>
+              <label htmlFor="first name">First Name</label>
               <input type="text" name="firstName" value={student.firstName} onChange={(e) => handleInput(e, index)} />
             </div>
             <div>
@@ -90,6 +90,7 @@ const Api2 = () => {
               <input type="text" name="previousSchool" value={student.previousSchool} onChange={(e) => handleInput(e, index)} />
             </div>
           
+            <div className="p-3 bg-amber-700 w-56" onClick={() => addStudent()}>Add New Student</div>
           </div>
 
         ))}
