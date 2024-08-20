@@ -35,10 +35,12 @@ export const AddStudents = () => {
 
         {/* Div for the Personal information */}
         <form>
-          <div>
-            <h4 className=""> Personal Information </h4>
+          <div className="pt-10 text-[#696969] ">
+            <h4 className="font-extrabold text-xl text-[#696969]">
+              Personal Information
+            </h4>
 
-            <div className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6">
+            <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
               <FormInput title={"Surname"} />
               <FormInput title="First Name" />
               <FormInput title="Other Name" />
@@ -60,24 +62,39 @@ export const AddStudents = () => {
             </div>
           </div>
 
-          <div>
-            <h4> Contact Information </h4>
-            <div className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6">
+          {/* div for the contact information*/}
+          <div className="pt-10 text-[#696969] ">
+            <h4 className="font-extrabold text-xl text-[#696969]">
+              Contact Information
+            </h4>
+            <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
               <FormInput title="Nationality" />
               <FormInput title="State of Origin" />
               <FormInput title="Local Government of Origin" />
               <FormInput title="Address" />
             </div>
           </div>
-        </form>
 
-        <Button
-          link={"/students/checkResults/resultAnalysis"}
-          content="Submit"
-          className={
-            "bg-[#132985] w-[100%] py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-          }
-        />
+          {/* This is the div for school information  */}
+          <div className="pt-10 text-[#696969] ">
+            <h4 className="font-extrabold text-xl text-[#696969]">
+              School Information
+            </h4>
+            <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+              <FormInput title="Class" />
+              <FormInput title="Term" />
+              <FormInput title="Previous School" />
+            </div>
+          </div>
+
+          <Button
+            link={"/students/checkResults/resultAnalysis"}
+            content="Submit"
+            className={
+              "bg-[#132985] w-[15%] py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
+            }
+          />
+        </form>
       </div>
     </section>
   )
