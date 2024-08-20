@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  Datum,
-  Logo,
+  DatumLogo,
   ParentsIcon,
   SbAttendance,
   SbHome,
@@ -15,32 +14,31 @@ import { SidebarNavItem } from "../sidebarNav"
 
 export const AdminSidebar = () => {
   return (
-    <aside className="h-[100vh] w-[220px] pl-8 pr-14 pb-7 bg-[#fafafa] flex flex-col justify-between">
+    <aside className="h-[100vh] w-[250px] pl-6 pb-7 bg-[#132985] flex flex-col justify-between">
       <div>
         <Link className="pt-8 flex items-center gap-1" to={"/"}>
           <img
-            src={Logo}
-            className="h-[25px] w-[25.97px]"
-            alt="datum logo icon"
+            src={DatumLogo}
+            className="h-[25px] w-[123.97px]"
+            alt="datum logo"
           />
-          <img src={Datum} className="h-[14.14px]" alt="datum logo Title" />
         </Link>
         <div className="pt-[50px] flex flex-col gap-6 w-full">
-          <div className="flex flex-col gap-[32px]">
+          <div className="flex flex-col w-full">
             <SidebarNavItem
               to="/admin/dashboard"
               Icon={SbHome}
-              label={"Home"}
-            />
-            <SidebarNavItem
-              to={"/admin/addParents"}
-              Icon={StudentIcon}
-              label={"Students"}
+              label={"Dashboard"}
             />
             <SidebarNavItem
               to={"/admin/teachers"}
               Icon={TeachersIcon}
               label={"Teachers"}
+            />
+            <SidebarNavItem
+              to={"/admin/addParents"}
+              Icon={StudentIcon}
+              label={"Students"}
             />
             <SidebarNavItem
               to={"/admin/parents"}
@@ -50,12 +48,12 @@ export const AdminSidebar = () => {
             <SidebarNavItem
               to={"/admin/attendance"}
               Icon={SbAttendance}
-              label={"Attendance"}
+              label={"Accademics"}
             />
             <SidebarNavItem
               to={"/admin/result"}
               Icon={SbResults}
-              label={"Results"}
+              label={"Payments"}
             />
 
             <hr className="" />

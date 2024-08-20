@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  Datum,
-  Logo,
+  DatumLogo,
   SbAttendance,
   SbHome,
   SbLogout,
@@ -13,22 +12,21 @@ import { SidebarNavItem } from "../sidebarNav";
 
 export const StudentSidebar = () => {
   return (
-    <aside className="h-[100vh] w-[220px] pl-8 pr-16 pb-10 bg-[#fafafa] flex flex-col justify-between">
+    <aside className="h-[100vh] w-[250px] pl-8 pb-10 bg-[#132985] flex flex-col justify-between">
       <div>
         <Link className="pt-8 flex items-center gap-1" to={"/"}>
           <img
-            src={Logo}
-            className="h-[25px] w-[25.97px]"
-            alt="datum logo icon"
+            src={DatumLogo}
+            className="h-[25px] w-[123.97px]"
+            alt="datum logo"
           />
-          <img src={Datum} className="h-[14.14px]" alt="datum logo Title" />
         </Link>
         <div className="pt-[80px] flex flex-col gap-7">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col">
             <SidebarNavItem
               to="/students/dashboard"
               Icon={SbHome}
-              label={"Home"}
+              label={"Dashboard"}
             />
             <SidebarNavItem
               to={"/students/uploadResult1"}
