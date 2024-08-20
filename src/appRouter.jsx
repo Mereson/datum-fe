@@ -18,6 +18,8 @@ import {
 } from "./pages";
 import { AdminLayout, StudentLayout } from "./layout";
 import { AddParents } from "./pages/admin/addParents";
+import Api from "./api/api";
+import Api2 from "./api/api2";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
     path: "/forgotpassword",
     // path: "/",
     element: <ForgotPassword />,
+  },
+  {
+    path: "/testApi",
+    element: <Api />,
+  },
+  {
+    path: "/testApi2",
+    element: <Api2 />,
   },
   {
     path: "/forgotpassword2",
