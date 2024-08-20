@@ -20,6 +20,12 @@ export const Hero = () => {
           <Link to="/login">
             <button className={styles.herobtn}>Get Started</button>
           </Link>
+          <Link className="pl-3" to="/teacher/dashboard">
+            <button className={styles.herobtn}>Teacher</button>
+          </Link>
+          <Link className="pl-3" to="/admin/dashboard">
+            <button className={styles.herobtn}>Admin</button>
+          </Link>
         </div>
         <div className={styles.heroright}>
           <img src={HeroImg} alt="" className={styles.heroimage} />

@@ -7,4 +7,4 @@ export * from "./login";
 export * from "./landingpage";
 export * from "./students";
 export * from "./admin";
-export * from "./teacherss";
+export * from "./teachers";
