@@ -103,7 +103,7 @@ const router = createBrowserRouter([
         element: <AddParents />,
       },
       {
-        path: "studentsList/addParents/addStudents",
+        path: "studentsList/addStudents",
         element: <AddStudents />,
       },
       // {

@@ -1,6 +1,7 @@
 // import styles from "./style.module.css";
 // import { Dropdown } from "../../../../components"
-// import { Button } from "../../../../components/button"
+
+import { Button } from "../../../../components/button"
 
 export const AddParents = () => {
   return (
@@ -15,7 +16,25 @@ export const AddParents = () => {
         </div>
 
         <div className="pt-10 grid place-items-center gap-12">
-          <div className=""> Hola </div>
+          <div className="flex gap-[64px] relative">
+            <hr className="h-[1.84px] bg-[#132984] w-[6.438rem] absolute  left-[26%] top-3" />
+            <div className="grid place-items-center  gap-3">
+              <p className="bg-[#132985] text-[13.26px] text-[#fff] size-[29.46px] rounded-full grid place-items-center">
+                1
+              </p>
+              <p className="text-[#444] font-semibold text-[11.05px]">
+                Parent Details
+              </p>
+            </div>
+            <div className="grid place-items-center  gap-3 ">
+              <p className="text-[13.26px] text-[#8a8a8a] size-[29.46px] rounded-full grid place-items-center border-[#8a8a8a] border-[1.47px]">
+                2
+              </p>
+              <p className="text-[#444] font-semibold text-[11.05px]">
+                Student Details
+              </p>
+            </div>
+          </div>
           <h1 className="text-[#696969] font-bold text-3xl">Parent Details</h1>
 
           <div className="flex gap-12 font-bold">
@@ -33,6 +52,13 @@ export const AddParents = () => {
           <FormInput title="Email" />
           <FormInput title="Phone Number" />
           <FormInput title="Relationship" />
+          <Button
+            link={"/admin/studentsList/addStudents"}
+            content="Next"
+            className={
+              "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+            }
+          />
         </form>
       </div>
     </section>
