@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import {
   DatumLogo,
   ParentsIcon,
@@ -36,7 +36,7 @@ export const AdminSidebar = () => {
               label={"Teachers"}
             />
             <SidebarNavItem
-              to={"/admin/addParents"}
+              to={"/admin/studentsList"}
               Icon={StudentIcon}
               label={"Students"}
             />
@@ -71,5 +71,5 @@ export const AdminSidebar = () => {
         <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
       </div>
     </aside>
-  );
-};
+  )
+}
