@@ -1,6 +1,4 @@
-// import styles from "./style.module.css";
-// import { Dropdown } from "../../../../components"
-
+import { Dropdown } from "../../../../components"
 import { Button } from "../../../../components/button"
 
 export const AddParents = () => {
@@ -51,7 +49,14 @@ export const AddParents = () => {
           <FormInput title="Other Name" />
           <FormInput title="Email" />
           <FormInput title="Phone Number" />
-          <FormInput title="Relationship" />
+          {/* <FormInput title="Relationship" /> */}
+
+          <Dropdown
+            id={1}
+            name={"Relationship"}
+            query={"Select Relationship"}
+            items={["Father", "Mother", "Guardian"]}
+          />
           <Button
             link={"/admin/studentsList/addStudents"}
             content="Next"

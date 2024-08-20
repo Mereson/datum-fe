@@ -8,7 +8,7 @@ export const CustomSelect = ({
   query,
   options,
   index,
-  width = "w-[500px]",
+  width,
   padding = "px-[16px] py-[13px]",
 }) => {
   const { openSelectIndex, setOpenSelectIndex, closeSelect } = useSelectStore()
@@ -24,7 +24,7 @@ export const CustomSelect = ({
     <div className={`relative ${width}`}>
       <div
         onClick={() => setOpenSelectIndex(index)}
-        className={`${padding} w-full flex justify-between bg-[#ececec] rounded-lg text-sm text-[#585858] cursor-pointer`}
+        className={`${padding} w-full flex justify-between border-[0.5px] border-[#a7a7a7] h-11 bg-[#f4f4f4] rounded-lg text-sm text-[#585858] cursor-pointer`}
       >
         {selectedOption}
         <DropdownIcon isOpen={isOpen} />
