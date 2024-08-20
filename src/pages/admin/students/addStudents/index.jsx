@@ -1,205 +1,75 @@
-import styles from "./style.module.css"
-// import Schoolchild from "../../../assets/images/Schoolchild.png"
+import Proptypes from "prop-types"
 import { Dropdown } from "../../../../components"
 import { Button } from "../../../../components/button"
-import { SchoolChild } from "../../../../assets"
 
 export const AddStudents = () => {
   return (
-    <div className="bg-[#f4f4f4] w-[100%] grid place-items-center overflow-auto pt-8 ">
-      <div className="grid place-items-center">
-        <h2 className=" text-center text-[40px] font-bold text-[#696969] pb-8 ">
-          {`Student's`} Details
-        </h2>
-        <div className="my-8 grid place-items-center  text-base">
-          <img src={SchoolChild} className=" rounded-full" />
-          <p className=" w-[100%] text-[# ] text-[1.125] text-[#444444] grid place-items-center  ">
-            Upload Photo{" "}
-          </p>
-        </div>
-      </div>
+    <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
+      <div>
+        <h2 className="font-semibold text-3xl text-[#4f4f4f]">Add Students</h2>
 
-      <h6 className="mt-2.5  text-[#696969] font-bold">Personal Information</h6>
-
-      <div className="grid mt-2 gap-6 pb-8">
-        <div className={styles.label}>
-          <label htmlFor="First Name"> First Name </label>
-          <input
-            className={styles.inputtext}
-            type="text"
-            id="name"
-            name="name"
-            required
-          />
-        </div>
-        <div className={styles.label}>
-          <label htmlFor="Last Name"> Last Name </label>
-          <input
-            className={styles.inputtext}
-            type="text"
-            id="name"
-            name="name"
-            required
-          />
-        </div>
-        <Dropdown
-          id={1}
-          name={"Gender"}
-          query={"Select Gender"}
-          items={["Male", "Female"]}
-        />
-
-        <div className={styles.label}>
-          <label htmlFor="Date of Birth"> Date of Birth </label>
-          <input
-            className={styles.inputtext}
-            type="text"
-            placeholder="DD/MM/YYYY"
-            id="name"
-            name="name"
-            required
-          />
+        <div className="pt-[4.875rem] grid place-items-center">
+          <div className="flex gap-[64px] relative">
+            <hr className="h-[1.84px] bg-[#132984] w-[6.438rem] absolute  left-[26%] top-3" />
+            <div className="grid place-items-center  gap-3">
+              <p className="bg-[#132985] text-[13.26px] text-[#fff] size-[29.46px] rounded-full grid place-items-center">
+                1
+              </p>
+              <p className="text-[#444] font-semibold text-[11.05px]">
+                Parent Details
+              </p>
+            </div>
+            <div className="grid place-items-center  gap-3 ">
+              <p className="text-[13.26px] text-[#8a8a8a] size-[29.46px] rounded-full grid place-items-center border-[#8a8a8a] border-[1.47px]">
+                2
+              </p>
+              <p className="text-[#444] font-semibold text-[11.05px]">
+                Student Details
+              </p>
+            </div>
+          </div>
+          <h1 className="text-[#696969] pt-[4.875rem] font-bold text-3xl">
+            {`Student's`} Details
+          </h1>
         </div>
 
-        <Dropdown
-          id={2}
-          name={"Blood Group"}
-          query={"Select Blood Group"}
-          items={["A+", "A-", "B+", "O+", "O-"]}
-        />
+        {/* Div for the Personal information */}
+        <form>
+          <div>
+            <h4 className=""> Personal Information </h4>
 
-        <div className={styles.label}>
-          <label htmlFor="Religion"> Religion </label>
-          <input
-            className={styles.inputtext}
-            type="text"
-            placeholder="Select Religion"
-            id="name"
-            name="name"
-            required
-          />
-        </div>
+            <div className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6">
+              <FormInput title={"Surname"} />
+              <FormInput title="First Name" />
+              <FormInput title="Other Name" />
+              <FormInput title="Date of Birth" />
 
-        {/* This is a div for the school details of the student  */}
-        <div className="grid mt-2 gap-6 pt-10">
-          <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
-            School Details
-          </h6>
+              <Dropdown
+                id={1}
+                name={"Blood Group"}
+                query={"Select Blood Group"}
+                items={["O+", "O-", "B+", "A+", "A-"]}
+              />
 
-          <Dropdown
-            id={3}
-            name={"Class"}
-            query={"Select Class"}
-            items={["JSS1", "JSS2", " JSS3", "SSS1", "SSS2", "SSS3"]}
-          />
-
-          <Dropdown
-            id={4}
-            name={"Entry Year"}
-            query={"Select year"}
-            items={[
-              "2020",
-              "2021",
-              "2022",
-              "2023",
-              "2024",
-              "2025",
-              "2026",
-              "2027",
-            ]}
-          />
-
-          <Dropdown
-            id={5}
-            name={"Graduation Year"}
-            query={"Select graduation year"}
-            items={[
-              "2020",
-              "2021",
-              "2022",
-              "2023",
-              "2024",
-              "2025",
-              "2026",
-              "2027",
-            ]}
-          />
-        </div>
-
-        {/* This the last container in the form */}
-        <div className="grid mt-2 gap-6 pt-10">
-          <h6 className="mt-2.5  text-[#696969] font-bold grid place-items-center">
-            Contact Information
-          </h6>
-
-          <div className={styles.label}>
-            <label htmlFor="Location"> Address </label>
-            <input
-              className={styles.inputtext}
-              type="text"
-              id="Address"
-              name="Address"
-              required
-            />
+              <Dropdown
+                id={2}
+                name={"Gender"}
+                query={"Select Gender"}
+                items={["Male", "Female"]}
+              />
+            </div>
           </div>
 
-          <Dropdown
-            id={7}
-            name={"State of Origin"}
-            query={"Select state of origin"}
-            items={[
-              "Abia",
-              "Abuja",
-              "Adamawa",
-              "Akwa Ibom",
-              "Anambra",
-              "Bauchi",
-              "Bayelsa",
-              "Benue",
-              "Borno",
-              "Cross River",
-              "Delta",
-              "Ebonyi",
-              "Edo",
-              "Ekiti",
-              "Enugu",
-              "Gombe",
-              "Imo",
-              "Jigawa",
-              "Kaduna",
-              "Kano",
-              "Kastina",
-              "Kebbi",
-              "Kogi",
-              "Kwara",
-              "Lagos",
-              "Nassarawa",
-              "Niger",
-              "Ogun",
-              "Ondo",
-              "Osun",
-              "Oyo",
-              "Plateau",
-              "Rivers",
-              "Sokoto",
-              "Taraba",
-              "Yobe",
-              "Zamfara",
-            ]}
-          />
-
-          <div className={styles.label}>
-            <label htmlFor="Local govt"> Local Government of Origin </label>
-            <input
-              className={styles.inputtext}
-              type="text"
-              placeholder="Select local government of origin"
-              id="state"
-              name="state"
-              required
-            />
+          <div>
+            <h4> Contact Information </h4>
+            <div className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6">
+              <FormInput title="Nationality" />
+              <FormInput title="State of Origin" />
+              <FormInput title="Local Government of Origin" />
+              <FormInput title="Address" />
+            </div>
           </div>
-        </div>
+        </form>
 
         <Button
           link={"/students/checkResults/resultAnalysis"}
@@ -209,6 +79,27 @@ export const AddStudents = () => {
           }
         />
       </div>
+    </section>
+  )
+}
+
+const FormInput = ({ title = "Name" }) => {
+  return (
+    <div className="grid">
+      <label className="text-[#444] pb-1" htmlFor="First Name">
+        {title}
+      </label>
+      <input
+        className="h-11 rounded-lg border-[0.5px] border-[#a7a7a7] px-1 bg-[#f4f4f4]"
+        type="text"
+        id="name"
+        name="name"
+        required
+      />
     </div>
   )
+}
+
+FormInput.propTypes = {
+  title: Proptypes.string,
 }
