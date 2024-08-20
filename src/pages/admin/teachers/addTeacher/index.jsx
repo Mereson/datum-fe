@@ -6,7 +6,16 @@ export const AddTeacher = () => {
   return (
     <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
       <div>
-        <h2 className="font-semibold text-3xl text-[#4f4f4f]">Add Teacher</h2>
+        {/* This div is for Add teacher and import csv */}
+        <div className="flex justify-between items-start">
+          <h2 className="font-semibold text-3xl text-[#4f4f4f]">Add Teacher</h2>
+          <div className="flex gap-12 pt-5 font-bold">
+            <p className="text-[#0d1b59] underline underline-offset-8 ">
+              Manually
+            </p>
+            <p className="text-[#8A8A8A]">Import CSV </p>
+          </div>
+        </div>
 
         <div className="pt-[55px] grid place-items-center">
           <h1 className="text-[#696969] font-bold text-3xl">
@@ -16,7 +25,7 @@ export const AddTeacher = () => {
 
         {/* Div for the Personal information */}
         <form>
-          <div className="pt-10 text-[#696969] ">
+          <div className="pt- text-[#696969] ">
             <h4 className="font-extrabold text-xl text-[#696969]">
               Personal Information
             </h4>
@@ -140,48 +149,3 @@ const FormInput = ({ title = "Name" }) => {
 FormInput.propTypes = {
   title: Proptypes.string,
 }
-
-// <Dropdown
-//   id={7}
-//   name={"State of Origin"}
-//   query={"Select state of origin"}
-//   items={[
-//     "Abia",
-//     "Abuja",
-//     "Adamawa",
-//     "Akwa Ibom",
-//     "Anambra",
-//     "Bauchi",
-//     "Bayelsa",
-//     "Benue",
-//     "Borno",
-//     "Cross River",
-//     "Delta",
-//     "Ebonyi",
-//     "Edo",
-//     "Ekiti",
-//     "Enugu",
-//     "Gombe",
-//     "Imo",
-//     "Jigawa",
-//     "Kaduna",
-//     "Kano",
-//     "Kastina",
-//     "Kebbi",
-//     "Kogi",
-//     "Kwara",
-//     "Lagos",
-//     "Nassarawa",
-//     "Niger",
-//     "Ogun",
-//     "Ondo",
-//     "Osun",
-//     "Oyo",
-//     "Plateau",
-//     "Rivers",
-//     "Sokoto",
-//     "Taraba",
-//     "Yobe",
-//     "Zamfara",
-//   ]}
-// />
