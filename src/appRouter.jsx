@@ -13,13 +13,14 @@ import {
   UploadResult1,
   ViewResults,
   AddStudents,
-  AddTeacher,
+  // AddTeacher,
   SubjectAnalysis,
-} from "./pages";
-import { AdminLayout, StudentLayout } from "./layout";
-import { AddParents } from "./pages/admin/addParents";
-import Api from "./api/api";
-import Api2 from "./api/api2";
+  StudentsList,
+  AddParents,
+} from "./pages"
+import { AdminLayout, StudentLayout } from "./layout"
+import Api from "./api/api"
+import Api2 from "./api/api2"
 
 const router = createBrowserRouter([
   {
@@ -94,17 +95,21 @@ const router = createBrowserRouter([
         element: <AdminDashboard />,
       },
       {
-        path: "addParents",
+        path: "studentsList",
+        element: <StudentsList />,
+      },
+      {
+        path: "studentsList/addParents",
         element: <AddParents />,
       },
       {
-        path: "addParents/addStudents",
+        path: "studentsList/addParents/addStudents",
         element: <AddStudents />,
       },
-      {
-        path: "teachers",
-        element: <AddTeacher />,
-      },
+      // {
+      //   path: "teachers",
+      //   element: <AddTeacher />,
+      // },
       {
         path: "parents",
         element: <ErrorPage />,

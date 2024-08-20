@@ -1,7 +1,8 @@
-import styles from "./style.module.css";
-import Schoolchild from "../../../assets/images/Schoolchild.png";
-import { Dropdown } from "../../../components";
-import { Button } from "../../../components/button";
+import styles from "./style.module.css"
+// import Schoolchild from "../../../assets/images/Schoolchild.png"
+import { Dropdown } from "../../../../components"
+import { Button } from "../../../../components/button"
+import { SchoolChild } from "../../../../assets"
 
 export const AddStudents = () => {
   return (
@@ -11,7 +12,7 @@ export const AddStudents = () => {
           {`Student's`} Details
         </h2>
         <div className="my-8 grid place-items-center  text-base">
-          <img src={Schoolchild} className=" rounded-full" />
+          <img src={SchoolChild} className=" rounded-full" />
           <p className=" w-[100%] text-[# ] text-[1.125] text-[#444444] grid place-items-center  ">
             Upload Photo{" "}
           </p>
@@ -209,5 +210,5 @@ export const AddStudents = () => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
