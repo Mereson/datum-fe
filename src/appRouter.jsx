@@ -13,12 +13,21 @@ import {
   UploadResult1,
   ViewResults,
   AddStudents,
-  // AddTeacher,
   SubjectAnalysis,
   StudentsList,
   AddParents,
   TeachersDashboard,
   AddTeacher,
+  TeachersList,
+  AdminAcad,
+  AdminClassesList,
+  AdminAttendanceList,
+  AdminEventsList,
+  AdminResultsList,
+  AdminSchemeOfWork,
+  AdminSubjectsList,
+  AdminPaymentList,
+  AdminParentsList,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -110,22 +119,50 @@ const router = createBrowserRouter([
       },
       {
         path: "teachers",
+        element: <TeachersList />,
+      },
+      {
+        path: "teachers/addTeacher",
         element: <AddTeacher />,
       },
       {
         path: "parents",
-        element: <ErrorPage />,
+        element: <AdminParentsList />,
       },
       {
-        path: "attendance",
-        element: <ErrorPage />,
+        path: "academics",
+        element: <AdminAcad />,
       },
       {
-        path: "result",
-        element: <ErrorPage />,
+        path: "academics/classes",
+        element: <AdminClassesList />,
       },
       {
-        path: "notification",
+        path: "academics/attendance",
+        element: <AdminAttendanceList />,
+      },
+      {
+        path: "academics/events",
+        element: <AdminEventsList />,
+      },
+      {
+        path: "academics/result",
+        element: <AdminResultsList />,
+      },
+      {
+        path: "academics/schemeOfWork",
+        element: <AdminSchemeOfWork />,
+      },
+      {
+        path: "academics/subjects",
+        element: <AdminSubjectsList />,
+      },
+      {
+        path: "fees",
+        element: <AdminPaymentList />,
+      },
+      {
+        path: "academics/error",
         element: <ErrorPage />,
       },
     ],

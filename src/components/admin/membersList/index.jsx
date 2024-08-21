@@ -2,7 +2,7 @@ import { useState } from "react";
 import { DynamicTable } from "../dynamicTable";
 import { ListPagination } from "../pagination";
 
-export const MembersList = ({ data }) => {
+export const MembersList = ({ data, people, title = true }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
@@ -18,17 +18,22 @@ export const MembersList = ({ data }) => {
 
   return (
     <section>
-      <p className="text-sm text-[#6270AE] pb-4">
-        Showing {startItem} - {endItem} of {totalItems} students of SSS1A
-      </p>
+      {title ? (
+        <p className="text-sm text-[#6270AE] pb-4">
+          Showing {startItem} - {endItem} of {totalItems} {people}
+        </p>
+      ) : ("")}
       <DynamicTable data={data} currentPage={currentPage} itemsPerPage={itemsPerPage} />
-      <div className="mt-10">
-        <ListPagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
-      </div>
+
+      {totalPages == 1 ? ("") : (
+        <div className="mt-10">
+          <ListPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      )}
     </section>
   )
 }

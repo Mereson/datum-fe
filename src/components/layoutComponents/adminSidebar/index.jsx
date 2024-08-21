@@ -45,12 +45,12 @@ export const AdminSidebar = () => {
               label={"Parents"}
             />
             <SidebarNavItem
-              to={"/admin/attendance"}
+              to={"/admin/academics"}
               Icon={SbAttendance}
               label={"Academics"}
             />
             <SidebarNavItem
-              to={"/admin/result"}
+              to={"/admin/fees"}
               Icon={SbResults}
               label={"Payments"}
             />

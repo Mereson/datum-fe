@@ -26,7 +26,7 @@ export const DynamicTable = ({ data, currentPage, itemsPerPage }) => {
               {headers.map((header) => (
                 <td
                   key={header}
-                  className="px-4 py-2 text-sm text-[#1e1e1e]"
+                  className="px-4 py-3 text-sm text-[#1e1e1e]"
                 >
                   {row[header]}
                 </td>

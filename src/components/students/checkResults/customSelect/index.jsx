@@ -9,7 +9,7 @@ export const CustomSelect = ({
   options,
   index,
   width,
-  padding = "px-[16px] py-[13px]",
+  padding = "px-[12px] py-[10px] xl:px-[16px] xl:py-[13px]",
 }) => {
   const { openSelectIndex, setOpenSelectIndex, closeSelect } = useSelectStore()
   const isOpen = openSelectIndex === index
@@ -24,7 +24,7 @@ export const CustomSelect = ({
     <div className={`relative ${width}`}>
       <div
         onClick={() => setOpenSelectIndex(index)}
-        className={`${padding} w-full flex justify-between border-[0.5px] border-[#a7a7a7] h-11 bg-[#f4f4f4] rounded-lg text-sm text-[#585858] cursor-pointer`}
+        className={`${padding} w-full flex items-center gap-1 justify-between border-[0.5px] border-[#a7a7a7] h-11 bg-[#f4f4f4] rounded-lg text-[12px] xl:text-sm text-[#585858] cursor-pointer`}
       >
         {selectedOption}
         <DropdownIcon isOpen={isOpen} />

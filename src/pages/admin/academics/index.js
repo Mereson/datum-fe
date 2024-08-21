@@ -1,0 +1,7 @@
+export * from "./acad"
+export * from "./attendance"
+export * from "./classes"
+export * from "./events"
+export * from "./results"
+export * from "./schemeOfWork"
+export * from "./subjects"
