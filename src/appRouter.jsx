@@ -62,10 +62,10 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: <StudentsDashboard />,
       },
-      {
-        path: "uploadResult1",
-        element: <UploadResult1 />,
-      },
+      // {
+      //   path: "uploadResult1",
+      //   element: <UploadResult1 />,
+      // },
       {
         path: "checkResults",
         element: <CheckResults />,
@@ -136,11 +136,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <TeachersDashboard />
+        element: <TeachersDashboard />,
       },
       {
         path: "students",
-        element: <ErrorPage />,
+        element: <UploadResult1 />,
       },
       {
         path: "attendance",
@@ -154,8 +154,8 @@ const router = createBrowserRouter([
         path: "schemeOfWork",
         element: <ErrorPage />,
       },
-    ]
-  }
+    ],
+  },
 ])
 
 export default router
