@@ -29,6 +29,7 @@ import {
   AdminPaymentList,
   AdminParentsList,
   AdminAddSubjects,
+  AdminCreateActivity,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -150,6 +151,10 @@ const router = createBrowserRouter([
       {
         path: "academics/events",
         element: <AdminEventsList />,
+      },
+      {
+        path: "academics/addActivity",
+        element: <AdminCreateActivity />,
       },
       {
         path: "academics/result",

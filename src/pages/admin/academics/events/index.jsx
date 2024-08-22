@@ -24,7 +24,7 @@ export const AdminEventsList = () => {
           </div>
 
           <Button
-            link={"/admin/academics/error"}
+            link={"/admin/academics/addActivity"}
             content={"Create Activity"}
             className={
               "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
@@ -34,7 +34,7 @@ export const AdminEventsList = () => {
 
         <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Academic Calender</h2>
 
-        <div className="w-[90%]">
+        <div className="w-full">
           <MembersList data={eventsData} people={"Subjects"} title={false} />
         </div>
       </main>
