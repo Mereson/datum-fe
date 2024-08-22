@@ -39,7 +39,11 @@ export const StudentsDashboard = () => {
           </Link>
         </div>
       </section>
-      <ActivitySection name={"Ene Maria"} img={SchoolChild} />
+      <ActivitySection
+        name={"Ene Maria"}
+        img={SchoolChild}
+        path={"/students/studentProfile"}
+      />
     </section>
   )
 }
