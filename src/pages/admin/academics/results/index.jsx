@@ -1,10 +1,16 @@
-import { CustomSelect, MembersList, SearchBox } from "../../../../components"
-import { Button } from "../../../../components/button"
-import { data } from "../../../../testData"
-import { FaPlus } from "react-icons/fa6"
+import { useState } from "react"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
+import { CustomSelect, MembersList, SearchBox } from "../../../../components"
+import { resultsData } from "../../../../testData"
 
-export const StudentsList = () => {
+export const AdminResultsList = () => {
+  const [openTab, setOpenTab] = useState(true);
+
+  const handleTabSwitch = (e) => {
+    setOpenTab(prevState => !prevState);
+
+  }
+
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-4">
@@ -23,38 +29,25 @@ export const StudentsList = () => {
               </div>
             </div>
           </div>
-
-          <Button
-            link={"/admin/studentsList/addParents"}
-            content={<AddBtn text={"Add Students"} />}
-            className={
-              "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
-            }
-          />
+          <div className="flex gap-4 font-bold items-center">
+            <p onClick={handleTabSwitch} className={`cursor-pointer ${openTab ? "text-[#0D1B59] underline underline-offset-4" : ("text-[#132985]")} `}>Teachers Result</p>
+            <p onClick={handleTabSwitch} className={`cursor-pointer ${openTab ? "text-[#132985]" : ("text-[#0D1B59] underline underline-offset-4 ")} `}>Students Result</p>
+          </div>
         </div>
         <div className="flex justify-between">
-          <SearchBox width="w-[26rem]" placeholder="Search student by name or reg no" />
+          <SearchBox width="w-[20rem] xl:w-[25rem] " placeholder="Search" />
           <div className="flex gap-3 items-center">
             <p className="font-bold text-[#444444]">Filter by:</p>
             <CustomSelect index={1} query={"Class"} width={"6.8rem"} options={[]} />
             <CustomSelect index={2} query={"Gender"} width={"6.8rem"} options={[]} />
-            <CustomSelect index={3} query={"Sort by"} width={"6.8rem"} options={[]} />
+            <CustomSelect index={3} query={"Sort by"} width={"6.8rem "} options={[]} />
           </div>
         </div>
 
-        <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Students List</h2>
+        {openTab ? (<MembersList data={resultsData} people={"Teachers"} />) : (
+          <p className=" text-[#6270AE] pb-4">Nothing to display</p>)}
 
-        <MembersList data={data} people={"Students"} />
       </main>
     </section>
-  )
-}
-
-const AddBtn = ({ text }) => {
-  return (
-    <div className="flex gap-2 items-center">
-      <FaPlus />
-      <p className="font-bold">{text}</p>
-    </div>
   )
 }
