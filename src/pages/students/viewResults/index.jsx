@@ -68,7 +68,7 @@ export const ViewResults = () => {
         </p>
       </div>
 
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-3 items-center pb-11">
         <p className="font-bold text-[#444444]">Filter by:</p>
         <CustomSelect index={1} query={"Class"} width={"6.8rem"} options={[]} />
       </div>
@@ -80,14 +80,15 @@ export const ViewResults = () => {
       ) : (
         <MembersList data={results} title={true} people={"Naza"} />
       )}
-
-      <Button
-        link={"/students/checkResults/resultAnalysis"}
-        content="See Analysis"
-        className={
-          "bg-[#132985] w-[30%] py-[8px] mt-9 text-center rounded-[4px] font-bold text-white cursor-pointer flex justify-center"
-        }
-      />
+      <div className=" w-full flex justify-center">
+        <Button
+          link={"/students/checkResults/resultAnalysis"}
+          content="See Analysis"
+          className={
+            "bg-[#132985] w-[100%] py-[8px] px-10 mt-11 text-center rounded-[4px] font-bold text-white cursor-pointer flex justify-center"
+          }
+        />
+      </div>
     </section>
   )
 }
