@@ -6,7 +6,6 @@ import {
   ForgotPassword2,
   ForgotPassword3,
   ErrorPage,
-  CheckResults,
   ResultAnalysis,
   AdminDashboard,
   StudentsDashboard,
@@ -74,16 +73,8 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: <StudentsDashboard />,
       },
-      // {
-      //   path: "uploadResult1",
-      //   element: <UploadResult1 />,
-      // },
       {
-        path: "checkResults",
-        element: <CheckResults />,
-      },
-      {
-        path: "checkResults/viewResults",
+        path: "viewResults",
         element: <ViewResults />,
       },
       {
@@ -142,7 +133,7 @@ const router = createBrowserRouter([
       },
       {
         path: "academics/addClass",
-        element: <AdminAddClass />
+        element: <AdminAddClass />,
       },
       {
         path: "academics/attendance",

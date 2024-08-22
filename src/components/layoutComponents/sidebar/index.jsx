@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import {
   SbAttendance,
   SbHome,
   SbLogout,
   SbResults,
   SbSubject,
-} from "../../../assets";
-import { SidebarNavItem } from "../sidebarNav";
-import { datumLogoWhite } from "../../../assets/icons/teacherSidebar";
+} from "../../../assets"
+import { SidebarNavItem } from "../sidebarNav"
+import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
 
 export const StudentSidebar = () => {
   return (
@@ -38,7 +38,7 @@ export const StudentSidebar = () => {
               label={"Attendance"}
             />
             <SidebarNavItem
-              to={"/students/checkResults"}
+              to={"/students/viewResults"}
               Icon={SbResults}
               label={"Result"}
             />
@@ -50,5 +50,5 @@ export const StudentSidebar = () => {
         <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
       </div>
     </aside>
-  );
-};
+  )
+}
