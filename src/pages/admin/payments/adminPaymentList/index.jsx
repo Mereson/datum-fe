@@ -45,7 +45,7 @@ export const AdminPaymentList = () => {
           </div>
         </div>
         {openTab ? (
-          <MembersList data={paymentsData} people={"Teachers"} />
+          <MembersList data={paymentsData} people={"Students"} />
         ) : (
           <div className="w-[80%]">
             <MembersList title={false} data={paymentBreakdownData} people={"Teachers"} />

@@ -28,10 +28,12 @@ import {
   AdminSubjectsList,
   AdminPaymentList,
   AdminParentsList,
+  AdminAddSubjects,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
 import Api2 from "./api/api2"
+import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
 
 const router = createBrowserRouter([
   {
@@ -138,6 +140,10 @@ const router = createBrowserRouter([
         element: <AdminClassesList />,
       },
       {
+        path: "academics/addClass",
+        element: <AdminAddClass />
+      },
+      {
         path: "academics/attendance",
         element: <AdminAttendanceList />,
       },
@@ -156,6 +162,10 @@ const router = createBrowserRouter([
       {
         path: "academics/subjects",
         element: <AdminSubjectsList />,
+      },
+      {
+        path: "academics/addSubject",
+        element: <AdminAddSubjects />,
       },
       {
         path: "fees",

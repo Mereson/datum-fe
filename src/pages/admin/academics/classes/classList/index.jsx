@@ -1,9 +1,9 @@
-import { AdminProfileImg, NotificationSvg } from "../../../../assets"
-import { AddBtn, MembersList } from "../../../../components"
-import { Button } from "../../../../components/button"
-import { subjectsData } from "../../../../testData"
+import { AdminProfileImg, NotificationSvg } from "../../../../../assets"
+import { AddBtn, MembersList } from "../../../../../components"
+import { Button } from "../../../../../components/button"
+import { classData } from "../../../../../testData"
 
-export const AdminSubjectsList = () => {
+export const AdminClassesList = () => {
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-4">
@@ -24,20 +24,21 @@ export const AdminSubjectsList = () => {
           </div>
 
           <Button
-            link={"/admin/academics/error"}
-            content={<AddBtn text={"Add Subject"} />}
+            link={"/admin/academics/addClass"}
+            content={<AddBtn text={"Add Class"} />}
             className={
               "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
             }
           />
         </div>
 
-        <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Subject List</h2>
+        <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Class List</h2>
 
-        <div className="w-[40%]">
-          <MembersList data={subjectsData} people={"Subjects"} title={false} />
+        <div className="w-[30%]">
+          <MembersList data={classData} people={"Teachers"} title={false} />
         </div>
       </main>
     </section>
+
   )
 }
