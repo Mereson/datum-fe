@@ -1,3 +1,6 @@
 export * from "./students"
 export * from "./dashboard"
 export * from "./teachers"
+export * from "./academics"
+export * from "./payments"
+export * from "./parents"

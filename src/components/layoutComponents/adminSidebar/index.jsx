@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import {
+  DashboardIcon,
   ParentsIcon,
   SbAttendance,
   SbHome,
@@ -7,9 +8,13 @@ import {
   SbResults,
   StudentIcon,
   TeachersIcon,
+  TotalParents,
+  TotalStudents,
+  TotalTeachers,
 } from "../../../assets"
 import { SidebarNavItem } from "../sidebarNav"
 import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
+import { FeesIcon } from "../../../assets/icons/adminDashboard/fees"
 
 export const AdminSidebar = () => {
   return (
@@ -26,33 +31,33 @@ export const AdminSidebar = () => {
           <div className="flex flex-col w-full">
             <SidebarNavItem
               to="/admin/dashboard"
-              Icon={SbHome}
+              Icon={DashboardIcon}
               label={"Dashboard"}
             />
             <SidebarNavItem
-              to={"/admin/teachers"}
-              Icon={TeachersIcon}
-              label={"Teachers"}
-            />
-            <SidebarNavItem
               to={"/admin/studentsList"}
-              Icon={StudentIcon}
+              Icon={TotalStudents}
               label={"Students"}
             />
             <SidebarNavItem
+              to={"/admin/teachers"}
+              Icon={TotalTeachers}
+              label={"Teachers"}
+            />
+            <SidebarNavItem
               to={"/admin/parents"}
-              Icon={ParentsIcon}
+              Icon={TotalParents}
               label={"Parents"}
             />
             <SidebarNavItem
-              to={"/admin/attendance"}
-              Icon={SbAttendance}
+              to={"/admin/academics"}
+              Icon={SbHome}
               label={"Academics"}
             />
             <SidebarNavItem
-              to={"/admin/result"}
-              Icon={SbResults}
-              label={"Payments"}
+              to={"/admin/fees"}
+              Icon={FeesIcon}
+              label={"Fees"}
             />
 
             <hr className="" />
