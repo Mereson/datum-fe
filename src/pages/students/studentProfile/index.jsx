@@ -51,12 +51,13 @@ export const StudentProfile = () => {
             />
           </figure>
 
-          <div className="profile-info flex justify-around ">
-            <h4>
-              Ene Maria <p>Student</p>
-            </h4>
+          <div className="flex justify-around ">
+            <div>
+              <h4 className="text-[24px] font-normal ">Ene Maria</h4>
+              <p> Student </p>
+            </div>
 
-            <figure>
+            <figure className="pl-16">
               <img src={Edit} alt="EditButton" />
             </figure>
           </div>
@@ -66,7 +67,7 @@ export const StudentProfile = () => {
           <div className=" flex-col ">
             <h3 className="text-2xl font-bold"> Student Info </h3>
             <p className="flex">
-              Surname: <p className="text-lg font-bold">Ene</p>
+              Surname: <p className="text-lg font-bold"> Ene </p>
             </p>
             <p className="flex">
               First Name: <p className="text-lg font-bold"> Maria </p>
