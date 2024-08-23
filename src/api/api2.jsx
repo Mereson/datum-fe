@@ -9,8 +9,8 @@ const Api2 = () => {
 
   const handleInput = (e, index) => {
     let { name, value } = e.target
-    value = value.slice(0, 1).toUpperCase() + value.slice(1, value.length)
-    setStudentData(index, name, value)
+    const capitalizedValue =  value.charAt(0).toUpperCase() + value.slice(1)
+    setStudentData(index, name, capitalizedValue)
   }
 
   const handleSubmit = (e) => {

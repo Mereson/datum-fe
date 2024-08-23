@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 export const DynamicTable = ({ data, currentPage, itemsPerPage }) => {
   // Get the keys of the first object in the data array to use as headers
   const headers = data.length > 0 ? Object.keys(data[0]) : [];
@@ -38,3 +40,9 @@ export const DynamicTable = ({ data, currentPage, itemsPerPage }) => {
     </div>
   );
 };
+
+DynamicTable.propTypes = {
+  data: PropTypes.string,
+  currentPage: PropTypes.string,
+  itemsPerPage: PropTypes.string,
+}
