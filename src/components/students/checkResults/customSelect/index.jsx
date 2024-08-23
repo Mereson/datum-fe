@@ -12,7 +12,7 @@ export const CustomSelect = ({
   padding = "px-[12px] py-[10px] xl:px-[16px] xl:py-[13px]",
   dropDownName,
   setForm,
-  componentIndex
+  componentIndex,
 }) => {
   const { openSelectIndex, setOpenSelectIndex, closeSelect } = useSelectStore()
   const isOpen = openSelectIndex === index
@@ -20,9 +20,11 @@ export const CustomSelect = ({
 
   const handleSelect = (option) => {
     const capitalizedOption = option.charAt(0).toUpperCase() + option.slice(1);
-    setSelectedOption(capitalizedOption) // Update the selected option state
+
+    setSelectedOption(capitalizedOption)
+    setForm(componentIndex, dropDownName, capitalizedOption)
+
     closeSelect()
-    setForm(componentIndex, dropDownName, option)
   }
 
   return (
@@ -62,5 +64,5 @@ CustomSelect.propTypes = {
   padding: PropTypes.string,
   dropDownName: PropTypes.string,
   setForm: PropTypes.func,
-  componentIndex: PropTypes.number
+  componentIndex: PropTypes.number,
 }

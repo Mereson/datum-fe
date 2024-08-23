@@ -9,9 +9,13 @@ export const AddParents = () => {
 
   const handleParentFormInput = (e) => {
     let { name, value } = e.target
-    const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-
-    setParentsFormData(name, capitalizedValue);
+    if (name == "email") {
+      setParentsFormData(name, value);
+    }
+    else {
+      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+      setParentsFormData(name, capitalizedValue);
+    }
   }
 
   const getDropdownData = (index, name, capitalizedValue) => {

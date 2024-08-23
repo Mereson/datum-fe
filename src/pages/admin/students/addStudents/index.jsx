@@ -20,14 +20,14 @@ export const AddStudents = () => {
   }
 
 
-  const handleFiles = (e, index) => {
-    let files = e.target.files[0]
-    let { name } = e.target
-    setStudentsFormData(index, name, files)
-  }
+  // const handleFiles = (e, index) => {
+  //   let files = e.target.files[0]
+  //   let { name } = e.target
+  //   setStudentsFormData(index, name, files)
+  // }
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
       parentsFormData,
@@ -38,9 +38,9 @@ export const AddStudents = () => {
 
     if (!hasEmptyFields) {
       console.log(formData);
-      const data = createStudent(formData)
+      const data = await createStudent(formData.parentsFormData, formData.studentsFormData)
       console.log(data)
-      resetStudentForm();
+      // resetStudentForm();
     }
   };
   return (
@@ -128,12 +128,12 @@ export const AddStudents = () => {
                   School Information
                 </h4>
                 <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-                  {/* <FormInput title="Class" value={student.class} name={"class"} onChange={(e) => handleStudentFormInput(e, index)} /> */}
+                  <FormInput title="Class" value={student.class} name={"class"} onChange={(e) => handleStudentFormInput(e, index)} />
                   <FormInput title="Term" value={student.term} name={"term"} onChange={(e) => handleStudentFormInput(e, index)} />
                   <FormInput title="Previous School" value={student.previousSchool} name={"previousSchool"} onChange={(e) => handleStudentFormInput(e, index)} />
+                  <FormInput title="Picture" value={student.picture} name={"picture"} onChange={(e) => handleStudentFormInput(e, index)} />
 
-
-                  <div className="grid">
+                  {/* <div className="grid">
                     <label className="text-[#444] pb-1" htmlFor="First Name">
                       Picture
                     </label>
@@ -143,7 +143,7 @@ export const AddStudents = () => {
                       required
                       onChange={(e) => handleFiles(e, index)}
                     />
-                  </div>
+                  </div> */}
 
                 </div>
               </div>

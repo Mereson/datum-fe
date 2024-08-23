@@ -2,10 +2,11 @@ import axios from "axios";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
-export const createStudent = async (formData) => {
+export const createStudent = async (parentsFormData, studentsFormData) => {
   try {
-    const data = await axios.post(`${baseUrl}/student/createStudent`, {
-      formData
+    const {data} = await axios.post(`${baseUrl}/student/createStudent`, {
+      parent: parentsFormData,
+      students: studentsFormData,
     });
     return data;
   } catch (error) {
@@ -46,8 +47,8 @@ export const logOut = () => {
 
 export const getAllStudents = async () => {
   try {
-    const { data } = await axios.get(`${baseUrl}/getAllStudents`);
-    console.log(data);
+    const { data } = await axios.get(`${baseUrl}/student/getAllStudents`);
+    // console.log(data);
     return data;
   } catch (error) {
     catchErrors(error);

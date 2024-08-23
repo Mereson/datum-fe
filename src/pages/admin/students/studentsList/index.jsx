@@ -4,19 +4,31 @@ import { Button } from "../../../../components/button"
 import { data } from "../../../../testData"
 import { FaPlus } from "react-icons/fa6"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
-import { useEffect } from "react"
+import { useEffect,} from "react"
 import { getAllStudents } from "../../../../api"
 import { useStudentsList } from "../../../../states/students"
 
 export const StudentsList = () => {
 
-  const { studentsList, setStudentsList } = useStudentsList()
+  const { studentsList, setStudentsList, setStudentsData } = useStudentsList()
 
   useEffect(() => {
-    const data = getAllStudents()
-    if (data.success == true) {
-      setStudentsList(data)
+    const getData = async () => {
+      const studentData = await getAllStudents()
+      console.log(studentData)
+      
+      const newData = formattedData(studentData)
+
+      setStudentsData(studentData)
+
+      console.log("I am consoling you")
+      // setStudents(newData)
+      setStudentsList(newData)
+      // console.log(newData)
+      
     }
+    getData()
+    console.log(studentsList)
   }, [])
 
 
@@ -58,7 +70,7 @@ export const StudentsList = () => {
         </div>
 
         <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Students List</h2>
-        {studentsList.length < 1 ? (<MembersList data={studentsList} people={"Students"} />) : (
+        {studentsList.length >= 3 ? (<MembersList data={studentsList} people={"Students"} />) : (
 
           <MembersList data={data} people={"Students d/b"} />
         )}
@@ -78,4 +90,16 @@ const AddBtn = ({ text }) => {
 
 AddBtn.propTypes = {
   text: PropTypes.string,
+}
+
+const formattedData = (data) => {
+  return data.map(student => ({
+    "Reg No": student.id,
+    "Surname": student.surName,
+    "First Name": student.firstName,
+    "Other Name": student.otherName,
+    "Gender": student.gender,
+    "Class": `${student.class} ${" "} ${student.classTier}`,
+    "Reg Date": student.enrollmentDate.slice(0, 10),
+  }))
 }

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import { CustomSelect } from "../customSelect"
 
-export const Dropdown = ({ id, name, query, items, width, dropDownName, componentIndex, setForm }) => {
+export const Dropdown = ({ id, name, query, items, width, dropDownName, componentIndex,  setForm }) => {
   return (
     <div>
       <p className="pb-1 text-[#444444]">{name}</p>
@@ -18,5 +18,6 @@ Dropdown.propTypes = {
   items: PropTypes.array,
   dropDownName: PropTypes.string,
   setForm: PropTypes.func,
-  componentIndex: PropTypes.number
+  componentIndex: PropTypes.number,
+  dropDownOption: PropTypes.string
 }
