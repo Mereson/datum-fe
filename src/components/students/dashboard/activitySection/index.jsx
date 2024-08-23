@@ -3,8 +3,14 @@ import { Activites } from "../activities"
 import { CustomCalendar } from "../customCalender"
 
 import styles from "./style.module.css"
+import { useNavigate } from "react-router-dom"
 
-export const ActivitySection = ({ name, img }) => {
+export const ActivitySection = ({ name, img, path }) => {
+  const navigate = useNavigate()
+
+  const handleNavigate = () => {
+    navigate(path)
+  }
   return (
     <section
       className={`${styles.scrollbar} bg-[#ffffff] w-[29%] overflow-auto `}
@@ -19,7 +25,12 @@ export const ActivitySection = ({ name, img }) => {
           </div>
           <div>
             <h3 className="text-[22px] font-bold text-[#181818]">{name}</h3>
-            <p className="text-sm text-[#132985] text-center">Edit Profile</p>
+            <p
+              onClick={handleNavigate}
+              className="cursor-pointer text-sm text-[#132985] text-center"
+            >
+              Edit Profile
+            </p>
           </div>
         </div>
         <Activites />
@@ -34,4 +45,5 @@ export const ActivitySection = ({ name, img }) => {
 ActivitySection.propTypes = {
   name: PropTypes.string,
   img: PropTypes.any,
+  path: PropTypes.string,
 }

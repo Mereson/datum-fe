@@ -29,6 +29,7 @@ import {
   AdminParentsList,
   AdminAddSubjects,
   AdminCreateActivity,
+  StudentProfile,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "checkResults/subjectAnalysis",
         element: <SubjectAnalysis />,
+      },
+      {
+        path: "studentProfile",
+        element: <StudentProfile />,
       },
     ],
   },
