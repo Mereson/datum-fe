@@ -1,7 +1,24 @@
+import { Link } from "react-router-dom"
 import { Dropdown, FormInput } from "../../../../components"
 import { Button } from "../../../../components/button"
+import { useCreateStudentForm } from "../../../../states/createStudentStore"
 
 export const AddParents = () => {
+
+  const { parentsFormData, setParentsFormData } = useCreateStudentForm()
+
+  const handleParentFormInput = (e) => {
+    let { name, value } = e.target
+    const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+
+    setParentsFormData(name, capitalizedValue);
+  }
+
+  const getDropdownData = (index, name, capitalizedValue) => {
+    index = 0
+    setParentsFormData(name, capitalizedValue);
+  }
+
   return (
     <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
       <div>
@@ -24,14 +41,14 @@ export const AddParents = () => {
                 Parent Details
               </p>
             </div>
-            <div className="grid place-items-center  gap-3 ">
+            <Link to={"/admin/studentsList/addStudents"} className="grid place-items-center  gap-3 ">
               <p className="text-[13.26px] text-[#8a8a8a] size-[29.46px] rounded-full grid place-items-center border-[#8a8a8a] border-[1.47px]">
                 2
               </p>
               <p className="text-[#444] font-semibold text-[11.05px]">
                 Student Details
               </p>
-            </div>
+            </Link>
           </div>
           <h1 className="text-[#696969] font-bold text-3xl">Parent Details</h1>
 
@@ -44,19 +61,22 @@ export const AddParents = () => {
         </div>
 
         <form className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6">
-          <FormInput title={"Surname"} />
-          <FormInput title="First Name" />
-          <FormInput title="Other Name" />
-          <FormInput title="Email" />
-          <FormInput title="Phone Number" />
-          {/* <FormInput title="Relationship" /> */}
+          <FormInput title={"Surname"} value={parentsFormData.surName} name={"surName"} onChange={handleParentFormInput} />
+          <FormInput title="First Name" value={parentsFormData.firstName} name={"firstName"} onChange={handleParentFormInput} />
+          <FormInput title="Other Name" value={parentsFormData.otherName} name={"otherName"} onChange={handleParentFormInput} />
+          <FormInput title="Email" value={parentsFormData.email} name={"email"} onChange={handleParentFormInput} />
+          <FormInput title="Phone Number" value={parentsFormData.phoneNumber} name={"phoneNumber"} onChange={handleParentFormInput} />
+
 
           <Dropdown
             id={1}
             name={"Relationship"}
             query={"Select Relationship"}
             items={["Father", "Mother", "Guardian"]}
+            dropDownName={"relationship"}
+            setForm={getDropdownData}
           />
+
           <Button
             link={"/admin/studentsList/addStudents"}
             content="Next"

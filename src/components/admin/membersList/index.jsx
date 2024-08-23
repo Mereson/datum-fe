@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import { useState } from "react";
 import { DynamicTable } from "../dynamicTable";
 import { ListPagination } from "../pagination";
@@ -36,4 +37,10 @@ export const MembersList = ({ data, people, title = true }) => {
       )}
     </section>
   )
+}
+
+MembersList.propTypes = {
+  data: PropTypes.string,
+  people: PropTypes.string,
+  title: PropTypes.bool,
 }

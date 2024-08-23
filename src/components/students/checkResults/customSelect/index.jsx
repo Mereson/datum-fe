@@ -10,14 +10,19 @@ export const CustomSelect = ({
   index,
   width,
   padding = "px-[12px] py-[10px] xl:px-[16px] xl:py-[13px]",
+  dropDownName,
+  setForm,
+  componentIndex
 }) => {
   const { openSelectIndex, setOpenSelectIndex, closeSelect } = useSelectStore()
   const isOpen = openSelectIndex === index
   const [selectedOption, setSelectedOption] = useState(query) // State to store the selected option
 
   const handleSelect = (option) => {
-    setSelectedOption(option) // Update the selected option state
+    const capitalizedOption = option.charAt(0).toUpperCase() + option.slice(1);
+    setSelectedOption(capitalizedOption) // Update the selected option state
     closeSelect()
+    setForm(componentIndex, dropDownName, option)
   }
 
   return (
@@ -55,4 +60,7 @@ CustomSelect.propTypes = {
   options: PropTypes.array,
   index: PropTypes.number.isRequired,
   padding: PropTypes.string,
+  dropDownName: PropTypes.string,
+  setForm: PropTypes.func,
+  componentIndex: PropTypes.number
 }
