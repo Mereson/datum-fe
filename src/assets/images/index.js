@@ -12,6 +12,8 @@ import closeicon from './closeicon.png'
 import aboutus from './aboutus-img.png'
 import SchoolChild from "./Schoolchild.png"
 import SchoolTeacher from "./fineteacher.png"
+import TeacherHeroImg from "./fineteacher.png"
+import HeroLady from './heroLady.png'
 
 export {
   HeroImg,
@@ -27,7 +29,9 @@ export {
   closeicon,
   aboutus, 
   SchoolChild,
-  SchoolTeacher
+  SchoolTeacher,
+  TeacherHeroImg,
+  HeroLady
 };
 
 export * from "./admin"

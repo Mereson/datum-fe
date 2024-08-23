@@ -74,6 +74,9 @@
   width: 100%;
   /* margin-bottom: rem; */
 }
+.hero_stripe{
+  width: 100%;
+}
 
 @media (max-width: 667px) {
   .hero_container {
