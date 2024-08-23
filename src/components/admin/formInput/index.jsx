@@ -1,6 +1,6 @@
 import Proptypes from "prop-types"
 
-export const FormInput = ({ title = "Name" }) => {
+export const FormInput = ({ title = "Name", value, onChange, name }) => {
   return (
     <div className="grid">
       <label className="text-[#444] pb-1" htmlFor="First Name">
@@ -9,8 +9,9 @@ export const FormInput = ({ title = "Name" }) => {
       <input
         className="h-11 rounded-lg border-[0.5px] border-[#a7a7a7] px-1 bg-[#f4f4f4]"
         type="text"
-        id="name"
-        name="name"
+        name={name}
+        value={value}
+        onChange={onChange}
         required
       />
     </div>
@@ -19,4 +20,7 @@ export const FormInput = ({ title = "Name" }) => {
 
 FormInput.propTypes = {
   title: Proptypes.string,
+  value: Proptypes.string,
+  onChange: Proptypes.any,
+  name: Proptypes.string,
 }

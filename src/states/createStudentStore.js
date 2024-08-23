@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const useCreateStudentForm = create((set) => ({
-  parent: {
+  parentsFormData: {
     surName: "",
     firstName: "",
     otherName: "",
@@ -10,7 +10,7 @@ export const useCreateStudentForm = create((set) => ({
     relationship: "",
   },
 
-  students: [
+  studentsFormData: [
     {
       surName: "",
       firstName: "",
@@ -22,30 +22,32 @@ export const useCreateStudentForm = create((set) => ({
       stateOfOrigin: "",
       localGovernment: "",
       address: "",
-      enrollmentDate: "",
       class: "",
       term: "",
       picture: "",
       previousSchool: "",
     },
   ],
-  setParentsData: (field, value) =>
+
+  setParentsFormData: (field, value) =>
     set((state) => ({
-      parent: {
-        ...state.parent,
+      parentsFormData: {
+        ...state.parentsFormData,
         [field]: value,
       },
     })),
-  setStudentData: (index, field, value) =>
+
+  setStudentsFormData: (index, field, value) =>
     set((state) => ({
-      students: state.students.map((student, i) =>
+      studentsFormData: state.studentsFormData.map((student, i) =>
         i === index ? { ...student, [field]: value } : student
       ),
     })),
-  addStudent: () =>
+
+  addStudentForm: () =>
     set((state) => ({
-      students: [
-        ...state.students,
+      studentsFormData: [
+        ...state.studentsFormData,
         {
           surName: "",
           firstName: "",
@@ -57,7 +59,6 @@ export const useCreateStudentForm = create((set) => ({
           stateOfOrigin: "",
           localGovernment: "",
           address: "",
-          enrollmentDate: "",
           class: "",
           term: "",
           picture: "",
@@ -65,21 +66,23 @@ export const useCreateStudentForm = create((set) => ({
         },
       ],
     })),
-  removeStudent: (index) =>
+
+  removeStudentForm: (index) =>
     set((state) => ({
-      students: state.students.filter((_, i) => i !== index),
+      studentsFormData: state.studentsFormData.filter((_, i) => i !== index),
     })),
+
   resetStudentForm: () =>
     set({
-      parent: {
-        surname: "",
+      parentsFormData: {
+        surName: "",
         firstName: "",
         otherName: "",
         email: "",
         phoneNumber: "",
         relationship: "",
       },
-      students: [
+      studentsFormData: [
         {
           surName: "",
           firstName: "",
@@ -91,7 +94,6 @@ export const useCreateStudentForm = create((set) => ({
           stateOfOrigin: "",
           localGovernment: "",
           address: "",
-          enrollmentDate: "",
           class: "",
           term: "",
           picture: "",

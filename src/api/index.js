@@ -1,100 +1,98 @@
-const { default: axios } = require("axios");
+import axios from "axios";
 
-const baseUrl = "http://localhost:8000/api"
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
-export const createStudent = async (parent, students) => {
+export const createStudent = async (formData) => {
   try {
-    const { data } = await axios.post(`${baseUrl}/student/createStudent`, {
-      parent,
-      students
-    })
+    const data = await axios.post(`${baseUrl}/student/createStudent`, {
+      formData
+    });
+    return data; // Return the response data
   } catch (error) {
-    catchErrors(error)
+    catchErrors(error);
   }
-}
+};
 
 export const createTeacher = async (teacher) => {
   try {
-    const data = await axios.post(`${baseUrl}/admin/createAdmin`, {
-      teacher
-    })
+    const { data } = await axios.post(`${baseUrl}/admin/createAdmin`, {
+      teacher,
+    });
+    return data; // Return the response data
   } catch (error) {
-    catchErrors(error)
+    catchErrors(error);
   }
-}
+};
 
 export const login = async (email, password) => {
   try {
     const res = await axios.post(`${baseUrl}/parent/login`, {
-      "email": email,
-      "password": password
-    })
-    // No saveToken function yet
-    if (res.status == 200) {
-      saveToken({ token: res.data.token })
+      email,
+      password,
+    });
+    if (res.status === 200) {
+      saveToken({ token: res.data.token }); // Assuming saveToken is implemented
     }
+    return res.data; // Return the response data
   } catch (error) {
-    catchErrors(error)
+    catchErrors(error);
   }
-}
+};
 
 export const logOut = () => {
-  // No clearToken function yet
-  clearToken()
-}
+  // Assuming clearToken is implemented
+  clearToken();
+};
 
 export const getAllStudents = async () => {
   try {
-    const res = await axios.get(`${baseUrl}/getAllStudents`)
-    const data = await res.json()
-    console.log(data)
+    const { data } = await axios.get(`${baseUrl}/getAllStudents`);
+    console.log(data);
 
-    // No setAllStudentsList function yet
-    setAllStudentsList(data)
+    setAllStudentsList(data); // Assuming setAllStudentsList is implemented
+    return data;
   } catch (error) {
-    catchErrors(error)
+    catchErrors(error);
   }
-}
+};
 
 export const getStudentById = async (id) => {
   try {
-    const res = await axios.get(`${baseUrl}/getStudentById/${id}`)
-    const data = await res.json()
-    console.log(data)
+    const { data } = await axios.get(`${baseUrl}/getStudentById/${id}`);
+    console.log(data);
 
-    // No setStudentData function yet
-    setStudentData(data)
+    setStudentData(data); // Assuming setStudentData is implemented
+    return data;
   } catch (error) {
-    catchErrors(error)
+    catchErrors(error);
   }
-}
+};
 
 export const createResult = async (email, file) => {
   try {
-    const data = await axios.post(`${baseUrl}/result/createResult`, {
-      "email": email,
-      "File": file
-    })
+    const { data } = await axios.post(`${baseUrl}/result/createResult`, {
+      email,
+      file,
+    });
+    return data;
   } catch (error) {
-    catchErrors(error)
+    catchErrors(error);
   }
-}
+};
 
 const catchErrors = (error) => {
   if (error.response) {
-    // The request was made and the server responded with a status code
-    // that falls out of the range of 2xx
-    console.log("ERROR | RESPONSE")
+    console.log("ERROR | RESPONSE");
     console.log(error.response.data);
     console.log(error.response.status);
     console.log(error.response.headers);
   } else if (error.request) {
-    // The request was made but no response was received
-    console.log("ERROR | REQUEST")
+    console.log("ERROR | REQUEST");
     console.log(error.request);
   } else {
-    // Something happened in setting up the request that triggered an Error
-    console.log('Error', error.message);
+    console.log("Error", error.message);
   }
   console.log(error.config);
-}
+
+  throw error; // Optionally re-throw the error for further handling
+};
