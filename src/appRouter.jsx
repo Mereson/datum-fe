@@ -6,23 +6,35 @@ import {
   ForgotPassword2,
   ForgotPassword3,
   ErrorPage,
-  CheckResults,
   ResultAnalysis,
   AdminDashboard,
   StudentsDashboard,
   UploadResult1,
   ViewResults,
   AddStudents,
-  // AddTeacher,
   SubjectAnalysis,
   StudentsList,
   AddParents,
   TeachersDashboard,
   AddTeacher,
+  TeachersList,
+  AdminAcad,
+  AdminClassesList,
+  AdminAttendanceList,
+  AdminEventsList,
+  AdminResultsList,
+  AdminSchemeOfWork,
+  AdminSubjectsList,
+  AdminPaymentList,
+  AdminParentsList,
+  AdminAddSubjects,
+  AdminCreateActivity,
+  StudentProfile,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
 import Api2 from "./api/api2"
+import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
 
 const router = createBrowserRouter([
   {
@@ -63,15 +75,7 @@ const router = createBrowserRouter([
         element: <StudentsDashboard />,
       },
       {
-        path: "uploadResult1",
-        element: <UploadResult1 />,
-      },
-      {
-        path: "checkResults",
-        element: <CheckResults />,
-      },
-      {
-        path: "checkResults/viewResults",
+        path: "viewResults",
         element: <ViewResults />,
       },
       {
@@ -85,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "checkResults/subjectAnalysis",
         element: <SubjectAnalysis />,
+      },
+      {
+        path: "studentProfile",
+        element: <StudentProfile />,
       },
     ],
   },
@@ -110,22 +118,62 @@ const router = createBrowserRouter([
       },
       {
         path: "teachers",
+        element: <TeachersList />,
+      },
+      {
+        path: "teachers/addTeacher",
         element: <AddTeacher />,
       },
       {
         path: "parents",
-        element: <ErrorPage />,
+        element: <AdminParentsList />,
       },
       {
-        path: "attendance",
-        element: <ErrorPage />,
+        path: "academics",
+        element: <AdminAcad />,
       },
       {
-        path: "result",
-        element: <ErrorPage />,
+        path: "academics/classes",
+        element: <AdminClassesList />,
       },
       {
-        path: "notification",
+        path: "academics/addClass",
+        element: <AdminAddClass />,
+      },
+      {
+        path: "academics/attendance",
+        element: <AdminAttendanceList />,
+      },
+      {
+        path: "academics/events",
+        element: <AdminEventsList />,
+      },
+      {
+        path: "academics/addActivity",
+        element: <AdminCreateActivity />,
+      },
+      {
+        path: "academics/result",
+        element: <AdminResultsList />,
+      },
+      {
+        path: "academics/schemeOfWork",
+        element: <AdminSchemeOfWork />,
+      },
+      {
+        path: "academics/subjects",
+        element: <AdminSubjectsList />,
+      },
+      {
+        path: "academics/addSubject",
+        element: <AdminAddSubjects />,
+      },
+      {
+        path: "fees",
+        element: <AdminPaymentList />,
+      },
+      {
+        path: "academics/error",
         element: <ErrorPage />,
       },
     ],
@@ -136,11 +184,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <TeachersDashboard />
+        element: <TeachersDashboard />,
       },
       {
         path: "students",
-        element: <ErrorPage />,
+        element: <UploadResult1 />,
       },
       {
         path: "attendance",
@@ -154,8 +202,8 @@ const router = createBrowserRouter([
         path: "schemeOfWork",
         element: <ErrorPage />,
       },
-    ]
-  }
+    ],
+  },
 ])
 
 export default router

@@ -38,7 +38,7 @@ const Members = ({ bg, color, title, text, Icon, iconInside }) => {
         <div
           className={`w-12 h-12 rounded-lg bg-[#f8f8f8] grid place-items-center`}
         >
-          <Icon color={"#000"} inside={iconInside} />
+          <Icon color={"#000"} size="24" inside={iconInside} />
         </div>
         <div className={`flex gap-[14px] items-center ${color}`}>
           <p>{title}</p>
