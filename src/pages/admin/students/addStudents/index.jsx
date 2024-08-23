@@ -128,7 +128,7 @@ export const AddStudents = () => {
                   School Information
                 </h4>
                 <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-                  <FormInput title="Class" value={student.class} name={"class"} onChange={(e) => handleStudentFormInput(e, index)} />
+                  {/* <FormInput title="Class" value={student.class} name={"class"} onChange={(e) => handleStudentFormInput(e, index)} /> */}
                   <FormInput title="Term" value={student.term} name={"term"} onChange={(e) => handleStudentFormInput(e, index)} />
                   <FormInput title="Previous School" value={student.previousSchool} name={"previousSchool"} onChange={(e) => handleStudentFormInput(e, index)} />
 

@@ -7,7 +7,7 @@ export const createStudent = async (formData) => {
     const data = await axios.post(`${baseUrl}/student/createStudent`, {
       formData
     });
-    return data; // Return the response data
+    return data;
   } catch (error) {
     catchErrors(error);
   }
@@ -18,7 +18,7 @@ export const createTeacher = async (teacher) => {
     const { data } = await axios.post(`${baseUrl}/admin/createAdmin`, {
       teacher,
     });
-    return data; // Return the response data
+    return data;
   } catch (error) {
     catchErrors(error);
   }
@@ -33,7 +33,7 @@ export const login = async (email, password) => {
     if (res.status === 200) {
       saveToken({ token: res.data.token }); // Assuming saveToken is implemented
     }
-    return res.data; // Return the response data
+    return res.data;
   } catch (error) {
     catchErrors(error);
   }
@@ -48,8 +48,6 @@ export const getAllStudents = async () => {
   try {
     const { data } = await axios.get(`${baseUrl}/getAllStudents`);
     console.log(data);
-
-    setAllStudentsList(data); // Assuming setAllStudentsList is implemented
     return data;
   } catch (error) {
     catchErrors(error);

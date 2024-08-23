@@ -1,10 +1,25 @@
+import PropTypes from "prop-types"
 import { CustomSelect, MembersList, SearchBox } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { data } from "../../../../testData"
 import { FaPlus } from "react-icons/fa6"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
+import { useEffect } from "react"
+import { getAllStudents } from "../../../../api"
+import { useStudentsList } from "../../../../states/students"
 
 export const StudentsList = () => {
+
+  const { studentsList, setStudentsList } = useStudentsList()
+
+  useEffect(() => {
+    const data = getAllStudents()
+    if (data.success == true) {
+      setStudentsList(data)
+    }
+  }, [])
+
+
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-4">
@@ -43,8 +58,10 @@ export const StudentsList = () => {
         </div>
 
         <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Students List</h2>
+        {studentsList.length < 1 ? (<MembersList data={studentsList} people={"Students"} />) : (
 
-        <MembersList data={data} people={"Students"} />
+          <MembersList data={data} people={"Students d/b"} />
+        )}
       </main>
     </section>
   )
@@ -57,4 +74,8 @@ const AddBtn = ({ text }) => {
       <p className="font-bold">{text}</p>
     </div>
   )
+}
+
+AddBtn.propTypes = {
+  text: PropTypes.string,
 }
