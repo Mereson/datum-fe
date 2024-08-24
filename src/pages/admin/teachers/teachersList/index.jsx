@@ -41,7 +41,7 @@ export const TeachersList = () => {
           />
         </div>
         <div className="flex justify-between">
-          <SearchBox width="w-[26rem]" placeholder="Search teachers" />
+          <SearchBox width="w-[20rem] xl:w-[25rem]" placeholder="Search teachers" />
           <div className="flex gap-3 items-center">
             <p className="font-bold text-[#444444]">Filter by:</p>
             <CustomSelect

@@ -4,7 +4,7 @@ import { Button } from "../../../../components/button"
 import { data } from "../../../../testData"
 import { FaPlus } from "react-icons/fa6"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
-import { useEffect,} from "react"
+import { useEffect, } from "react"
 import { getAllStudents } from "../../../../api"
 import { useStudentsList } from "../../../../states/students"
 
@@ -15,20 +15,15 @@ export const StudentsList = () => {
   useEffect(() => {
     const getData = async () => {
       const studentData = await getAllStudents()
-      console.log(studentData)
-      
+
       const newData = formattedData(studentData)
 
       setStudentsData(studentData)
 
-      console.log("I am consoling you")
-      // setStudents(newData)
       setStudentsList(newData)
-      // console.log(newData)
-      
+
     }
     getData()
-    console.log(studentsList)
   }, [])
 
 
@@ -60,7 +55,7 @@ export const StudentsList = () => {
           />
         </div>
         <div className="flex justify-between">
-          <SearchBox width="w-[26rem]" placeholder="Search student by name or reg no" />
+          <SearchBox width="w-[20rem] xl:w-[25rem]" placeholder="Search student by name or reg no" />
           <div className="flex gap-3 items-center">
             <p className="font-bold text-[#444444]">Filter by:</p>
             <CustomSelect index={1} query={"Class"} width={"6.8rem"} options={[]} />

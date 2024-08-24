@@ -2,18 +2,74 @@ import { CustomInput, FormButton, FormDropdown } from "../../../../components"
 import { Form, Formik } from "formik"
 import { useCreateTeacherForm } from "../../../../states/createTeacherStore"
 import { teacherDetailsSchema } from "../../../../api/validationSchema"
+import { useState } from "react"
+import Modal from 'react-modal';
+import { createTeacher } from "../../../../api"
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+// Modal.setAppElement('#yourAppElement');
 
 export const AddTeacher = () => {
 
   const { teacher, setTeacher } = useCreateTeacherForm()
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     setTeacher(values)
     console.log(values)
+    
+    const data = await createTeacher(values);
+    console.log(data)
   }
+
+  let subtitle
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
 
   return (
     <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
+      {/* <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
+      </Modal> */}
+
+
       <div>
         {/* This div is for Add teacher and import csv */}
         <div className="flex justify-between items-start">

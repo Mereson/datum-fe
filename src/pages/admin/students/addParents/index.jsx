@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { CustomInput, FormButton, FormDropdown, } from "../../../../components"
 import { useCreateStudentForm } from "../../../../states/createStudentStore"
 import { Form, Formik } from "formik"
@@ -36,14 +36,14 @@ export const AddParents = () => {
                 Parent Details
               </p>
             </div>
-            <Link to={"/admin/studentsList/addStudents"} className="grid place-items-center  gap-3 ">
+            <div to={"/admin/studentsList/addStudents"} className="grid place-items-center  gap-3 ">
               <p className="text-[13.26px] text-[#8a8a8a] size-[29.46px] rounded-full grid place-items-center border-[#8a8a8a] border-[1.47px]">
                 2
               </p>
               <p className="text-[#444] font-semibold text-[11.05px]">
                 Student Details
               </p>
-            </Link>
+            </div>
           </div>
           <h1 className="text-[#696969] font-bold text-3xl">Parent Details</h1>
 

@@ -4,7 +4,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 
 export const createStudent = async (parentsFormData, studentsFormData) => {
   try {
-    const {data} = await axios.post(`${baseUrl}/student/createStudent`, {
+    const { data } = await axios.post(`${baseUrl}/student/createStudent`, {
       parent: parentsFormData,
       students: studentsFormData,
     });
@@ -14,11 +14,32 @@ export const createStudent = async (parentsFormData, studentsFormData) => {
   }
 };
 
+// export const createTeacher = async (teacher) => {
+//   try {
+//     const { data } = await axios.post(`${baseUrl}/admin/createAdmin`, {
+//       teacher,
+//     });
+//     return data;
+//   } catch (error) {
+//     catchErrors(error);
+//   }
+// };
+
 export const createTeacher = async (teacher) => {
   try {
-    const { data } = await axios.post(`${baseUrl}/admin/createAdmin`, {
-      teacher,
+    const formData = new FormData();
+
+    Object.keys(teacher).forEach((key) => {
+      formData.append(key, teacher[key]);
     });
+
+    console.log(formData)
+    const { data } = await axios.post(`${baseUrl}/admin/createAdmin`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
     return data;
   } catch (error) {
     catchErrors(error);

@@ -16,7 +16,7 @@ export const useCreateTeacherForm = create((set) => ({
     localGovernment: "",
     employmentRole: "",
     qualification: "",
-    // role: "",
+    role: "",
     gradeLevel: "",
     step: "",
     File: ""
