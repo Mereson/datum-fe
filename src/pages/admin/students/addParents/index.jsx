@@ -1,26 +1,22 @@
-import { Link } from "react-router-dom"
-import { Dropdown, FormInput } from "../../../../components"
-import { Button } from "../../../../components/button"
+import { Link, useNavigate } from "react-router-dom"
+import { CustomInput, FormButton, FormDropdown, } from "../../../../components"
 import { useCreateStudentForm } from "../../../../states/createStudentStore"
+import { Form, Formik } from "formik"
+import { ParentDetailsSchema } from "../../../../api/validationSchema"
+import { useEffect } from "react"
 
 export const AddParents = () => {
 
   const { parentsFormData, setParentsFormData } = useCreateStudentForm()
+  const navigate = useNavigate()
 
-  const handleParentFormInput = (e) => {
-    let { name, value } = e.target
-    if (name == "email") {
-      setParentsFormData(name, value);
-    }
-    else {
-      const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
-      setParentsFormData(name, capitalizedValue);
-    }
-  }
+  useEffect(() => {
+    console.log("Updated parentsFormData:", parentsFormData);
+  }, [parentsFormData])
 
-  const getDropdownData = (index, name, capitalizedValue) => {
-    index = 0
-    setParentsFormData(name, capitalizedValue);
+  const onSubmit = (values) => {
+    setParentsFormData(values)
+    navigate("/admin/studentsList/addStudents")
   }
 
   return (
@@ -64,33 +60,63 @@ export const AddParents = () => {
           </div>
         </div>
 
-        <form className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6">
-          <FormInput title={"Surname"} value={parentsFormData.surName} name={"surName"} onChange={handleParentFormInput} />
-          <FormInput title="First Name" value={parentsFormData.firstName} name={"firstName"} onChange={handleParentFormInput} />
-          <FormInput title="Other Name" value={parentsFormData.otherName} name={"otherName"} onChange={handleParentFormInput} />
-          <FormInput title="Email" value={parentsFormData.email} name={"email"} onChange={handleParentFormInput} />
-          <FormInput title="Phone Number" value={parentsFormData.phoneNumber} name={"phoneNumber"} onChange={handleParentFormInput} />
 
 
-          <Dropdown
-            id={1}
-            name={"Relationship"}
-            query={"Select Relationship"}
-            items={["Father", "Mother", "Guardian"]}
-            dropDownName={"relationship"}
-            setForm={getDropdownData}
-          />
+        <Formik
+          initialValues={parentsFormData}
+          validationSchema={ParentDetailsSchema}
+          onSubmit={onSubmit}
+        >
+          {(props) => (
+            <Form className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6" >
+              <CustomInput
+                label={"Surname"}
+                name="surName"
+                type="text"
+                required={true}
+              />
+              <CustomInput
+                label={"First Name"}
+                name="firstName"
+                type="text"
+                required={true}
+              />
+              <CustomInput
+                label={"Other Name"}
+                name="otherName"
+                type="text"
+                required={true}
+              />
+              <CustomInput
+                label={"Email"}
+                name="email"
+                type="email"
+                required={true}
+              />
+              <CustomInput
+                label={"Phone Number"}
+                name="phoneNumber"
+                type="text"
+                required={true}
+              />
+              <FormDropdown
+                label={"Relationship"}
+                name="relationship"
+                options={["Father", "Mother", "Guardian"]}
+                required={true}
+              />
 
-          <Button
-            link={"/admin/studentsList/addStudents"}
-            content="Next"
-            className={
-              "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
-            }
-          />
-        </form>
+              <FormButton
+                type="submit"
+                content="Next"
+                className={
+                  "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+                }
+              />
+            </Form>
+          )}
+        </Formik>
       </div>
     </section>
   )
 }
-

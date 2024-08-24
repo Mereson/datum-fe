@@ -29,11 +29,11 @@ export const useCreateStudentForm = create((set) => ({
     },
   ],
 
-  setParentsFormData: (field, value) =>
+  setParentsFormData: (values) =>
     set((state) => ({
       parentsFormData: {
         ...state.parentsFormData,
-        [field]: value,
+        ...values,
       },
     })),
 

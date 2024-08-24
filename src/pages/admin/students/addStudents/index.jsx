@@ -1,48 +1,28 @@
+import { Form, Formik } from "formik"
 import { createStudent } from "../../../../api"
-import { Dropdown, FormInput } from "../../../../components"
+import { CustomInput, Dropdown, FormButton, FormDropdown, FormInput } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { useCreateStudentForm } from "../../../../states/createStudentStore"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { studentDetailsSchema } from "../../../../api/validationSchema"
+import { useEffect } from "react"
 
 export const AddStudents = () => {
 
   const { parentsFormData, studentsFormData, setStudentsFormData, addStudentForm, removeStudentForm, resetStudentForm } = useCreateStudentForm()
 
-  const handleStudentFormInput = (e, index) => {
-    let { name, value } = e.target
-    const capitalizedValue = value.charAt(0).toUpperCase() + value.slice(1);
+  const navigate = useNavigate()
 
-    setStudentsFormData(index, name, capitalizedValue)
+  useEffect(() => {
+    console.log("Updated parentsFormData:", studentsFormData);
+  }, [studentsFormData])
+
+  const onSubmit = (values) => {
+    setStudentsFormData(values)
+    // navigate("/admin/studentsList")
   }
 
-  const getStudentDropdownData = (index, name, capitalizedValue) => {
-    setStudentsFormData(index, name, capitalizedValue)
-  }
 
-
-  // const handleFiles = (e, index) => {
-  //   let files = e.target.files[0]
-  //   let { name } = e.target
-  //   setStudentsFormData(index, name, files)
-  // }
-
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = {
-      parentsFormData,
-      studentsFormData,
-    };
-
-    const hasEmptyFields = checkEmptyFields(formData);
-
-    if (!hasEmptyFields) {
-      console.log(formData);
-      const data = await createStudent(formData.parentsFormData, formData.studentsFormData)
-      console.log(data)
-      // resetStudentForm();
-    }
-  };
   return (
     <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
       <div>
@@ -71,117 +51,160 @@ export const AddStudents = () => {
 
         </div>
 
-        {/* Div for the Personal information */}
-        <form onSubmit={handleSubmit}>
-          {studentsFormData.map((student, index) => (
-            <div key={index}>
-              <h1 className="text-[#696969] pt-[4.875rem] text-center  font-bold text-3xl">
-                {`Student's`} Details
-              </h1>
-              <div className="pt-10 text-[#696969] ">
-                <h4 className="font-extrabold text-xl text-[#696969]">
-                  Personal Information
-                </h4>
 
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-                  <FormInput title={"Surname"} value={student.surName} name={"surName"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="First Name" value={student.firstName} name={"firstName"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="Other Name" value={student.otherName} name={"otherName"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="Date of Birth" value={student.dateOfBirth} name={"dateOfBirth"} onChange={(e) => handleStudentFormInput(e, index)} />
+        <Formik
+          initialValues={
+            {
+              students: [studentsFormData]
+            }
+          }
+          validationSchema={studentDetailsSchema}
+          onSubmit={onSubmit}
+        >
 
-                  <Dropdown
-                    id={1}
-                    name={"Blood Group"}
-                    query={"Select Blood Group"}
-                    items={["O+", "O-", "B+", "A+", "A-"]}
-                    dropDownName={"bloodGroup"}
-                    setForm={(getStudentDropdownData)}
-                    componentIndex={index}
-                  />
 
-                  <Dropdown
-                    id={2}
-                    name={"Gender"}
-                    query={"Select Gender"}
-                    items={["Male", "Female"]}
-                    dropDownName={"gender"}
-                    setForm={getStudentDropdownData}
-                    componentIndex={index}
-                  />
-                </div>
-              </div>
+          {/* Div for the Personal information */}
+          <Form>
+            {students.map((student, index) => (
+              <div key={index}>
+                <h1 className="text-[#696969] pt-[4.875rem] text-center  font-bold text-3xl">
+                  {`Student's`} Details
+                </h1>
+                <div className="pt-10 text-[#696969] ">
+                  <h4 className="font-extrabold text-xl text-[#696969]">
+                    Personal Information
+                  </h4>
 
-              < div className="pt-10 text-[#696969] " >
-                <h4 className="font-extrabold text-xl text-[#696969]">
-                  Contact Information
-                </h4>
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-                  <FormInput title="Nationality" value={student.nationality} name={"nationality"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="State of Origin" value={student.stateOfOrigin} name={"stateOfOrigin"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="Local Government of Origin" value={student.localGovernment} name={"localGovernment"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="Address" value={student.address} name={"address"} onChange={(e) => handleStudentFormInput(e, index)} />
-                </div>
-              </div>
-
-              <div className="pt-10 text-[#696969] ">
-                <h4 className="font-extrabold text-xl text-[#696969]">
-                  School Information
-                </h4>
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-                  <FormInput title="Class" value={student.class} name={"class"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="Term" value={student.term} name={"term"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="Previous School" value={student.previousSchool} name={"previousSchool"} onChange={(e) => handleStudentFormInput(e, index)} />
-                  <FormInput title="Picture" value={student.picture} name={"picture"} onChange={(e) => handleStudentFormInput(e, index)} />
-
-                  {/* <div className="grid">
-                    <label className="text-[#444] pb-1" htmlFor="First Name">
-                      Picture
-                    </label>
-                    <input
-                      type="file"
-                      name="picture"
-                      required
-                      onChange={(e) => handleFiles(e, index)}
+                  <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                    <CustomInput
+                      label={"Surname"}
+                      name="SurName"
+                      type="text"
+                      required={true}
                     />
-                  </div> */}
-
+                    <CustomInput
+                      label={"First Name"}
+                      name="firstName"
+                      type="text"
+                      required={true}
+                    />
+                    <CustomInput
+                      label={"Other Name"}
+                      name="otherName"
+                      type="text"
+                      required={true}
+                    />
+                    <CustomInput
+                      label={"Date of Birth"}
+                      name="dateOfBirth"
+                      type="text"
+                      required={true}
+                    />
+                    <FormDropdown
+                      label={"Blood Group"}
+                      name={"bloodGroup"}
+                      options={["O+", "O-", "B+", "A+", "A-"]}
+                      required={true}
+                    />
+                  </div>
                 </div>
+
+                < div className="pt-10 text-[#696969] " >
+                  <h4 className="font-extrabold text-xl text-[#696969]">
+                    Contact Information
+                  </h4>
+                  <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                    <CustomInput
+                      label={"Nationality"}
+                      name="nationality"
+                      type="text"
+                      required={true}
+                    />
+                    <CustomInput
+                      label={"State of Origin"}
+                      name="stateofOrigin"
+                      type="text"
+                      required={true}
+                    />
+                    <CustomInput
+                      label={"Local Government of Origin"}
+                      name="localGovernment"
+                      type="text"
+                      required={true}
+                    />
+                    <CustomInput
+                      label={"Address"}
+                      name="address"
+                      type="text"
+                      required={true}
+                    />
+                  </div>
+                </div>
+
+                <div className="pt-10 text-[#696969] ">
+                  <h4 className="font-extrabold text-xl text-[#696969]">
+                    School Information
+                  </h4>
+                  <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                    <CustomInput
+                      label={"Class"}
+                      name="class"
+                      type="text"
+                      required={true}
+                    />
+                    <CustomInput
+                      label={"Term"}
+                      name="term"
+                      type="text"
+                      required={true}
+                    />
+                    <CustomInput
+                      label={"Previous School"}
+                      name="previousSchool"
+                      type="text"
+                    />
+                    <CustomInput
+                      label={"Picture"}
+                      name="picture"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                {studentsFormData.length >= 2 && index > 0 ? (
+                  <div className="flex justify-end">
+                    <Button
+                      onClick={() => removeStudentForm(index)}
+                      content="Remove Form"
+                      className={
+                        "bg-[#132985] w-[100%] px-4 py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
+                      }
+                    />
+                  </div>
+                ) : ("")}
               </div>
-              {studentsFormData.length >= 2 && index > 0 ? (
-                <div className="flex justify-end">
-                  <Button
-                    onClick={() => removeStudentForm(index)}
-                    content="Remove Form"
-                    className={
-                      "bg-[#132985] w-[100%] px-4 py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-                    }
-                  />
-                </div>
-              ) : ("")}
+            ))}
+
+            <div className="flex items-center justify-between">
+
+              <Button
+                onClick={addStudentForm}
+                content="Add Form"
+                className={
+                  "bg-[#132985] w-[100%] px-4 py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
+                }
+              />
+
+              <FormButton
+                type="submit"
+                content="Submit"
+                className={
+                  "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+                }
+              />
             </div>
-          ))}
+          </Form>
+        </Formik >
 
-          <div className="flex items-center justify-between">
-
-            <Button
-              onClick={addStudentForm}
-              content="Add Form"
-              className={
-                "bg-[#132985] w-[100%] px-4 py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-              }
-            />
-
-
-            <Button
-              link={"/students/checkResults/resultAnalysis"}
-              onClick={handleSubmit}
-              content="Submit"
-              className={
-                "bg-[#132985] w-[100%] px-5 py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-              }
-            />
-          </div>
-        </form>
       </div >
     </section >
   )
