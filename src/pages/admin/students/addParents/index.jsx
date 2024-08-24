@@ -3,16 +3,11 @@ import { CustomInput, FormButton, FormDropdown, } from "../../../../components"
 import { useCreateStudentForm } from "../../../../states/createStudentStore"
 import { Form, Formik } from "formik"
 import { ParentDetailsSchema } from "../../../../api/validationSchema"
-import { useEffect } from "react"
 
 export const AddParents = () => {
 
   const { parentsFormData, setParentsFormData } = useCreateStudentForm()
   const navigate = useNavigate()
-
-  useEffect(() => {
-    console.log("Updated parentsFormData:", parentsFormData);
-  }, [parentsFormData])
 
   const onSubmit = (values) => {
     setParentsFormData(values)
@@ -67,7 +62,7 @@ export const AddParents = () => {
           validationSchema={ParentDetailsSchema}
           onSubmit={onSubmit}
         >
-          {(props) => (
+          {() => (
             <Form className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6" >
               <CustomInput
                 label={"Surname"}
@@ -85,13 +80,14 @@ export const AddParents = () => {
                 label={"Other Name"}
                 name="otherName"
                 type="text"
-                required={true}
+                optionalMessage="Optional"
               />
               <CustomInput
                 label={"Email"}
                 name="email"
                 type="email"
                 required={true}
+                capitalize={false}
               />
               <CustomInput
                 label={"Phone Number"}

@@ -37,39 +37,9 @@ export const useCreateStudentForm = create((set) => ({
       },
     })),
 
-  setStudentsFormData: (index, field, value) =>
-    set((state) => ({
-      studentsFormData: state.studentsFormData.map((student, i) =>
-        i === index ? { ...student, [field]: value } : student
-      ),
-    })),
-
-  addStudentForm: () =>
-    set((state) => ({
-      studentsFormData: [
-        ...state.studentsFormData,
-        {
-          surName: "",
-          firstName: "",
-          otherName: "",
-          dateOfBirth: "",
-          bloodGroup: "",
-          gender: "",
-          nationality: "",
-          stateOfOrigin: "",
-          localGovernment: "",
-          address: "",
-          class: "",
-          term: "",
-          picture: "",
-          previousSchool: "",
-        },
-      ],
-    })),
-
-  removeStudentForm: (index) =>
-    set((state) => ({
-      studentsFormData: state.studentsFormData.filter((_, i) => i !== index),
+  setStudentsFormData: (students) =>
+    set(() => ({
+      studentsFormData: students,
     })),
 
   resetStudentForm: () =>
@@ -79,7 +49,10 @@ export const useCreateStudentForm = create((set) => ({
         firstName: "",
         otherName: "",
         email: "",
-        phoneNumber: "",
+        phoneNumber: "", setStudentsFormData: (students) =>
+          set(() => ({
+            studentsFormData: students,
+          })),
         relationship: "",
       },
       studentsFormData: [

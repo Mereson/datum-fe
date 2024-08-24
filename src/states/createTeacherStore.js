@@ -16,17 +16,18 @@ export const useCreateTeacherForm = create((set) => ({
     localGovernment: "",
     employmentRole: "",
     qualification: "",
-    role: "",
+    // role: "",
     gradeLevel: "",
     step: "",
     File: ""
   },
-  setTeacherData: (field, value) => set((state) => ({
-    teacher: {
-      ...state.teacher,
-      [field]: value
-    }
-  })),
+  setTeacher: (values) =>
+    set((state) => ({
+      teacher: {
+        ...state.teacher,
+        ...values,
+      },
+    })),
   resetTeachersForm: () => set({
     surName: "",
     firstName: "",
@@ -42,7 +43,7 @@ export const useCreateTeacherForm = create((set) => ({
     localGovernment: "",
     employmentRole: "",
     qualification: "",
-    role: "",
+    // role: "",
     gradeLevel: "",
     step: "",
     File: ""
