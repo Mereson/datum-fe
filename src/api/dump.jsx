@@ -1,220 +1,101 @@
-import { Formik, Form, FieldArray } from "formik";
-import { useNavigate } from "react-router-dom";
-import { studentDetailsSchema } from "./validationSchema";
-import { useEffect } from "react";
-import { CustomInput, FormButton, FormDropdown } from "../components";
-import { Button } from "../components/button";
-import { useCreateStudentForm } from "../states/createStudentStore";
+import PropTypes from "prop-types"
+import { useEffect } from "react"
+import { useStudentsList } from "../states/students"
+import { getAllStudents } from "."
+import { AdminProfileImg, NotificationSvg } from "../assets"
+import { Button } from "../components/button"
+import { CustomSelect, MembersList, SearchBox } from "../components"
+import { data } from "../testData"
+import { FaPlus } from "react-icons/fa"
 
 export const Dump = () => {
-  const { parentsFormData, studentsFormData, setStudentsFormData } = useCreateStudentForm();
-  const navigate = useNavigate();
+  const { studentsList, setStudentsList, setStudentsData } = useStudentsList()
 
-  // useEffect(() => {
-  //   console.log("Updated studentsFormData:", studentsFormData);
-  //   console.log("Updated parentsFormData:", parentsFormData);
-  // }, [studentsFormData]);
+  useEffect(() => {
+    const getData = async () => {
+      const studentData = await getAllStudents()
 
-  const onSubmit = (values) => {
-    console.log("About to console");
+      const newData = formattedData(studentData)
 
-    values.students.forEach((student, index) => {
-      Object.keys(student).forEach((field) => {
-        setStudentsFormData(index, field, student[field]);
-      });
-    });
+      setStudentsData(studentData)
 
-    console.log("Submitted Values:", values);
-    // navigate("/admin/studentsList")
-  };
+      setStudentsList(newData)
+
+    }
+    getData()
+  }, [])
+
 
   return (
-    <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
-
-      <Formik
-        initialValues={{
-          students: studentsFormData,
-        }}
-        validationSchema={studentDetailsSchema}
-        onSubmit={onSubmit}
-      >
-        {({ values, errors }) => (
-          <Form>
-            <div>
-              {Object.keys(errors.students || {}).map((studentIndex) => (
-                <div key={studentIndex}>
-                  {Object.keys(errors.students[studentIndex] || {}).map((field) => (
-                    <div key={field}>
-                      {errors.students[studentIndex][field]}
-                    </div>
-                  ))}
-                </div>
-              ))}
+    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+      <main className="grid gap-4">
+        <div className="flex flex-col">
+          <div className="flex gap-5 items-center justify-end">
+            <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
+              <img src={NotificationSvg} className="size-[20px]" alt="notification icon" />
             </div>
-            <FieldArray name="students">
-              {({ remove, push }) => (
-                <>
-                  {values.students.map((student, index) => (
-                    <div key={index}>
-                      <h1 className="text-[#696969] pt-[4.875rem] text-center font-bold text-3xl">
-                        {`Student's`} Details
-                      </h1>
-                      <div className="pt-10 text-[#696969]">
-                        <h4 className="font-extrabold text-xl text-[#696969]">
-                          Personal Information
-                        </h4>
-                        <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-                          <CustomInput
-                            label={"Surname"}
-                            name={`students[${index}].surName`}
-                            type="text"
-                            required={true}
-                          />
-                          <CustomInput
-                            label={"First Name"}
-                            name={`students[${index}].firstName`}
-                            type="text"
-                            required={true}
-                          />
-                          <CustomInput
-                            label={"Other Name"}
-                            name={`students[${index}].otherName`}
-                            type="text"
-                            optionalMessage="Optional"
-                          />
-                          <CustomInput
-                            label={"Date of Birth"}
-                            name={`students[${index}].dateOfBirth`}
-                            type="text"
-                            required={true}
-                          />
-                          <FormDropdown
-                            label={"Blood Group"}
-                            name={`students[${index}].bloodGroup`}
-                            options={["O+", "O-", "B+", "A+", "A-"]}
-                            required={true}
-                          />
-                          <FormDropdown
-                            label={"Gender"}
-                            name={`students[${index}].gender`}
-                            options={["Male", "Female"]}
-                            required={true}
-                          />
-                        </div>
-                      </div>
+            <div className="flex gap-2 items-center">
+              <figure className="size-[50px] rounded-full">
+                <img src={AdminProfileImg} alt="" />
+              </figure>
+              <div className="text-[15px]">
+                <p className="font-bold">Nkechi Nduka</p>
+                <p>Admin</p>
+              </div>
+            </div>
+          </div>
 
-                      <div className="pt-10 text-[#696969]">
-                        <h4 className="font-extrabold text-xl text-[#696969]">
-                          Contact Information
-                        </h4>
-                        <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-                          <CustomInput
-                            label={"Nationality"}
-                            name={`students[${index}].nationality`}
-                            type="text"
-                            required={true}
-                          />
-                          <CustomInput
-                            label={"State of Origin"}
-                            name={`students[${index}].stateOfOrigin`}
-                            type="text"
-                            required={true}
-                          />
-                          <CustomInput
-                            label={"Local Government of Origin"}
-                            name={`students[${index}].localGovernment`}
-                            type="text"
-                            required={true}
-                          />
-                          <CustomInput
-                            label={"Address"}
-                            name={`students[${index}].address`}
-                            type="text"
-                            required={true}
-                          />
-                        </div>
-                      </div>
+          <Button
+            link={"/admin/studentsList/addParents"}
+            content={<AddBtn text={"Add Students"} />}
+            className={
+              "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
+            }
+          />
+        </div>
+        <div className="flex justify-between">
+          <SearchBox width="w-[20rem] xl:w-[25rem]" placeholder="Search student by name or reg no" />
+          <div className="flex gap-3 items-center">
+            <p className="font-bold text-[#444444]">Filter by:</p>
+            <CustomSelect index={1} query={"Class"} width={"6.8rem"} options={[]} />
+            <CustomSelect index={2} query={"Gender"} width={"6.8rem"} options={[]} />
+            <CustomSelect index={3} query={"Sort by"} width={"6.8rem"} options={[]} />
+          </div>
+        </div>
 
-                      <div className="pt-10 text-[#696969]">
-                        <h4 className="font-extrabold text-xl text-[#696969]">
-                          School Information
-                        </h4>
-                        <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-                          <CustomInput
-                            label={"Class"}
-                            name={`students[${index}].class`}
-                            type="text"
-                            required={true}
-                          />
-                          <CustomInput
-                            label={"Term"}
-                            name={`students[${index}].term`}
-                            type="text"
-                            required={true}
-                          />
-                          <CustomInput
-                            label={"Previous School"}
-                            name={`students[${index}].previousSchool`}
-                            type="text"
-                            optionalMessage="Optional"
-                          />
-                          <CustomInput
-                            label={"Picture"}
-                            name={`students[${index}].picture`}
-                            type="text"
-                            optionalMessage="Optional"
-                          />
-                        </div>
-                      </div>
-                      {values.students.length > 1 && index > 0 && (
-                        <div className="flex justify-end">
-                          <Button
-                            onClick={() => remove(index)}
-                            // onClick={onClick}
-                            content="Remove Form"
-                            className="bg-[#132985] w-[100%] px-4 py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-                          />
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                  <div className="flex items-center justify-between">
-                    <Button
-                      onClick={() =>
-                        push({
-                          surName: "",
-                          firstName: "",
-                          otherName: "",
-                          dateOfBirth: "",
-                          bloodGroup: "",
-                          nationality: "",
-                          stateofOrigin: "",
-                          localGovernment: "",
-                          address: "",
-                          class: "",
-                          term: "",
-                          previousSchool: "",
-                          picture: "",
-                        })
-                      }
-                      content="Add Form"
-                      className="bg-[#132985] w-[100%] px-4 py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-                    />
-                    <FormButton
-                      type="submit"
-                      content="Submit"
-                      className="bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
-                    />
-                  </div>
-                </>
-              )}
-            </FieldArray>
-          </Form>
+        <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Students List</h2>
+        {studentsList.length >= 3 ? (<MembersList data={studentsList} people={"Students"} />) : (
+
+          <MembersList data={data} people={"Students d/b"} />
         )}
-      </Formik>
-
+      </main>
     </section>
-  );
-};
+  )
+}
+
+const AddBtn = ({ text }) => {
+  return (
+    <div className="flex gap-2 items-center">
+      <FaPlus />
+      <p className="font-bold">{text}</p>
+    </div>
+  )
+}
+
+AddBtn.propTypes = {
+  text: PropTypes.string,
+}
+
+const formattedData = (data) => {
+  return data.map(student => ({
+    "Reg No": student.id,
+    "Surname": student.surName,
+    "First Name": student.firstName,
+    "Other Name": student.otherName,
+    "Gender": student.gender,
+    "Class": `${student.class} ${" "} ${student.classTier}`,
+    "Reg Date": student.enrollmentDate.slice(0, 10),
+  }))
+}
 
 
