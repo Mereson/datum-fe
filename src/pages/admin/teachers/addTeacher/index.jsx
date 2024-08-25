@@ -2,74 +2,21 @@ import { CustomInput, FormButton, FormDropdown } from "../../../../components"
 import { Form, Formik } from "formik"
 import { useCreateTeacherForm } from "../../../../states/createTeacherStore"
 import { teacherDetailsSchema } from "../../../../api/validationSchema"
-import { useState } from "react"
-import Modal from 'react-modal';
 import { createTeacher } from "../../../../api"
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
-// Modal.setAppElement('#yourAppElement');
-
 export const AddTeacher = () => {
-
   const { teacher, setTeacher } = useCreateTeacherForm()
 
   const onSubmit = async (values) => {
     setTeacher(values)
     console.log(values)
-    
-    const data = await createTeacher(values);
+
+    const data = await createTeacher(values)
     console.log(data)
   }
 
-  let subtitle
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-
   return (
     <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
-      {/* <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-      </Modal> */}
-
-
       <div>
         {/* This div is for Add teacher and import csv */}
         <div className="flex justify-between items-start">
@@ -94,8 +41,7 @@ export const AddTeacher = () => {
           onSubmit={onSubmit}
         >
           {() => (
-            <Form className="pt-10 grid gap-x-12 gap-y-6" >
-
+            <Form className="pt-10 grid gap-x-12 gap-y-6">
               <div className="w-[10%]">
                 <CustomInput
                   label={"Teachers Photo"}
@@ -103,7 +49,6 @@ export const AddTeacher = () => {
                   type="file"
                   required={true}
                 />
-
               </div>
 
               <div className="pt- text-[#696969] ">
@@ -193,7 +138,6 @@ export const AddTeacher = () => {
                     options={["01", "02", "03", "04", "05", "06"]}
                     required={true}
                   />
-
                 </div>
               </div>
 
@@ -211,7 +155,6 @@ export const AddTeacher = () => {
                   />
                 </div>
               </div>
-
 
               {/* div for the contact information*/}
               <div className="pt-10 text-[#696969] ">
@@ -265,7 +208,6 @@ export const AddTeacher = () => {
                   "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
                 }
               />
-
             </Form>
           )}
         </Formik>

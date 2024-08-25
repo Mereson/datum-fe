@@ -1,101 +1,152 @@
-import PropTypes from "prop-types"
-import { useEffect } from "react"
-import { useStudentsList } from "../states/students"
-import { getAllStudents } from "."
-import { AdminProfileImg, NotificationSvg } from "../assets"
-import { Button } from "../components/button"
-import { CustomSelect, MembersList, SearchBox } from "../components"
-import { data } from "../testData"
-import { FaPlus } from "react-icons/fa"
+import {
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table"
+import { paymentsData } from "../testData"
+import { useState } from "react"
+import EditableCell from "./api2"
+import StatusCell from "./api"
+import Filters from "./filters"
+import { BiSort } from "react-icons/bi"
+import { FaSortDown, FaSortUp } from "react-icons/fa6"
+
+const columns = [
+  {
+    accessorKey: "S/N",
+    header: "S/N",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "Surname",
+    header: "Surname",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "FirstName",
+    header: "First Name",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "OtherName",
+    header: "Other Name",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "Gender",
+    header: "Gender",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "Class",
+    header: "Class",
+    // cell: EditableCell,
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "Status",
+    header: "Status",
+    cell: StatusCell,
+  },
+]
 
 export const Dump = () => {
-  const { studentsList, setStudentsList, setStudentsData } = useStudentsList()
+  const [data, setData] = useState(paymentsData)
+  const [columnFilters, setColumnFilters] = useState([])
 
-  useEffect(() => {
-    const getData = async () => {
-      const studentData = await getAllStudents()
-
-      const newData = formattedData(studentData)
-
-      setStudentsData(studentData)
-
-      setStudentsList(newData)
-
-    }
-    getData()
-  }, [])
-
+  const table = useReactTable({
+    data,
+    columns,
+    state: {
+      columnFilters,
+    },
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    meta: {
+      updateData: (rowIndex, coloumnId, value) =>
+        setData((prev) =>
+          prev.map((row, index) =>
+            index === rowIndex
+              ? {
+                  ...prev[rowIndex],
+                  [coloumnId]: value,
+                }
+              : row
+          )
+        ),
+    },
+  })
 
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
-      <main className="grid gap-4">
-        <div className="flex flex-col">
-          <div className="flex gap-5 items-center justify-end">
-            <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-              <img src={NotificationSvg} className="size-[20px]" alt="notification icon" />
-            </div>
-            <div className="flex gap-2 items-center">
-              <figure className="size-[50px] rounded-full">
-                <img src={AdminProfileImg} alt="" />
-              </figure>
-              <div className="text-[15px]">
-                <p className="font-bold">Nkechi Nduka</p>
-                <p>Admin</p>
-              </div>
-            </div>
-          </div>
-
-          <Button
-            link={"/admin/studentsList/addParents"}
-            content={<AddBtn text={"Add Students"} />}
-            className={
-              "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
-            }
-          />
-        </div>
-        <div className="flex justify-between">
-          <SearchBox width="w-[20rem] xl:w-[25rem]" placeholder="Search student by name or reg no" />
-          <div className="flex gap-3 items-center">
-            <p className="font-bold text-[#444444]">Filter by:</p>
-            <CustomSelect index={1} query={"Class"} width={"6.8rem"} options={[]} />
-            <CustomSelect index={2} query={"Gender"} width={"6.8rem"} options={[]} />
-            <CustomSelect index={3} query={"Sort by"} width={"6.8rem"} options={[]} />
-          </div>
-        </div>
-
-        <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Students List</h2>
-        {studentsList.length >= 3 ? (<MembersList data={studentsList} people={"Students"} />) : (
-
-          <MembersList data={data} people={"Students d/b"} />
-        )}
-      </main>
+    <section className="px-[10%] py-[5%] h-screen">
+      <Filters
+        columnFilters={columnFilters}
+        setColumnFilters={setColumnFilters}
+      />
+      <table className={`w-full bg-white border shadow-md border-gray-200`}>
+        <thead>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr
+              key={headerGroup.id}
+              className="w-full bg-gray-100  border-b border-gray-300"
+            >
+              {headerGroup.headers.map((header) => (
+                <th
+                  key={header.id}
+                  className="px-4 py-2 text-left text-sm text-[#1e1e1e] font-semibold"
+                >
+                  <p
+                    className="flex items-center gap-1 cursor-pointer"
+                    onClick={header.column.getToggleSortingHandler()}
+                  >
+                    {header.column.columnDef.header}
+                    {header.column.getCanSort() && (
+                      <span>
+                        <BiSort />
+                      </span>
+                    )}
+                    {
+                      {
+                        asc: (
+                          <span>
+                            <FaSortUp />
+                          </span>
+                        ),
+                        desc: (
+                          <span>
+                            <FaSortDown />
+                          </span>
+                        ),
+                      }[header.column.getIsSorted()]
+                    }
+                  </p>
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody>
+          {table.getRowModel().rows.map((row) => (
+            <tr
+              key={row.id}
+              className={`border-b border-gray-200 ${
+                row.index % 2 === 0 ? "bg-[#F4F4F4]" : "bg-[#ECECEC]"
+              }`}
+            >
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id} className="py-3 px-4 text-sm text-[#1e1e1e]">
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
   )
 }
-
-const AddBtn = ({ text }) => {
-  return (
-    <div className="flex gap-2 items-center">
-      <FaPlus />
-      <p className="font-bold">{text}</p>
-    </div>
-  )
-}
-
-AddBtn.propTypes = {
-  text: PropTypes.string,
-}
-
-const formattedData = (data) => {
-  return data.map(student => ({
-    "Reg No": student.id,
-    "Surname": student.surName,
-    "First Name": student.firstName,
-    "Other Name": student.otherName,
-    "Gender": student.gender,
-    "Class": `${student.class} ${" "} ${student.classTier}`,
-    "Reg Date": student.enrollmentDate.slice(0, 10),
-  }))
-}
-
-
