@@ -7,10 +7,11 @@ import {
 } from "../../../assets"
 import { SearchBox } from "../../../components"
 import design from "./style.module.css"
+import PropTypes from "prop-types"
 
 export const StudentProfile = () => {
   return (
-    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] pb-[9.563rem]">
+    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] ">
       <div className="flex justify-between">
         <div className="w-[70%]">
           <SearchBox />
@@ -38,9 +39,8 @@ export const StudentProfile = () => {
 
       {/* This is the div containing the main  */}
 
-      <div className="pt-[4.625rem]">
+      <main className="mt-[4.625rem] bg-[#fafafa]">
         {/* This is the div containing the profile picture and the picture frame */}
-
         <div>
           <figure className="pb-[1.313rem]  flex relative ">
             <img src={ProfileImage} alt="Profile-Picture-Frame" />
@@ -50,88 +50,68 @@ export const StudentProfile = () => {
               alt="Schoolchild-Image"
             />
           </figure>
+          <div className="flex justify-end">
+            <div className="flex justify-between w-[80%] pr-8">
+              <div>
+                <h4 className="text-[24px] font-normal ">Ene Maria</h4>
+                <p> Student </p>
+              </div>
 
-          <div className="flex justify-around ">
-            <div>
-              <h4 className="text-[24px] font-normal ">Ene Maria</h4>
-              <p> Student </p>
+              <figure>
+                <img src={Edit} alt="EditButton" />
+              </figure>
             </div>
-
-            <figure className="pl-16">
-              <img src={Edit} alt="EditButton" />
-            </figure>
           </div>
         </div>
 
-        <main className="flex text-[#1E1E1E] justify-evenly pt-[25px]">
-          <div className=" flex-col">
+        <main className="grid grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
+          <div className=" grid gap-7">
             <h3 className="text-2xl font-bold"> Student Info </h3>
-            <p className="flex">
-              Surname: <p className="text-lg font-bold"> Ene </p>
-            </p>
-            <p className="flex">
-              First Name: <p className="text-lg font-bold"> Maria </p>
-            </p>
-            <p className="flex">
-              Other Name: <p className="text-lg font-bold"> Chidimma </p>
-            </p>
-            <p className="flex">
-              Gender: <p className="text-lg font-bold"> Female</p>
-            </p>
-            <p className="flex">
-              Date Of Birth: <p className="text-lg font-bold"> 26 - 09 -2010</p>
-            </p>
-            <p className="flex">
-              Blood Group: <p className="text-lg font-bold"> O+ </p>
-            </p>
-            <p className="flex">
-              Term: <p className="text-lg font-bold"> First Term </p>
-            </p>
-            <p className="flex">
-              Class: <p className="text-lg font-bold"> SSS1A </p>
-            </p>
-            <p className="flex">
-              Previous School:
-              <p className="text-lg font-bold">
-                Spring Of Life International School
-              </p>
-            </p>
+            <StudentInfo title={"Surname"} content={"Ene"} />
+            <StudentInfo title={"First Name"} content={"Maria"} />
+            <StudentInfo title={"Other Name"} content={"Chidimma"} />
+            <StudentInfo title={"Gender"} content={"Female"} />
+            <StudentInfo title={"Date Of Birth"} content={"26-09-2010"} />
+            <StudentInfo title={"Blood Group"} content={"O+"} />
+            <StudentInfo title={"Term"} content={"First Term"} />
+            <StudentInfo title={"Class"} content={"SSS1A"} />
+            <StudentInfo
+              title={"Previous School"}
+              content={"Spring Of Life International School"}
+            />
           </div>
 
-          <div className="flex-col gap-y-[34px]">
+          <div className="grid gap-7 ">
             <h3 className="text-2xl font-bold"> Parent Info </h3>
-            <p className="flex">
-              Surname: <p className="text-lg font-bold">Ene</p>
-            </p>
-            <p className="flex">
-              First Name: <p className="text-lg font-bold"> Ikechukwu </p>
-            </p>
-            <p className="flex">
-              Other Name: <p className="text-lg font-bold"> Charles </p>
-            </p>
-            <p className="flex">
-              Email:{" "}
-              <p className="text-lg font-bold"> eneikechukwu@gmail.com </p>
-            </p>
-            <p className="flex">
-              Address:
-              <p className="text-lg font-bold"> No 12 Achi Street Enugu </p>
-            </p>
-            <p className="flex">
-              Phone Number : <p className="text-lg font-bold"> 09130590413 </p>
-            </p>
-            <p className="flex">
-              Relationship: <p className="text-lg font-bold"> Father </p>
-            </p>
-            <p className="flex">
-              State Of Origin : <p className="text-lg font-bold"> Enugu </p>
-            </p>
-            <p className="flex">
-              L.G Of Origin : <p className="text-lg font-bold"> Enugu North </p>
-            </p>
+            <StudentInfo title={"Surname"} content={"Ene"} />
+            <StudentInfo title={"First Name"} content={"Ikechukwu"} />
+            <StudentInfo title={"Other Name"} content={"Charles"} />
+            <StudentInfo title={"Email"} content={"eneikechukwu@gmail.com"} />
+            <StudentInfo
+              title={"Address"}
+              content={"No 12 Achi Street Enugu"}
+            />
+            <StudentInfo title={"Phone Number"} content={"09130590413"} />
+            <StudentInfo title={"Relationship"} content={"Father"} />
+            <StudentInfo title={"State Of Origin"} content={"Enugu"} />
+            <StudentInfo title={"L. G. Of Origin"} content={"Enugu North"} />
           </div>
         </main>
-      </div>
+      </main>
     </section>
   )
+}
+
+const StudentInfo = ({ title, content }) => {
+  return (
+    <div className="flex gap-4 text-[18px] text-[#1e1e1e]">
+      <p className="w-[142px]">{title}:</p>
+      <p className="w-[241px] font-bold">{content}</p>
+    </div>
+  )
+}
+
+StudentInfo.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
 }
