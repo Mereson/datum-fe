@@ -36,6 +36,7 @@ import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
 import Api2 from "./api/api2"
 import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
+import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
   {
@@ -63,9 +64,13 @@ const router = createBrowserRouter([
     path: "/forgotpassword3",
     element: <ForgotPassword3 />,
   },
+  // {
+  //   path: "/",
+  //   element: <LandingPage />,
+  // },
   {
     path: "/",
-    element: <LandingPage />,
+    element: <Dump />,
   },
   {
     path: "/students",

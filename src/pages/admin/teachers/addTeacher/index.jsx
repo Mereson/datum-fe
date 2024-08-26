@@ -1,8 +1,20 @@
-import Proptypes from "prop-types"
-import { Dropdown } from "../../../../components"
-import { Button } from "../../../../components/button"
+import { CustomInput, FormButton, FormDropdown } from "../../../../components"
+import { Form, Formik } from "formik"
+import { useCreateTeacherForm } from "../../../../states/createTeacherStore"
+import { teacherDetailsSchema } from "../../../../api/validationSchema"
+import { createTeacher } from "../../../../api"
 
 export const AddTeacher = () => {
+  const { teacher, setTeacher } = useCreateTeacherForm()
+
+  const onSubmit = async (values) => {
+    setTeacher(values)
+    console.log(values)
+
+    const data = await createTeacher(values)
+    console.log(data)
+  }
+
   return (
     <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
       <div>
@@ -19,133 +31,187 @@ export const AddTeacher = () => {
 
         <div className="pt-[55px] grid place-items-center">
           <h1 className="text-[#696969] font-bold text-3xl">
-            {`Student's`} Details
+            {`Teacher's`} Details
           </h1>
         </div>
 
-        {/* Div for the Personal information */}
-        <form>
-          <div className="pt- text-[#696969] ">
-            <h4 className="font-extrabold text-xl text-[#696969]">
-              Personal Information
-            </h4>
+        <Formik
+          initialValues={teacher}
+          validationSchema={teacherDetailsSchema}
+          onSubmit={onSubmit}
+        >
+          {() => (
+            <Form className="pt-10 grid gap-x-12 gap-y-6">
+              <div className="w-[10%]">
+                <CustomInput
+                  label={"Teachers Photo"}
+                  name="File"
+                  type="file"
+                  required={true}
+                />
+              </div>
 
-            <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-              <FormInput title={"Surname"} />
-              <FormInput title="First Name" />
-              <FormInput title="Other Name" />
-              <FormInput title="Date of Birth" />
+              <div className="pt- text-[#696969] ">
+                <h4 className="font-extrabold text-xl text-[#696969]">
+                  Personal Information
+                </h4>
+                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                  <CustomInput
+                    label={"Surname"}
+                    name="surName"
+                    type="text"
+                    required={true}
+                  />
+                  <CustomInput
+                    label={"First Name"}
+                    name="firstName"
+                    type="text"
+                    required={true}
+                  />
+                  <CustomInput
+                    label={"Other Name"}
+                    name={`otherName`}
+                    type="text"
+                    optionalMessage="Optional"
+                  />
+                  <CustomInput
+                    label={"Date of Birth"}
+                    name={`dateOfBirth`}
+                    type="text"
+                    required={true}
+                  />
+                  <FormDropdown
+                    label={"Blood Group"}
+                    name={`bloodGroup`}
+                    options={["O+", "O-", "B+", "A+", "A-"]}
+                    required={true}
+                  />
+                  <FormDropdown
+                    label={"Gender"}
+                    name={`gender`}
+                    options={["Male", "Female"]}
+                    required={true}
+                  />
+                </div>
+              </div>
 
-              <Dropdown
-                id={1}
-                name={"Gender"}
-                query={"Select Gender"}
-                items={["Male", "Female"]}
+              {/* This is the div for Educational Background */}
+              <div className="pt-10 text-[#696969] ">
+                <h4 className="font-extrabold text-xl text-[#696969]">
+                  Education Background
+                </h4>
+                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                  <FormDropdown
+                    label={"Qualification"}
+                    name={`qualification`}
+                    options={[
+                      "SSCE/NECO",
+                      "HND/Bachelor's Degree",
+                      "Master's Degree",
+                      "PHD",
+                    ]}
+                    required={true}
+                  />
+                  <FormDropdown
+                    label={"Grade Level"}
+                    name={`gradeLevel`}
+                    options={[
+                      "04",
+                      "05",
+                      "06",
+                      "07",
+                      "08",
+                      "09",
+                      "10",
+                      "12",
+                      "13",
+                      "14",
+                      "15",
+                      "16",
+                    ]}
+                    required={true}
+                  />
+
+                  <FormDropdown
+                    label={"Step"}
+                    name={`step`}
+                    options={["01", "02", "03", "04", "05", "06"]}
+                    required={true}
+                  />
+                </div>
+              </div>
+
+              <div className="pt-10 text-[#696969] ">
+                <h4 className="font-extrabold text-xl text-[#696969]">
+                  Teaching details
+                </h4>
+
+                <div className="pt-4 w-[50%] gap-x-12 gap-y-6">
+                  <CustomInput
+                    label={"Subject"}
+                    name={`employmentRole`}
+                    type="text"
+                    required={true}
+                  />
+                </div>
+              </div>
+
+              {/* div for the contact information*/}
+              <div className="pt-10 text-[#696969] ">
+                <h4 className="font-extrabold text-xl text-[#696969]">
+                  Contact Information
+                </h4>
+                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                  <CustomInput
+                    label={"Phone Number"}
+                    name={`phoneNumber`}
+                    type="text"
+                    required={true}
+                  />
+                  <CustomInput
+                    label={"Email"}
+                    name={`email`}
+                    type="text"
+                    required={true}
+                  />
+                  <CustomInput
+                    label={"Nationality"}
+                    name={`nationality`}
+                    type="text"
+                    required={true}
+                  />
+                  <CustomInput
+                    label={"State Of Origin"}
+                    name={`stateOfOrigin`}
+                    type="text"
+                    required={true}
+                  />
+                  <CustomInput
+                    label={"Local Government Of Origin"}
+                    name={`localGovernment`}
+                    type="text"
+                    required={true}
+                  />
+                  <CustomInput
+                    label={"Address"}
+                    name={`address`}
+                    type="text"
+                    required={true}
+                  />
+                </div>
+              </div>
+
+              <FormButton
+                type="submit"
+                content="Next"
+                className={
+                  "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+                }
               />
-
-              <Dropdown
-                id={2}
-                name={"Blood Group"}
-                query={"Select Blood Group"}
-                items={["O+", "O-", "B+", "A+", "A-"]}
-              />
-            </div>
-          </div>
-
-          {/* This is the div for Educational Background */}
-          <div className="pt-10 text-[#696969] ">
-            <h4 className="font-extrabold text-xl text-[#696969]">
-              Education Background
-            </h4>
-            <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-              <Dropdown
-                id={3}
-                name={"Qualification"}
-                query={"Select Qualification"}
-                items={[
-                  "SSCE/NECO",
-                  "HND/Bachelor's Degree",
-                  "Master's Degree",
-                  "PHD",
-                ]}
-              />
-
-              <Dropdown
-                id={4}
-                name={"Grade Level"}
-                query={"Select Grade Level"}
-                items={[
-                  "04",
-                  "05",
-                  "06",
-                  "07",
-                  "08",
-                  "09",
-                  "10",
-                  "12",
-                  "13",
-                  "14",
-                  "15",
-                  "16",
-                ]}
-              />
-
-              <Dropdown
-                id={5}
-                name={"Step"}
-                query={"Select Step"}
-                items={["01", "02", "03", "04", "05", "06"]}
-              />
-
-              <FormInput title="Employment Date" />
-            </div>
-          </div>
-
-          {/* div for the contact information*/}
-          <div className="pt-10 text-[#696969] ">
-            <h4 className="font-extrabold text-xl text-[#696969]">
-              Contact Information
-            </h4>
-            <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
-              <FormInput title="Phone Number" />
-              <FormInput title="Email" />
-              <FormInput title="Nationality" />
-              <FormInput title="State of Origin" />
-              <FormInput title="Local Government of Origin" />
-              <FormInput title="Address" />
-            </div>
-          </div>
-
-          <Button
-            link={"/students/checkResults/resultAnalysis"}
-            content="Submit"
-            className={
-              "bg-[#132985] w-[15%] py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-            }
-          />
-        </form>
+            </Form>
+          )}
+        </Formik>
       </div>
     </section>
   )
-}
-
-const FormInput = ({ title = "Name" }) => {
-  return (
-    <div className="grid">
-      <label className="text-[#444] pb-1" htmlFor="First Name">
-        {title}
-      </label>
-      <input
-        className="h-11 rounded-lg border-[0.5px] border-[#a7a7a7] px-1 bg-[#f4f4f4]"
-        type="text"
-        id="name"
-        name="name"
-        required
-      />
-    </div>
-  )
-}
-
-FormInput.propTypes = {
-  title: Proptypes.string,
 }
