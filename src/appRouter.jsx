@@ -31,6 +31,7 @@ import {
   AdminCreateActivity,
   StudentProfile,
   PersonalInfo,
+  Remark,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -207,6 +208,10 @@ const router = createBrowserRouter([
       {
         path: "timetable",
         element: <ErrorPage />,
+      },
+      {
+        path: "remark",
+        element: <Remark />,
       },
       {
         path: "schemeOfWork",
