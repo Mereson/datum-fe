@@ -1,11 +1,16 @@
 import { create } from "zustand";
 
 export const useStudentsList = create((set) => ({
-  studentsList: { data: [] },
-  setStudentsList: (studentsData) =>
+  studentsData: { data: [] },
+  setStudentsData: (studentData) =>
     set(() => ({
-      studentsList: {
-        data: studentsData,  
+      studentsData: {
+        data: studentData,
       },
+    })),
+  studentsList: [],
+  setStudentsList: (studentList) =>
+    set(() => ({
+      studentsList: studentList,
     })),
 }));
