@@ -1,4 +1,4 @@
-import { NotificationSvg, SchoolChild } from "../../../assets"
+import { NotificationSvg, SchoolChild, SchoolGirl } from "../../../assets"
 import { SearchBox } from "../../../components"
 
 export const PersonalInfo = () => {
@@ -26,6 +26,19 @@ export const PersonalInfo = () => {
               <p>Student</p>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="">
+        <figure className="pb-[1.313rem]  flex relative ">
+          <img
+            className="rounded-full absolute w-40 h-40 top-[42px] left-[44px]"
+            src={SchoolGirl}
+            alt="Schoolchild-Image"
+          />
+        </figure>
+        <div>
+          <p>Ene Maria</p>
+          <p>SSS1A</p>
         </div>
       </div>
     </section>

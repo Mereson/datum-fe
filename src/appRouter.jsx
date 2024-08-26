@@ -30,6 +30,7 @@ import {
   AdminAddSubjects,
   AdminCreateActivity,
   StudentProfile,
+  PersonalInfo,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: "viewResults",
         element: <ViewResults />,
+      },
+      {
+        path: "personalInfo",
+        element: <PersonalInfo />,
       },
       {
         path: "notification",
