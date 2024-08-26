@@ -173,6 +173,7 @@ export const AddTeacher = () => {
                     name={`email`}
                     type="text"
                     required={true}
+                    capitalize={false}
                   />
                   <CustomInput
                     label={"Nationality"}

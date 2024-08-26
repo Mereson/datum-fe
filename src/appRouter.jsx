@@ -64,14 +64,14 @@ const router = createBrowserRouter([
     path: "/forgotpassword3",
     element: <ForgotPassword3 />,
   },
-  // {
-  //   path: "/",
-  //   element: <LandingPage />,
-  // },
   {
     path: "/",
-    element: <Dump />,
+    element: <LandingPage />,
   },
+  // {
+  //   path: "/",
+  //   element: <Dump />,
+  // },
   {
     path: "/students",
     element: <StudentLayout />,
