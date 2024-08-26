@@ -1,8 +1,6 @@
 import {
   AddBtn,
-  CustomSelect,
-  MembersList,
-  SearchBox,
+  TableModel,
 } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { data } from "../../../../testData"
@@ -40,37 +38,58 @@ export const TeachersList = () => {
             }
           />
         </div>
-        <div className="flex justify-between">
-          <SearchBox width="w-[20rem] xl:w-[25rem]" placeholder="Search teachers" />
-          <div className="flex gap-3 items-center">
-            <p className="font-bold text-[#444444]">Filter by:</p>
-            <CustomSelect
-              index={1}
-              query={"Class"}
-              width={"6.8rem"}
-              options={[]}
-            />
-            <CustomSelect
-              index={2}
-              query={"Gender"}
-              width={"6.8rem"}
-              options={[]}
-            />
-            <CustomSelect
-              index={3}
-              query={"Sort by"}
-              width={"6.8rem"}
-              options={[]}
-            />
-          </div>
-        </div>
 
-        <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">
-          Teachers List
-        </h2>
-
-        <MembersList data={data} people={"Teachers"} />
+        <section>
+          <TableModel
+            myData={data}
+            columns={columns}
+            people={"Teachers"}
+            searchValue={"First Name"}
+          >
+            <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
+              Teachers List
+            </h2>
+          </TableModel>
+        </section>
       </main>
     </section>
   )
 }
+
+const columns = [
+  {
+    accessorKey: "regNo",
+    header: "Reg No",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "surname",
+    header: "Surname",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "firstName",
+    header: "First Name",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "otherName",
+    header: "Other Name",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "gender",
+    header: "Gender",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "class",
+    header: "Class",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "regDate",
+    header: "Reg Date",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+]

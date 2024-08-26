@@ -17,7 +17,7 @@ export const TableModel = ({
   people,
   children,
   searchValue,
-  searchFields
+  rowOnClick
 }) => {
   const [data, setData] = useState(myData)
   const [columnFilters, setColumnFilters] = useState([])
@@ -58,19 +58,18 @@ export const TableModel = ({
 
   const totalRows = table.getRowCount()
   return (
-    <section className="">
+    <section className="grid gap-4">
       <FilteredSearch
         columnFilters={columnFilters}
         setColumnFilters={setColumnFilters}
-        // searchValue={searchValue}
-        searchFields={searchFields}
+        searchValue={searchValue}
       />
       {children}
       <p className="text-sm text-[#6270AE] mt-4 pb-4">
         Showing {table.getState().pagination.pageIndex + 1} -{" "}
         {table.getPageCount()} of {totalRows} {people}
       </p>
-      <CustomTable table={table} />
+      <CustomTable table={table} rowOnClick={rowOnClick} />
       {totalRows > 12 && (
         <div className="mt-8">
           <ListPagination
@@ -87,5 +86,7 @@ TableModel.propTypes = {
   myData: PropTypes.object,
   columns: PropTypes.array,
   people: PropTypes.string,
+  searchValue: PropTypes.string,
   children: PropTypes.any,
+  rowOnClick: PropTypes.func,
 }

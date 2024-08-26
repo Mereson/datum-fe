@@ -3,14 +3,14 @@ import { flexRender } from "@tanstack/react-table"
 import { BiSort } from "react-icons/bi"
 import { FaSortDown, FaSortUp } from "react-icons/fa6"
 
-export const CustomTable = ({ table }) => {
+export const CustomTable = ({ table, rowOnClick }) => {
   return (
     <table className={`w-full bg-white border shadow-md border-gray-200`}>
       <thead>
         {table.getHeaderGroups().map((headerGroup) => (
           <tr
             key={headerGroup.id}
-            className="w-full bg-gray-100  border-b border-gray-300"
+            className="w-full bg-[#ECECEC] border-b border-gray-300"
           >
             {headerGroup.headers.map((header) => (
               <th
@@ -51,9 +51,10 @@ export const CustomTable = ({ table }) => {
         {table.getRowModel().rows.map((row) => (
           <tr
             key={row.id}
-            className={`border-b border-gray-200 ${
+            className={`border-b cursor-pointer border-gray-200 ${
               row.index % 2 === 0 ? "bg-[#F4F4F4]" : "bg-[#ECECEC]"
             }`}
+            onClick={() => rowOnClick(row.original)}
           >
             {row.getVisibleCells().map((cell) => (
               <td key={cell.id} className="py-3 px-4 text-sm text-[#1e1e1e]">
@@ -69,4 +70,5 @@ export const CustomTable = ({ table }) => {
 
 CustomTable.propTypes = {
   table: PropTypes.object,
+  rowOnClick: PropTypes.func,
 }

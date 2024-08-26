@@ -1,16 +1,11 @@
 import PropTypes from "prop-types"
-import {
-  CustomSelect,
-  MembersList,
-  SearchBox,
-  TableModel,
-} from "../../../../components"
+import { TableModel } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { data } from "../../../../testData"
 import { FaPlus } from "react-icons/fa6"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
 import { useEffect } from "react"
-import { getAllStudents } from "../../../../api"
+import { getAllStudents, getStudentById } from "../../../../api"
 import { useStudentsList } from "../../../../states/students"
 
 export const StudentsList = () => {
@@ -30,6 +25,11 @@ export const StudentsList = () => {
     getData()
   }, [])
 
+  const rowOnClick = async (row) => {
+    const studentId = row["Reg No"]
+    // const data = await getStudentById(studentId)
+    // console.log(data)
+  }
 
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
@@ -63,54 +63,31 @@ export const StudentsList = () => {
           />
         </div>
         {studentsList.length >= 3 ? (
-          <section className="grid gap-4">
+          <section>
             <TableModel
               myData={studentsList}
               columns={columns}
               people={"Students"}
-              // searchValue={"Class"}
-              searchFields={["Surname", "First Name", "Class"]}
+              searchValue={"First Name"}
+              rowOnClick={rowOnClick}
             >
-              <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">
+              <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
                 Students List
               </h2>
             </TableModel>
-            {/* <MembersList data={studentsList} people={"Students"} /> */}
           </section>
         ) : (
-          <section className="grid gap-4">
-            <div className="flex justify-between">
-              <SearchBox
-                width="w-[20rem] xl:w-[25rem]"
-                placeholder="Search student by name or reg no"
-              />
-              <div className="flex gap-3 items-center">
-                <p className="font-bold text-[#444444]">Filter by:</p>
-                <CustomSelect
-                  index={1}
-                  query={"Class"}
-                  width={"6.8rem"}
-                  options={[]}
-                />
-                <CustomSelect
-                  index={2}
-                  query={"Gender"}
-                  width={"6.8rem"}
-                  options={[]}
-                />
-                <CustomSelect
-                  index={3}
-                  query={"Sort by"}
-                  width={"6.8rem"}
-                  options={[]}
-                />
-              </div>
-            </div>
-
-            <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">
-              Students List
-            </h2>
-            <MembersList data={data} people={"Students d/b"} />
+          <section>
+            <TableModel
+              myData={data}
+              columns={columns}
+              people={"Students"}
+              searchValue={"First Name"}
+            >
+              <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
+                Students List
+              </h2>
+            </TableModel>
           </section>
         )}
       </main>
@@ -134,11 +111,11 @@ AddBtn.propTypes = {
 const formattedData = (data) => {
   return data.map((student) => ({
     "Reg No": student.id,
-    "Surname": student.surName,
+    Surname: student.surName,
     "First Name": student.firstName,
     "Other Name": student.otherName,
-    "Gender": student.gender,
-    "Class": `${student.class} ${" "} ${student.classTier}`,
+    Gender: student.gender,
+    Class: `${student.class} ${" "} ${student.classTier}`,
     "Reg Date": student.enrollmentDate.slice(0, 10),
   }))
 }

@@ -82,10 +82,10 @@ export const getAllStudents = async () => {
 
 export const getStudentById = async (id) => {
   try {
-    const { data } = await axios.get(`${baseUrl}/getStudentById/${id}`)
-    console.log(data)
+    const { data } = await axios.get(`${baseUrl}/student/getStudentById/${id}`)
+    // console.log(data)
 
-    setStudentData(data) // Assuming setStudentData is implemented
+    // setStudentData(data) 
     return data
   } catch (error) {
     catchErrors(error)

@@ -5,27 +5,12 @@ export const FilteredSearch = ({
   columnFilters,
   setColumnFilters,
   searchValue,
-  seaFileds
 }) => {
-  // const filterName = columnFilters.find((f) => f.id == searchValue)?.value || ""
-  // const onFilterChange = (id, value) =>
-  //   setColumnFilters((prev) =>
-  //     prev.filter((f) => f.id !== id).concat({ id, value })
-  //   )
-
-  const filterName = searchFields
-    .map((field) => columnFilters.find((f) => f.id === field)?.value || "")
-    .join(" ")
-
-  const onFilterChange = (value) => {
-    setColumnFilters((prev) => {
-      const updatedFilters = prev.filter((f) => !searchFields.includes(f.id))
-      return [
-        ...updatedFilters,
-        ...searchFields.map((field) => ({ id: field, value })),
-      ]
-    })
-  }
+  const filterName = columnFilters.find((f) => f.id == searchValue)?.value || ""
+  const onFilterChange = (id, value) =>
+    setColumnFilters((prev) =>
+      prev.filter((f) => f.id !== id).concat({ id, value })
+    )
   return (
     <div>
       <div

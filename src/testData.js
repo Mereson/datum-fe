@@ -1210,18 +1210,6 @@ export const resultsData = [
   },
 ]
 
-// const STATUS_PAID = {
-//   id: 1,
-//   name: "Paid",
-//   color: "text-[#3AC922]",
-// }
-
-// const STATUS_UNPAID = {
-//   id: 1,
-//   name: "Unpaid",
-//   color: "text-[#F93232]",
-// }
-
 export const paymentsData = [
   {
     "S/N": "001",
@@ -1357,78 +1345,6 @@ export const paymentsData = [
     Gender: "Female",
     Class: "SSS1 A",
     Status: "Unpaid",
-  },
-  {
-    "S/N": "016",
-    Surname: "Udeh",
-    FirstName: "Desire",
-    OtherName: "Chiamaka",
-    Gender: "Female",
-    Class: "SSS1 A",
-    Status: "Unpaid",
-  },
-  {
-    "S/N": "017",
-    Surname: "Udeh",
-    FirstName: "Desire",
-    OtherName: "Chiamaka",
-    Gender: "Female",
-    Class: "SSS1 A",
-    Status: "Unpaid",
-  },
-  {
-    "S/N": "018",
-    Surname: "Udeh",
-    FirstName: "Desire",
-    OtherName: "Chiamaka",
-    Gender: "Female",
-    Class: "SSS1 A",
-    Status: "Unpaid",
-  },
-  {
-    "S/N": "019",
-    Surname: "Udeh",
-    FirstName: "Desire",
-    OtherName: "Chiamaka",
-    Gender: "Female",
-    Class: "SSS1 A",
-    Status: "Unpaid",
-  },
-  {
-    "S/N": "020",
-    Surname: "Udeh",
-    FirstName: "Desire",
-    OtherName: "Chiamaka",
-    Gender: "Female",
-    Class: "SSS1 A",
-    Status: "Unpaid",
-  },
-  {
-    "S/N": "021",
-    Surname: "Udeh",
-    FirstName: "Desire",
-    OtherName: "Chiamaka",
-    Gender: "Female",
-    Class: "SSS1 A",
-    Status: "Paid",
-  },
-  {
-    "S/N": "022",
-    Surname: "Udeh",
-    FirstName: "Desire",
-    OtherName: "Chiamaka",
-    Gender: "Female",
-    Class: "SSS1 A",
-    Status: "Paid",
-  },
-  {
-    "S/N": "023",
-    Surname: "Udeh",
-    FirstName: "Desire",
-    OtherName: "Chiamaka",
-    Gender: "Female",
-    Class: "SSS1 A",
-    Status: "Paid",
   },
 ]
 
