@@ -64,7 +64,7 @@ export const StudentProfile = () => {
         </div>
 
         <main className="flex text-[#1E1E1E] justify-evenly pt-[25px]">
-          <div className=" flex-col ">
+          <div className=" flex-col">
             <h3 className="text-2xl font-bold"> Student Info </h3>
             <p className="flex">
               Surname: <p className="text-lg font-bold"> Ene </p>
