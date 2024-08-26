@@ -1,0 +1,91 @@
+import {
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table"
+import PropTypes from "prop-types"
+import { useState } from "react"
+import { FilteredSearch } from "../filteredSearch"
+import { CustomTable } from "../customTable"
+import { ListPagination } from "../../admin"
+
+export const TableModel = ({
+  myData,
+  columns,
+  people,
+  children,
+  searchValue,
+  searchFields
+}) => {
+  const [data, setData] = useState(myData)
+  const [columnFilters, setColumnFilters] = useState([])
+
+  const table = useReactTable({
+    data,
+    columns,
+    state: {
+      columnFilters,
+    },
+    initialState: {
+      pagination: {
+        pageSize: 12,
+      },
+    },
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    meta: {
+      updateData: (rowIndex, coloumnId, value) =>
+        setData((prev) =>
+          prev.map((row, index) =>
+            index === rowIndex
+              ? {
+                  ...prev[rowIndex],
+                  [coloumnId]: value,
+                }
+              : row
+          )
+        ),
+    },
+  })
+
+  const handlePageChange = (selectedPage) => {
+    table.setPageIndex(selectedPage)
+  }
+
+  const totalRows = table.getRowCount()
+  return (
+    <section className="">
+      <FilteredSearch
+        columnFilters={columnFilters}
+        setColumnFilters={setColumnFilters}
+        // searchValue={searchValue}
+        searchFields={searchFields}
+      />
+      {children}
+      <p className="text-sm text-[#6270AE] mt-4 pb-4">
+        Showing {table.getState().pagination.pageIndex + 1} -{" "}
+        {table.getPageCount()} of {totalRows} {people}
+      </p>
+      <CustomTable table={table} />
+      {totalRows > 12 && (
+        <div className="mt-8">
+          <ListPagination
+            totalPages={table.getPageCount()}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      )}
+    </section>
+  )
+}
+
+TableModel.propTypes = {
+  myData: PropTypes.object,
+  columns: PropTypes.array,
+  people: PropTypes.string,
+  children: PropTypes.any,
+}
