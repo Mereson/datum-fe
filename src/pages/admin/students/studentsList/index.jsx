@@ -77,18 +77,7 @@ export const StudentsList = () => {
             </TableModel>
           </section>
         ) : (
-          <section>
-            <TableModel
-              myData={data}
-              columns={columns}
-              people={"Students"}
-              searchValue={"First Name"}
-            >
-              <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
-                Students List
-              </h2>
-            </TableModel>
-          </section>
+          <LocalData />
         )}
       </main>
     </section>
@@ -153,6 +142,61 @@ const columns = [
   },
   {
     accessorKey: "Reg Date",
+    header: "Reg Date",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+]
+
+const LocalData = () => {
+  return (
+    <section>
+      <TableModel
+        myData={data}
+        columns={localColumns}
+        people={"Students"}
+        searchValue={"First Name"}
+      >
+        <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
+          Students List
+        </h2>
+      </TableModel>
+    </section>
+  )
+}
+
+const localColumns = [
+  {
+    accessorKey: "regNo",
+    header: "Reg No",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "surname",
+    header: "Surname",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "firstName",
+    header: "First Name",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "otherName",
+    header: "Other Name",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "gender",
+    header: "Gender",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "class",
+    header: "Class",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "regDate",
     header: "Reg Date",
     cell: (props) => <p>{props.getValue()}</p>,
   },
