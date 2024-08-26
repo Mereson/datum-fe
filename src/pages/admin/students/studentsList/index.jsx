@@ -9,7 +9,8 @@ import { getAllStudents, getStudentById } from "../../../../api"
 import { useStudentsList } from "../../../../states/students"
 
 export const StudentsList = () => {
-  const { studentsList, setStudentsList, setStudentsData } = useStudentsList()
+  const { studentsList, setStudentsList, setStudentsData, setStudentsIdData } =
+    useStudentsList()
 
   useEffect(() => {
     const getData = async () => {
@@ -27,7 +28,8 @@ export const StudentsList = () => {
 
   const rowOnClick = async (row) => {
     const studentId = row["Reg No"]
-    // const data = await getStudentById(studentId)
+    const data = await getStudentById(studentId)
+    setStudentsIdData(data)
     // console.log(data)
   }
 
@@ -68,10 +70,10 @@ export const StudentsList = () => {
               myData={studentsList}
               columns={columns}
               people={"Students"}
-              searchValue={"First Name"}
+              searchValue={"Surname"}
               rowOnClick={rowOnClick}
             >
-              <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
+              <h2 className="text-2xl font-bold text-[#1e1e1e]">
                 Students List
               </h2>
             </TableModel>

@@ -1,7 +1,10 @@
+import PropTypes from "prop-types"
+import { BiEditAlt } from "react-icons/bi"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
-import { MembersList } from "../../../../components"
+import { TableModel } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { eventsData } from "../../../../testData"
+import { GoTrash } from "react-icons/go"
 
 export const AdminEventsList = () => {
   return (
@@ -10,7 +13,11 @@ export const AdminEventsList = () => {
         <div className="flex flex-col">
           <div className="flex gap-5 items-center justify-end">
             <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-              <img src={NotificationSvg} className="size-[20px]" alt="notification icon" />
+              <img
+                src={NotificationSvg}
+                className="size-[20px]"
+                alt="notification icon"
+              />
             </div>
             <div className="flex gap-2 items-center">
               <figure className="size-[50px] rounded-full">
@@ -32,12 +39,67 @@ export const AdminEventsList = () => {
           />
         </div>
 
-        <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Academic Calender</h2>
+        <h2 className="text-2xl mt-4 pb-6 text-[#444444]">Academic Calender</h2>
 
         <div className="w-full">
-          <MembersList data={eventsData} people={"Subjects"} title={false} />
+          <TableModel
+            myData={eventsData}
+            columns={columns}
+            people={"Students"}
+            searchValue={"Activity"}
+            justTable={true}
+            // rowOnClick={rowOnClick}
+          />
         </div>
       </main>
     </section>
   )
 }
+
+const Description = ({ getValue }) => {
+  const value = getValue()
+
+  return (
+    <div className="flex justify-between">
+      <p> {value}</p>
+      <div className="flex gap-2">
+        <BiEditAlt />
+        <GoTrash />
+      </div>
+    </div>
+  )
+}
+
+Description.propTypes = {
+  getValue: PropTypes.func,
+}
+
+const columns = [
+  {
+    accessorKey: "S/N",
+    header: "S/N",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "Activity",
+    header: "Activity",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "Start Date",
+    header: "Start Date",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "End Date",
+    header: "End Date",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "Description",
+    header: "Description",
+    cell: Description,
+    enableSorting: false,
+  },
+]
