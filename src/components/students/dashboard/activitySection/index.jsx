@@ -34,7 +34,7 @@ export const ActivitySection = ({ name, img, path }) => {
           </div>
         </div>
         <Activites />
-        <div className="h-[318px] bg-[#ffffff] mt-5 border border-[#ededed] rounded-2xl">
+        <div className="mh-[318px] bg-[#ffffff] mt-5 border border-[#ededed] rounded-2xl pb-4">
           <CustomCalendar />
         </div>
       </div>
