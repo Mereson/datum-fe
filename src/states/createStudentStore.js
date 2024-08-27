@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from "zustand"
 
 export const useCreateStudentForm = create((set) => ({
   parentsFormData: {
@@ -49,10 +49,7 @@ export const useCreateStudentForm = create((set) => ({
         firstName: "",
         otherName: "",
         email: "",
-        phoneNumber: "", setStudentsFormData: (students) =>
-          set(() => ({
-            studentsFormData: students,
-          })),
+        phoneNumber: "",
         relationship: "",
       },
       studentsFormData: [
@@ -74,4 +71,4 @@ export const useCreateStudentForm = create((set) => ({
         },
       ],
     }),
-}));
+}))
