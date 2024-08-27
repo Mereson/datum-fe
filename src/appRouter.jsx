@@ -32,6 +32,7 @@ import {
   StudentProfile,
   PersonalInfo,
   Remark,
+  StudentTable,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -200,6 +201,10 @@ const router = createBrowserRouter([
       {
         path: "students",
         element: <UploadResult1 />,
+      },
+      {
+        path: "studentTable",
+        element: <StudentTable />,
       },
       {
         path: "attendance",

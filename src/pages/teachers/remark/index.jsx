@@ -2,7 +2,7 @@ import { FormButton } from "../../../components"
 
 export const Remark = () => {
   return (
-    <section className="flex justify-center border-2 w-full">
+    <section className="flex justify-center border-2 w-full pt-20">
       <form className="flex flex-col " action="/submit-remark" method="post">
         <label
           className="text-[#4f4f4f] text-[32px] font-semibold mb-[24px]"
