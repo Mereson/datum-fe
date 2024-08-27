@@ -16,6 +16,7 @@ import {
   StudentsList,
   AddParents,
   TeachersDashboard,
+  TeachersStudents,
   AddTeacher,
   TeachersList,
   AdminAcad,
@@ -188,7 +189,7 @@ const router = createBrowserRouter([
       },
       {
         path: "students",
-        element: <UploadResult1 />,
+        element: <TeachersStudents />,
       },
       {
         path: "attendance",

@@ -20,11 +20,8 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
-<<<<<<< HEAD
     "react-minimal-pie-chart": "^8.4.0",
-=======
     "react-paginate": "^8.2.0",
->>>>>>> develop
     "react-router-dom": "^6.26.0",
     "recharts": "^2.12.7",
     "zustand": "^4.5.4"
