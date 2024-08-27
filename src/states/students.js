@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from "zustand"
 
 export const useStudentsList = create((set) => ({
   studentsData: { data: [] },
@@ -13,4 +13,9 @@ export const useStudentsList = create((set) => ({
     set(() => ({
       studentsList: studentList,
     })),
-}));
+  studentsIdData: { data: [] },
+  setStudentsIdData: (studentIdData) =>
+    set(() => ({
+      studentsIdData: studentIdData,
+    })),
+}))

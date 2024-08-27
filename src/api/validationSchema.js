@@ -60,3 +60,10 @@ export const teacherDetailsSchema = Yup.object().shape({
   step: Yup.string().required("Step is required"),
   File: Yup.string().required("File is required"),
 })
+
+export const activitiesSchema = Yup.object().shape({
+  activity: Yup.string().required("Activity is required"),
+  description: Yup.string().required("Description is required"),
+  startDate: Yup.string().required("Start Date is required"),
+  endDate: Yup.string().required("End Date is required"),
+})
