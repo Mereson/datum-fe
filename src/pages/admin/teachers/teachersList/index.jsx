@@ -46,7 +46,7 @@ export const TeachersList = () => {
             people={"Teachers"}
             searchValue={"First Name"}
           >
-            <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
+            <h2 className="text-2xl font-bold text-[#1e1e1e]">
               Teachers List
             </h2>
           </TableModel>

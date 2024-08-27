@@ -2,6 +2,8 @@ import { NotificationSvg, SchoolChild, SchoolGirl } from "../../../assets"
 import { SearchBox } from "../../../components"
 
 export const PersonalInfo = () => {
+  
+
   return (
     <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] pb-[9.563rem]">
       <div className="flex justify-between">

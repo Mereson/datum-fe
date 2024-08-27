@@ -17,7 +17,8 @@ export const TableModel = ({
   people,
   children,
   searchValue,
-  rowOnClick
+  rowOnClick,
+  justTable = false,
 }) => {
   const [data, setData] = useState(myData)
   const [columnFilters, setColumnFilters] = useState([])
@@ -58,27 +59,35 @@ export const TableModel = ({
 
   const totalRows = table.getRowCount()
   return (
-    <section className="grid gap-4">
-      <FilteredSearch
-        columnFilters={columnFilters}
-        setColumnFilters={setColumnFilters}
-        searchValue={searchValue}
-      />
-      {children}
-      <p className="text-sm text-[#6270AE] mt-4 pb-4">
-        Showing {table.getState().pagination.pageIndex + 1} -{" "}
-        {table.getPageCount()} of {totalRows} {people}
-      </p>
-      <CustomTable table={table} rowOnClick={rowOnClick} />
-      {totalRows > 12 && (
-        <div className="mt-8">
-          <ListPagination
-            totalPages={table.getPageCount()}
-            onPageChange={handlePageChange}
+    <>
+      {!justTable ? (
+        <section className="grid gap-4">
+          <FilteredSearch
+            columnFilters={columnFilters}
+            setColumnFilters={setColumnFilters}
+            searchValue={searchValue}
           />
-        </div>
+          {children}
+          <p className="text-sm text-[#6270AE] pb-4">
+            Showing {table.getState().pagination.pageIndex + 1} -{" "}
+            {table.getPageCount()} of {totalRows} {people}
+          </p>
+          <CustomTable table={table} rowOnClick={rowOnClick} />
+          {totalRows > 12 && (
+            <div className="mt-8">
+              <ListPagination
+                totalPages={table.getPageCount()}
+                onPageChange={handlePageChange}
+              />
+            </div>
+          )}
+        </section>
+      ) : (
+        <section className="grid gap-4">
+          <CustomTable table={table} rowOnClick={rowOnClick} />
+        </section>
       )}
-    </section>
+    </>
   )
 }
 
@@ -89,4 +98,5 @@ TableModel.propTypes = {
   searchValue: PropTypes.string,
   children: PropTypes.any,
   rowOnClick: PropTypes.func,
+  justTable: PropTypes.bool,
 }

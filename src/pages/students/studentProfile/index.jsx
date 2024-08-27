@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import {
   Edit,
   NotificationSvg,
@@ -8,8 +9,15 @@ import {
 import { SearchBox } from "../../../components"
 import design from "./style.module.css"
 import PropTypes from "prop-types"
+import { useStudentsList } from "../../../states/students"
 
 export const StudentProfile = () => {
+  const { studentsIdData } = useStudentsList()
+
+  useEffect(() => {
+    console.log(studentsIdData)
+  }, [])
+  
   return (
     <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] ">
       <div className="flex justify-between">
