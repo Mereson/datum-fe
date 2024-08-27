@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import { SbSearch } from "../../../../assets"
 
 export const SearchBox = ({ width = "w-[100%]", placeholder = "Search" }) => {
@@ -13,4 +14,9 @@ export const SearchBox = ({ width = "w-[100%]", placeholder = "Search" }) => {
       />
     </div>
   )
+}
+
+SearchBox.propTypes = {
+  width: PropTypes.string,
+  placeholder: PropTypes.string,
 }

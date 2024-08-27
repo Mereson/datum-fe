@@ -24,7 +24,7 @@ export const AdminParentsList = () => {
 
         </div>
         <div className="flex justify-between">
-          <SearchBox width="w-[26rem]" placeholder="Search" />
+          <SearchBox width="w-[20rem] xl:w-[25rem]" placeholder="Search" />
           <div className="flex gap-3 items-center">
             <p className="font-bold text-[#444444]">Filter by:</p>
             <CustomSelect index={1} query={"Class"} width={"6.8rem"} options={[]} />

@@ -1,17 +1,20 @@
-import HeroImg from "./hero-img.png";
-import HeroStripes from "./stripe.png";
-import AboutImg from "./about-img.png";
-import DatumLogo from "./logo.png";
-import Linkedin from "./linkedin.png";
-import Facebook from "./facebook.png";
-import Instagram from "./insta.png";
-import X from "./x.png";
-import Youtube from "./youtube.png";
+import HeroImg from "./hero-img.png"
+import HeroStripes from "./stripe.png"
+import AboutImg from "./about-img.png"
+import DatumLogo from "./logo.png"
+import Linkedin from "./linkedin.png"
+import Facebook from "./facebook.png"
+import Instagram from "./insta.png"
+import X from "./x.png"
+import Youtube from "./youtube.png"
 import successicon from "./successicon.png"
-import closeicon from './closeicon.png'
-import aboutus from './aboutus-img.png'
+import closeicon from "./closeicon.png"
+import aboutus from "./aboutus-img.png"
 import SchoolChild from "./Schoolchild.png"
 import SchoolTeacher from "./fineteacher.png"
+import ProfileImage from "./profileframe.png"
+import Edit from "./edit.png"
+import SchoolGirl from "./Schoolchild.png"
 import TeacherHeroImg from "./fineteacher.png"
 import HeroLady from './heroLady.png'
 
@@ -27,9 +30,12 @@ export {
   Youtube,
   successicon,
   closeicon,
-  aboutus, 
+  aboutus,
   SchoolChild,
   SchoolTeacher,
+  ProfileImage,
+  Edit,
+  SchoolGirl,
   TeacherHeroImg,
   HeroLady
 };

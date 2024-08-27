@@ -30,7 +30,7 @@ export const AdminResultsList = () => {
             </div>
           </div>
           <div className="flex gap-4 font-bold items-center">
-            <p onClick={handleTabSwitch} className={`cursor-pointer ${openTab ? "text-[#0D1B59] underline underline-offset-4" : ("text-[#132985]")} `}>Teachers Result</p>
+            <p onClick={handleTabSwitch} className={`cursor-pointer ${openTab ? "text-[#0D1B59] underline underline-offset-4" : ("text-[#132985]")} `}>Uploaded Results</p>
             <p onClick={handleTabSwitch} className={`cursor-pointer ${openTab ? "text-[#132985]" : ("text-[#0D1B59] underline underline-offset-4 ")} `}>Students Result</p>
           </div>
         </div>

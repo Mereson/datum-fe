@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.20.5",
     "axios": "^1.7.4",
     "chart.js": "^4.4.4",
+    "formik": "^2.4.6",
     "prop-types": "^15.8.1",
     "proptypes": "^1.1.0",
     "re-chart": "^1.0.0",
@@ -24,6 +26,7 @@
     "react-paginate": "^8.2.0",
     "react-router-dom": "^6.26.0",
     "recharts": "^2.12.7",
+    "yup": "^1.4.0",
     "zustand": "^4.5.4"
   },
   "devDependencies": {

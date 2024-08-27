@@ -4,7 +4,7 @@ const DropdownIcon = ({ isOpen }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={`h-5 w-5 transition-transform duration-300 ${
+      className={`h-5 w-5 transition-transform duration-290 ${
         isOpen ? "rotate-180" : ""
       }`}
       fill="none"

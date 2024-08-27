@@ -31,11 +31,14 @@ import {
   AdminAddSubjects,
   AdminCreateActivity,
   StudentProfile,
+  PersonalInfo,
+  Remark,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
 import Api2 from "./api/api2"
 import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
+import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
   {
@@ -67,6 +70,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <LandingPage />,
   },
+  // {
+  //   path: "/",
+  //   element: <Dump />,
+  // },
   {
     path: "/students",
     element: <StudentLayout />,
@@ -78,6 +85,10 @@ const router = createBrowserRouter([
       {
         path: "viewResults",
         element: <ViewResults />,
+      },
+      {
+        path: "personalInfo",
+        element: <PersonalInfo />,
       },
       {
         path: "notification",
@@ -198,6 +209,10 @@ const router = createBrowserRouter([
       {
         path: "timetable",
         element: <ErrorPage />,
+      },
+      {
+        path: "remark",
+        element: <Remark />,
       },
       {
         path: "schemeOfWork",
