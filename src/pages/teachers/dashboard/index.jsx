@@ -11,8 +11,8 @@ import AttendanceChart from './AttendanceChart';
 
 export const TeachersDashboard = () => {
   return (
-    <section className={styles.teacher_Container}>
-      <section className={styles.board_section}>
+    <section className={`${styles.teacher_Container} w-full`}>
+      <section className={`${styles.board_section} ${styles.scrollbar}`}>
         <SearchBox />  
         <div className={styles.teacher_hero}>
           <h1>Hello Chinyere</h1>

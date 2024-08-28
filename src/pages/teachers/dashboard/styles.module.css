@@ -18,6 +18,12 @@
     --success-btn:#369926;
 }
 
+/* width */
+.scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
+  
+
 .teacher_Container{
     width: 100%;
     display: flex;
