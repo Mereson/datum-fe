@@ -8,7 +8,7 @@ export const ComparisonChart = ({ boysCount, girlsCount }) => {
   const circumference = 2 * Math.PI * radius
 
   const getTextColor = () => {
-    if (boysPercentage > girlsPercentage) return "#f4901f"
+    if (boysPercentage > girlsPercentage) return "#d0d4e7"
     if (girlsPercentage > boysPercentage) return "#132985"
     return "#000"
   }
@@ -27,7 +27,7 @@ export const ComparisonChart = ({ boysCount, girlsCount }) => {
           "
         fill="none"
         // stroke="#ececec"
-        stroke="#f4901f"
+        stroke="#d0d4e7"
         strokeWidth="3.8"
       />
       {/* Boys' portion */}

@@ -18,6 +18,12 @@
     --success-btn:#369926;
 }
 
+/* width */
+.scrollbar::-webkit-scrollbar {
+    width: 0;
+  }
+  
+
 .teacher_Container{
     width: 100%;
     display: flex;
@@ -49,7 +55,7 @@
 }
 .board_section{
     padding: 1rem 4rem;
-    width: 70%;
+    width: 71%;
     background-color: var(--modal-white);
     overflow: scroll;
 }

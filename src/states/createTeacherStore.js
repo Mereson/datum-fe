@@ -46,6 +46,6 @@ export const useCreateTeacherForm = create((set) => ({
     // role: "",
     gradeLevel: "",
     step: "",
-    File: ""
+    File: null
   })
 }))

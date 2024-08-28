@@ -1,12 +1,5 @@
 import { useEffect } from "react"
-import {
-  Edit,
-  NotificationSvg,
-  ProfileImage,
-  SchoolChild,
-  SchoolGirl,
-} from "../../../assets"
-import { SearchBox } from "../../../components"
+import { Edit, ProfileImage, SchoolGirl } from "../../../assets"
 import design from "./style.module.css"
 import PropTypes from "prop-types"
 import { useStudentsList } from "../../../states/students"
@@ -17,37 +10,12 @@ export const StudentProfile = () => {
   useEffect(() => {
     console.log(studentsIdData)
   }, [])
-  
+
   return (
     <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] ">
-      <div className="flex justify-between">
-        <div className="w-[70%]">
-          <SearchBox />
-        </div>
-
-        <div className="flex gap-5 items-center justify-end">
-          <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-            <img
-              src={NotificationSvg}
-              className="size-[20px]"
-              alt="notification icon"
-            />
-          </div>
-          <div className="flex gap-2 items-center">
-            <figure className="size-[50px] rounded-full">
-              <img className="rounded-full" src={SchoolChild} alt="" />
-            </figure>
-            <div className="text-[15px]">
-              <p className="font-bold">Ene Maria</p>
-              <p>Student</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* This is the div containing the main  */}
 
-      <main className="mt-[4.625rem] bg-[#fafafa]">
+      <main className="mt-[1.725rem] bg-[#fafafa]">
         {/* This is the div containing the profile picture and the picture frame */}
         <div>
           <figure className="pb-[1.313rem]  flex relative ">
@@ -61,7 +29,7 @@ export const StudentProfile = () => {
           <div className="flex justify-end">
             <div className="flex justify-between w-[80%] pr-8">
               <div>
-                <h4 className="text-[24px] font-normal ">Ene Maria</h4>
+                <h4 className="text-[22px] font-normal ">Ene Maria</h4>
                 <p> Student </p>
               </div>
 
@@ -74,7 +42,7 @@ export const StudentProfile = () => {
 
         <main className="grid grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
           <div className=" grid gap-7">
-            <h3 className="text-2xl font-bold"> Student Info </h3>
+            <h3 className="text-[22px] font-bold"> Student Info </h3>
             <StudentInfo title={"Surname"} content={"Ene"} />
             <StudentInfo title={"First Name"} content={"Maria"} />
             <StudentInfo title={"Other Name"} content={"Chidimma"} />
@@ -90,7 +58,7 @@ export const StudentProfile = () => {
           </div>
 
           <div className="grid gap-7 ">
-            <h3 className="text-2xl font-bold"> Parent Info </h3>
+            <h3 className="text-[22px] font-bold"> Parent Info </h3>
             <StudentInfo title={"Surname"} content={"Ene"} />
             <StudentInfo title={"First Name"} content={"Ikechukwu"} />
             <StudentInfo title={"Other Name"} content={"Charles"} />
@@ -112,7 +80,7 @@ export const StudentProfile = () => {
 
 const StudentInfo = ({ title, content }) => {
   return (
-    <div className="flex gap-4 text-[18px] text-[#1e1e1e]">
+    <div className="flex gap-4 text-[17px] text-[#1e1e1e]">
       <p className="w-[142px]">{title}:</p>
       <p className="w-[241px] font-bold">{content}</p>
     </div>
