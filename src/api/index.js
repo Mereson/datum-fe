@@ -29,19 +29,25 @@ export const createTeacher = async (teacher) => {
   try {
     const formData = new FormData()
 
+    console.log(formData)
+
     Object.keys(teacher).forEach((key) => {
       formData.append(key, teacher[key])
     })
 
-    console.log(formData)
+    // console.log(`Hi there hello ${formData, teacher}`)
+    // console.log(formData)
+
+    const newData = formData.values()
+
+    for (const pair of formData.entries()) {
+      console.log(`${pair[0]}: ${pair[1]}`)
+    }
+
+    console.log(newData)
     const { data } = await axios.post(
       `${baseUrl}/admin/createAdmin`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
+      formData
     )
 
     return data
@@ -85,7 +91,7 @@ export const getStudentById = async (id) => {
     const { data } = await axios.get(`${baseUrl}/student/getStudentById/${id}`)
     // console.log(data)
 
-    // setStudentData(data) 
+    // setStudentData(data)
     return data
   } catch (error) {
     catchErrors(error)
