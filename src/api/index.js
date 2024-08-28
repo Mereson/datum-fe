@@ -73,7 +73,7 @@ export const logOut = () => {
 export const getAllStudents = async () => {
   try {
     const { data } = await axios.get(`${baseUrl}/student/getAllStudents`)
-    // console.log(data);
+    // console.log(data)
     return data
   } catch (error) {
     catchErrors(error)
@@ -85,7 +85,7 @@ export const getStudentById = async (id) => {
     const { data } = await axios.get(`${baseUrl}/student/getStudentById/${id}`)
     // console.log(data)
 
-    // setStudentData(data) 
+    // setStudentData(data)
     return data
   } catch (error) {
     catchErrors(error)

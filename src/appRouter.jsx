@@ -32,13 +32,13 @@ import {
   StudentProfile,
   PersonalInfo,
   Remark,
-  StudentTable,
+  SelectStudent,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
 import Api2 from "./api/api2"
 import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
-import { Dump } from "./api/dump"
+// import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
   {
@@ -85,6 +85,10 @@ const router = createBrowserRouter([
       {
         path: "viewResults",
         element: <ViewResults />,
+      },
+      {
+        path: "selectProfile",
+        element: <SelectStudent />,
       },
       {
         path: "personalInfo",
@@ -201,10 +205,6 @@ const router = createBrowserRouter([
       {
         path: "students",
         element: <UploadResult1 />,
-      },
-      {
-        path: "studentTable",
-        element: <StudentTable />,
       },
       {
         path: "attendance",

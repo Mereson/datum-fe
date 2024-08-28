@@ -368,16 +368,15 @@ export const data = [
     class: "SSS1A",
     regDate: "20-09-2024",
   },
-
 ]
 
 export const classData = [
-  { "S/N": "001", Classes: "JSS 1", "": ":" },
-  { "S/N": "002", Classes: "JSS 2", "": ":" },
-  { "S/N": "003", Classes: "JSS 3", "": ":" },
-  { "S/N": "004", Classes: "SSS 1", "": ":" },
-  { "S/N": "005", Classes: "SSS 2", "": ":" },
-  { "S/N": "006", Classes: "SSS 3", "": ":" },
+  { "s/n": "001", classes: "JSS 1", empty: ":" },
+  { "s/n": "002", classes: "JSS 2", empty: ":" },
+  { "s/n": "003", classes: "JSS 3", empty: ":" },
+  { "s/n": "004", classes: "SSS 1", empty: ":" },
+  { "s/n": "005", classes: "SSS 2", empty: ":" },
+  { "s/n": "006", classes: "SSS 3", empty: ":" },
 ]
 
 export const subjectsData = [

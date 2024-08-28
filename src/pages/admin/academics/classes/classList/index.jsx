@@ -1,5 +1,5 @@
 import { AdminProfileImg, NotificationSvg } from "../../../../../assets"
-import { AddBtn, MembersList } from "../../../../../components"
+import { AddBtn, TableModel } from "../../../../../components"
 import { Button } from "../../../../../components/button"
 import { classData } from "../../../../../testData"
 
@@ -10,7 +10,11 @@ export const AdminClassesList = () => {
         <div className="flex flex-col">
           <div className="flex gap-5 items-center justify-end">
             <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-              <img src={NotificationSvg} className="size-[20px]" alt="notification icon" />
+              <img
+                src={NotificationSvg}
+                className="size-[20px]"
+                alt="notification icon"
+              />
             </div>
             <div className="flex gap-2 items-center">
               <figure className="size-[50px] rounded-full">
@@ -34,11 +38,29 @@ export const AdminClassesList = () => {
 
         <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Class List</h2>
 
-        <div className="w-[30%]">
-          <MembersList data={classData} people={"Teachers"} title={false} />
+        <div className="w-[80%]">
+          <TableModel myData={classData} columns={columns} justTable={true} />
         </div>
       </main>
     </section>
-
   )
 }
+
+const columns = [
+  {
+    accessorKey: "s/n",
+    header: "S/N",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "classes",
+    header: "Classes",
+    cell: (props) => <p>{props.getValue()}</p>,
+  },
+  {
+    accessorKey: "empty",
+    header: "",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+]

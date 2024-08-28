@@ -16,7 +16,7 @@ export const StudentsList = () => {
     const getData = async () => {
       console.log("is hitting")
       const studentData = await getAllStudents()
-
+      console.log(studentData)
       const newData = formattedData(studentData)
 
       setStudentsData(studentData)
