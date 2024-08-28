@@ -1,4 +1,4 @@
-import React from "react"
+
 import { ComparisonChart } from "../../../components"
 
 const MyChart = () => {
