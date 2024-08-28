@@ -9,13 +9,13 @@ import {
   ResultAnalysis,
   AdminDashboard,
   StudentsDashboard,
-  UploadResult1,
   ViewResults,
   AddStudents,
   SubjectAnalysis,
   StudentsList,
   AddParents,
   TeachersDashboard,
+  TeachersStudents,
   AddTeacher,
   TeachersList,
   AdminAcad,
@@ -38,6 +38,7 @@ import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
 import Api2 from "./api/api2"
 import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
+import { StudentDetailsAdmin } from "./pages/admin/students/studentDetails"
 // import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
@@ -133,6 +134,10 @@ const router = createBrowserRouter([
         element: <AddStudents />,
       },
       {
+        path: "studentsList/studentsDetail",
+        element: <StudentDetailsAdmin />,
+      },
+      {
         path: "teachers",
         element: <TeachersList />,
       },
@@ -204,7 +209,7 @@ const router = createBrowserRouter([
       },
       {
         path: "students",
-        element: <UploadResult1 />,
+        element: <TeachersStudents />,
       },
       {
         path: "attendance",

@@ -7,13 +7,18 @@ import { AdminProfileImg, NotificationSvg } from "../../../../assets"
 import { useEffect } from "react"
 import { getAllStudents, getStudentById } from "../../../../api"
 import { useStudentsList } from "../../../../states/students"
+import { useNavigate } from "react-router-dom"
 
 export const StudentsList = () => {
   const { studentsList, setStudentsList, setStudentsData, setStudentsIdData } =
     useStudentsList()
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     const getData = async () => {
+      
+
       console.log("is hitting")
       const studentData = await getAllStudents()
       console.log(studentData)
@@ -31,6 +36,7 @@ export const StudentsList = () => {
     const studentId = row["Reg No"]
     const data = await getStudentById(studentId)
     setStudentsIdData(data)
+    navigate("/admin/studentsList/studentsDetail")
     // console.log(data)
   }
 

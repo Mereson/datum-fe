@@ -13,9 +13,9 @@ export const ActivitySection = ({ name, img, path }) => {
   }
   return (
     <section
-      className={`${styles.scrollbar} bg-[#f4f4f4] w-[29%] overflow-auto `}
+      className={`${styles.scrollbar} bg-[#fff] w-[29%] overflow-auto `}
     >
-      <div className="bg-[#f4f4f4] px-3 pb-10">
+      <div className="bg-[#fff] px-3 pb-10">
         <div className="h-[174px] mt-5 mb-7 flex flex-col items-center">
           <div className="flex items-center justify-center pb-3 relative">
             <div className="w-[100px] h-[100px] rounded-full flex items-center justify-center">
@@ -34,7 +34,7 @@ export const ActivitySection = ({ name, img, path }) => {
           </div>
         </div>
         <Activites />
-        <div className="h-[318px] bg-[#ffffff] mt-5 border border-[#ededed] rounded-2xl">
+        <div className="mh-[318px] bg-[#ffffff] mt-5 border border-[#ededed] rounded-2xl pb-4">
           <CustomCalendar />
         </div>
       </div>
