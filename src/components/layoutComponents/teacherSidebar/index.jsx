@@ -34,7 +34,7 @@ export const TeacherSidebar = () => {
         <aside className={style.side_navbar}>
           <div>  
             <div>
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col w-full sm:w-[80%]">
                 <div
                   onClick={() => {
                     setMenuOpen(!menuOpen) 
