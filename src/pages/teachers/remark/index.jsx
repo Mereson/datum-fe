@@ -18,14 +18,23 @@ export const Remark = () => {
           rows="8"
           cols="59"
         ></textarea>
+        <div className="flex gap-6">
+          <FormButton
+            type="submit"
+            content="Save"
+            className={
+              "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+            }
+          />
 
-        <FormButton
-          type="submit"
-          content="Save"
-          className={
-            "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
-          }
-        />
+          <FormButton
+            type="submit"
+            content="Cancel"
+            className={
+              "bg-[#D0D4E7] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-[#132985] cursor-pointer"
+            }
+          />
+        </div>
       </form>
     </section>
   )
