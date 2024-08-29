@@ -6,6 +6,8 @@ import {
   Tooltip,
   ResponsiveContainer,
   LabelList,
+  CartesianGrid,
+  YAxis,
 } from "recharts"
 
 // Function to determine bar color based on grade
@@ -47,7 +49,7 @@ CustomBar.propTypes = {
   value: PropTypes.string.isRequired,
 }
 
-export const GradesBarChart = ({ subjects }) => {
+export const GradesBarChart = ({ subjects, bool = false }) => {
   const getBarColor = (grade) => {
     if (grade >= 70) return "#132985"
     if (grade >= 60) return "#6270ae"
@@ -60,25 +62,27 @@ export const GradesBarChart = ({ subjects }) => {
         className="cursor-pointer w-[100%] h-[100%]"
         data={subjects}
         margin={{
-          top: 10,
+          top: 30,
           right: 30,
           left: 20,
           bottom: 20,
         }}
       >
+        <YAxis tickCount={10} hide={true} />
+        <CartesianGrid vertical={false} horizontal={bool} />
         <XAxis
-          dataKey="subject"
+          dataKey="name"
           axisLine={false} // Hide the axis line
           tickLine={false} // Hide the tick lines
         />
         <Tooltip />
         <Bar
-          dataKey="grade"
+          dataKey="Total"
           barSize={40} // Adjust bar width here
           shape={(props) => (
             <CustomBar {...props} fill={getBarColor(props.value)} />
           )}
-          label={<LabelList dataKey="grade" position="top" />}
+          label={<LabelList dataKey="Total" position="top" />}
         />
       </BarChart>
     </ResponsiveContainer>
@@ -86,5 +90,6 @@ export const GradesBarChart = ({ subjects }) => {
 }
 
 GradesBarChart.propTypes = {
-    subjects: PropTypes.string
+  subjects: PropTypes.string,
+  bool: PropTypes.bool,
 }

@@ -1,31 +1,51 @@
 import PropTypes from "prop-types"
+import { useSelectStore } from "../../../../store"
+import styles from "./style.module.css"
 import { useState } from "react"
+import { DropdownIcon } from "../../../../assets"
 
-export const CustomSelect = ({ query, options }) => {
-  const [selected, setSelected] = useState(query)
-  const [isOpen, setIsOpen] = useState(false)
+export const CustomSelect = ({
+  query,
+  options,
+  index,
+  width,
+  padding = "px-[12px] py-[10px] xl:px-[16px] xl:py-[13px]",
+  dropDownName,
+  setForm,
+  componentIndex,
+}) => {
+  const { openSelectIndex, setOpenSelectIndex, closeSelect } = useSelectStore()
+  const isOpen = openSelectIndex === index
+  const [selectedOption, setSelectedOption] = useState(query) // State to store the selected option
 
   const handleSelect = (option) => {
-    setSelected(option)
-    setIsOpen(false)
+    const capitalizedOption = option.charAt(0).toUpperCase() + option.slice(1);
+
+    setSelectedOption(capitalizedOption)
+    setForm(componentIndex, dropDownName, capitalizedOption)
+
+    closeSelect()
   }
 
   return (
-    <div className="relative w-[500px]">
+    <div className={`relative ${width}`}>
       <div
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-[16px] py-[13px] bg-[#ececec] rounded-lg text-sm text-[#bfbfbf] cursor-pointer"
+        onClick={() => setOpenSelectIndex(index)}
+        className={`${padding} w-full flex items-center gap-1 justify-between border-[0.5px] border-[#a7a7a7] h-11 bg-[#f4f4f4] rounded-lg text-[12px] xl:text-sm text-[#585858] cursor-pointer`}
       >
-        {selected}
+        {selectedOption}
+        <DropdownIcon isOpen={isOpen} />
       </div>
 
       {isOpen && (
-        <ul className="absolute w-full bg-white z-10 shadow-lg rounded-b-lg">
-          {options.map((option, index) => (
+        <ul
+          className={`${styles.scrollbar} absolute w-full bg-white z-10 shadow-lg rounded-b-lg max-h-[156px] overflow-y-auto`}
+        >
+          {options.map((option, i) => (
             <li
-              key={index}
+              key={i}
               onClick={() => handleSelect(option)}
-              className="px-[16px] py-[13px] cursor-pointer hover:bg-[#ececec] text-black"
+              className={`${padding} cursor-pointer hover:bg-[#ececec] text-black`}
             >
               {option}
             </li>
@@ -37,6 +57,12 @@ export const CustomSelect = ({ query, options }) => {
 }
 
 CustomSelect.propTypes = {
+  width: PropTypes.string,
   query: PropTypes.string,
   options: PropTypes.array,
+  index: PropTypes.number.isRequired,
+  padding: PropTypes.string,
+  dropDownName: PropTypes.string,
+  setForm: PropTypes.func,
+  componentIndex: PropTypes.number,
 }

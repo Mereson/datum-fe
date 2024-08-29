@@ -1,16 +1,16 @@
-import styles from "./style.module.css";
-import schoolchild from "../../assets/schoolchild.png";
-import { Button } from "../../components/button";
-import { Link } from "react-router-dom";
-import { LuEye, LuEyeOff } from "react-icons/lu";
-import { useState } from "react";
+import styles from "./style.module.css"
+import schoolchild from "../../assets/schoolchild.png"
+import { Button } from "../../components/button"
+import { Link } from "react-router-dom"
+import { LuEye, LuEyeOff } from "react-icons/lu"
+import { useState } from "react"
 
 export const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
   // Funtion for the shoW and hide password
   const showeye = () => {
-    setShowPassword(!showPassword);
-  };
+    setShowPassword(!showPassword)
+  }
 
   return (
     <section className={styles.login_container}>
@@ -78,5 +78,5 @@ export const Login = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

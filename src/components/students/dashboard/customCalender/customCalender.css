@@ -1,13 +1,12 @@
 .react-calendar {
   border: none;
   border-radius: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .react-calendar__navigation {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 1.25rem; /* p-4 px-5 */
+  padding: 2rem 1.25rem; /* p-4 px-5 */
   background-color: #fff;
   font-size: 1.125rem;
 }

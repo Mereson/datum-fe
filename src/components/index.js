@@ -2,4 +2,6 @@ export * from "./landingPage"
 export * from "./modal"
 export * from "./layoutComponents"
 export * from "./students"
-
+export * from "./admin"
+export * from "./forms"
+export * from "./tables"
