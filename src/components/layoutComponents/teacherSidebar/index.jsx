@@ -1,17 +1,24 @@
-import React, {useState} from 'react'
-import style from './styles.module.css'
+import React, { useState } from "react"
+import style from "./styles.module.css"
 import { Link } from "react-router-dom"
 import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
 import { SidebarNavItem } from "../sidebarNav"
-import { IoMdMenu } from "react-icons/io";
-import { ParentsIcon, SbAttendance, SbHome, SbLogout, StudentIcon, TeachersIcon } from "../../../assets"
+import { IoMdMenu } from "react-icons/io"
+import {
+  DashboardIcon,
+  ParentsIcon,
+  SbAttendance,
+  SbLogout,
+  TeachersIcon,
+  TotalStudents,
+} from "../../../assets"
 
 export const TeacherSidebar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [showMenu, setShowMenu] = useState(true);
-  
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [showMenu, setShowMenu] = useState(true)
+
   return (
-    <nav> 
+    <nav>
       <div className={style.brand}>
         <Link className="pt-8 flex items-center gap-1 pb-20" to={"/"}>
           <img
@@ -23,79 +30,89 @@ export const TeacherSidebar = () => {
       </div>
 
       <div className={style.menu}>
-        <IoMdMenu               
+        <IoMdMenu
           onClick={() => {
-              setMenuOpen(!menuOpen) 
+            setMenuOpen(!menuOpen)
           }}
         />
-      </div> 
-      
-      <div className={menuOpen ? '' : `${style.open}` }>
+      </div>
+
+      <div className={menuOpen ? "" : `${style.open}`}>
         <aside className={`${style.side_navbar}`}>
-          <div>  
+          <div>
             <div>
               <div className="flex flex-col w-full ">
                 <div
                   onClick={() => {
-                    setMenuOpen(!menuOpen) 
+                    setMenuOpen(!menuOpen)
                   }}
                 >
                   <SidebarNavItem
                     to="/teacher/dashboard"
-                    Icon={SbHome}
-                    label={"Dashboard"}                  
+                    Icon={DashboardIcon}
+                    label={"Dashboard"}
                   />
                 </div>
 
                 <div
                   onClick={() => {
-                    setMenuOpen(!menuOpen) 
+                    setMenuOpen(!menuOpen)
                   }}
                 >
                   <SidebarNavItem
                     to={"/teacher/students"}
-                    Icon={StudentIcon}
+                    Icon={TotalStudents}
                     label={"Students"}
-                    
                   />
                 </div>
 
                 <div
                   onClick={() => {
-                    setMenuOpen(!menuOpen) 
+                    setMenuOpen(!menuOpen)
+                  }}
+                >
+                  <SidebarNavItem
+                    to={"/teacher/uploadresult"}
+                    Icon={SbAttendance}
+                    label={"Result"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setMenuOpen(!menuOpen)
                   }}
                 >
                   <SidebarNavItem
                     to={"/teacher/attendance"}
                     Icon={SbAttendance}
-                    label={"Attendance"}                    
+                    label={"Attendance"}
                   />
                 </div>
 
                 <div
                   onClick={() => {
-                    setMenuOpen(!menuOpen) 
+                    setMenuOpen(!menuOpen)
                   }}
                 >
                   <SidebarNavItem
                     to={"/teacher/timetable"}
                     Icon={TeachersIcon}
-                    label={"Timetable"}                   
+                    label={"Timetable"}
                   />
                 </div>
 
                 <div
                   onClick={() => {
-                    setMenuOpen(!menuOpen) 
+                    setMenuOpen(!menuOpen)
                   }}
                 >
                   <SidebarNavItem
                     to={"/teacher/schemeOfWork"}
                     Icon={ParentsIcon}
-                    label={"Scheme Of Work"}                    
-                  />    
-                </div> 
-
+                    label={"Scheme Of Work"}
+                  />
+                </div>
               </div>
             </div>
 
@@ -104,9 +121,9 @@ export const TeacherSidebar = () => {
             <div className="pt-11">
               <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
             </div>
-          </div>          
-        </aside> 
-      </div>     
+          </div>
+        </aside>
+      </div>
     </nav>
   )
 }
