@@ -372,27 +372,27 @@ export const data = [
 ]
 
 export const classData = [
-  { "S/N": "001", Classes: "JSS 1", "": ":" },
-  { "S/N": "002", Classes: "JSS 2", "": ":" },
-  { "S/N": "003", Classes: "JSS 3", "": ":" },
-  { "S/N": "004", Classes: "SSS 1", "": ":" },
-  { "S/N": "005", Classes: "SSS 2", "": ":" },
-  { "S/N": "006", Classes: "SSS 3", "": ":" },
+  { "S/N": "001", Classes: "JSS 1", "empty": ":" },
+  { "S/N": "002", Classes: "JSS 2", "empty": ":" },
+  { "S/N": "003", Classes: "JSS 3", "empty": ":" },
+  { "S/N": "004", Classes: "SSS 1", "empty": ":" },
+  { "S/N": "005", Classes: "SSS 2", "empty": ":" },
+  { "S/N": "006", Classes: "SSS 3", "empty": ":" },
 ]
 
 export const subjectsData = [
-  { "S/N": "001", Subjects: "English", "": ":" },
-  { "S/N": "002", Subjects: "Mathematics", "": ":" },
-  { "S/N": "003", Subjects: "Biology", "": ":" },
-  { "S/N": "004", Subjects: "Physics", "": ":" },
-  { "S/N": "005", Subjects: "Chemistry", "": ":" },
-  { "S/N": "006", Subjects: "Geography", "": ":" },
-  { "S/N": "007", Subjects: "Agriculture", "": ":" },
-  { "S/N": "008", Subjects: "Igbo language", "": ":" },
-  { "S/N": "009", Subjects: "CRS", "": ":" },
-  { "S/N": "010", Subjects: "Civic Education", "": ":" },
-  { "S/N": "011", Subjects: "Computer Science", "": ":" },
-  { "S/N": "012", Subjects: "Health Science", "": ":" },
+  { "S/N": "001", Subjects: "English", "empty": ":" },
+  { "S/N": "002", Subjects: "Mathematics", "empty": ":" },
+  { "S/N": "003", Subjects: "Biology", "empty": ":" },
+  { "S/N": "004", Subjects: "Physics", "empty": ":" },
+  { "S/N": "005", Subjects: "Chemistry", "empty": ":" },
+  { "S/N": "006", Subjects: "Geography", "empty": ":" },
+  { "S/N": "007", Subjects: "Agriculture", "empty": ":" },
+  { "S/N": "008", Subjects: "Igbo language", "empty": ":" },
+  { "S/N": "009", Subjects: "CRS", "empty": ":" },
+  { "S/N": "010", Subjects: "Civic Education", "empty": ":" },
+  { "S/N": "011", Subjects: "Computer Science", "empty": ":" },
+  { "S/N": "012", Subjects: "Health Science", "empty": ":" },
 ]
 
 export const eventsData = [

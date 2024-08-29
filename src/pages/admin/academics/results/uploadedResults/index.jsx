@@ -2,6 +2,7 @@ import { useState } from "react"
 import { AdminIcon, BackIcon, TableModel } from "../../../../../components"
 import { resultsData } from "../../../../../testData"
 import { useNavigate } from "react-router-dom"
+import { AdminStudentsResultList } from "../studentResult"
 
 export const AdminUploadedResults = () => {
   const [openTab, setOpenTab] = useState(true)
@@ -57,7 +58,7 @@ export const AdminUploadedResults = () => {
               rowOnClick={onClick}
             />
           ) : (
-            <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+            <AdminStudentsResultList />
           )}
         </div>
       </main>

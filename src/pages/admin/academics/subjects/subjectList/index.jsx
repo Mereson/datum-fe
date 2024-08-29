@@ -2,7 +2,7 @@ import {
   AddBtn,
   AdminIcon,
   BackIcon,
-  MembersList,
+  TableModel,
 } from "../../../../../components"
 import { Button } from "../../../../../components/button"
 import { subjectsData } from "../../../../../testData"
@@ -30,10 +30,37 @@ export const AdminSubjectsList = () => {
 
         <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Subject List</h2>
 
-        <div className="w-[40%]">
-          <MembersList data={subjectsData} people={"Subjects"} title={false} />
+        <div className="w-[70%]">
+          <TableModel
+            myData={subjectsData}
+            columns={columns}
+            people={"Teachers"}
+            justTable={true}
+            // rowOnClick={onClick}
+          />
         </div>
       </main>
     </section>
   )
 }
+
+const columns = [
+  {
+    accessorKey: "S/N",
+    header: "S/N",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "Subjects",
+    header: "Subjects",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "empty",
+    header: "",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+]
