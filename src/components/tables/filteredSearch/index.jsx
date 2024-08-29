@@ -14,7 +14,7 @@ export const FilteredSearch = ({
   return (
     <div>
       <div
-        className={`w-[40%] col-span-2 flex mt-8 mb-8 border border-[#bfbfbf] h-12 rounded-lg`}
+        className={`w-[100%]  col-span-2 flex mt-8 mb-8 border border-[#bfbfbf] h-12 rounded-lg`}
       >
         <i className="p-4 bg-[#ededed] rounded-l-lg cursor-pointer">
           <SbSearch />

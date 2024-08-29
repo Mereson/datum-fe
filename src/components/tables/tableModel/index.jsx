@@ -10,6 +10,7 @@ import { useState } from "react"
 import { FilteredSearch } from "../filteredSearch"
 import { CustomTable } from "../customTable"
 import { ListPagination } from "../../admin"
+import { TeacherAvater } from "../../teachers"
 
 export const TableModel = ({
   myData,
@@ -62,12 +63,36 @@ export const TableModel = ({
   return (
     <>
       {!justTable ? (
-        <section className="grid gap-4">
-          <FilteredSearch
-            columnFilters={columnFilters}
-            setColumnFilters={setColumnFilters}
-            searchValue={searchValue}
-          />
+        <section className="grid gap-4 w-full">
+          <TeacherAvater/>
+          <div className="flex justify-between items-center">            
+            <div className="w-[50%]">
+              <FilteredSearch
+                columnFilters={columnFilters}
+                setColumnFilters={setColumnFilters}
+                searchValue={searchValue}
+              /> 
+            </div>
+            <div className="flex gap-5">
+              Filter by: &nbsp;
+              <select className="p-[0.4rem] rounded" name="Class" id="">
+                <option value="" >Class</option>
+                <option value="" >JSS 1</option>
+                <option value="">JSS 2</option>
+                <option value="">JSS 3</option>
+              </select>
+              <select className="p-[0.4rem] rounded" name="Class" id="">
+                <option value="" >Gender</option>
+                <option value="JSS1">Male</option>
+                <option value="JSS1">Female</option>
+              </select>
+              <select className="p-[0.4rem] rounded" name="Class" id="">
+                <option value="" >Sort by</option>
+                <option value="JSS1">Name</option>
+                <option value="JSS1">Email</option>
+              </select>
+            </div>        
+          </div>
           {children}
           <p className="text-sm text-[#6270AE] pb-4">
             Showing {table.getState().pagination.pageIndex + 1} -{" "}
