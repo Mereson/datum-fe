@@ -1,4 +1,5 @@
 import { NotificationSvg, TeacherHeroImg } from "../../../assets"
+import { FormButton } from "../../../components"
 // import { SearchBox } from "../../../components"
 
 export const UploadResult = () => {
@@ -28,6 +29,25 @@ export const UploadResult = () => {
           </div>
         </div>
       </div>
+
+      {/* This is the div for the upload result  */}
+      <div>
+        <FormButton
+          type="submit"
+          content="Upload result"
+          className={
+            "bg-[#132985] w-[20%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+          }
+        />
+      </div>
+      {/* <div>
+        <div className="w-[40%]">
+          <SearchBox />
+        </div>
+        <div>
+          <Dropdown />
+        </div>
+      </div> */}
     </section>
   )
 }
