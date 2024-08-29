@@ -1,5 +1,9 @@
-import { AdminProfileImg, NotificationSvg } from "../../../../../assets"
-import { AddBtn, MembersList } from "../../../../../components"
+import {
+  AddBtn,
+  AdminIcon,
+  BackIcon,
+  TableModel,
+} from "../../../../../components"
 import { Button } from "../../../../../components/button"
 import { subjectsData } from "../../../../../testData"
 
@@ -8,19 +12,11 @@ export const AdminSubjectsList = () => {
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-4">
         <div className="flex flex-col">
-          <div className="flex gap-5 items-center justify-end">
-            <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-              <img src={NotificationSvg} className="size-[20px]" alt="notification icon" />
+          <div className="flex justify-between pb-14">
+            <div className="flex items-end">
+              <BackIcon link={"/admin/academics"} />
             </div>
-            <div className="flex gap-2 items-center">
-              <figure className="size-[50px] rounded-full">
-                <img src={AdminProfileImg} alt="" />
-              </figure>
-              <div className="text-[15px]">
-                <p className="font-bold">Nkechi Nduka</p>
-                <p>Admin</p>
-              </div>
-            </div>
+            <AdminIcon />
           </div>
 
           <Button
@@ -34,10 +30,37 @@ export const AdminSubjectsList = () => {
 
         <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Subject List</h2>
 
-        <div className="w-[40%]">
-          <MembersList data={subjectsData} people={"Subjects"} title={false} />
+        <div className="w-[70%]">
+          <TableModel
+            myData={subjectsData}
+            columns={columns}
+            people={"Teachers"}
+            justTable={true}
+            // rowOnClick={onClick}
+          />
         </div>
       </main>
     </section>
   )
 }
+
+const columns = [
+  {
+    accessorKey: "S/N",
+    header: "S/N",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "Subjects",
+    header: "Subjects",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "empty",
+    header: "",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+]

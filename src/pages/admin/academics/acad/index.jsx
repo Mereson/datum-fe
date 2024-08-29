@@ -7,7 +7,7 @@ export const AdminAcad = () => {
       <main className='grid mt-9 grid-cols-3 gap-9'>
         <AcadCard text={"Attendance"} link={"/admin/academics/attendance"} />
         <AcadCard text={"Classes"} link={"/admin/academics/classes"} />
-        <AcadCard text={"Events"} link={"/admin/academics/events"} />
+        <AcadCard text={"Calender"} link={"/admin/academics/events"} />
         <AcadCard text={"Results"} link={"/admin/academics/result"} />
         <AcadCard text={"Scheme Of Work"} link={"/admin/academics/schemeOfWork"} />
         <AcadCard text={"Subjects"} link={"/admin/academics/subjects"} />
