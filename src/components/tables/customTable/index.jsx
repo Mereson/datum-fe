@@ -3,7 +3,7 @@ import { flexRender } from "@tanstack/react-table"
 import { BiSort } from "react-icons/bi"
 import { FaSortDown, FaSortUp } from "react-icons/fa6"
 
-export const CustomTable = ({ table, rowOnClick }) => {
+export const CustomTable = ({ table, rowOnClick, center }) => {
   return (
     <table className={`w-full bg-white border shadow-md border-gray-200`}>
       <thead>
@@ -15,10 +15,10 @@ export const CustomTable = ({ table, rowOnClick }) => {
             {headerGroup.headers.map((header) => (
               <th
                 key={header.id}
-                className="px-4 py-2 text-left text-sm text-[#1e1e1e] font-semibold"
+                className={`px-4 py-2 text-left text-sm text-[#1e1e1e] font-semibold`}
               >
                 <p
-                  className="flex items-center gap-1 cursor-pointer"
+                  className={`${center} flex items-center gap-1 cursor-pointer`}
                   onClick={header.column.getToggleSortingHandler()}
                 >
                   {header.column.columnDef.header}
@@ -57,7 +57,7 @@ export const CustomTable = ({ table, rowOnClick }) => {
             onClick={() => rowOnClick(row.original)}
           >
             {row.getVisibleCells().map((cell) => (
-              <td key={cell.id} className="py-3 px-4 text-sm text-[#1e1e1e]">
+              <td key={cell.id} className={` ${center} py-3 px-4 text-sm text-[#1e1e1e]`}>
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>
             ))}
@@ -71,4 +71,5 @@ export const CustomTable = ({ table, rowOnClick }) => {
 CustomTable.propTypes = {
   table: PropTypes.object,
   rowOnClick: PropTypes.func,
+  center: PropTypes.string,
 }

@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom"
 import {
   DashboardIcon,
-  ParentsIcon,
-  SbAttendance,
   SbHome,
   SbLogout,
-  SbResults,
-  StudentIcon,
-  TeachersIcon,
   TotalParents,
   TotalStudents,
   TotalTeachers,
