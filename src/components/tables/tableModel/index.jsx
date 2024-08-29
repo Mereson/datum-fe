@@ -19,6 +19,7 @@ export const TableModel = ({
   searchValue,
   rowOnClick,
   justTable = false,
+  center
 }) => {
   const [data, setData] = useState(myData)
   const [columnFilters, setColumnFilters] = useState([])
@@ -72,7 +73,7 @@ export const TableModel = ({
             Showing {table.getState().pagination.pageIndex + 1} -{" "}
             {table.getPageCount()} of {totalRows} {people}
           </p>
-          <CustomTable table={table} rowOnClick={rowOnClick} />
+          <CustomTable table={table} center={center} rowOnClick={rowOnClick} />
           {totalRows > 12 && (
             <div className="mt-8">
               <ListPagination
@@ -99,4 +100,5 @@ TableModel.propTypes = {
   children: PropTypes.any,
   rowOnClick: PropTypes.func,
   justTable: PropTypes.bool,
+  center: PropTypes.string,
 }

@@ -8,7 +8,7 @@ export const SidebarNavItem = ({ to, Icon, label }) => {
       {({ isActive }) => (
         <NavLinkItem isActive={isActive} duration={duration}>
           <div
-            className={`flex items-center py-[3.7px] pl-6 mx-6 md:mx-0 md:ml-6 rounded-full md:rounded-none md:rounded-l-full transition-all ${duration} ease-in-out ${
+            className={`flex items-center py-[3.7px] pl-6 mx-6 md:mx-0 rounded-full md:rounded-none md:rounded-l-3xl transition-all ${duration} ease-in-out ${
               isActive ? "bg-[#F4F4F4]" : "bg-[#132985]"
             } `}
           >
@@ -59,4 +59,10 @@ SidebarNavItem.propTypes = {
   to: PropTypes.string.isRequired,
   Icon: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+}
+
+NavLinkItem.propTypes = {
+  children: PropTypes.any,
+  isActive: PropTypes.bool,
+  duration: PropTypes.string,
 }

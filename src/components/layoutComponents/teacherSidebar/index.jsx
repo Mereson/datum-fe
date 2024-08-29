@@ -31,7 +31,7 @@ export const TeacherSidebar = () => {
       </div> 
       
       <div className={menuOpen ? '' : `${style.open}` }>
-        <aside className={`${style.side_navbar} border-2`}>
+        <aside className={`${style.side_navbar}`}>
           <div>  
             <div>
               <div className="flex flex-col w-full ">
