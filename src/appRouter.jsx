@@ -31,6 +31,8 @@ import {
   StudentProfile,
   PersonalInfo,
   Remark,
+  SelectStudent,
+  UploadResult,
   AdminUploadedResults,
   AdminSubjectResult,
   AdminStudentsResultList,
@@ -40,6 +42,7 @@ import Api from "./api/api"
 import Api2 from "./api/api2"
 import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
 import { StudentDetailsAdmin } from "./pages/admin/students/studentDetails"
+// import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
   {
@@ -86,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "viewResults",
         element: <ViewResults />,
+      },
+      {
+        path: "selectProfile",
+        element: <SelectStudent />,
       },
       {
         path: "personalInfo",
@@ -222,6 +229,10 @@ const router = createBrowserRouter([
       {
         path: "timetable",
         element: <ErrorPage />,
+      },
+      {
+        path: "uploadresult",
+        element: <UploadResult />,
       },
       {
         path: "remark",

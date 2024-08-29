@@ -21,7 +21,7 @@ export const StudentsList = () => {
 
       console.log("is hitting")
       const studentData = await getAllStudents()
-
+      console.log(studentData)
       const newData = formattedData(studentData)
 
       setStudentsData(studentData)
