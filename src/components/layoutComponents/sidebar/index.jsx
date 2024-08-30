@@ -11,7 +11,7 @@ import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
 
 export const StudentSidebar = () => {
   return (
-    <aside className="h-[100vh] w-[250px] pl-6 pb-10 bg-[#132985] flex flex-col justify-between">
+    <aside className="h-[100vh] w-[250px] border-2 border-[red] pl-6 pb-10 bg-[#132985] flex flex-col justify-between">
       <div>
         <Link className="pt-8 flex items-center gap-1" to={"/"}>
           <img
