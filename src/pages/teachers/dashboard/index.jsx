@@ -66,10 +66,7 @@ export const TeachersDashboard = () => {
           <AttendanceChart />
         </div>
       </section>
-
-        <ActivitySection img={SchoolTeacher} name={"Mrs Chinyere"} />
-
-      
+        <ActivitySection img={SchoolTeacher} name={"Mrs Chinyere"} />      
     </section>
   )
 }

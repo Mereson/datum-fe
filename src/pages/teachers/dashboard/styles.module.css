@@ -26,12 +26,11 @@
 
 .teacher_Container{
     width: 100%;
-    display: flex;
-   
+    display: flex;   
 }
 .teacher_hero{
     margin-top: 3.5rem;
-    height: 27vh;
+    min-height: 27vh;
     background-image: url(../../../assets/images/teacherHeroImg.png);
     padding: 30px;
     background-repeat: no-repeat;
@@ -140,4 +139,25 @@
     margin: 1.5rem 0rem;
     padding: 1.5rem;
     border-radius: 18px;
+}
+
+@media (max-width: 667px){
+    .teacher_Container{
+        flex-direction: column;  
+    }
+    .board_section{
+        padding: 1rem 1rem;
+        width: 100%;        
+    }
+    .herolady{
+        right: 1rem;
+        top: 2rem;
+    }
+    .timeline_panel{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .attendance_chart{
+        padding: 2rem 0rem;
+        
+    }
 }
