@@ -1,9 +1,4 @@
-import {
-  Activites,
-  ActivitySection,
-  CustomCalendar,
-  SearchBox,
-} from "../../../components"
+import { ActivitySection, SearchBox } from "../../../components"
 import { HeroLady, SchoolTeacher } from "../../../assets"
 import styles from "./styles.module.css"
 import MyChart from "./PieChart"
@@ -12,7 +7,7 @@ import AttendanceChart from "./AttendanceChart"
 export const TeachersDashboard = () => {
   return (
     <section className={`${styles.teacher_Container} w-full`}>
-      <section className={`${styles.board_section} ${styles.scrollbar}`}>
+      <section className={`${styles.board_section} ${styles.scrollbar} w-[71%]`}>
         <SearchBox />
         <div className={styles.teacher_hero}>
           <h1>Hello Chinyere</h1>
@@ -66,7 +61,8 @@ export const TeachersDashboard = () => {
           <AttendanceChart />
         </div>
       </section>
-        <ActivitySection img={SchoolTeacher} name={"Mrs Chinyere"} />      
+
+      <ActivitySection img={SchoolTeacher} name={"Mrs Chinyere"} />
     </section>
   )
 }

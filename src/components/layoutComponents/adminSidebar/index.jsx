@@ -55,7 +55,7 @@ export const AdminSidebar = () => {
               label={"Fees"}
             />
 
-            <hr className="" />
+            <hr className="mt-2" />
           </div>
         </div>
       </div>

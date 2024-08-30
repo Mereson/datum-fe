@@ -54,7 +54,6 @@
 }
 .board_section{
     padding: 1rem 4rem;
-    width: 71%;
     background-color: var(--modal-white);
     overflow: scroll;
 }
