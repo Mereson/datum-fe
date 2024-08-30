@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { NotificationSvg, TeacherHeroImg } from "../../../assets"
 import { FormButton, TableModel } from "../../../components"
 import { data } from "../../../testData"
@@ -21,13 +22,14 @@ export const UploadResult = () => {
             </figure>
             <div className="text-[15px]">
               <p className="font-bold"> Okafor Chinyere </p>
-              <p>Student</p>
+              <p>Teacher</p>
             </div>
           </div>
         </div>
       </div>
+
       {/* This is the div for the upload result */}
-      <div>
+      <Link to="/teacher/uploadresult1">
         <FormButton
           type="submit"
           content="Upload result"
@@ -35,7 +37,7 @@ export const UploadResult = () => {
             "bg-[#132985] w-[20%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
           }
         />
-      </div>
+      </Link>
 
       <section className="w-full">
         <TableModel

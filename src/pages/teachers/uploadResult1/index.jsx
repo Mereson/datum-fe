@@ -13,6 +13,7 @@ export const UploadResult1 = () => {
             alt="notification icon"
           />
         </div>
+
         <div className="flex gap-2 items-center">
           <figure className="size-[50px] rounded-full">
             <img className="rounded-full" src={TeacherHeroImg} alt="" />
@@ -57,7 +58,7 @@ export const UploadResult1 = () => {
             <span className="cursor-pointer "> Upload from here</span>
           </p>
         </div>
-        <div className="pl-52">
+        <div className="pl-[40%]">
           <Button
             link={"/students/checkResults/resultAnalysis"}
             content="Submit"

@@ -11,7 +11,7 @@ import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
 
 export const StudentSidebar = () => {
   return (
-    <aside className="h-[100vh] w-[250px] pl-6 pb-10 bg-[#132985] flex flex-col justify-between">
+    <aside className="h-[100vh] w-[250px] border-2 border-[red] pl-6 pb-10 bg-[#132985] flex flex-col justify-between">
       <div>
         <Link className="pt-8 flex items-center gap-1" to={"/"}>
           <img
@@ -28,21 +28,26 @@ export const StudentSidebar = () => {
               label={"Dashboard"}
             />
             <SidebarNavItem
-              to={"/students/uploadResult1"}
-              Icon={SbSubject}
-              label={"Subject"}
-            />
-            <SidebarNavItem
-              to={"/students/attendance"}
-              Icon={SbAttendance}
-              label={"Attendance"}
-            />
-            <SidebarNavItem
               to={"/students/viewResults"}
               Icon={SbResults}
-              label={"Result"}
+              label={"Results"}
             />
-            <hr className="" />
+            <SidebarNavItem
+              to={"/students/timetable"}
+              Icon={SbSubject}
+              label={"TimeTable"}
+            />
+            <SidebarNavItem
+              to={"/students/hub"}
+              Icon={SbAttendance}
+              label={"Hub"}
+            />
+            <SidebarNavItem
+              to={"/students/comming soon"}
+              Icon={SbResults}
+              label={"Fees"}
+            />
+            <hr className="mt-2" />
           </div>
         </div>
       </div>

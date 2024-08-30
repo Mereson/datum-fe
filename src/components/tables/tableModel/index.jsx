@@ -10,7 +10,6 @@ import { useState } from "react"
 import { FilteredSearch } from "../filteredSearch"
 import { CustomTable } from "../customTable"
 import { ListPagination } from "../../admin"
-import { TeacherAvater } from "../../teachers"
 
 export const TableModel = ({
   myData,
@@ -64,7 +63,6 @@ export const TableModel = ({
     <>
       {!justTable ? (
         <section className="grid gap-4 w-full">
-          <TeacherAvater />
           <div className="flex justify-between items-center">
             <div className="w-[50%]">
               <FilteredSearch
@@ -74,23 +72,16 @@ export const TableModel = ({
               />
             </div>
             <div className="flex gap-5">
-              Filter by: &nbsp;
-              <select className="p-[0.4rem] rounded w-16" name="Class" id="">
-                <option value="">Term</option>
-                <option value="">1st Term</option>
-                <option value="">2nd Term </option>
-                <option value="">3rd Term </option>
-              </select>
               <select className="p-[0.4rem] rounded" name="Class" id="">
                 <option value="">Class</option>
                 <option value="">JSS 1</option>
                 <option value="">JSS 2</option>
                 <option value="">JSS 3</option>
               </select>
-              <select className="p-[0.4rem] rounded " name="Class" id="">
-                <option value="">Sort by</option>
-                <option value="JSS1">Name</option>
-                <option value="JSS1">Email</option>
+              <select className="p-[0.4rem] rounded" name="Class" id="">
+                <option value="">Gender</option>
+                <option value="JSS1">Male</option>
+                <option value="JSS1">Female</option>
               </select>
             </div>
           </div>
