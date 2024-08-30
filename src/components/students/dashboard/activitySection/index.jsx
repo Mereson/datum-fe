@@ -13,7 +13,7 @@ export const ActivitySection = ({ name, img, path }) => {
   }
   return (
     <section
-      className={`${styles.scrollbar} bg-[#fff] w-[29%] overflow-auto `}
+      className={`${styles.scrollbar} bg-[#fff] sm:w-[29%] overflow-auto `}
     >
       <div className="bg-[#fff] px-3 pb-10">
         <div className="h-[174px] mt-5 mb-7 flex flex-col items-center">
