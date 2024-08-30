@@ -880,3 +880,155 @@ export const paymentBreakdownData = [
     Description: "All student",
   },
 ]
+
+const attendance = {
+  "Week 1": {
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+}
+
+export const attendanceData = [
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+]
+
+export const studentsAttendance = [
+  {
+    weeks: "Week 1",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 2",
+    mon: "Present",
+    tue: "Absent",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 3",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 4",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 5",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 6",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 7",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+]

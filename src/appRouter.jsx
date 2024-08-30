@@ -37,12 +37,16 @@ import {
   AdminSubjectResult,
   AdminStudentsResultList,
   TeachersTimetable,
+  HubPage,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
 import Api2 from "./api/api2"
 import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
 import { StudentDetailsAdmin } from "./pages/admin/students/studentDetails"
+import { StudentsAttendancePage } from "./pages/students/hub/attendance"
+import { StudentsCalenderPage } from "./pages/students/hub/calender"
+import { StudentsSOWPage } from "./pages/students/hub/schemeOfWork"
 // import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
@@ -100,8 +104,24 @@ const router = createBrowserRouter([
         element: <PersonalInfo />,
       },
       {
-        path: "notification",
-        element: <ErrorPage />,
+        path: "hub",
+        element: <HubPage />,
+      },
+      {
+        path: "hub/studentsAttendance",
+        element: <StudentsAttendancePage />,
+      },
+      {
+        path: "hub/studentsCalender",
+        element: <StudentsCalenderPage />,
+      },
+      {
+        path: "hub/studentsScheme",
+        element: <StudentsSOWPage />,
+      },
+      {
+        path: "fees",
+        element: <HubPage />,
       },
       {
         path: "checkResults/resultAnalysis",
@@ -114,6 +134,10 @@ const router = createBrowserRouter([
       {
         path: "studentProfile",
         element: <StudentProfile />,
+      },
+      {
+        path: "error",
+        element: <ErrorPage />,
       },
     ],
   },

@@ -1,25 +1,26 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 
-export const AdminAcad = () => {
+export const HubPage = () => {
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid mt-9 grid-cols-3 gap-9">
-        <AcadCard text={"Attendance"} link={"/admin/academics/attendance"} />
-        <AcadCard text={"Classes"} link={"/admin/academics/classes"} />
-        <AcadCard text={"Calender"} link={"/admin/academics/events"} />
-        <AcadCard text={"Results"} link={"/admin/academics/result"} />
-        <AcadCard
-          text={"Scheme Of Work"}
-          link={"/admin/academics/schemeOfWork"}
+        <HubCard
+          text={"Attendance"}
+          link={"/students/hub/studentsAttendance"}
         />
-        <AcadCard text={"Subjects"} link={"/admin/academics/subjects"} />
+        <HubCard text={"Calender"} link={"/students/hub/studentsCalender"} />
+        <HubCard
+          text={"Scheme Of Work"}
+          link={"/students/hub/studentsScheme"}
+        />
+        <HubCard text={"Subjects"} link={"/students/error"} />
       </main>
     </section>
   )
 }
 
-const AcadCard = ({ text, link }) => {
+const HubCard = ({ text, link }) => {
   return (
     <Link to={link}>
       <div className="h-56 border-2 grid place-items-center rounded-2xl shadow-lg ">
@@ -29,7 +30,7 @@ const AcadCard = ({ text, link }) => {
   )
 }
 
-AcadCard.propTypes = {
+HubCard.propTypes = {
   text: PropTypes.string,
   link: PropTypes.string,
 }

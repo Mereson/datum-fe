@@ -28,21 +28,26 @@ export const StudentSidebar = () => {
               label={"Dashboard"}
             />
             <SidebarNavItem
-              to={"/students/uploadResult1"}
-              Icon={SbSubject}
-              label={"Subject"}
-            />
-            <SidebarNavItem
-              to={"/students/attendance"}
-              Icon={SbAttendance}
-              label={"Attendance"}
-            />
-            <SidebarNavItem
               to={"/students/viewResults"}
               Icon={SbResults}
-              label={"Result"}
+              label={"Results"}
             />
-            <hr className="" />
+            <SidebarNavItem
+              to={"/students/timetable"}
+              Icon={SbSubject}
+              label={"TimeTable"}
+            />
+            <SidebarNavItem
+              to={"/students/hub"}
+              Icon={SbAttendance}
+              label={"Hub"}
+            />
+            <SidebarNavItem
+              to={"/students/comming soon"}
+              Icon={SbResults}
+              label={"Fees"}
+            />
+            <hr className="mt-2" />
           </div>
         </div>
       </div>
