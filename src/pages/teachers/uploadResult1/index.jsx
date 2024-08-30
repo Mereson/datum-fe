@@ -29,7 +29,7 @@ export const UploadResult1 = () => {
         <p className="text-[#132985] font-bold text-base"> Back </p>
       </div>
 
-      <section className=" pl-[102px] pt-7 w-[694px] h-[576px]">
+      <section className=" pl-[102px] pt-7 w-[75%] h-[576px]">
         <h2 className="text-left text-[32px] font-semibold text-[#696969] pb-8">
           Upload Result
         </h2>
