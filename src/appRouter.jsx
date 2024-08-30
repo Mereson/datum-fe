@@ -37,6 +37,7 @@ import {
   AdminSubjectResult,
   AdminStudentsResultList,
   TeachersTimetable,
+  UploadResult1,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -234,6 +235,10 @@ const router = createBrowserRouter([
       {
         path: "uploadresult",
         element: <UploadResult />,
+      },
+      {
+        path: "uploadresult1",
+        element: <UploadResult1 />,
       },
       {
         path: "remark",

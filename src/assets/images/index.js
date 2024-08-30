@@ -21,6 +21,7 @@ import JakesImage from "./jakesimage.png"
 import MariasImage from "./mariasimage.png"
 import Timetable from "./timetable.png"
 import Teacher2 from "./teacher2.png"
+import Arrow from "./arrow.png"
 
 export {
   HeroImg,
@@ -45,7 +46,8 @@ export {
   JakesImage,
   MariasImage,
   Timetable,
-  Teacher2,  
+  Teacher2,
+  Arrow,
 }
 
 export * from "./admin"
