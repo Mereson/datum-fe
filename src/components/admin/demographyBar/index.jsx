@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 
-export const ComparisonChart = ({ boysCount, girlsCount }) => {
+export const  ComparisonChart = ({ boysCount, girlsCount }) => {
   const total = boysCount + girlsCount
   const boysPercentage = Math.floor((boysCount / total) * 100)
   const girlsPercentage = 100 - boysPercentage
@@ -8,16 +8,16 @@ export const ComparisonChart = ({ boysCount, girlsCount }) => {
   const circumference = 2 * Math.PI * radius
 
   const getTextColor = () => {
-    if (boysPercentage > girlsPercentage) return "#d0d4e7"
-    if (girlsPercentage > boysPercentage) return "#132985"
-    return "#000"
+    // if (boysPercentage > girlsPercentage) return "#d0d4e7"
+    // if (girlsPercentage > boysPercentage) return "#132985"
+    return "#1E1E1E"
   }
 
   //   const boysOffset = circumference - (boysPercentage / 100) * circumference
   const girlsOffset = circumference - (girlsPercentage / 100) * circumference
 
   return (
-    <svg width="120" height="120" viewBox="0 0 36 36" className="mt-4">
+    <svg width="120" height="120" viewBox="0 0 36 36">
       {/* Background circle */}
       <path
         d="

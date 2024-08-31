@@ -7,14 +7,14 @@ export const StudentsDemography = () => {
 
   return (
     <div className=" bg-[#fafafa] h-[309px] pt-[30px] shadow-sm rounded-2xl">
-      <div className="grid gap-6 place-items-center">
-        <h4 className="font-bold text-center w-[158px] text-lg">
-          {"Student’s"} Gender Demography
+      <div className="grid gap-8 place-items-center">
+        <h4 className="font-bold text-center text-lg">
+          {"Student’s Distribution"}
         </h4>
         <ComparisonChart boysCount={boysCount} girlsCount={girlsCount} />
         <div className="flex gap-[52px] justify-between">
           <div className="flex items-center gap-2">
-            <p className={`w-[16px] h-[16px] rounded-full bg-[#f4901f]`}></p>
+            <p className={`w-[16px] h-[16px] rounded-full bg-[#d0d4e7]`}></p>
             <p> Boys: {boysCount}</p>
           </div>
           <div className="flex items-center gap-2">

@@ -7,7 +7,9 @@ import SbSubject from "./subject"
 import SbSearch from "./search"
 import SbEmojiWave from "./emoji"
 import SbEmojiThumbsUp from "./emoji2"
-import DropdownIcon  from "./dropdown"
+import DropdownIcon from "./dropdown"
+import ReadingStudent from "./readingStudent.svg"
+import circlesStudents from "./circlesStudents.svg"
 
 export {
   SbAttendance,
@@ -19,5 +21,7 @@ export {
   SbSearch,
   SbEmojiWave,
   SbEmojiThumbsUp,
-  DropdownIcon
+  DropdownIcon,
+  ReadingStudent,
+  circlesStudents,
 }
