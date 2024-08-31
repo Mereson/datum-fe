@@ -17,11 +17,9 @@ export const StudentsList = () => {
 
   useEffect(() => {
     const getData = async () => {
-      
-
       console.log("is hitting")
       const studentData = await getAllStudents()
-      console.log(studentData)
+      console.log("this ", studentData)
       const newData = formattedData(studentData)
 
       setStudentsData(studentData)
