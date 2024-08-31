@@ -38,6 +38,8 @@ import {
   AdminStudentsResultList,
   TeachersTimetable,
   HubPage,
+  UploadResult1,
+  Scheme,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -260,12 +262,20 @@ const router = createBrowserRouter([
         element: <UploadResult />,
       },
       {
+        path: "uploadresult1",
+        element: <UploadResult1 />,
+      },
+      {
         path: "remark",
         element: <Remark />,
       },
       {
+        path: "scheme",
+        element: <Scheme />,
+      },
+      {
         path: "schemeOfWork",
-        element: <ErrorPage />,
+        element: <Scheme />,
       },
     ],
   },

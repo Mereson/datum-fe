@@ -1,0 +1,29 @@
+.scheme-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.back-button {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.scheme-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scheme-table th,
+.scheme-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.scheme-table th {
+  background-color: #f2f2f2;
+}

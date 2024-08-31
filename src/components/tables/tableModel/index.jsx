@@ -19,7 +19,7 @@ export const TableModel = ({
   searchValue,
   rowOnClick,
   justTable = false,
-  center
+  center,
 }) => {
   const [data, setData] = useState(myData)
   const [columnFilters, setColumnFilters] = useState([])
@@ -63,27 +63,27 @@ export const TableModel = ({
     <>
       {!justTable ? (
         <section className="grid gap-4 w-full">
-          <div className="flex justify-between items-center">            
+          <div className="flex justify-between items-center">
             <div className="w-[50%]">
               <FilteredSearch
                 columnFilters={columnFilters}
                 setColumnFilters={setColumnFilters}
                 searchValue={searchValue}
-              /> 
+              />
             </div>
             <div className="flex gap-5">
               <select className="p-[0.4rem] rounded" name="Class" id="">
-                <option value="" >Class</option>
-                <option value="" >JSS 1</option>
+                <option value="">Class</option>
+                <option value="">JSS 1</option>
                 <option value="">JSS 2</option>
                 <option value="">JSS 3</option>
               </select>
               <select className="p-[0.4rem] rounded" name="Class" id="">
-                <option value="" >Gender</option>
+                <option value="">Gender</option>
                 <option value="JSS1">Male</option>
                 <option value="JSS1">Female</option>
               </select>
-            </div>        
+            </div>
           </div>
           {children}
           <p className="text-sm text-[#6270AE] pb-4">

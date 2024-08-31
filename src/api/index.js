@@ -38,19 +38,17 @@ export const createTeacher = async (teacher) => {
     // console.log(`Hi there hello ${formData, teacher}`)
     // console.log(formData)
 
-    const newData = formData.values()
+    // for (const pair of formData.entries()) {
+    //   console.log(`${pair[0]}: ${pair[1]}`)
+    // }
 
-    for (const pair of formData.entries()) {
-      console.log(`${pair[0]}: ${pair[1]}`)
-    }
+    console.log(formData)
+    // const { data } = await axios.post(
+    //   `${baseUrl}/admin/createAdmin`,
+    //   formData
+    // )
 
-    console.log(newData)
-    const { data } = await axios.post(
-      `${baseUrl}/admin/createAdmin`,
-      formData
-    )
-
-    return data
+    // return data
   } catch (error) {
     catchErrors(error)
   }

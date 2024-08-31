@@ -1,5 +1,3 @@
 export const StudentsCalenderPage = () => {
-  return (
-    <div>StudentsCalenderPage</div>
-  )
+  return <div>StudentsCalenderPage</div>
 }
