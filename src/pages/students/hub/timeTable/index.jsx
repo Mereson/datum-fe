@@ -1,6 +1,7 @@
+import { Timetable } from "../../../../assets"
 import { BackIcon, StudentIcon } from "../../../../components"
 
-export const StudentsSOWPage = () => {
+export const StudentsTimeTable = () => {
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main>
@@ -10,7 +11,11 @@ export const StudentsSOWPage = () => {
           </div>
           <StudentIcon />
         </div>
-        <h2 className="pb-[51px] text-2xl">Scheme Of Work</h2>
+        <h2 className="pb-[40px] text-2xl">My Timetable</h2>
+
+        <div>
+          <img src={Timetable} alt="timetable" />
+        </div>
       </main>
     </section>
   )

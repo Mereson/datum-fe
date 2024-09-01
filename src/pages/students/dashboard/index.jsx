@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import { ReadingStudent, SchoolChild } from "../../../assets"
 import {
   ActivitySection,
+  AttendanceBarChart,
   CoreSubjects,
-  GradesBarChart,
   StudentsAttendance,
   WelcomeBox,
 } from "../../../components"
@@ -29,11 +29,23 @@ export const StudentsDashboard = () => {
         />
 
         <div className="group col-span-2 mt-2 py-4 bg-[#fafafa] h-[292px] shadow-sm rounded-2xl cursor-pointer">
-          <Link to={"/students/checkResults/resultAnalysis"}>
-            <h3 className="px-10 text-lg font-bold group-hover:text-[#f4901f] transition-all duration-200 ease-in-out">
-              Class Attendance
-            </h3>
-            <GradesBarChart subjects={subjects} />
+          <Link to={"/students/hub/studentsAttendance"}>
+            <div className="px-8 flex justify-between">
+              <h3 className=" text-lg font-bold group-hover:text-[#f4901f] transition-all duration-200 ease-in-out">
+                Subject Attendance
+              </h3>
+              <div className="text-[10px] text-[#191919] font-normal">
+                <p className="flex items-center text-center gap-2">
+                  <p className="size-2 rounded-full bg-[#132985]"></p>
+                  <p>Present</p>
+                </p>
+                <p className="flex items-center text-center gap-2">
+                  <p className="size-2 rounded-full bg-[#8884d8]"></p>
+                  <p>Absent</p>
+                </p>
+              </div>
+            </div>
+            <AttendanceBarChart data={attendance} />
           </Link>
         </div>
       </section>
@@ -89,5 +101,38 @@ const subjects = [
     subject: "Geography",
     topics: 5,
     Total: 59,
+  },
+]
+
+const attendance = [
+  {
+    subject: "Eng",
+    present: 98,
+    absent: 2,
+  },
+  {
+    subject: "Maths",
+    present: 60,
+    absent: 40,
+  },
+  {
+    subject: "Bio",
+    present: 70,
+    absent: 30,
+  },
+  {
+    subject: "Phy",
+    present: 25,
+    absent: 75,
+  },
+  {
+    subject: "Chem",
+    present: 70,
+    absent: 30,
+  },
+  {
+    subject: "Geo",
+    present: 60,
+    absent: 40,
   },
 ]

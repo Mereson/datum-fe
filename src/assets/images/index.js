@@ -19,7 +19,7 @@ import TeacherHeroImg from "./fineteacher.png"
 import HeroLady from "./heroLady.png"
 import JakesImage from "./jakesimage.png"
 import MariasImage from "./mariasimage.png"
-import Timetable from "./timetable.png"
+import Timetable from "./Timetable2.svg"
 import Teacher2 from "./teacher2.png"
 
 export {

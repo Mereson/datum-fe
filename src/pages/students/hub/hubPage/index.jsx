@@ -14,7 +14,7 @@ export const HubPage = () => {
           text={"Scheme Of Work"}
           link={"/students/hub/studentsScheme"}
         />
-        <HubCard text={"Subjects"} link={"/students/error"} />
+        <HubCard text={"Timetable"} link={"/students/hub/studentsTimeTable"} />
       </main>
     </section>
   )

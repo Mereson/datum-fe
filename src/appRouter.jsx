@@ -38,6 +38,9 @@ import {
   AdminStudentsResultList,
   TeachersTimetable,
   HubPage,
+  StudentsSubjectList,
+  StudentsTimeTable,
+  StudentsFees,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
 import Api from "./api/api"
@@ -47,6 +50,7 @@ import { StudentDetailsAdmin } from "./pages/admin/students/studentDetails"
 import { StudentsAttendancePage } from "./pages/students/hub/attendance"
 import { StudentsCalenderPage } from "./pages/students/hub/calender"
 import { StudentsSOWPage } from "./pages/students/hub/schemeOfWork"
+import { TeachersAttendanceList } from "./pages/teachers/attendance"
 // import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
@@ -104,6 +108,10 @@ const router = createBrowserRouter([
         element: <PersonalInfo />,
       },
       {
+        path: "subjects",
+        element: <StudentsSubjectList />,
+      },
+      {
         path: "hub",
         element: <HubPage />,
       },
@@ -120,8 +128,12 @@ const router = createBrowserRouter([
         element: <StudentsSOWPage />,
       },
       {
+        path: "hub/studentsTimeTable",
+        element: <StudentsTimeTable />,
+      },
+      {
         path: "fees",
-        element: <HubPage />,
+        element: <StudentsFees />,
       },
       {
         path: "checkResults/resultAnalysis",
@@ -249,7 +261,7 @@ const router = createBrowserRouter([
       },
       {
         path: "attendance",
-        element: <ErrorPage />,
+        element: <TeachersAttendanceList />,
       },
       {
         path: "timetable",

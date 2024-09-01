@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import {
-  SbAttendance,
-  SbHome,
+  DashboardIcon,
+  HubIcon,
   SbLogout,
-  SbResults,
   SbSubject,
+  SubjectsIcon,
 } from "../../../assets"
 import { SidebarNavItem } from "../sidebarNav"
 import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
+import { FeesIcon } from "../../../assets/icons/adminDashboard/fees"
 
 export const StudentSidebar = () => {
   return (
@@ -24,27 +25,23 @@ export const StudentSidebar = () => {
           <div className="flex flex-col">
             <SidebarNavItem
               to="/students/dashboard"
-              Icon={SbHome}
+              Icon={DashboardIcon}
               label={"Dashboard"}
             />
             <SidebarNavItem
               to={"/students/viewResults"}
-              Icon={SbResults}
+              Icon={SubjectsIcon}
               label={"Results"}
             />
             <SidebarNavItem
-              to={"/students/timetable"}
+              to={"/students/subjects"}
               Icon={SbSubject}
-              label={"TimeTable"}
+              label={"Subjects"}
             />
+            <SidebarNavItem to={"/students/hub"} Icon={HubIcon} label={"Hub"} />
             <SidebarNavItem
-              to={"/students/hub"}
-              Icon={SbAttendance}
-              label={"Hub"}
-            />
-            <SidebarNavItem
-              to={"/students/comming soon"}
-              Icon={SbResults}
+              to={"/students/fees"}
+              Icon={FeesIcon}
               label={"Fees"}
             />
             <hr className="mt-2" />

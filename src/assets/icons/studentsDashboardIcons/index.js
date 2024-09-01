@@ -10,6 +10,8 @@ import SbEmojiThumbsUp from "./emoji2"
 import DropdownIcon from "./dropdown"
 import ReadingStudent from "./readingStudent.svg"
 import circlesStudents from "./circlesStudents.svg"
+import SubjectsIcon from "./classIcon"
+import HubIcon from "./hubIcon.jsx"
 
 export {
   SbAttendance,
@@ -24,4 +26,6 @@ export {
   DropdownIcon,
   ReadingStudent,
   circlesStudents,
+  SubjectsIcon,
+  HubIcon,
 }
