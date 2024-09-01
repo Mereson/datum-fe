@@ -1,37 +1,57 @@
-import { Dropdown } from "../../../components";
-import { Button } from "../../../components/button";
+import { BackIcon, Dropdown, TeacherAvater } from "../../../components"
+import { Button } from "../../../components/button"
 
 export const UploadResult1 = () => {
   return (
-    <div className="bg-[#f4f4f4] w-[100%] grid place-items-center overflow-auto">
-      <div>
-        <h2 className="text-center text-[40px] font-bold text-[#696969] pb-8">
-          Upload Result
-        </h2>
-
-        <div className="grid gap-6">
-          {options.map(({ id, name, query, items }) => (
-            <Dropdown
-              key={id}
-              id={id}
-              name={name}
-              query={query}
-              items={items}
-            />
-          ))}
+    <section className="w-full pt-8 px-[6rem] pb-8 overflow-auto bg-[#f4f4f4]">
+      <div className="flex justify-between pb-14">
+        <div className="flex items-end">
+          <BackIcon link={"/teacher/uploadresult"} />
         </div>
-
-        <Button
-          link={"/students/checkResults/resultAnalysis"}
-          content="Submit"
-          className={
-            "bg-[#132985] w-[100%] py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
-          }
-        />
+        <TeacherAvater />
       </div>
-    </div>
-  );
-};
+      <main className="w-full grid place-items-center">
+        <section className=" w-[85%] h-[576px]">
+          <h2 className="text-left text-[32px] font-semibold text-[#696969] pb-8">
+            Upload Result
+          </h2>
+
+          <div className="grid grid-cols-2 gap-6">
+            {options.map(({ id, name, query, items }) => (
+              <Dropdown
+                key={id}
+                id={id}
+                name={name}
+                query={query}
+                items={items}
+              />
+            ))}
+          </div>
+
+          <div className="w-[100%] h-36 my-10 bg-[#ECECEC] rounded-lg items-center justify-center flex flex-col relative cursor-pointer">
+            <input
+              className="absolute w-[100%] h-[100%] cursor-pointer"
+              type="file"
+              accept=".csv"
+            />
+            <p>
+              Drag your CSV file here or
+              <span className="cursor-pointer "> Upload from here</span>
+            </p>
+          </div>
+          <div className="pl-[40%]">
+            <Button
+              content="Submit"
+              className={
+                "bg-[#132985] w-[30%] py-[8px] mt-9 text-center rounded-[8px] font-bold text-white cursor-pointer"
+              }
+            />
+          </div>
+        </section>
+      </main>
+    </section>
+  )
+}
 
 const options = [
   {
@@ -71,4 +91,4 @@ const options = [
     query: "Select Term",
     items: ["First term", "Second term", "Third term"],
   },
-];
+]

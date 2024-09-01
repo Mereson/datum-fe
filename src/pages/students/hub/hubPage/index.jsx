@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export const HubPage = () => {
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
-      <main className="grid mt-9 grid-cols-3 gap-9">
+      <main className="grid mt-9 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
         <HubCard
           text={"Attendance"}
           link={"/students/hub/studentsAttendance"}

@@ -21,6 +21,7 @@ export const StudentSidebar = () => {
             alt="datum logo"
           />
         </Link>
+
         <div className="pt-[70px] flex flex-col gap-7">
           <div className="flex flex-col">
             <SidebarNavItem
