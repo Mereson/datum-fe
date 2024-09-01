@@ -38,6 +38,9 @@ import {
   AdminStudentsResultList,
   TeachersTimetable,
   HubPage,
+  StudentsSubjectList,
+  StudentsTimeTable,
+  StudentsFees,
   UploadResult1,
   Scheme,
 } from "./pages"
@@ -49,6 +52,7 @@ import { StudentDetailsAdmin } from "./pages/admin/students/studentDetails"
 import { StudentsAttendancePage } from "./pages/students/hub/attendance"
 import { StudentsCalenderPage } from "./pages/students/hub/calender"
 import { StudentsSOWPage } from "./pages/students/hub/schemeOfWork"
+import { TeachersAttendanceList } from "./pages/teachers/attendance"
 // import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
@@ -106,6 +110,10 @@ const router = createBrowserRouter([
         element: <PersonalInfo />,
       },
       {
+        path: "subjects",
+        element: <StudentsSubjectList />,
+      },
+      {
         path: "hub",
         element: <HubPage />,
       },
@@ -122,8 +130,12 @@ const router = createBrowserRouter([
         element: <StudentsSOWPage />,
       },
       {
+        path: "hub/studentsTimeTable",
+        element: <StudentsTimeTable />,
+      },
+      {
         path: "fees",
-        element: <HubPage />,
+        element: <StudentsFees />,
       },
       {
         path: "checkResults/resultAnalysis",
@@ -251,7 +263,7 @@ const router = createBrowserRouter([
       },
       {
         path: "attendance",
-        element: <ErrorPage />,
+        element: <TeachersAttendanceList />,
       },
       {
         path: "timetable",
@@ -262,7 +274,7 @@ const router = createBrowserRouter([
         element: <UploadResult />,
       },
       {
-        path: "uploadresult1",
+        path: "uploadresult/uploadresult1",
         element: <UploadResult1 />,
       },
       {

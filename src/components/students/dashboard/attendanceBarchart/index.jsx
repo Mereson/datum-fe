@@ -12,16 +12,14 @@ import {
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
-    const assessmentScore = payload.find((p) => p.name === "assessment")?.value
-    const examScore = payload.find((p) => p.name === "exam")?.value
-    const totalScore = assessmentScore + examScore
+    const assessmentScore = payload.find((p) => p.name === "absent")?.value
+    const examScore = payload.find((p) => p.name === "present")?.value
 
     return (
       <div className="bg-[#f4f4f4] font-semibold p-4">
         <p className="label">{`${label}`}</p>
-        <p className="text-[#8884d8]">{`Assessment: ${assessmentScore}`}</p>
-        <p className="text-[#132985]">{`Exam: ${examScore}`}</p>
-        <p className="intro">{`Total: ${totalScore}`}</p>
+        <p className="text-[#132985]">{`Present: ${examScore}`}</p>
+        <p className="text-[#8884d8]">{`Absent: ${assessmentScore}`}</p>
       </div>
     )
   }
@@ -61,18 +59,18 @@ CustomBar.propTypes = {
   fill: PropTypes.string.isRequired,
 }
 
-export const GradesBarChart = ({ subjects, bool = false }) => {
+export const AttendanceBarChart = ({ data, bool = false }) => {
   return (
     <ResponsiveContainer width={"100%"} height={"100%"}>
       <BarChart
         className="cursor-pointer w-[100%] h-[100%]"
-        data={subjects}
+        data={data}
         margin={{
-          top: 30,
+          top: 35,
           bottom: 20,
         }}
       >
-        <YAxis tickCount={10} hide={true} />
+        <YAxis axisLine={false} tickLine={false} />
         <CartesianGrid vertical={false} horizontal={bool} />
         <XAxis
           dataKey="subject"
@@ -81,9 +79,9 @@ export const GradesBarChart = ({ subjects, bool = false }) => {
         />
         <Tooltip content={<CustomTooltip />} />
         {/* Assessment Bar */}
-        <Bar dataKey="assessment" stackId="a" fill="#8884d8" barSize={40} />
+        <Bar dataKey="absent" stackId="a" fill="#8884d8" barSize={40} />
         {/* Exam Bar */}
-        <Bar dataKey="exam" stackId="a" fill="#132985" barSize={40}>
+        <Bar dataKey="present" stackId="a" fill="#132985" barSize={40}>
           <LabelList dataKey="total" position="top" />
         </Bar>
       </BarChart>
@@ -91,16 +89,7 @@ export const GradesBarChart = ({ subjects, bool = false }) => {
   )
 }
 
-GradesBarChart.propTypes = {
-  subjects: PropTypes.arrayOf(
-    PropTypes.shape({
-      "s/n": PropTypes.number.isRequired,
-      subject: PropTypes.string.isRequired,
-      assessment: PropTypes.number.isRequired,
-      exam: PropTypes.number.isRequired,
-      total: PropTypes.number.isRequired,
-      grade: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+AttendanceBarChart.propTypes = {
+  data: PropTypes.any,
   bool: PropTypes.bool,
 }

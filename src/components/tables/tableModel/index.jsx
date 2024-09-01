@@ -20,6 +20,7 @@ export const TableModel = ({
   rowOnClick,
   justTable = false,
   center,
+  pageSize = "12"
 }) => {
   const [data, setData] = useState(myData)
   const [columnFilters, setColumnFilters] = useState([])
@@ -32,7 +33,7 @@ export const TableModel = ({
     },
     initialState: {
       pagination: {
-        pageSize: 12,
+        pageSize: pageSize,
       },
     },
     getCoreRowModel: getCoreRowModel(),
@@ -118,4 +119,5 @@ TableModel.propTypes = {
   rowOnClick: PropTypes.func,
   justTable: PropTypes.bool,
   center: PropTypes.string,
+  pageSize: PropTypes.string,
 }

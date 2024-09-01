@@ -1,13 +1,4 @@
-import React from "react"
-import {
-  Activites,
-  ActivitySection,
-  CustomCalendar,
-  SearchBox,
-  StudentsAttendance,
-  TableModel,
-} from "../../../components"
-import { SbEmojiWave, SchoolTeacher, HeroLady } from "../../../assets"
+import { TableModel, TeacherAvater } from "../../../components"
 import styles from "./styles.module.css"
 import { data } from "../../../testData"
 
@@ -19,8 +10,12 @@ export const TeachersStudents = () => {
 
   return (
     <section
-      className={`${styles.students_Container} bg-[#f4f4f4] overflow-auto`}
+      className={`${styles.students_Container} bg-[#f4f4f4] pb-8 overflow-auto`}
     >
+      <div className="flex w-full px-[3rem] pt-6 justify-end">
+        <TeacherAvater />
+      </div>
+
       <section className={`${styles.board_section} w-full`}>
         <TableModel
           myData={data}
@@ -36,17 +31,16 @@ export const TeachersStudents = () => {
   )
 }
 
-const Remark = ({ getValue }) => {
-  const item = getValue()
+const Remark = () => {
   const click = () => {
     alert("How far")
   }
   return (
     <p
       onClick={click}
-      className="px-5 py-[6px] rounded-lg bg-[#D0D4E7] text-[#132985] text-sm"
+      className="py-[6px] ml-[-30px] text-center rounded-lg bg-[#D0D4E7] text-[#132985] text-sm"
     >
-      {item}
+      Remark
     </p>
   )
 }
@@ -56,36 +50,43 @@ const columns = [
     accessorKey: "regNo",
     header: "Reg No",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "surname",
     header: "Surname",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "firstName",
     header: "First Name",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "otherName",
     header: "Other Name",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "gender",
     header: "Gender",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "class",
     header: "Class",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "regDate",
     header: "Remarks",
     // cell: (props) => <p>{props.getValue()}</p>,
     cell: Remark,
+    enableSorting: false,
   },
 ]
