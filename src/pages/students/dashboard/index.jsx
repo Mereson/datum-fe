@@ -18,7 +18,7 @@ export const StudentsDashboard = () => {
   return (
     <section className="flex w-full h-[100%] bg-[#f4f4f4] justify-between">
       <section
-        className={`${styles.scrollbar} px-[80px] pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 w-[71%]`}
+        className={`${styles.scrollbar} px-[80px] pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 sm:w-[71%]`}
       >
         <WelcomeBox bg={"bg-[#132985]"} avatar={ReadingStudent} student />
         <CoreSubjects subjects={subjects} />

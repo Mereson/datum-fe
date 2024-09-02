@@ -8,7 +8,7 @@ export const SidebarNavItem = ({ to, Icon, label }) => {
       {({ isActive }) => (
         <NavLinkItem isActive={isActive} duration={duration}>
           <div
-            className={`flex items-center py-[3.7px] pl-6 mx-6 md:mx-0 rounded-full md:rounded-none md:rounded-l-3xl transition-all ${duration} ease-in-out ${
+            className={`flex items-center py-[3.7px] pl-6 mx-6 sm:mx-0 rounded-full sm:rounded-none sm:rounded-l-3xl transition-all ${duration} ease-in-out ${
               isActive ? "bg-[#F4F4F4]" : "bg-[#132985]"
             } `}
           >
@@ -37,7 +37,7 @@ const NavLinkItem = ({ children, isActive, duration }) => {
   return (
     <>
       <div
-        className={`ml-9 hidden md:block transition-all ${duration} ease-in-out ${
+        className={`ml-9 hidden sm:block transition-all ${duration} ease-in-out ${
           isActive ? "bg-[#F4F4F4]" : "bg-[#132985]"
         }`}
       >
@@ -45,7 +45,7 @@ const NavLinkItem = ({ children, isActive, duration }) => {
       </div>
       {children}
       <div
-        className={`ml-9 hidden md:block transition-all ${duration} ease-in-out ${
+        className={`ml-9 hidden sm:block transition-all ${duration} ease-in-out ${
           isActive ? "bg-[#F4F4F4]" : "bg-[#132985]"
         }`}
       >
