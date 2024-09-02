@@ -16,7 +16,7 @@ export const StudentsDashboard = () => {
   const percentage = Math.floor((score / total) * 100)
 
   return (
-    <section className="sm:flex overflow-auto sm:overflow-auto  w-full h-[100%] bg-[#f4f4f4] justify-between">
+    <section className="sm:flex overflow-auto w-full h-[100%] bg-[#f4f4f4] justify-between">
       <section
         className={`${styles.scrollbar} sm:px-[80px] px-[2rem] pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 w-full sm:w-[71%]`}
       >

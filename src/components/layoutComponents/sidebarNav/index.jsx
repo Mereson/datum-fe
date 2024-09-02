@@ -1,10 +1,14 @@
 import { NavLink } from "react-router-dom"
 import PropTypes from "prop-types"
 
-export const SidebarNavItem = ({ to, Icon, label }) => {
+export const SidebarNavItem = ({ to, Icon, label, onClick }) => {
   const duration = "duration-100"
   return (
-    <NavLink to={to} className={() => `rounded-l-full gap-[10px] group `}>
+    <NavLink
+      onClick={onClick}
+      to={to}
+      className={() => `rounded-l-full gap-[10px] group `}
+    >
       {({ isActive }) => (
         <NavLinkItem isActive={isActive} duration={duration}>
           <div

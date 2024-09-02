@@ -11,9 +11,9 @@ export const ViewResults = () => {
   }
 
   return (
-    <section className="bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] pb-[9.563rem]">
+    <section className="bg-[#f4f4f4] w-full h-full overflow-auto pt-8 px-[1.5rem] sm:px-[6.25rem] pb-[9.563rem]">
       <StudentIcon />
-      <div className="flex items-center justify-between pt-14 pb-8">
+      <div className="flex flex-wrap gap-3 text-sm sm:text-base items-center justify-between pt-14 pb-8">
         <div className="flex gap-4 font-bold items-center">
           <p
             onClick={handleTabSwitch}
@@ -61,7 +61,9 @@ export const ViewResults = () => {
         </div>
       </div>
       {openTab == 1 ? (
-        <ResultAnalysis data={results} columns={columns} />
+        <div className="overflow-x-auto">
+          <ResultAnalysis data={results} columns={columns} />
+        </div>
       ) : openTab == 2 ? (
         <>
           <p className="text-sm text-[#6270AE] pb-4">
@@ -219,67 +221,3 @@ const results = [
     grade: "A",
   },
 ]
-
-// const subjects = [
-//   {
-//     id: 1,
-//     name: "Eng",
-//     Total: 31,
-//   },
-//   {
-//     id: 2,
-//     name: "Maths",
-//     Total: 65,
-//   },
-
-//   {
-//     id: 3,
-//     name: "Bio",
-//     Total: 77,
-//   },
-//   {
-//     id: 4,
-//     name: "Phy",
-//     Total: 77,
-//   },
-//   {
-//     id: 5,
-//     name: "Chem",
-//     Total: 40,
-//   },
-//   {
-//     id: 6,
-//     name: "Geo",
-//     Total: 59,
-//   },
-//   {
-//     id: 7,
-//     name: "Agric",
-//     Total: 62,
-//   },
-//   {
-//     id: 8,
-//     name: "Igbo",
-//     Total: 86,
-//   },
-//   {
-//     id: 9,
-//     name: "CRS",
-//     Total: 63,
-//   },
-//   {
-//     id: 10,
-//     name: "Civic",
-//     Total: 78,
-//   },
-//   {
-//     id: 11,
-//     name: "ICT",
-//     Total: 72,
-//   },
-//   {
-//     id: 12,
-//     name: "Health Ed",
-//     Total: 75,
-//   },
-// ]
