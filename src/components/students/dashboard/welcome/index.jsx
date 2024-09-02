@@ -14,7 +14,7 @@ export const WelcomeBox = ({
   teacher = false,
 }) => {
   return (
-    <div className={`relative col-span-2 ${bg} pl-8 h-[142px] rounded-2xl`}>
+    <div className={`relative col-span-2 ${bg} pl-4 h-[142px] rounded-2xl`}>
       {admin && (
         <>
           <span className="flex gap-[16.5px] items-center pt-[30px] pb-[6px]">
@@ -105,15 +105,15 @@ export const WelcomeBox = ({
       )}
       {student && (
         <>
-          <span className="flex gap-[16.5px] items-center pt-[30px] pb-[6px]">
+          <span className="flex gap-[16.5px] items-center pt-[27px] pb-[6px]">
             <h3 className="text-[18px] font-medium text-[#ffff]">
               Welcome Back Ene Maria
             </h3>
             <SbEmojiWave w="36" h="34" />
           </span>
-          <p className="text-sm text-[#ffff] absolute z-20 font-semibold w-[398px]">
-            Ready for a new term? Check your subjects, assignments, and
-            schedule. We&apos;re here to help you succeed.
+          <p className="text-sm text-[#ffff] absolute z-20 font-semibold sm:w-[24.875rem] flex flex-wrap">
+            Ready for a new term? Check your subjects, <br></br> assignments,
+            and schedule. We&apos;re here to help you succeed.
           </p>
           <img
             className="absolute hidden sm:block bottom-0 right-0"

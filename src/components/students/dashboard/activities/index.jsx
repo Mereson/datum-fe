@@ -3,7 +3,7 @@ import { Button } from "../../../landingPage"
 
 export const Activites = () => {
   return (
-    <div className="h-[408px] bg-[#ffffff] border border-[#ededed] rounded-2xl py-7 pl-10">
+    <div className="h-[408px] bg-[#ffffff] border border-[#ededed] rounded-2xl py-7 px-10">
       <h3 className="text-lg font-bold pb-5">Activities</h3>
       <div>
         <Activity title={"Mid term break"} circle={"border-[#132985]"}>

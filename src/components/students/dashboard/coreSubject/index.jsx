@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 export const CoreSubjects = ({ subjects }) => {
   return (
-    <div className="bg-[#fafafa] pb-[24px] grid place-items-center gap-4 pt-4 px-6 shadow-sm rounded-2xl">
+    <div className="bg-[#fafafa] pb-[24px] col-span-2 sm:col-span-1 grid place-items-center gap-4 pt-4 px-6 shadow-sm rounded-2xl w-full">
       <table className="w-full border-collapse">
         <thead>
           <tr>
