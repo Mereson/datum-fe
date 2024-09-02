@@ -28,7 +28,7 @@ export const WelcomeBox = ({
             schedule. We&apos;re here to help you succeed.
           </p>
           <img
-            className="absolute bottom-0 right-[82.48px]"
+            className="absolute  bottom-0 right-[82.48px]"
             src={avatar}
             alt=""
           />
@@ -115,7 +115,11 @@ export const WelcomeBox = ({
             Ready for a new term? Check your subjects, assignments, and
             schedule. We&apos;re here to help you succeed.
           </p>
-          <img className="absolute bottom-0 right-0" src={avatar} alt="" />
+          <img
+            className="absolute hidden sm:block bottom-0 right-0"
+            src={avatar}
+            alt=""
+          />
           <img
             className="absolute bottom-1 left-[383px] size-[24px]"
             src={AdminWelcomeStar}
