@@ -1,53 +1,69 @@
 import PropTypes from "prop-types"
-import { GradesBarChart } from "../../../components"
+import { GradesBarChart, TableModel } from "../../../components"
 import { Button } from "../../../components/button"
-import { FaArrowLeft } from "react-icons/fa6"
-import { Link } from "react-router-dom"
+import { useState } from "react"
 
-export const ResultAnalysis = () => {
-  const returnAverage = () => {
-    let sumOfTotals = 0
+export const ResultAnalysis = ({ data, columns }) => {
+  // const returnAverage = () => {
+  //   let sumOfTotals = 0
 
-    subjects.map((item) => {
-      sumOfTotals = sumOfTotals + item.Total
-    })
+  //   subjects.map((item) => {
+  //     sumOfTotals = sumOfTotals + item.Total
+  //   })
 
-    let average = Math.round((sumOfTotals / subjects.length) * 100) / 100
-    return average
+  //   let average = Math.round((sumOfTotals / subjects.length) * 100) / 100
+  //   return average
+  // }
+  const [openTab, setOpenTab] = useState(false)
+
+  const showAnalysis = () => {
+    setOpenTab(!openTab)
+  }
+
+  const feedBackFn = () => {
+    alert("This leads to the feedback page")
   }
 
   return (
-    <section className="overflow-auto flex flex-col items-center pb-9 w-[100%] bg-[#f4f4f4]">
-      <div className="mt-7 h-[488px] w-[80%]">
-        <div className="flex gap-2 items-center pb-2">
-          <Link to={"/students/checkResults/viewResults"} className="group">
-            <FaArrowLeft className="group-hover:text-[#f4901f] transition-all duration-200 ease-in-out" />
-          </Link>
-          <h4 className="text-lg font-bold">Result Analysis</h4>
+    <section>
+      {openTab ? (
+        <div className="px-2 h-[488px] w-[100%] overflow-x-auto ">
+          <GradesBarChart subjects={data} bool />
         </div>
-        <GradesBarChart subjects={subjects} bool={true} />
-      </div>
-      <div className="mt-14 grid grid-cols-3 gap-[71px] w-[80%]">
-        <Box title={"Average"} text={returnAverage()} />
-        <Box title={"Position"} text={"22nd"} />
-        <Box title={"Out of"} text={"50"} />
-      </div>
-      <div className="mt-[59px] w-[80%]">
-        <div className="w-[70%]">
-          <h4 className="font-bold text-lg text-[#444444]">Feedback</h4>
-          <p className="text-[#444444]">
-            You did well in all other subject but you are lagging in English and
-            Chemistry, please try and focus on them.
-          </p>
-        </div>
+      ) : (
+        <TableModel
+          myData={data}
+          columns={columns}
+          people={"Subjects"}
+          justTable
+          searchValue={"subject"}
+          center={"text-center justify-center"}
+          // rowOnClick={onClick}
+        />
+      )}
+
+      <div className=" w-full flex gap-8">
         <Button
-        link={"/students/checkResults/subjectAnalysis"}
-          content="See Other Analysis/Feedback"
+          onClick={showAnalysis}
+          content={openTab ? "See Result" : "Check Analysis"}
           className={
-            "bg-[#132985] w-[30%] py-[8px] mt-9 text-center rounded-[4px] font-bold text-white cursor-pointer"
+            "bg-[#132985] w-[100%] py-[8px] px-10 mt-11 text-center rounded-[4px] font-bold text-white cursor-pointer flex justify-center"
+          }
+        />
+        <Button
+          onClick={feedBackFn}
+          content="View FeedBack"
+          className={
+            "bg-[#132985] w-[100%] py-[8px] px-10 mt-11 text-center rounded-[4px] font-bold text-white cursor-pointer flex justify-center"
           }
         />
       </div>
+
+      {/* <div className="mt-14 grid grid-cols-3 gap-[71px] w-[80%]">
+        <Box title={"Average"} text={returnAverage()} />
+        <Box title={"Position"} text={"22nd"} />
+        <Box title={"Out of"} text={"50"} />
+      </div> */}
     </section>
   )
 }
@@ -66,66 +82,7 @@ Box.propTypes = {
   text: PropTypes.string,
 }
 
-const subjects = [
-  {
-    id: 1,
-    name: "Eng",
-    Total: 31,
-  },
-  {
-    id: 2,
-    name: "Maths",
-    Total: 65,
-  },
-
-  {
-    id: 3,
-    name: "Bio",
-    Total: 77,
-  },
-  {
-    id: 4,
-    name: "Phy",
-    Total: 77,
-  },
-  {
-    id: 5,
-    name: "Chem",
-    Total: 40,
-  },
-  {
-    id: 6,
-    name: "Geo",
-    Total: 59,
-  },
-  {
-    id: 7,
-    name: "Agric",
-    Total: 62,
-  },
-  {
-    id: 8,
-    name: "Igbo",
-    Total: 86,
-  },
-  {
-    id: 9,
-    name: "CRS",
-    Total: 63,
-  },
-  {
-    id: 10,
-    name: "Civic",
-    Total: 78,
-  },
-  {
-    id: 11,
-    name: "ICT",
-    Total: 72,
-  },
-  {
-    id: 12,
-    name: "Health Ed",
-    Total: 75,
-  },
-]
+ResultAnalysis.propTypes = {
+  data: PropTypes.any,
+  columns: PropTypes.array,
+}

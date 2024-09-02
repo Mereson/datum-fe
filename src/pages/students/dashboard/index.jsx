@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom"
-import { SchoolChild } from "../../../assets"
+import { ReadingStudent, SchoolChild } from "../../../assets"
 import {
   ActivitySection,
+  AttendanceBarChart,
   CoreSubjects,
-  GradesBarChart,
-  SearchBox,
   StudentsAttendance,
   WelcomeBox,
 } from "../../../components"
@@ -17,12 +16,11 @@ export const StudentsDashboard = () => {
   const percentage = Math.floor((score / total) * 100)
 
   return (
-    <section className="flex w-[100%] h-[100%] bg-[#f4f4f4] justify-between">
+    <section className="flex w-full h-[100%] bg-[#f4f4f4] justify-between">
       <section
-        className={`${styles.scrollbar} overflow-auto pr-[75px] pl-[86px] col-span-3 grid grid-cols-2 gap-3 w-[71%]`}
+        className={`${styles.scrollbar} px-[80px] pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 w-[71%]`}
       >
-        <SearchBox />
-        <WelcomeBox />
+        <WelcomeBox bg={"bg-[#132985]"} avatar={ReadingStudent} student />
         <CoreSubjects subjects={subjects} />
         <StudentsAttendance
           score={score}
@@ -30,12 +28,24 @@ export const StudentsDashboard = () => {
           percentage={percentage}
         />
 
-        <div className="group col-span-2 mt-6 py-4 bg-[#fafafa] h-[292px] shadow-sm rounded-2xl cursor-pointer">
-          <Link to={"/students/checkResults/resultAnalysis"}>
-            <h3 className="px-14 text-lg font-bold group-hover:text-[#f4901f] transition-all duration-200 ease-in-out">
-              Performance
-            </h3>
-            <GradesBarChart subjects={subjects} />
+        <div className="group col-span-2 mt-2 py-4 bg-[#fafafa] h-[292px] shadow-sm rounded-2xl cursor-pointer">
+          <Link to={"/students/hub/studentsAttendance"}>
+            <div className="px-8 flex justify-between">
+              <h3 className=" text-lg font-bold group-hover:text-[#f4901f] transition-all duration-200 ease-in-out">
+                Subject Attendance
+              </h3>
+              <div className="text-[10px] text-[#191919] font-normal">
+                <p className="flex items-center text-center gap-2">
+                  <p className="size-2 rounded-full bg-[#132985]"></p>
+                  <p>Present</p>
+                </p>
+                <p className="flex items-center text-center gap-2">
+                  <p className="size-2 rounded-full bg-[#8884d8]"></p>
+                  <p>Absent</p>
+                </p>
+              </div>
+            </div>
+            <AttendanceBarChart data={attendance} />
           </Link>
         </div>
       </section>
@@ -91,5 +101,38 @@ const subjects = [
     subject: "Geography",
     topics: 5,
     Total: 59,
+  },
+]
+
+const attendance = [
+  {
+    subject: "Eng",
+    present: 98,
+    absent: 2,
+  },
+  {
+    subject: "Maths",
+    present: 60,
+    absent: 40,
+  },
+  {
+    subject: "Bio",
+    present: 70,
+    absent: 30,
+  },
+  {
+    subject: "Phy",
+    present: 25,
+    absent: 75,
+  },
+  {
+    subject: "Chem",
+    present: 70,
+    absent: 30,
+  },
+  {
+    subject: "Geo",
+    present: 60,
+    absent: 40,
   },
 ]

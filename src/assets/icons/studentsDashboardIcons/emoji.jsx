@@ -1,7 +1,9 @@
-const SbEmojiWave = () => (
+import PropTypes from "prop-types"
+
+const SbEmojiWave = ({ h = "36", w = "40" }) => (
   <svg
-    width="40"
-    height="36"
+    width={w}
+    height={h}
     viewBox="0 0 40 36"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -28,5 +30,10 @@ const SbEmojiWave = () => (
     />
   </svg>
 )
+
+SbEmojiWave.propTypes = {
+  h: PropTypes.string,
+  w: PropTypes.string,
+}
 
 export default SbEmojiWave

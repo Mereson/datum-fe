@@ -75,7 +75,7 @@ export const AttendanceComponent = ({
             </select>
           </div>
         </div>
-        <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
+        <h2 className="text-2xl pt-3 font-semibold text-[#1e1e1e]">
           {title}
         </h2>
         <p className="text-sm text-[#6270AE] pb-4">
