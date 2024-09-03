@@ -3,38 +3,35 @@ import { TableModel } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { FaPlus } from "react-icons/fa6"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
-import { useEffect } from "react"
 import { getAllStudents, getStudentById } from "../../../../api"
 import { useStudentsList } from "../../../../states/students"
 import { useNavigate } from "react-router-dom"
+import { useQuery } from "@tanstack/react-query"
 
 export const StudentsList = () => {
-  const { studentsList, setStudentsList, setStudentsData, setStudentsIdData } =
+  const { setStudentsIdData } =
     useStudentsList()
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const getData = async () => {
-      console.log("is hitting")
-      const studentData = await getAllStudents()
-      console.log("this ", studentData)
-      const newData = formattedData(studentData)
+  const query = useQuery({ queryKey: ["Students"], queryFn: getAllStudents })
 
-      setStudentsData(studentData)
+  let newData
 
-      setStudentsList(newData)
-      console.log(newData)
-    }
-    getData()
-  }, [])
+  if (query.isError) {
+    console.log(query.error.message)
+    // return <h2 className=" text-[#6270AE] pb-4">{query.error}</h2>
+  }
+
+  if (query.isSuccess) {
+    newData = formattedData(query.data)
+  }
 
   const rowOnClick = async (row) => {
     const studentId = row["Reg No"]
     const data = await getStudentById(studentId)
     setStudentsIdData(data)
     navigate("/admin/studentsList/studentsDetail")
-    // console.log(data)
   }
 
   return (
@@ -68,10 +65,10 @@ export const StudentsList = () => {
             }
           />
         </div>
-        {studentsList.length >= 1 ? (
+        {query.isSuccess && (
           <section>
             <TableModel
-              myData={studentsList}
+              myData={newData}
               columns={columns}
               people={"Students"}
               searchValue={"Surname"}
@@ -82,8 +79,12 @@ export const StudentsList = () => {
               </h2>
             </TableModel>
           </section>
-        ) : (
-          <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+        )}
+        {query.isLoading && (
+          <h2 className=" text-[#6270AE] pb-4">Loading...</h2>
+        )}
+        {query.error && (
+          <h2 className=" text-[red] pb-4">{query.error.message}</h2>
         )}
       </main>
     </section>

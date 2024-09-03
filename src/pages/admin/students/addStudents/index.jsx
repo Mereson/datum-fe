@@ -7,16 +7,17 @@ import { Link, useNavigate } from "react-router-dom"
 import { studentDetailsSchema } from "../../../../api/validationSchema"
 import { useEffect } from "react"
 import { IoCheckmark } from "react-icons/io5"
+import { useMutation } from "@tanstack/react-query"
 
 export const AddStudents = () => {
   const {
     parentsFormData,
     studentsFormData,
     setStudentsFormData,
-    // resetStudentForm,
+    resetStudentForm,
   } = useCreateStudentForm()
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const form = {
@@ -26,7 +27,18 @@ export const AddStudents = () => {
     console.log(form)
   }, [studentsFormData])
 
-  const navigate = useNavigate()
+  const mutation = useMutation({
+    mutationFn: ({ parents, students }) => createStudent(parents, students),
+  })
+
+  if (mutation.isSuccess) {
+    resetStudentForm()
+    navigate("/admin/studentsList")
+  }
+
+  if (mutation.isError) {
+    console.error("Mutation error:", mutation.error)
+  }
 
   const onSubmit = async (values) => {
     console.log("About to console")
@@ -40,13 +52,13 @@ export const AddStudents = () => {
 
     setStudentsFormData(updatedStudentsData)
 
-    const data = createStudent(parentsFormData, studentsFormData)
+    // Call the mutation function
+    mutation.mutate({
+      parents: parentsFormData,
+      students: updatedStudentsData,
+    })
+
     console.log("Submitted Values:", values)
-    console.log(`This is the data: ${data}`)
-    if (data.success !== false) {
-      // resetStudentForm()
-      navigate("/admin/studentsList")
-    }
   }
 
   return (
@@ -249,6 +261,9 @@ export const AddStudents = () => {
           </Form>
         )}
       </Formik>
+      {/* {mutation.isError && (
+        <h2 className=" text-[red] pb-4">{mutation.error}</h2>
+      )} */}
     </section>
   )
 }

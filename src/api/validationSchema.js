@@ -41,7 +41,7 @@ export const studentDetailsSchema = Yup.object().shape({
 export const teacherDetailsSchema = Yup.object().shape({
   surName: Yup.string().required("Surname is required"),
   firstName: Yup.string().required("First Name is required"),
-  otherName: Yup.string().optional(),
+  otherName: Yup.string().required("Other Name is required"),
   gender: Yup.string().required("gender is required"),
   bloodGroup: Yup.string().required("Blood Group is required"),
   dateOfBirth: Yup.string()
@@ -55,10 +55,10 @@ export const teacherDetailsSchema = Yup.object().shape({
   localGovernment: Yup.string().required("Local Government Area is required"),
   employmentRole: Yup.string().required("Subject is required"),
   qualification: Yup.string().required("Qualification is required"),
-  // role: Yup.string().required("Role is required"),
+  role: Yup.string().required("Role is required"),
   gradeLevel: Yup.string().required("Grade Level is required"),
   step: Yup.string().required("Step is required"),
-  File: Yup.string().required("File is required"),
+  file: Yup.string().required("File is required"),
 })
 
 export const activitiesSchema = Yup.object().shape({

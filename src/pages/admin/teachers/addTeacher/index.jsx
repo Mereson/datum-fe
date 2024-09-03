@@ -3,15 +3,31 @@ import { Form, Formik } from "formik"
 import { useCreateTeacherForm } from "../../../../states/createTeacherStore"
 import { teacherDetailsSchema } from "../../../../api/validationSchema"
 import { createTeacher } from "../../../../api"
+import { useMutation } from "@tanstack/react-query"
+import { useNavigate } from "react-router-dom"
 
 export const AddTeacher = () => {
-  const { teacher, setTeacher } = useCreateTeacherForm()
+  const { teacher, setTeacher, resetTeachersForm } = useCreateTeacherForm()
+
+  const navigate = useNavigate()
+
+  const mutation = useMutation({
+    mutationFn: (teacher) => createTeacher(teacher),
+  })
+
+  if (mutation.isSuccess) {
+    resetTeachersForm()
+    navigate("/admin/teachers")
+  }
+
+  if (mutation.isError) {
+    console.error("Mutation error:", mutation.error)
+  }
 
   const onSubmit = async (values) => {
-    setTeacher(values)
     console.log(values)
-    const data = await createTeacher(values)
-    console.log(data)
+    setTeacher(values)
+    mutation.mutate(values)
   }
 
   return (
@@ -44,7 +60,7 @@ export const AddTeacher = () => {
               <div className="w-[10%]">
                 <CustomInput
                   label={"Teachers Photo"}
-                  name="File"
+                  name="file"
                   type="file"
                   required={true}
                 />
@@ -145,11 +161,17 @@ export const AddTeacher = () => {
                   Teaching details
                 </h4>
 
-                <div className="pt-4 w-[50%] gap-x-12 gap-y-6">
+                <div className="pt-4 grid grid-cols-2 w-[100%] gap-x-12 gap-y-6">
                   <CustomInput
                     label={"Subject"}
                     name={`employmentRole`}
                     type="text"
+                    required={true}
+                  />
+                  <FormDropdown
+                    label={"Role"}
+                    name={`role`}
+                    options={["Teacher"]}
                     required={true}
                   />
                 </div>
@@ -203,7 +225,7 @@ export const AddTeacher = () => {
 
               <FormButton
                 type="submit"
-                content="Next"
+                content="Submit"
                 className={
                   "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
                 }
@@ -211,6 +233,9 @@ export const AddTeacher = () => {
             </Form>
           )}
         </Formik>
+        {mutation.isError && (
+          <h2 className=" text-[red] pb-4">{mutation.error.message}</h2>
+        )}
       </div>
     </section>
   )

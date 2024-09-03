@@ -22,37 +22,14 @@ export const createTeacher = async (teacher) => {
       formData.append(key, teacher[key])
     })
 
-    const getAllFormDataValues = (formData) => {
-      const formDataObject = {}
-      for (let [key, value] of formData.entries()) {
-        if (formDataObject[key]) {
-          if (!Array.isArray(formDataObject[key])) {
-            formDataObject[key] = [formDataObject[key]]
-          }
-          formDataObject[key].push(value)
-        } else {
-          formDataObject[key] = value
-        }
-      }
-
-      return formDataObject
-    }
-
-    const allFormDataValues = getAllFormDataValues(formData)
-
-    console.log(allFormDataValues)
-
     console.log("Is hitting")
-    // const { data } = await axios.post(
-    //   `${baseUrl}/admin/createAdmin`,
-    // allFormDataValues
-    // )
+
     const { data } = await axios.post(
       `${baseUrl}/admin/createAdmin`,
-      { admin: formData },
+      formData,
       {
         headers: {
-          "Content-Type": "multipart/form-data", // This header is needed for file uploads
+          "Content-Type": "multipart/form-data",
         },
       }
     )
@@ -106,10 +83,21 @@ export const getStudentById = async (id) => {
 
 export const createResult = async (email, file) => {
   try {
-    const { data } = await axios.post(`${baseUrl}/result/createResult`, {
-      email,
-      file,
-    })
+    const fileData = new FormData()
+
+    fileData.append("email", email)
+    fileData.append("file", file)
+
+    const { data } = await axios.post(
+      `${baseUrl}/result/createResult`,
+      fileData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    )
+
     return data
   } catch (error) {
     catchErrors(error)
