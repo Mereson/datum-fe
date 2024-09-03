@@ -42,19 +42,19 @@ export const ResultAnalysis = ({ data, columns }) => {
         />
       )}
 
-      <div className=" w-full flex gap-8">
+      <div className=" w-full flex gap-8 pt-3">
         <Button
           onClick={showAnalysis}
           content={openTab ? "See Result" : "Check Analysis"}
           className={
-            "bg-[#132985] w-[100%] py-[8px] px-10 mt-11 text-center rounded-[4px] font-bold text-white cursor-pointer flex justify-center"
+            "bg-[#132985] w-[100%] py-2 px-1 sm:px-10 mt-11 text-center rounded-[4px] text-sm font-bold text-white cursor-pointer flex justify-center"
           }
         />
         <Button
           onClick={feedBackFn}
           content="View FeedBack"
           className={
-            "bg-[#132985] w-[100%] py-[8px] px-10 mt-11 text-center rounded-[4px] font-bold text-white cursor-pointer flex justify-center"
+            "bg-[#132985] w-[100%] py-2 px-1 sm:px-10 mt-11 text-center rounded-[4px] text-sm font-bold text-white cursor-pointer flex justify-center"
           }
         />
       </div>

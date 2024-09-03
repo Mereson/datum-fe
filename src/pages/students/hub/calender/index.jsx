@@ -3,17 +3,17 @@ import { eventsData } from "../../../../testData"
 
 export const StudentsCalenderPage = () => {
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full px-6 sm:px-[5rem] h-full bg-[#f4f4f4] pt-8 pb-36 sm:pb-14 overflow-auto">
       <main>
         <div className="flex justify-between pb-14">
-          <div className="flex items-end">
-            <BackIcon link={"/students/hub"} />
-          </div>
+          <BackIcon link={"/students/hub"} />
           <StudentIcon />
         </div>
-        <h2 className="pb-[51px] text-2xl">Academic Calender</h2>
+        <h2 className="pb-[51px] pt-6 text-xl sm:text-2xl">
+          Academic Calender
+        </h2>
 
-        <div className="w-full">
+        <div className="w-full overflow-x-auto">
           <TableModel
             myData={eventsData}
             columns={columns}

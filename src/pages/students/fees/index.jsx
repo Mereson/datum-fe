@@ -1,4 +1,4 @@
-import { StudentIcon, TableModel } from "../../../components"
+import { BackIcon, StudentIcon, TableModel } from "../../../components"
 import { Button } from "../../../components/button"
 import { paymentBreakdownData } from "../../../testData"
 
@@ -7,14 +7,15 @@ export const StudentsFees = () => {
     alert("Coming Soon")
   }
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full px-5 sm:px-[5rem] bg-[#f4f4f4] pt-8 sm:pb-14 h-full overflow-auto pb-40">
       <main>
-        <div className="flex justify-end pb-[20px]">
+        <div className="flex justify-between pb-[20px]">
+          <BackIcon link={"/students/dashboard"} />
           <StudentIcon />
         </div>
-        <h2 className="pb-[40px] text-2xl">School Fees</h2>
+        <h2 className="sm:pt-5 pt-7 pb-[40px] text-2xl">School Fees</h2>
 
-        <section>
+        <section className="overflow-x-auto">
           <TableModel
             myData={paymentBreakdownData}
             columns={breakdownColumn}
@@ -28,7 +29,7 @@ export const StudentsFees = () => {
             onClick={onClick}
             content="Pay Fees"
             className={
-              "bg-[#132985] py-3 px-8 mt-11 text-center rounded-lg font-bold text-white cursor-pointer flex justify-center"
+              "bg-[#132985] py-3 px-8 mt-11 text-center sm:text-base text-sm rounded-lg font-bold text-white cursor-pointer flex justify-center"
             }
           />
         </div>

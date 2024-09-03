@@ -20,7 +20,7 @@ export const TableModel = ({
   rowOnClick,
   justTable = false,
   center,
-  pageSize = "12"
+  pageSize = "12",
 }) => {
   const [data, setData] = useState(myData)
   const [columnFilters, setColumnFilters] = useState([])
@@ -64,7 +64,7 @@ export const TableModel = ({
     <>
       {!justTable ? (
         <section className="grid gap-4 w-full">
-          <div className="flex justify-between items-center">
+          <div className="sm:flex sm:justify-between items-center pb-6">
             <div className="w-[50%]">
               <FilteredSearch
                 columnFilters={columnFilters}
@@ -72,13 +72,14 @@ export const TableModel = ({
                 searchValue={searchValue}
               />
             </div>
-            <div className="flex gap-5">
+            <div className="flex gap-5 ">
               <select className="p-[0.4rem] rounded" name="Class" id="">
                 <option value="">Class</option>
                 <option value="">JSS 1</option>
                 <option value="">JSS 2</option>
                 <option value="">JSS 3</option>
               </select>
+
               <select className="p-[0.4rem] rounded" name="Class" id="">
                 <option value="">Gender</option>
                 <option value="JSS1">Male</option>
@@ -91,7 +92,13 @@ export const TableModel = ({
             Showing {table.getState().pagination.pageIndex + 1} -{" "}
             {table.getPageCount()} of {totalRows} {people}
           </p>
-          <CustomTable table={table} center={center} rowOnClick={rowOnClick} />
+          <div className="overflow-x-auto">
+            <CustomTable
+              table={table}
+              center={center}
+              rowOnClick={rowOnClick}
+            />
+          </div>
           {totalRows > 12 && (
             <div className="mt-8">
               <ListPagination

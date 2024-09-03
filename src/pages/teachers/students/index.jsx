@@ -10,9 +10,9 @@ export const TeachersStudents = () => {
 
   return (
     <section
-      className={`${styles.students_Container} bg-[#f4f4f4] pb-8 overflow-auto`}
+      className={`${styles.students_Container} bg-[#f4f4f4] h-full pb-8 overflow-auto px-0`}
     >
-      <div className="flex w-full px-[3rem] pt-6 justify-end">
+      <div className="flex w-full pr-4 sm:px-[3rem] pt-6 justify-end">
         <TeacherAvater />
       </div>
 
