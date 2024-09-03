@@ -25,6 +25,7 @@ export const AddTeacher = () => {
   }
 
   const onSubmit = async (values) => {
+    // e.preventDefault()
     console.log(values)
     setTeacher(values)
     mutation.mutate(values)
@@ -33,6 +34,7 @@ export const AddTeacher = () => {
   return (
     <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
       <div>
+        <input type="file" onChange={(e) => console.log(e.target.files)} />
         {/* This div is for Add teacher and import csv */}
         <div className="flex justify-between items-start">
           <h2 className="font-semibold text-3xl text-[#4f4f4f]">Add Teacher</h2>

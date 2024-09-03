@@ -72,3 +72,8 @@ export const addSubjectsSchema = Yup.object().shape({
   name: Yup.string().required("Subject is required"),
   classLevel: Yup.string().required("Class Level is required"),
 })
+
+export const loginSchema = Yup.object().shape({
+  email: Yup.string().required("Email is required"),
+  password: Yup.string().required("Password is required"),
+})

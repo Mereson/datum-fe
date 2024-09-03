@@ -19,7 +19,7 @@ export const useCreateTeacherForm = create((set) => ({
     role: "",
     gradeLevel: "",
     step: "",
-    file: ""
+    file: null
   },
   setTeacher: (values) =>
     set((state) => ({
