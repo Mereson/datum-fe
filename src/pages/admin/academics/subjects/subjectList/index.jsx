@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import {
   AddBtn,
   AdminIcon,
@@ -5,9 +6,21 @@ import {
   TableModel,
 } from "../../../../../components"
 import { Button } from "../../../../../components/button"
-import { subjectsData } from "../../../../../testData"
+import { getAllSubjects } from "../../../../../api"
+import { useAcademicsStore } from "../../../../../states/academics"
 
 export const AdminSubjectsList = () => {
+  const { subjectsData, setSubjectsData } = useAcademicsStore()
+  useEffect(() => {
+    const getData = async () => {
+      console.log("is hitting")
+      const data = await getAllSubjects()
+      console.log(data)
+      setSubjectsData(data)
+    }
+    getData()
+  }, [])
+
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-4">
@@ -30,15 +43,19 @@ export const AdminSubjectsList = () => {
 
         <h2 className="text-2xl mt-4 font-bold text-[#1e1e1e]">Subject List</h2>
 
-        <div className="w-[70%]">
-          <TableModel
-            myData={subjectsData}
-            columns={columns}
-            people={"Teachers"}
-            justTable={true}
-            // rowOnClick={onClick}
-          />
-        </div>
+        {subjectsData.length >= 1 ? (
+          <div className="w-[70%]">
+            <TableModel
+              myData={subjectsData}
+              columns={columns}
+              people={"Teachers"}
+              justTable={true}
+              // rowOnClick={onClick}
+            />
+          </div>
+        ) : (
+          <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+        )}
       </main>
     </section>
   )
@@ -46,13 +63,13 @@ export const AdminSubjectsList = () => {
 
 const columns = [
   {
-    accessorKey: "S/N",
+    accessorKey: "id",
     header: "S/N",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "Subjects",
+    accessorKey: "name",
     header: "Subjects",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
