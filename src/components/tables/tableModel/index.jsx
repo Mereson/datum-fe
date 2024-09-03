@@ -92,7 +92,13 @@ export const TableModel = ({
             Showing {table.getState().pagination.pageIndex + 1} -{" "}
             {table.getPageCount()} of {totalRows} {people}
           </p>
-          <CustomTable table={table} center={center} rowOnClick={rowOnClick} />
+          <div className="overflow-x-auto">
+            <CustomTable
+              table={table}
+              center={center}
+              rowOnClick={rowOnClick}
+            />
+          </div>
           {totalRows > 12 && (
             <div className="mt-8">
               <ListPagination
