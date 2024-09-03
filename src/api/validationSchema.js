@@ -13,7 +13,7 @@ export const studentDetailsSchema = Yup.object().shape({
     Yup.object().shape({
       surName: Yup.string().required("Surname is required"),
       firstName: Yup.string().required("First Name is required"),
-      otherName: Yup.string().optional(),
+      otherName: Yup.string().required("Other Name is required"),
       dateOfBirth: Yup.string()
         .matches(/^\d{4}-\d{2}-\d{2}$/, "Date format must be YYYY-MM-DD")
         .required("Date of Birth is required"),
@@ -66,4 +66,9 @@ export const activitiesSchema = Yup.object().shape({
   description: Yup.string().required("Description is required"),
   startDate: Yup.string().required("Start Date is required"),
   endDate: Yup.string().required("End Date is required"),
+})
+
+export const addSubjectsSchema = Yup.object().shape({
+  name: Yup.string().required("Subject is required"),
+  classLevel: Yup.string().required("Class Level is required"),
 })

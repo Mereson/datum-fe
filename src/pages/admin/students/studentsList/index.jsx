@@ -1,7 +1,6 @@
 import PropTypes from "prop-types"
 import { TableModel } from "../../../../components"
 import { Button } from "../../../../components/button"
-import { data } from "../../../../testData"
 import { FaPlus } from "react-icons/fa6"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
 import { useEffect } from "react"
@@ -69,7 +68,7 @@ export const StudentsList = () => {
             }
           />
         </div>
-        {studentsList.length >= 3 ? (
+        {studentsList.length >= 1 ? (
           <section>
             <TableModel
               myData={studentsList}
@@ -84,7 +83,7 @@ export const StudentsList = () => {
             </TableModel>
           </section>
         ) : (
-          <LocalData />
+          <p className=" text-[#6270AE] pb-4">Nothing to display</p>
         )}
       </main>
     </section>
@@ -149,61 +148,6 @@ const columns = [
   },
   {
     accessorKey: "Reg Date",
-    header: "Reg Date",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-]
-
-const LocalData = () => {
-  return (
-    <section>
-      <TableModel
-        myData={data}
-        columns={localColumns}
-        people={"Students"}
-        searchValue={"First Name"}
-      >
-        <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
-          Students List
-        </h2>
-      </TableModel>
-    </section>
-  )
-}
-
-const localColumns = [
-  {
-    accessorKey: "regNo",
-    header: "Reg No",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "surname",
-    header: "Surname",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "firstName",
-    header: "First Name",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "otherName",
-    header: "Other Name",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "gender",
-    header: "Gender",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "class",
-    header: "Class",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "regDate",
     header: "Reg Date",
     cell: (props) => <p>{props.getValue()}</p>,
   },

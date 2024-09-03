@@ -13,7 +13,7 @@ export const AddStudents = () => {
     parentsFormData,
     studentsFormData,
     setStudentsFormData,
-    resetStudentForm,
+    // resetStudentForm,
   } = useCreateStudentForm()
 
   // const navigate = useNavigate();
@@ -42,9 +42,11 @@ export const AddStudents = () => {
 
     const data = createStudent(parentsFormData, studentsFormData)
     console.log("Submitted Values:", values)
-    console.log(data)
-    // resetStudentForm()
-    // navigate("/admin/studentsList")
+    console.log(`This is the data: ${data}`)
+    if (data.success !== false) {
+      // resetStudentForm()
+      navigate("/admin/studentsList")
+    }
   }
 
   return (

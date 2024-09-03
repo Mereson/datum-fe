@@ -10,7 +10,6 @@ export const AddTeacher = () => {
   const onSubmit = async (values) => {
     setTeacher(values)
     console.log(values)
-
     const data = await createTeacher(values)
     console.log(data)
   }

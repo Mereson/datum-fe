@@ -14,41 +14,49 @@ export const createStudent = async (parentsFormData, studentsFormData) => {
   }
 }
 
-// export const createTeacher = async (teacher) => {
-//   try {
-//     const { data } = await axios.post(`${baseUrl}/admin/createAdmin`, {
-//       teacher,
-//     });
-//     return data;
-//   } catch (error) {
-//     catchErrors(error);
-//   }
-// };
-
 export const createTeacher = async (teacher) => {
   try {
     const formData = new FormData()
-
-    console.log(formData)
 
     Object.keys(teacher).forEach((key) => {
       formData.append(key, teacher[key])
     })
 
-    // console.log(`Hi there hello ${formData, teacher}`)
-    // console.log(formData)
+    const getAllFormDataValues = (formData) => {
+      const formDataObject = {}
+      for (let [key, value] of formData.entries()) {
+        if (formDataObject[key]) {
+          if (!Array.isArray(formDataObject[key])) {
+            formDataObject[key] = [formDataObject[key]]
+          }
+          formDataObject[key].push(value)
+        } else {
+          formDataObject[key] = value
+        }
+      }
 
-    // for (const pair of formData.entries()) {
-    //   console.log(`${pair[0]}: ${pair[1]}`)
-    // }
+      return formDataObject
+    }
 
-    console.log(formData)
+    const allFormDataValues = getAllFormDataValues(formData)
+
+    console.log(allFormDataValues)
+
+    console.log("Is hitting")
     // const { data } = await axios.post(
     //   `${baseUrl}/admin/createAdmin`,
-    //   formData
+    // allFormDataValues
     // )
-
-    // return data
+    const { data } = await axios.post(
+      `${baseUrl}/admin/createAdmin`,
+      { admin: formData },
+      {
+        headers: {
+          "Content-Type": "multipart/form-data", // This header is needed for file uploads
+        },
+      }
+    )
+    return data
   } catch (error) {
     catchErrors(error)
   }
@@ -80,7 +88,7 @@ export const getAllStudents = async () => {
     // console.log(data)
     return data
   } catch (error) {
-    catchErrors(error)
+    return catchErrors(error)
   }
 }
 
@@ -101,6 +109,27 @@ export const createResult = async (email, file) => {
     const { data } = await axios.post(`${baseUrl}/result/createResult`, {
       email,
       file,
+    })
+    return data
+  } catch (error) {
+    catchErrors(error)
+  }
+}
+
+export const getAllSubjects = async () => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/subject/getAllSubjects`)
+    return data
+  } catch (error) {
+    return catchErrors(error)
+  }
+}
+
+export const createSubject = async (name, classLevel) => {
+  try {
+    const { data } = await axios.post(`${baseUrl}/subject/createSubject`, {
+      name,
+      classLevel,
     })
     return data
   } catch (error) {
