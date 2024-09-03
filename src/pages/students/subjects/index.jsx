@@ -1,16 +1,19 @@
 // import PropTypes from 'prop-types'
 
-import { StudentIcon, TableModel } from "../../../components"
+import { BackIcon, StudentIcon, TableModel } from "../../../components"
 import { subjectsData } from "../../../testData"
 
 export const StudentsSubjectList = () => {
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full px-7 sm:px-[5rem] bg-[#f4f4f4] h-full pt-8 pb-40 sm:pb-14 overflow-auto">
       <main className="grid gap-4">
-        <StudentIcon />
+        <div className="flex justify-between">
+          <BackIcon />
+          <StudentIcon />
+        </div>
 
-        <h2 className="py-[20px] text-2xl">My Subjects</h2>
-        <div className="w-[90%]">
+        <h2 className="sm:py-[20px] text-xl sm:text-2xl pt-14">My Subjects</h2>
+        <div className="sm:w-[90%] w-full">
           <TableModel
             myData={subjectsData}
             columns={columns}

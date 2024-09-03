@@ -20,7 +20,7 @@ export const TableModel = ({
   rowOnClick,
   justTable = false,
   center,
-  pageSize = "12"
+  pageSize = "12",
 }) => {
   const [data, setData] = useState(myData)
   const [columnFilters, setColumnFilters] = useState([])
