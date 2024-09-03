@@ -8,7 +8,7 @@ export const StudentsSubjectList = () => {
     <section className="w-full px-7 sm:px-[5rem] bg-[#f4f4f4] h-full pt-8 pb-40 sm:pb-14 overflow-auto">
       <main className="grid gap-4">
         <div className="flex justify-between">
-          <BackIcon />
+          <BackIcon link={"/students/dashboard"} />
           <StudentIcon />
         </div>
 
