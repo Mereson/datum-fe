@@ -15,7 +15,7 @@ export const StudentsFees = () => {
         </div>
         <h2 className="sm:pt-5 pt-7 pb-[40px] text-2xl">School Fees</h2>
 
-        <section>
+        <section className="overflow-x-auto">
           <TableModel
             myData={paymentBreakdownData}
             columns={breakdownColumn}
@@ -29,7 +29,7 @@ export const StudentsFees = () => {
             onClick={onClick}
             content="Pay Fees"
             className={
-              "bg-[#132985] py-3 px-8 mt-11 text-center rounded-lg font-bold text-white cursor-pointer flex justify-center"
+              "bg-[#132985] py-3 px-8 mt-11 text-center sm:text-base text-sm rounded-lg font-bold text-white cursor-pointer flex justify-center"
             }
           />
         </div>

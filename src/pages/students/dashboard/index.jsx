@@ -18,13 +18,18 @@ export const StudentsDashboard = () => {
 
   return (
     <section className="sm:flex overflow-auto w-full h-[100%] bg-[#f4f4f4] justify-between">
+      <div className="sm:hidden flex justify-end pr-3 pt-5 sm:pb-14">
+        <StudentIcon />
+      </div>
+
       <section
-        className={`${styles.scrollbar} border-2 sm:px-[80px] px-[2rem] pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 w-full sm:w-[71%]`}
+        className={`${styles.scrollbar} sm:px-[80px] px-[2rem] pt-[45px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 w-full sm:w-[71%]`}
       >
-        <div className="sm:hidden border-2 px-0 w-full py-0">
-          <StudentIcon />
-        </div>
-        <WelcomeBox bg={"bg-[#132985]"} avatar={ReadingStudent} student />
+        <WelcomeBox
+          bg={"bg-[#132985] overflow-x-hidden"}
+          avatar={ReadingStudent}
+          student
+        />
         <CoreSubjects subjects={subjects} />
         <StudentsAttendance
           score={score}

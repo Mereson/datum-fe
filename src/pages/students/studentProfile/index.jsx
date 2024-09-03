@@ -3,6 +3,7 @@ import { Edit, ProfileImage, SchoolGirl } from "../../../assets"
 import design from "./style.module.css"
 import PropTypes from "prop-types"
 import { useStudentsList } from "../../../states/students"
+import { BackIcon } from "../../../components"
 
 export const StudentProfile = () => {
   const { studentsIdData } = useStudentsList()
@@ -13,9 +14,10 @@ export const StudentProfile = () => {
 
   return (
     <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] ">
+      <BackIcon link={"/students/dashboard"} />
       {/* This is the div containing the main  */}
 
-      <main className="mt-[1.725rem] bg-[#fafafa]">
+      <main className="mt-[50px] bg-[#fafafa]">
         {/* This is the div containing the profile picture and the picture frame */}
         <div>
           <figure className="pb-[1.313rem]  flex relative ">
