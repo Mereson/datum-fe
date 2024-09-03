@@ -61,18 +61,19 @@ export const WelcomeBox = ({
       )}
       {teacher && (
         <>
-          <span className="flex gap-[16.5px] items-center pt-[30px] pb-[6px]">
-            <h3 className="text-[27px] font-bold text-[#ffffff]">
+          <span className="flex gap-[16.5px] items-center w-full pt-[30px] pb-[6px]">
+            <h3 className="sm:pl-8 text-[27px] font-bold text-[#ffffff]">
               Hello Chinyere
             </h3>
             <SbEmojiWave />
           </span>
-          <p className="text-sm text-[#ffffff] absolute z-20 font-semibold w-[432px]">
-            Ready to inspire and lead? {"Let's"} make this term amazing
-            together! Check your schedule, update your plans, and dive in.
+          <p className=" sm:pl-8 text-sm text-[#ffffff] absolute z-20 font-semibold w-[27rem]">
+            Ready to inspire and lead? {"Let's"} make this term <br /> amazing
+            together! Check your <br />
+            schedule, update your plans, and dive in.
           </p>
           <img
-            className="absolute bottom-0 right-[82.48px]"
+            className="absolute hidden sm:block bottom-0 right-[82.48px]"
             src={avatar}
             alt=""
           />

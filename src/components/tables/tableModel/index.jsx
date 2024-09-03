@@ -64,7 +64,7 @@ export const TableModel = ({
     <>
       {!justTable ? (
         <section className="grid gap-4 w-full">
-          <div className="flex justify-between items-center">
+          <div className="sm:flex sm:justify-between items-center pb-6">
             <div className="w-[50%]">
               <FilteredSearch
                 columnFilters={columnFilters}
@@ -72,13 +72,14 @@ export const TableModel = ({
                 searchValue={searchValue}
               />
             </div>
-            <div className="flex gap-5">
+            <div className="flex gap-5 ">
               <select className="p-[0.4rem] rounded" name="Class" id="">
                 <option value="">Class</option>
                 <option value="">JSS 1</option>
                 <option value="">JSS 2</option>
                 <option value="">JSS 3</option>
               </select>
+
               <select className="p-[0.4rem] rounded" name="Class" id="">
                 <option value="">Gender</option>
                 <option value="JSS1">Male</option>

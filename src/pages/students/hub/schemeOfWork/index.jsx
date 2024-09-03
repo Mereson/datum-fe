@@ -9,14 +9,14 @@ export const StudentsSOWPage = () => {
 
           <StudentIcon />
         </div>
-        <h2 className="pb-6 pl-6 sm:pl-0 sm:pb-[51px] text-xl sm:text-2xl">
+        <h2 className="pb-6 pl-6 sm:pl-0 sm:pb-[51px] text-xl sm:text-2xl font-medium ">
           Scheme Of Work
         </h2>
 
         <div className="min-h-screen bg-gray-100 p-6">
           <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
             <div className="p-6">
-              <h2 className="text-2xl font-semibold mb-6">
+              <h2 className="sm:text-2xl text-lg font-normal mb-6">
                 List of Subjects and their Scheme of Work
               </h2>
               <table className="w-full table-auto">
