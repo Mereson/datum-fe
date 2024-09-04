@@ -58,13 +58,13 @@ export const TeachersList = () => {
 
 const columns = [
   {
-    accessorKey: "regNo",
+    accessorKey: "id",
     header: "Reg No",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "surname",
+    accessorKey: "surName",
     header: "Surname",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
@@ -88,14 +88,8 @@ const columns = [
     enableSorting: false,
   },
   {
-    accessorKey: "class",
-    header: "Class",
-    cell: (props) => <p>{props.getValue()}</p>,
-    enableSorting: false,
-  },
-  {
-    accessorKey: "regDate",
-    header: "Reg Date",
+    accessorKey: "employmentRole",
+    header: "Subjects",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },

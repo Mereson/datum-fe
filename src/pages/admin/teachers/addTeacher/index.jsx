@@ -1,5 +1,4 @@
 import {
-  AddBtn,
   AdminIcon,
   BackIcon,
   CustomInput,
@@ -13,7 +12,6 @@ import { createTeacher } from "../../../../api"
 import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import PropTypes from "prop-types"
-import { Button } from "../../../../components/button"
 
 export const AddTeacher = () => {
   const { teacher, setTeacher, resetTeachersForm } = useCreateTeacherForm()

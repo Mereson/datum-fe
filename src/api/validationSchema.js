@@ -77,3 +77,13 @@ export const loginSchema = Yup.object().shape({
   email: Yup.string().required("Email is required"),
   password: Yup.string().required("Password is required"),
 })
+
+export const uploadResultSchema = Yup.object().shape({
+  file: Yup.mixed()
+    .required("A file is required")
+    // .test(
+    //   "fileFormat",
+    //   "Only CSV files are accepted",
+    //   (value) => value && value.type === "text/csv"
+    // ),
+})

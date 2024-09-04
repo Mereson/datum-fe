@@ -93,8 +93,12 @@ export const createResult = async (email, file) => {
     const fileData = new FormData()
 
     fileData.append("email", email)
-    fileData.append("file", file)
+    // fileData.append("file", file)
+    fileData.append("file", new File(["content"], file, { type: "text/csv" }))
 
+    for (const [key, value] of fileData.entries()) {
+      console.log(`${key}: ${value}`)
+    }
     const { data } = await axios.post(
       `${baseUrl}/result/createResult`,
       fileData,

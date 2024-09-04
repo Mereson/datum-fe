@@ -1,6 +1,12 @@
+import { useNavigate } from "react-router-dom"
 import { FormButton } from "../../../components"
 
 export const Remark = () => {
+  const navigate = useNavigate()
+
+  const onClick = () => {
+    navigate("/teacher/students")
+  }
   return (
     <section className="flex justify-center border-2 w-full pt-20">
       <form className="flex flex-col " action="/submit-remark" method="post">
@@ -11,7 +17,7 @@ export const Remark = () => {
           Remarks
         </label>
         <textarea
-          className="mb-[24px] pl-4"
+          className="mb-[24px] border-[1.47px] border-[#4f4f4f] rounded-xl outline-none p-4"
           id="remarks"
           name="remarks"
           placeholder="Write your remark..."
@@ -26,14 +32,14 @@ export const Remark = () => {
               "bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
             }
           />
-
-          <FormButton
-            type="submit"
-            content="Cancel"
+          <button
+            onClick={onClick}
             className={
               "bg-[#D0D4E7] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-[#132985] cursor-pointer"
             }
-          />
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </section>

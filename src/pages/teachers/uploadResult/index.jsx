@@ -1,4 +1,4 @@
-import { TableModel, TeacherAvater } from "../../../components"
+import { AddBtn, TableModel, TeacherAvater } from "../../../components"
 import { data } from "../../../testData"
 import { Button } from "../../../components/button"
 
@@ -13,10 +13,9 @@ export const UploadResult = () => {
 
       <Button
         link={"/teacher/uploadresult/uploadresult1"}
-        type="submit"
-        content="Upload result"
+        content={<AddBtn text={"Upload Result"} />}
         className={
-          "bg-[#132985] w-[20%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+          "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
         }
       />
 
