@@ -1,35 +1,36 @@
+import { useQuery } from "@tanstack/react-query"
 import {
   AddBtn,
+  AdminIcon,
+  MockTableLayout,
   TableModel,
 } from "../../../../components"
 import { Button } from "../../../../components/button"
-import { data } from "../../../../testData"
-import { AdminProfileImg, NotificationSvg } from "../../../../assets"
+import { getAllTeachers } from "../../../../api"
+import { useTeachersData } from "../../../../states/teachers"
 
 export const TeachersList = () => {
+  const query = useQuery({ queryKey: ["Teachers"], queryFn: getAllTeachers })
+  const { setTeachersData } = useTeachersData()
+
+  if (query.isError) {
+    console.log(query.error.message)
+  }
+
+  if (query.isSuccess) {
+    console.log(query.data)
+  }
+
+  const rowOnClick = (row) => {
+    console.log(row)
+    setTeachersData(row)
+  }
+
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-4 ">
         <div className="flex flex-col">
-          <div className="flex gap-5 items-center justify-end">
-            <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-              <img
-                src={NotificationSvg}
-                className="size-[20px]"
-                alt="notification icon"
-              />
-            </div>
-            <div className="flex gap-2 items-center">
-              <figure className="size-[50px] rounded-full">
-                <img src={AdminProfileImg} alt="" />
-              </figure>
-              <div className="text-[15px]">
-                <p className="font-bold">Nkechi Nduka</p>
-                <p>Admin</p>
-              </div>
-            </div>
-          </div>
-
+          <AdminIcon />
           <Button
             link={"/admin/teachers/addTeacher"}
             content={<AddBtn text={"Add Teacher"} />}
@@ -40,16 +41,23 @@ export const TeachersList = () => {
         </div>
 
         <section>
-          <TableModel
-            myData={data}
-            columns={columns}
-            people={"Teachers"}
-            searchValue={"First Name"}
-          >
-            <h2 className="text-2xl font-bold text-[#1e1e1e]">
-              Teachers List
-            </h2>
-          </TableModel>
+          {query.isSuccess && (
+            <TableModel
+              myData={query.data}
+              columns={columns}
+              people={"Teachers"}
+              searchValue={"First Name"}
+              rowOnClick={rowOnClick}
+            >
+              <h2 className="text-2xl font-bold text-[#1e1e1e]">
+                Teachers List
+              </h2>
+            </TableModel>
+          )}
+          {query.isLoading && (
+            <MockTableLayout title={"Teachers List"} isLoading />
+          )}
+          {query.isError && <MockTableLayout title={"Teachers List"} />}
         </section>
       </main>
     </section>
@@ -58,38 +66,39 @@ export const TeachersList = () => {
 
 const columns = [
   {
-    accessorKey: "regNo",
-    header: "Reg No",
+    accessorKey: "id",
+    header: "Teachers Id",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "surname",
+    accessorKey: "surName",
     header: "Surname",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "firstName",
     header: "First Name",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "otherName",
     header: "Other Name",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "gender",
     header: "Gender",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "class",
-    header: "Class",
+    accessorKey: "employmentRole",
+    header: "Subjects",
     cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "regDate",
-    header: "Reg Date",
-    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
 ]

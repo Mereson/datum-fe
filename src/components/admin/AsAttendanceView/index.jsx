@@ -9,8 +9,8 @@ export const AsAttendanceView = () => {
           query={"Week 1"}
           options={week}
           index={1}
-          width="w-[6rem]"
-          padding="px-[10px] py-[8px]"
+          width="w-[5rem]"
+          padding="px-[5px] py-[6px]"
         />
       </div>
       <GradesBarChart subjects={attendance} />

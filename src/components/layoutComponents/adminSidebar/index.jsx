@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import {
   DashboardIcon,
   SbHome,
@@ -10,8 +10,19 @@ import {
 import { SidebarNavItem } from "../sidebarNav"
 import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
 import { FeesIcon } from "../../../assets/icons/adminDashboard/fees"
+import { LogOutNavItem } from "../logOutNav"
+import { useToken } from "../../../states/students"
 
 export const AdminSidebar = () => {
+  const { clearToken } = useToken()
+  const navigate = useNavigate()
+
+  const logOut = () => {
+    clearToken()
+    // clearStudentsData()
+    navigate("/")
+  }
+
   return (
     <aside className="h-[100vh] w-[250px] pl-6 pb-7 bg-[#132985] flex flex-col justify-between">
       <div>
@@ -49,18 +60,14 @@ export const AdminSidebar = () => {
               Icon={SbHome}
               label={"Academics"}
             />
-            <SidebarNavItem
-              to={"/admin/fees"}
-              Icon={FeesIcon}
-              label={"Fees"}
-            />
+            <SidebarNavItem to={"/admin/fees"} Icon={FeesIcon} label={"Fees"} />
 
-            <hr className="" />
+            <hr className="mt-2" />
           </div>
         </div>
       </div>
       <div className="pt-11">
-        <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
+        <LogOutNavItem onClick={logOut} Icon={SbLogout} label="Log out" />
       </div>
     </aside>
   )

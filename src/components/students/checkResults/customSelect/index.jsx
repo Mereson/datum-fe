@@ -31,7 +31,7 @@ export const CustomSelect = ({
     <div className={`relative ${width}`}>
       <div
         onClick={() => setOpenSelectIndex(index)}
-        className={`${padding} w-full flex items-center gap-1 justify-between border-[0.5px] border-[#a7a7a7] h-11 bg-[#f4f4f4] rounded-lg text-[12px] xl:text-sm text-[#585858] cursor-pointer`}
+        className={`${padding} w-full flex items-center gap-1 justify-between font-semibold  h-10 bg-[#ECECEC] rounded-lg text-[12px] xl:text-[13px] text-[#444444] cursor-pointer`}
       >
         {selectedOption}
         <DropdownIcon isOpen={isOpen} />
@@ -39,7 +39,7 @@ export const CustomSelect = ({
 
       {isOpen && (
         <ul
-          className={`${styles.scrollbar} absolute w-full bg-white z-10 shadow-lg rounded-b-lg max-h-[156px] overflow-y-auto`}
+          className={`${styles.scrollbar} absolute w-full text-[12px] xl:text-[13px] bg-white z-10 shadow-lg rounded-b-lg max-h-[156px] overflow-y-auto`}
         >
           {options.map((option, i) => (
             <li

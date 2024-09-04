@@ -1,45 +1,64 @@
 import { FieldArray, Form, Formik } from "formik"
 import { createStudent } from "../../../../api"
-import { CustomInput, FormButton, FormDropdown, } from "../../../../components"
+import { CustomInput, FormButton, FormDropdown } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { useCreateStudentForm } from "../../../../states/createStudentStore"
 import { Link, useNavigate } from "react-router-dom"
 import { studentDetailsSchema } from "../../../../api/validationSchema"
 import { useEffect } from "react"
 import { IoCheckmark } from "react-icons/io5"
+import { useMutation } from "@tanstack/react-query"
 
 export const AddStudents = () => {
+  const {
+    parentsFormData,
+    studentsFormData,
+    setStudentsFormData,
+    resetStudentForm,
+  } = useCreateStudentForm()
 
-  const { parentsFormData, studentsFormData, setStudentsFormData, resetStudentForm } = useCreateStudentForm()
-
-  // const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const form = {
       parentsFormData,
-      studentsFormData
+      studentsFormData,
     }
     console.log(form)
-  }, [studentsFormData]);
+  }, [studentsFormData])
 
+  const mutation = useMutation({
+    mutationFn: ({ parents, students }) => createStudent(parents, students),
+  })
+
+  if (mutation.isSuccess) {
+    resetStudentForm()
+    navigate("/admin/studentsList")
+  }
+
+  if (mutation.isError) {
+    console.error("Mutation error:", mutation.error)
+  }
 
   const onSubmit = async (values) => {
-    console.log("About to console");
+    console.log("About to console")
 
     const updatedStudentsData = values.students.map((student, index) => {
       return {
-        ...studentsFormData[index], // Keep the existing data if any
-        ...student, // Overwrite with the new data
-      };
-    });
+        ...studentsFormData[index],
+        ...student, 
+      }
+    })
 
     setStudentsFormData(updatedStudentsData)
 
-    // const data = createStudent(parentsFormData,studentsFormData)
-    console.log("Submitted Values:", values);
-    // resetStudentForm()
-    // navigate("/admin/studentsList")
-  };
+    mutation.mutate({
+      parents: parentsFormData,
+      students: updatedStudentsData,
+    })
+
+    console.log("Submitted Values:", values)
+  }
 
   return (
     <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
@@ -49,7 +68,10 @@ export const AddStudents = () => {
         <div className="pt-[4.875rem] grid place-items-center">
           <div className="flex gap-[64px] relative">
             <hr className="h-[1.84px] bg-[#132984] w-[6.438rem] absolute  left-[26%] top-3" />
-            <Link to={"/admin/studentsList/addParents"} className="grid place-items-center  gap-3">
+            <Link
+              to={"/admin/studentsList/addParents"}
+              className="grid place-items-center  gap-3"
+            >
               <p className=" border-[#8a8a8a] border-[1.47px] text-[13.26px]  text-[#132985] size-[29.46px] rounded-full grid place-items-center">
                 <IoCheckmark />
               </p>
@@ -66,7 +88,6 @@ export const AddStudents = () => {
               </p>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -79,7 +100,6 @@ export const AddStudents = () => {
       >
         {({ values }) => (
           <Form>
-
             <FieldArray name="students">
               {({ remove, push }) => (
                 <>
@@ -240,8 +260,9 @@ export const AddStudents = () => {
           </Form>
         )}
       </Formik>
-
+      {/* {mutation.isError && (
+        <h2 className=" text-[red] pb-4">{mutation.error}</h2>
+      )} */}
     </section>
   )
 }
-

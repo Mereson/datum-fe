@@ -31,15 +31,26 @@ import {
   StudentProfile,
   PersonalInfo,
   Remark,
+  SelectStudent,
+  UploadResult,
   AdminUploadedResults,
   AdminSubjectResult,
   AdminStudentsResultList,
+  TeachersTimetable,
+  HubPage,
+  StudentsSubjectList,
+  StudentsTimeTable,
+  StudentsFees,
+  UploadResult1,
+  Scheme,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
-import Api from "./api/api"
-import Api2 from "./api/api2"
 import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
 import { StudentDetailsAdmin } from "./pages/admin/students/studentDetails"
+import { StudentsAttendancePage } from "./pages/students/hub/attendance"
+import { StudentsCalenderPage } from "./pages/students/hub/calender"
+import { StudentsSOWPage } from "./pages/students/hub/schemeOfWork"
+import { TeachersAttendanceList } from "./pages/teachers/attendance"
 
 const router = createBrowserRouter([
   {
@@ -48,16 +59,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/forgotpassword",
-    // path: "/",
     element: <ForgotPassword />,
-  },
-  {
-    path: "/testApi",
-    element: <Api />,
-  },
-  {
-    path: "/testApi2",
-    element: <Api2 />,
   },
   {
     path: "/forgotpassword2",
@@ -71,11 +73,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <LandingPage />,
   },
-  // {
-  //   path: "/",
-  //   element: <Dump />,
-  // },
-  {
+    {
     path: "/students",
     element: <StudentLayout />,
     children: [
@@ -88,12 +86,40 @@ const router = createBrowserRouter([
         element: <ViewResults />,
       },
       {
+        path: "selectProfile",
+        element: <SelectStudent />,
+      },
+      {
         path: "personalInfo",
         element: <PersonalInfo />,
       },
       {
-        path: "notification",
-        element: <ErrorPage />,
+        path: "subjects",
+        element: <StudentsSubjectList />,
+      },
+      {
+        path: "hub",
+        element: <HubPage />,
+      },
+      {
+        path: "hub/studentsAttendance",
+        element: <StudentsAttendancePage />,
+      },
+      {
+        path: "hub/studentsCalender",
+        element: <StudentsCalenderPage />,
+      },
+      {
+        path: "hub/studentsScheme",
+        element: <StudentsSOWPage />,
+      },
+      {
+        path: "hub/studentsTimeTable",
+        element: <StudentsTimeTable />,
+      },
+      {
+        path: "fees",
+        element: <StudentsFees />,
       },
       {
         path: "checkResults/resultAnalysis",
@@ -106,6 +132,10 @@ const router = createBrowserRouter([
       {
         path: "studentProfile",
         element: <StudentProfile />,
+      },
+      {
+        path: "error",
+        element: <ErrorPage />,
       },
     ],
   },
@@ -217,19 +247,31 @@ const router = createBrowserRouter([
       },
       {
         path: "attendance",
-        element: <ErrorPage />,
+        element: <TeachersAttendanceList />,
       },
       {
         path: "timetable",
-        element: <ErrorPage />,
+        element: <TeachersTimetable />,
+      },
+      {
+        path: "uploadresult",
+        element: <UploadResult />,
+      },
+      {
+        path: "uploadresult/uploadresult1",
+        element: <UploadResult1 />,
       },
       {
         path: "remark",
         element: <Remark />,
       },
       {
+        path: "scheme",
+        element: <Scheme />,
+      },
+      {
         path: "schemeOfWork",
-        element: <ErrorPage />,
+        element: <Scheme />,
       },
     ],
   },

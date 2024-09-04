@@ -16,7 +16,12 @@ import ProfileImage from "./profileframe.png"
 import Edit from "./edit.png"
 import SchoolGirl from "./Schoolchild.png"
 import TeacherHeroImg from "./fineteacher.png"
-import HeroLady from './heroLady.png'
+import HeroLady from "./heroLady.png"
+import JakesImage from "./jakesimage.png"
+import MariasImage from "./mariasimage.png"
+import Timetable from "./Timetable2.svg"
+import Teacher2 from "./teacher2.png"
+import Arrow from "./arrow.png"
 
 export {
   HeroImg,
@@ -37,8 +42,13 @@ export {
   Edit,
   SchoolGirl,
   TeacherHeroImg,
-  HeroLady
-};
+  HeroLady,
+  JakesImage,
+  MariasImage,
+  Timetable,
+  Teacher2,
+  Arrow,
+}
 
 export * from "./admin"
 // export * from "./students"

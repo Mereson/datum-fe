@@ -13,18 +13,18 @@ export const ActivitySection = ({ name, img, path }) => {
   }
   return (
     <section
-      className={`${styles.scrollbar} bg-[#fff] w-[29%] overflow-auto `}
+      className={`${styles.scrollbar} bg-[#FAFAFA] sm:w-[29%] overflow-auto pb-32`}
     >
-      <div className="bg-[#fff] px-3 pb-10">
-        <div className="h-[174px] mt-5 mb-7 flex flex-col items-center">
+      <div className="bg-[#FAFAFA] flex flex-col items-center">
+        <div className="h-[174px] mt-5 hidden mb-5 sm:flex flex-col items-center">
           <div className="flex items-center justify-center pb-3 relative">
-            <div className="w-[100px] h-[100px] rounded-full flex items-center justify-center">
-              <img className="rounded-full" src={img} alt="Profile Image" />
+            <div className="w-[90px] h-[90px] rounded-full flex items-center justify-center">
+              <img className=" rounded-full " src={img} alt="Profile Image" />
             </div>
             <span className="w-[22.43px] h-[22.43px] rounded-full bg-[#3ac922] border-white border-2 absolute top-[80px] left-[73px]"></span>
           </div>
           <div>
-            <h3 className="text-[22px] font-bold text-[#181818]">{name}</h3>
+            <h3 className="text-[18px] font-semibold text-[#181818]">{name}</h3>
             <p
               onClick={handleNavigate}
               className="cursor-pointer text-sm text-[#132985] text-center"

@@ -17,10 +17,3 @@ export const FormInput = ({ title = "Name", value, onChange, name }) => {
     </div>
   )
 }
-
-FormInput.propTypes = {
-  title: Proptypes.string,
-  value: Proptypes.string,
-  onChange: Proptypes.any,
-  name: Proptypes.string,
-}

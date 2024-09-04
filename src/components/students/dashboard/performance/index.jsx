@@ -10,10 +10,33 @@ import {
   YAxis,
 } from "recharts"
 
-// Function to determine bar color based on grade
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    const assessmentScore = payload.find((p) => p.name === "assessment")?.value
+    const examScore = payload.find((p) => p.name === "exam")?.value
+    const totalScore = assessmentScore + examScore
+
+    return (
+      <div className="bg-[#f4f4f4] font-semibold p-4">
+        <p className="label">{`${label}`}</p>
+        <p className="text-[#8884d8]">{`Assessment: ${assessmentScore}`}</p>
+        <p className="text-[#132985]">{`Exam: ${examScore}`}</p>
+        <p className="intro">{`Total: ${totalScore}`}</p>
+      </div>
+    )
+  }
+
+  return null
+}
+
+CustomTooltip.propTypes = {
+  active: PropTypes.any,
+  payload: PropTypes.any,
+  label: PropTypes.string,
+}
 
 const CustomBar = (props) => {
-  const { x, y, width, height, fill, value } = props
+  const { x, y, width, height, fill } = props
 
   return (
     <g>
@@ -26,16 +49,6 @@ const CustomBar = (props) => {
         rx={9} // Border radius for rounded corners
         ry={1} // Border radius for rounded corners
       />
-
-      <text
-        x={x + width / 2}
-        y={y - 5}
-        textAnchor="middle"
-        fill="#333"
-        fontSize="12px"
-      >
-        {value}
-      </text>
     </g>
   )
 }
@@ -46,16 +59,9 @@ CustomBar.propTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   fill: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
 }
 
 export const GradesBarChart = ({ subjects, bool = false }) => {
-  const getBarColor = (grade) => {
-    if (grade >= 70) return "#132985"
-    if (grade >= 60) return "#6270ae"
-    if (grade >= 40) return "#8994c2"
-    return "#d0d4e7"
-  }
   return (
     <ResponsiveContainer width={"100%"} height={"100%"}>
       <BarChart
@@ -63,33 +69,38 @@ export const GradesBarChart = ({ subjects, bool = false }) => {
         data={subjects}
         margin={{
           top: 30,
-          right: 30,
-          left: 20,
           bottom: 20,
         }}
       >
         <YAxis tickCount={10} hide={true} />
         <CartesianGrid vertical={false} horizontal={bool} />
         <XAxis
-          dataKey="name"
+          dataKey="subject"
           axisLine={false} // Hide the axis line
           tickLine={false} // Hide the tick lines
         />
-        <Tooltip />
-        <Bar
-          dataKey="Total"
-          barSize={40} // Adjust bar width here
-          shape={(props) => (
-            <CustomBar {...props} fill={getBarColor(props.value)} />
-          )}
-          label={<LabelList dataKey="Total" position="top" />}
-        />
+        <Tooltip content={<CustomTooltip />} />
+        {/* Assessment Bar */}
+        <Bar dataKey="assessment" stackId="a" fill="#8884d8" barSize={40} />
+        {/* Exam Bar */}
+        <Bar dataKey="exam" stackId="a" fill="#132985" barSize={40}>
+          <LabelList dataKey="total" position="top" />
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   )
 }
 
 GradesBarChart.propTypes = {
-  subjects: PropTypes.string,
+  subjects: PropTypes.arrayOf(
+    PropTypes.shape({
+      "s/n": PropTypes.number.isRequired,
+      subject: PropTypes.string.isRequired,
+      assessment: PropTypes.number.isRequired,
+      exam: PropTypes.number.isRequired,
+      total: PropTypes.number.isRequired,
+      grade: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   bool: PropTypes.bool,
 }

@@ -2,8 +2,6 @@ import { NotificationSvg, SchoolChild, SchoolGirl } from "../../../assets"
 import { SearchBox } from "../../../components"
 
 export const PersonalInfo = () => {
-  
-
   return (
     <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] pb-[9.563rem]">
       <div className="flex justify-between">
@@ -30,7 +28,7 @@ export const PersonalInfo = () => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div>
         <figure className="pb-[1.313rem]  flex relative ">
           <img
             className="rounded-full absolute w-40 h-40 top-[42px] left-[44px]"

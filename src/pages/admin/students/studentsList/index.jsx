@@ -1,43 +1,36 @@
 import PropTypes from "prop-types"
-import { TableModel } from "../../../../components"
+import { MockTableLayout, TableModel } from "../../../../components"
 import { Button } from "../../../../components/button"
-import { data } from "../../../../testData"
 import { FaPlus } from "react-icons/fa6"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
-import { useEffect } from "react"
 import { getAllStudents, getStudentById } from "../../../../api"
 import { useStudentsList } from "../../../../states/students"
 import { useNavigate } from "react-router-dom"
+import { useQuery } from "@tanstack/react-query"
 
 export const StudentsList = () => {
-  const { studentsList, setStudentsList, setStudentsData, setStudentsIdData } =
-    useStudentsList()
+  const { setStudentsIdData } = useStudentsList()
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const getData = async () => {
-      
+  const query = useQuery({ queryKey: ["Students"], queryFn: getAllStudents })
 
-      console.log("is hitting")
-      const studentData = await getAllStudents()
+  let newData
 
-      const newData = formattedData(studentData)
+  if (query.isError) {
+    console.log(query.error.message)
+    // return <h2 className=" text-[#6270AE] pb-4">{query.error}</h2>
+  }
 
-      setStudentsData(studentData)
-
-      setStudentsList(newData)
-      console.log(newData)
-    }
-    getData()
-  }, [])
+  if (query.isSuccess) {
+    newData = formattedData(query.data)
+  }
 
   const rowOnClick = async (row) => {
     const studentId = row["Reg No"]
     const data = await getStudentById(studentId)
     setStudentsIdData(data)
     navigate("/admin/studentsList/studentsDetail")
-    // console.log(data)
   }
 
   return (
@@ -71,10 +64,11 @@ export const StudentsList = () => {
             }
           />
         </div>
-        {studentsList.length >= 3 ? (
-          <section>
+
+        <section>
+          {query.isSuccess && (
             <TableModel
-              myData={studentsList}
+              myData={newData}
               columns={columns}
               people={"Students"}
               searchValue={"Surname"}
@@ -84,10 +78,12 @@ export const StudentsList = () => {
                 Students List
               </h2>
             </TableModel>
-          </section>
-        ) : (
-          <LocalData />
+          )}
+        </section>
+        {query.isLoading && (
+          <MockTableLayout title={"Students List"} isLoading />
         )}
+        {query.isError && <MockTableLayout title={"Students List"} />}
       </main>
     </section>
   )
@@ -151,61 +147,6 @@ const columns = [
   },
   {
     accessorKey: "Reg Date",
-    header: "Reg Date",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-]
-
-const LocalData = () => {
-  return (
-    <section>
-      <TableModel
-        myData={data}
-        columns={localColumns}
-        people={"Students"}
-        searchValue={"First Name"}
-      >
-        <h2 className="text-2xl pt-4 font-bold text-[#1e1e1e]">
-          Students List
-        </h2>
-      </TableModel>
-    </section>
-  )
-}
-
-const localColumns = [
-  {
-    accessorKey: "regNo",
-    header: "Reg No",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "surname",
-    header: "Surname",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "firstName",
-    header: "First Name",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "otherName",
-    header: "Other Name",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "gender",
-    header: "Gender",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "class",
-    header: "Class",
-    cell: (props) => <p>{props.getValue()}</p>,
-  },
-  {
-    accessorKey: "regDate",
     header: "Reg Date",
     cell: (props) => <p>{props.getValue()}</p>,
   },

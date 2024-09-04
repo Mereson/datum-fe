@@ -3,7 +3,7 @@ import { StudentSidebar } from "../../components"
 
 export const StudentLayout = () => {
   return (
-    <main className="flex overflow-hidden h-screen">
+    <main className="flex  flex-wrap sm:flex-nowrap overflow-hidden h-screen">
       <StudentSidebar />
       <Outlet />
     </main>

@@ -1,7 +1,6 @@
-import { Button } from "../../../components/button"
-import { CustomSelect, MembersList } from "../../../components"
-import { NotificationSvg, SchoolChild } from "../../../assets"
+import { CustomSelect, StudentIcon } from "../../../components"
 import { useState } from "react"
+import { ResultAnalysis } from "../resultAnalysis"
 
 export const ViewResults = () => {
   const [openTab, setOpenTab] = useState(1)
@@ -12,183 +11,213 @@ export const ViewResults = () => {
   }
 
   return (
-    <section className="bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] pb-[9.563rem]">
-      <div className="flex gap-5 items-center justify-end">
-        <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-          <img
-            src={NotificationSvg}
-            className="size-[20px]"
-            alt="notification icon"
+    <section className="bg-[#f4f4f4] w-full h-full overflow-auto pt-8 px-[1.5rem] sm:px-[6.25rem] pb-[9.563rem]">
+      <StudentIcon />
+      <div className="flex flex-wrap gap-3 text-sm sm:text-base items-center justify-between pt-14 pb-8">
+        <div className="flex gap-4 font-bold items-center">
+          <p
+            onClick={handleTabSwitch}
+            id="1"
+            className={`cursor-pointer ${
+              openTab == 1
+                ? "text-[#0D1B59] underline underline-offset-4"
+                : "text-[#132985]"
+            } `}
+          >
+            First Term
+          </p>
+          <p
+            onClick={handleTabSwitch}
+            id="2"
+            className={`cursor-pointer ${
+              openTab == 2
+                ? "text-[#0D1B59] underline underline-offset-4 "
+                : "text-[#132985]"
+            } `}
+          >
+            Second Term
+          </p>
+          <p
+            onClick={handleTabSwitch}
+            id="3"
+            className={`cursor-pointer ${
+              openTab == 3
+                ? "text-[#0D1B59] underline underline-offset-4 "
+                : "text-[#132985]"
+            } `}
+          >
+            Third
+          </p>
+        </div>
+
+        <div className="flex gap-3 items-center">
+          <p className="font-bold text-[#444444]">Filter by:</p>
+          <CustomSelect
+            index={1}
+            query={"Class"}
+            width={"6.8rem"}
+            options={[]}
           />
         </div>
-        <div className="flex gap-2 items-center">
-          <figure className="size-[50px] rounded-full">
-            <img className="rounded-full" src={SchoolChild} alt="" />
-          </figure>
-          <div className="text-[15px]">
-            <p className="font-bold">Ene Maria</p>
-            <p>Student</p>
-          </div>
-        </div>
       </div>
-
-      <div className="flex gap-4 font-bold items-center pb-[3.375rem]">
-        <p
-          onClick={handleTabSwitch}
-          id="1"
-          className={`cursor-pointer ${
-            openTab == 1
-              ? "text-[#0D1B59] underline underline-offset-4"
-              : "text-[#132985]"
-          } `}
-        >
-          First Term
-        </p>
-        <p
-          onClick={handleTabSwitch}
-          id="2"
-          className={`cursor-pointer ${
-            openTab == 2
-              ? "text-[#0D1B59] underline underline-offset-4 "
-              : "text-[#132985]"
-          } `}
-        >
-          Second Term
-        </p>
-        <p
-          onClick={handleTabSwitch}
-          id="3"
-          className={`cursor-pointer ${
-            openTab == 3
-              ? "text-[#0D1B59] underline underline-offset-4 "
-              : "text-[#132985]"
-          } `}
-        >
-          Third
-        </p>
-      </div>
-
-      <div className="flex gap-3 items-center pb-11">
-        <p className="font-bold text-[#444444]">Filter by:</p>
-        <CustomSelect index={1} query={"Class"} width={"6.8rem"} options={[]} />
-      </div>
-
       {openTab == 1 ? (
-        <MembersList data={results} title={false} />
+        <div className="overflow-x-auto">
+          <ResultAnalysis data={results} columns={columns} />
+        </div>
       ) : openTab == 2 ? (
-        <MembersList data={results} title={true} />
+        <>
+          <p className="text-sm text-[#6270AE] pb-4">
+            Showing Second Term Results
+          </p>
+          <ResultAnalysis data={results} columns={columns} />
+        </>
       ) : (
-        <MembersList data={results} title={true} people={"Naza"} />
+        <>
+          <p className="text-sm text-[#6270AE] pb-4">
+            Showing Third Term Results
+          </p>
+          <ResultAnalysis data={results} columns={columns} />
+        </>
       )}
-      <div className=" w-full flex justify-center">
-        <Button
-          link={"/students/checkResults/resultAnalysis"}
-          content="See Analysis"
-          className={
-            "bg-[#132985] w-[100%] py-[8px] px-10 mt-11 text-center rounded-[4px] font-bold text-white cursor-pointer flex justify-center"
-          }
-        />
-      </div>
     </section>
   )
 }
 
-const results = [
+const columns = [
   {
-    "S/N": 1,
-    Subject: "English",
-    "Ass Score": 2,
-    "Exam Score": 25,
-    Total: 31,
-    Grade: "F",
+    accessorKey: "s/n",
+    header: "S/N",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    "S/N": 2,
-    Subject: "Mathematics",
-    "Ass Score": 5,
-    "Exam Score": 49,
-    Total: 65,
-    Grade: "B",
+    accessorKey: "subject",
+    header: "Subject",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "assessment",
+    header: "Assessment",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "exam",
+    header: "Exam",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "total",
+    header: "Total",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "grade",
+    header: "Grade",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
+  },
+]
+
+const results = [
+  {
+    "s/n": 1,
+    subject: "English",
+    assessment: 6,
+    exam: 25,
+    total: 31,
+    grade: "F",
+  },
+  {
+    "s/n": 2,
+    subject: "Mathematics",
+    assessment: 16,
+    exam: 49,
+    total: 65,
+    grade: "B",
   },
 
   {
-    "S/N": 3,
-    Subject: "Biology",
-    "Ass Score": 8,
-    "Exam Score": 58,
-    Total: 77,
-    Grade: "A",
+    "s/n": 3,
+    subject: "Biology",
+    assessment: 19,
+    exam: 58,
+    total: 77,
+    grade: "A",
   },
   {
-    "S/N": 4,
-    Subject: "Physics",
-    "Ass Score": 10,
-    "Exam Score": 60,
-    Total: 77,
-    Grade: "A",
+    "s/n": 4,
+    subject: "Physics",
+    assessment: 17,
+    exam: 60,
+    total: 77,
+    grade: "A",
   },
   {
-    "S/N": 5,
-    Subject: "Chemistry",
-    "Ass Score": 10,
-    "Exam Score": 20,
-    Total: 40,
-    Grade: "D",
+    "s/n": 5,
+    subject: "Chemistry",
+    assessment: 20,
+    exam: 20,
+    total: 40,
+    grade: "D",
   },
   {
-    "S/N": 6,
-    Subject: "Geography",
-    "Ass Score": 4,
-    "Exam Score": 40,
-    Total: 59,
-    Grade: "C",
+    "s/n": 6,
+    subject: "Geography",
+    assessment: 19,
+    exam: 40,
+    total: 59,
+    grade: "C",
   },
   {
-    "S/N": 7,
-    Subject: "Agriculture",
-    "Ass Score": 5,
-    "Exam Score": 39,
-    Total: 62,
-    Grade: "B",
+    "s/n": 7,
+    subject: "Agriculture",
+    assessment: 23,
+    exam: 39,
+    total: 62,
+    grade: "B",
   },
   {
-    "S/N": 8,
-    Subject: "Igbo language",
-    "Ass Score": 10,
-    "Exam Score": 56,
-    Total: 86,
-    Grade: "A",
+    "s/n": 8,
+    subject: "Igbo language",
+    assessment: 30,
+    exam: 56,
+    total: 86,
+    grade: "A",
   },
   {
-    "S/N": 9,
-    Subject: "CRS",
-    "Ass Score": 9,
-    "Exam Score": 40,
-    Total: 63,
-    Grade: "B",
+    "s/n": 9,
+    subject: "CRS",
+    assessment: 23,
+    exam: 40,
+    total: 63,
+    grade: "B",
   },
   {
-    "S/N": 10,
-    Subject: "Civic Education",
-    "Ass Score": 7,
-    "Exam Score": 54,
-    Total: 78,
-    Grade: "A",
+    "s/n": 10,
+    subject: "Civic Education",
+    assessment: 7,
+    exam: 54,
+    total: 78,
+    grade: "A",
   },
   {
-    "S/N": 11,
-    Subject: "Computer Science",
-    "Ass Score": 8,
-    "Exam Score": 48,
-    Total: 72,
-    Grade: "A",
+    "s/n": 11,
+    subject: "Computer Science",
+    assessment: 30,
+    exam: 48,
+    total: 72,
+    grade: "A",
   },
   {
-    "S/N": 12,
-    Subject: "Health Science",
-    "Ass Score": 5,
-    "Exam Score": 50,
-    Total: 75,
-    Grade: "A",
+    "s/n": 12,
+    subject: "Health Science",
+    assessment: 25,
+    exam: 50,
+    total: 75,
+    grade: "A",
   },
 ]

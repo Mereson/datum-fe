@@ -368,31 +368,30 @@ export const data = [
     class: "SSS1A",
     regDate: "20-09-2024",
   },
-
 ]
 
 export const classData = [
-  { "S/N": "001", Classes: "JSS 1", "empty": ":" },
-  { "S/N": "002", Classes: "JSS 2", "empty": ":" },
-  { "S/N": "003", Classes: "JSS 3", "empty": ":" },
-  { "S/N": "004", Classes: "SSS 1", "empty": ":" },
-  { "S/N": "005", Classes: "SSS 2", "empty": ":" },
-  { "S/N": "006", Classes: "SSS 3", "empty": ":" },
+  { "S/N": "001", Classes: "JSS 1", empty: ":" },
+  { "S/N": "002", Classes: "JSS 2", empty: ":" },
+  { "S/N": "003", Classes: "JSS 3", empty: ":" },
+  { "S/N": "004", Classes: "SSS 1", empty: ":" },
+  { "S/N": "005", Classes: "SSS 2", empty: ":" },
+  { "S/N": "006", Classes: "SSS 3", empty: ":" },
 ]
 
 export const subjectsData = [
-  { "S/N": "001", Subjects: "English", "empty": ":" },
-  { "S/N": "002", Subjects: "Mathematics", "empty": ":" },
-  { "S/N": "003", Subjects: "Biology", "empty": ":" },
-  { "S/N": "004", Subjects: "Physics", "empty": ":" },
-  { "S/N": "005", Subjects: "Chemistry", "empty": ":" },
-  { "S/N": "006", Subjects: "Geography", "empty": ":" },
-  { "S/N": "007", Subjects: "Agriculture", "empty": ":" },
-  { "S/N": "008", Subjects: "Igbo language", "empty": ":" },
-  { "S/N": "009", Subjects: "CRS", "empty": ":" },
-  { "S/N": "010", Subjects: "Civic Education", "empty": ":" },
-  { "S/N": "011", Subjects: "Computer Science", "empty": ":" },
-  { "S/N": "012", Subjects: "Health Science", "empty": ":" },
+  { "S/N": "001", Subjects: "English", empty: ":" },
+  { "S/N": "002", Subjects: "Mathematics", empty: ":" },
+  { "S/N": "003", Subjects: "Biology", empty: ":" },
+  { "S/N": "004", Subjects: "Physics", empty: ":" },
+  { "S/N": "005", Subjects: "Chemistry", empty: ":" },
+  { "S/N": "006", Subjects: "Geography", empty: ":" },
+  { "S/N": "007", Subjects: "Agriculture", empty: ":" },
+  { "S/N": "008", Subjects: "Igbo language", empty: ":" },
+  { "S/N": "009", Subjects: "CRS", empty: ":" },
+  { "S/N": "010", Subjects: "Civic Education", empty: ":" },
+  { "S/N": "011", Subjects: "Computer Science", empty: ":" },
+  { "S/N": "012", Subjects: "Health Science", empty: ":" },
 ]
 
 export const eventsData = [
@@ -879,5 +878,157 @@ export const paymentBreakdownData = [
     Item: "Utilities",
     Amount: "₦2,000.00",
     Description: "All student",
+  },
+]
+
+const attendance = {
+  "Week 1": {
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+}
+
+export const attendanceData = [
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+  {
+    name: "Ene Maria Chidimma",
+    attendance: attendance,
+  },
+]
+
+export const studentsAttendance = [
+  {
+    weeks: "Week 1",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 2",
+    mon: "Present",
+    tue: "Absent",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 3",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 4",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 5",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 6",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
+  },
+  {
+    weeks: "Week 7",
+    mon: "Present",
+    tue: "Present",
+    wed: "Absent",
+    thur: "Present",
+    fri: "Absent",
+    sat: "",
+    sun: "",
   },
 ]
