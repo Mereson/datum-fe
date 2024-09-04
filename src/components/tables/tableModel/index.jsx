@@ -20,7 +20,7 @@ export const TableModel = ({
   rowOnClick,
   justTable = false,
   center,
-  pageSize = "12"
+  pageSize = "12",
 }) => {
   const [data, setData] = useState(myData)
   const [columnFilters, setColumnFilters] = useState([])
@@ -91,15 +91,22 @@ export const TableModel = ({
             Showing {table.getState().pagination.pageIndex + 1} -{" "}
             {table.getPageCount()} of {totalRows} {people}
           </p>
-          <CustomTable table={table} center={center} rowOnClick={rowOnClick} />
-          {totalRows > 12 && (
-            <div className="mt-8">
-              <ListPagination
-                totalPages={table.getPageCount()}
-                onPageChange={handlePageChange}
-              />
-            </div>
-          )}
+
+          <div>
+            <CustomTable
+              table={table}
+              center={center}
+              rowOnClick={rowOnClick}
+            />
+            {totalRows > 12 && (
+              <div className="mt-8">
+                <ListPagination
+                  totalPages={table.getPageCount()}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            )}
+          </div>
         </section>
       ) : (
         <section className="grid gap-4">
@@ -120,4 +127,7 @@ TableModel.propTypes = {
   justTable: PropTypes.bool,
   center: PropTypes.string,
   pageSize: PropTypes.string,
+  isSuccess: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  isError: PropTypes.bool,
 }

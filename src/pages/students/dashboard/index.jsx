@@ -9,8 +9,19 @@ import {
 } from "../../../components"
 
 import styles from "./style.module.css"
+import { useStudentsList } from "../../../states/students"
+import { useQuery } from "@tanstack/react-query"
+import { getAllSubjects } from "../../../api"
 
 export const StudentsDashboard = () => {
+  const { studentsData } = useStudentsList()
+  const studentInfo = studentsData?.parent?.students[0]
+
+  console.log(studentInfo)
+
+  const subjects = useQuery({ queryKey: ["Subjects"], queryFn: getAllSubjects })
+  console.log(subjects.data)
+
   const score = 14
   const total = 20
   const percentage = Math.floor((score / total) * 100)
@@ -20,8 +31,13 @@ export const StudentsDashboard = () => {
       <section
         className={`${styles.scrollbar} px-[80px] pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 w-[71%]`}
       >
-        <WelcomeBox bg={"bg-[#132985]"} avatar={ReadingStudent} student />
-        <CoreSubjects subjects={subjects} />
+        <WelcomeBox
+          bg={"bg-[#132985]"}
+          avatar={ReadingStudent}
+          student
+          studentInfo={studentInfo}
+        />
+        {/* <CoreSubjects subjects={subjects} /> */}
         <StudentsAttendance
           score={score}
           total={total}
@@ -50,59 +66,60 @@ export const StudentsDashboard = () => {
         </div>
       </section>
       <ActivitySection
-        name={"Ene Maria"}
+        name={`${studentInfo.firstName} ${studentInfo.surName}`}
         img={SchoolChild}
         path={"/students/studentProfile"}
+        student={studentInfo}
       />
     </section>
   )
 }
 
-const subjects = [
-  {
-    id: 1,
-    name: "Eng",
-    subject: "English",
-    topics: 8,
-    Total: 31,
-  },
-  {
-    id: 2,
-    name: "Maths",
-    subject: "Mathematics",
-    topics: 5,
-    Total: 65,
-  },
+// const subjects = [
+//   {
+//     id: 1,
+//     name: "Eng",
+//     subject: "English",
+//     topics: 8,
+//     Total: 31,
+//   },
+//   {
+//     id: 2,
+//     name: "Maths",
+//     subject: "Mathematics",
+//     topics: 5,
+//     Total: 65,
+//   },
 
-  {
-    id: 3,
-    name: "Bio",
-    subject: "Biology",
-    topics: 4,
-    Total: 77,
-  },
-  {
-    id: 4,
-    name: "Phy",
-    subject: "Physics",
-    topics: 4,
-    Total: 77,
-  },
-  {
-    id: 5,
-    name: "Chem",
-    subject: "Chemistry",
-    topics: 6,
-    Total: 40,
-  },
-  {
-    id: 6,
-    name: "Geo",
-    subject: "Geography",
-    topics: 5,
-    Total: 59,
-  },
-]
+//   {
+//     id: 3,
+//     name: "Bio",
+//     subject: "Biology",
+//     topics: 4,
+//     Total: 77,
+//   },
+//   {
+//     id: 4,
+//     name: "Phy",
+//     subject: "Physics",
+//     topics: 4,
+//     Total: 77,
+//   },
+//   {
+//     id: 5,
+//     name: "Chem",
+//     subject: "Chemistry",
+//     topics: 6,
+//     Total: 40,
+//   },
+//   {
+//     id: 6,
+//     name: "Geo",
+//     subject: "Geography",
+//     topics: 5,
+//     Total: 59,
+//   },
+// ]
 
 const attendance = [
   {

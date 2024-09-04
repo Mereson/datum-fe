@@ -24,7 +24,7 @@ export const ActivitySection = ({ name, img, path }) => {
             <span className="w-[22.43px] h-[22.43px] rounded-full bg-[#3ac922] border-white border-2 absolute top-[80px] left-[73px]"></span>
           </div>
           <div>
-            <h3 className="text-[22px] font-bold text-[#181818]">{name}</h3>
+            <h3 className="text-[18px] font-semibold text-[#181818]">{name}</h3>
             <p
               onClick={handleNavigate}
               className="cursor-pointer text-sm text-[#132985] text-center"

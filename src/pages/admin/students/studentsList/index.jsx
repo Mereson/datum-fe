@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import { TableModel } from "../../../../components"
+import { MockTableLayout, TableModel } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { FaPlus } from "react-icons/fa6"
 import { AdminProfileImg, NotificationSvg } from "../../../../assets"
@@ -9,8 +9,7 @@ import { useNavigate } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 
 export const StudentsList = () => {
-  const { setStudentsIdData } =
-    useStudentsList()
+  const { setStudentsIdData } = useStudentsList()
 
   const navigate = useNavigate()
 
@@ -65,8 +64,9 @@ export const StudentsList = () => {
             }
           />
         </div>
-        {query.isSuccess && (
-          <section>
+
+        <section>
+          {query.isSuccess && (
             <TableModel
               myData={newData}
               columns={columns}
@@ -78,14 +78,12 @@ export const StudentsList = () => {
                 Students List
               </h2>
             </TableModel>
-          </section>
-        )}
+          )}
+        </section>
         {query.isLoading && (
-          <h2 className=" text-[#6270AE] pb-4">Loading...</h2>
+          <MockTableLayout title={"Students List"} isLoading />
         )}
-        {query.error && (
-          <h2 className=" text-[red] pb-4">{query.error.message}</h2>
-        )}
+        {query.isError && <MockTableLayout title={"Students List"} />}
       </main>
     </section>
   )

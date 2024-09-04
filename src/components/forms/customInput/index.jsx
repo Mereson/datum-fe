@@ -25,7 +25,8 @@ export const CustomInput = ({
         ? event.target.value
         : capitalize
         ? capitalizeFirstLetter(event.target.value)
-        : event.target?.files?.[0]
+        : event.target.value
+        // : event.target?.files?.[0]
     helpers.setValue(value)
   }
 

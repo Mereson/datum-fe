@@ -25,16 +25,16 @@ export const createTeacher = async (teacher) => {
 
     console.log("Is hitting", formData)
 
-    // const { data } = await axios.post(
-    //   `${baseUrl}/admin/createAdmin`,
-    //   formData,
-    //   {
-    //     headers: {
-    //       "Content-Type": "multipart/form-data",
-    //     },
-    //   }
-    // )
-    // return data
+    const { data } = await axios.post(
+      `${baseUrl}/admin/createAdmin`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    )
+    return data
   } catch (error) {
     catchErrors(error)
   }
@@ -54,7 +54,6 @@ export const login = async (email, password) => {
 }
 
 export const logOut = () => {
-  // Assuming clearToken is implemented
   clearToken()
 }
 
@@ -77,6 +76,15 @@ export const getStudentById = async (id) => {
     return data
   } catch (error) {
     catchErrors(error)
+  }
+}
+
+export const getAllTeachers = async () => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/admin/getAllTeachers`)
+    return data
+  } catch (error) {
+    return catchErrors(error)
   }
 }
 

@@ -8,8 +8,11 @@ import { useMutation } from "@tanstack/react-query"
 import { Field, Form, Formik } from "formik"
 import { FormButton } from "../../components"
 import { loginSchema } from "../../api/validationSchema"
+import { useStudentsList, useToken } from "../../states/students"
 
 export const Login = () => {
+  const { saveToken, clearToken, token } = useToken()
+  const {setStudentsData} = useStudentsList()
   const [showPassword, setShowPassword] = useState(false)
   const showeye = () => {
     setShowPassword(!showPassword)
@@ -23,7 +26,10 @@ export const Login = () => {
 
   if (mutation.isSuccess) {
     navigate("/students/dashboard")
-    alert("Login Successfull")
+    setStudentsData(mutation.data)
+    saveToken(mutation.data.token)
+    console.log(mutation.data.token)
+    console.log("Login Successfull")
     console.log(mutation.data)
   }
 
@@ -39,6 +45,10 @@ export const Login = () => {
     })
   }
 
+  const clickMe = () => {
+    clearToken()
+    console.log(`token: ${token}`)
+  }
   return (
     <section className={styles.login_container}>
       <div className={styles.login}>
@@ -49,7 +59,7 @@ export const Login = () => {
             </h2>
           )}
           {mutation.isPending && <h2 className=" text-[green]">Loading</h2>}
-
+          <button onClick={clickMe }>Click Me</button>
           <Formik
             initialValues={{
               email: "",
@@ -76,7 +86,7 @@ export const Login = () => {
                     name="email"
                   />
                   {errors.email && touched.email && (
-                    <div className={"text-red-500 text-sm pt-2"}>
+                    <div className={"text-red-500 text-[13px] pt-2"}>
                       {errors.email}
                     </div>
                   )}
@@ -106,7 +116,7 @@ export const Login = () => {
                     )}
                   </div>
                   {errors.password && touched.password && (
-                    <div className={"text-red-500 text-sm pt-2"}>
+                    <div className={"text-red-500 text-[13px] pt-2"}>
                       {errors.password}
                     </div>
                   )}
