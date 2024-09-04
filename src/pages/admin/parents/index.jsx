@@ -20,26 +20,26 @@ export const AdminParentsList = () => {
           </div>
         </div>
         <div className="sm:flex sm:justify-between">
-          <SearchBox width="w- xl:w-[25rem]" placeholder="Search" />
+          <SearchBox placeholder="Search" />
           <div className="flex gap-3 items-center">
             <p className="font-bold text-[#444444]">Filter by:</p>
             <CustomSelect
               index={1}
               query={"Class"}
               width={"6.8rem"}
-              options={[]}
+              options={["Jss1", "Jss2", "Jss3", "Sss1", "Sss2", "Sss3"]}
             />
             <CustomSelect
               index={2}
               query={"Gender"}
               width={"6.8rem"}
-              options={[]}
+              options={["Male", "Female"]}
             />
             <CustomSelect
               index={3}
               query={"Sort by"}
               width={"6.8rem"}
-              options={[]}
+              options={["Name", "A-Z"]}
             />
           </div>
         </div>
