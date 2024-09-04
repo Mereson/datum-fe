@@ -1,16 +1,20 @@
-import { useEffect } from "react"
 import { Edit, ProfileImage, SchoolGirl } from "../../../assets"
 import design from "./style.module.css"
 import PropTypes from "prop-types"
-import { useStudentsList } from "../../../states/students"
 import { BackIcon, StudentIcon } from "../../../components"
+import { useStudentsData } from "../../../states/students"
 
 export const StudentProfile = () => {
-  const { studentsIdData } = useStudentsList()
+  const { studentsData } = useStudentsData()
+  const parent = studentsData.parent
+  const student = studentsData.parent.students[0]
 
-  useEffect(() => {
-    console.log(studentsIdData)
-  }, [])
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    return date.toISOString().split("T")[0]
+  }
+
+  const studentDOB = formatDate(student.dateOfBirth)
 
   return (
     <section className=" bg-[#f4f4f4] w-full h-full overflow-auto pt-8 sm:px-[6.25rem] ">
@@ -34,7 +38,7 @@ export const StudentProfile = () => {
           <div className="flex justify-end">
             <div className="flex justify-between w-[80%] pr-8">
               <div>
-                <h4 className="text-[22px] font-normal ">Ene Maria</h4>
+                <h4 className="text-[22px] font-normal ">{`${student.firstName} ${student.surName}`}</h4>
                 <p> Student </p>
               </div>
 
@@ -48,34 +52,40 @@ export const StudentProfile = () => {
         <main className="grid grid-cols-1 sm:grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
           <div className=" grid gap-7">
             <h3 className="text-[22px] font-bold"> Student Info </h3>
-            <StudentInfo title={"Surname"} content={"Ene"} />
-            <StudentInfo title={"First Name"} content={"Maria"} />
-            <StudentInfo title={"Other Name"} content={"Chidimma"} />
-            <StudentInfo title={"Gender"} content={"Female"} />
-            <StudentInfo title={"Date Of Birth"} content={"26-09-2010"} />
-            <StudentInfo title={"Blood Group"} content={"O+"} />
-            <StudentInfo title={"Term"} content={"First Term"} />
-            <StudentInfo title={"Class"} content={"SSS1A"} />
+            <StudentInfo title={"Surname"} content={student.surName} />
+            <StudentInfo title={"First Name"} content={student.firstName} />
+            <StudentInfo title={"Other Name"} content={student.otherName} />
+            <StudentInfo title={"Gender"} content={student.gender} />
+            <StudentInfo title={"Date Of Birth"} content={studentDOB} />
+            <StudentInfo title={"Blood Group"} content={student.bloodGroup} />
+            <StudentInfo title={"Term"} content={student.term} />
+            <StudentInfo
+              title={"Class"}
+              content={`${student.class} ${student.classTier}`}
+            />
             <StudentInfo
               title={"Previous School"}
-              content={"Spring Of Life International School"}
+              content={student.previousSchool}
             />
           </div>
 
           <div className="grid gap-7 ">
             <h3 className="text-[22px] font-bold"> Parent Info </h3>
-            <StudentInfo title={"Surname"} content={"Ene"} />
-            <StudentInfo title={"First Name"} content={"Ikechukwu"} />
-            <StudentInfo title={"Other Name"} content={"Charles"} />
-            <StudentInfo title={"Email"} content={"eneikechukwu@gmail.com"} />
+            <StudentInfo title={"Surname"} content={parent.surName} />
+            <StudentInfo title={"First Name"} content={parent.firstName} />
+            <StudentInfo title={"Other Name"} content={parent.otherName} />
+            <StudentInfo title={"Email"} content={parent.email} />
+            <StudentInfo title={"Address"} content={student.address} />
+            <StudentInfo title={"Phone Number"} content={parent.phoneNumber} />
+            <StudentInfo title={"Relationship"} content={parent.relationship} />
             <StudentInfo
-              title={"Address"}
-              content={"No 12 Achi Street Enugu"}
+              title={"State Of Origin"}
+              content={student.stateOfOrigin}
             />
-            <StudentInfo title={"Phone Number"} content={"09130590413"} />
-            <StudentInfo title={"Relationship"} content={"Father"} />
-            <StudentInfo title={"State Of Origin"} content={"Enugu"} />
-            <StudentInfo title={"L. G. Of Origin"} content={"Enugu North"} />
+            <StudentInfo
+              title={"L. G. Of Origin"}
+              content={student.localGovernment}
+            />
           </div>
         </main>
       </main>

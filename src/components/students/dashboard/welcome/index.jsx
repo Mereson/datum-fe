@@ -12,7 +12,10 @@ export const WelcomeBox = ({
   admin = false,
   student = false,
   teacher = false,
+  studentInfo,
 }) => {
+  console.log(studentInfo)
+
   return (
     <div className={`relative col-span-2 ${bg} pl-4 h-[142px] rounded-2xl`}>
       {admin && (
@@ -108,7 +111,7 @@ export const WelcomeBox = ({
         <>
           <span className="flex gap-[16.5px] items-center pt-[27px] pb-[6px]">
             <h3 className="text-[18px] font-medium text-[#ffff]">
-              Welcome Back Ene Maria
+              Welcome Back {studentInfo.firstName} {studentInfo.surName}
             </h3>
             <SbEmojiWave w="36" h="34" />
           </span>
@@ -158,4 +161,5 @@ WelcomeBox.propTypes = {
   admin: PropTypes.bool,
   student: PropTypes.bool,
   teacher: PropTypes.bool,
+  studentInfo: PropTypes.object,
 }

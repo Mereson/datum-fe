@@ -17,12 +17,13 @@ export const createStudent = async (parentsFormData, studentsFormData) => {
 export const createTeacher = async (teacher) => {
   try {
     const formData = new FormData()
+    console.log(teacher)
 
     Object.keys(teacher).forEach((key) => {
       formData.append(key, teacher[key])
     })
 
-    console.log("Is hitting")
+    console.log("Is hitting", formData)
 
     const { data } = await axios.post(
       `${baseUrl}/admin/createAdmin`,
@@ -41,23 +42,20 @@ export const createTeacher = async (teacher) => {
 
 export const login = async (email, password) => {
   try {
-    const res = await axios.post(`${baseUrl}/parent/login`, {
+    console.log("is hitting")
+    const { data } = await axios.post(`${baseUrl}/parent/login`, {
       email,
       password,
     })
-    if (res.status === 200) {
-      saveToken({ token: res.data.token }) // Assuming saveToken is implemented
-    }
-    return res.data
+    return data
   } catch (error) {
     catchErrors(error)
   }
 }
 
-export const logOut = () => {
-  // Assuming clearToken is implemented
-  clearToken()
-}
+// export const logOut = () => {
+//   clearToken()
+// }
 
 export const getAllStudents = async () => {
   try {
@@ -78,6 +76,15 @@ export const getStudentById = async (id) => {
     return data
   } catch (error) {
     catchErrors(error)
+  }
+}
+
+export const getAllTeachers = async () => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/admin/getAllTeachers`)
+    return data
+  } catch (error) {
+    return catchErrors(error)
   }
 }
 

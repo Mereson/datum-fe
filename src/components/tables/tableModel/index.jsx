@@ -92,21 +92,22 @@ export const TableModel = ({
             Showing {table.getState().pagination.pageIndex + 1} -{" "}
             {table.getPageCount()} of {totalRows} {people}
           </p>
-          <div className="overflow-x-auto">
+
+          <div>
             <CustomTable
               table={table}
               center={center}
               rowOnClick={rowOnClick}
             />
+            {totalRows > 12 && (
+              <div className="mt-8">
+                <ListPagination
+                  totalPages={table.getPageCount()}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            )}
           </div>
-          {totalRows > 12 && (
-            <div className="mt-8">
-              <ListPagination
-                totalPages={table.getPageCount()}
-                onPageChange={handlePageChange}
-              />
-            </div>
-          )}
         </section>
       ) : (
         <section className="grid gap-4">
@@ -127,4 +128,7 @@ TableModel.propTypes = {
   justTable: PropTypes.bool,
   center: PropTypes.string,
   pageSize: PropTypes.string,
+  isSuccess: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  isError: PropTypes.bool,
 }
