@@ -7,9 +7,11 @@ import {
 } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { getAllTeachers } from "../../../../api"
+import { useTeachersData } from "../../../../states/teachers"
 
 export const TeachersList = () => {
   const query = useQuery({ queryKey: ["Teachers"], queryFn: getAllTeachers })
+  const { setTeachersData } = useTeachersData()
 
   if (query.isError) {
     console.log(query.error.message)
@@ -17,6 +19,11 @@ export const TeachersList = () => {
 
   if (query.isSuccess) {
     console.log(query.data)
+  }
+
+  const rowOnClick = (row) => {
+    console.log(row)
+    setTeachersData(row)
   }
 
   return (
@@ -40,6 +47,7 @@ export const TeachersList = () => {
               columns={columns}
               people={"Teachers"}
               searchValue={"First Name"}
+              rowOnClick={rowOnClick}
             >
               <h2 className="text-2xl font-bold text-[#1e1e1e]">
                 Teachers List
@@ -59,7 +67,7 @@ export const TeachersList = () => {
 const columns = [
   {
     accessorKey: "id",
-    header: "Reg No",
+    header: "Teachers Id",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },

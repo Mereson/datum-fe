@@ -2,10 +2,24 @@ import PropTypes from "prop-types"
 import { BiEditAlt } from "react-icons/bi"
 import { AdminIcon, BackIcon, TableModel } from "../../../../components"
 import { Button } from "../../../../components/button"
-import { eventsData } from "../../../../testData"
 import { GoTrash } from "react-icons/go"
+import { getAllActivities } from "../../../../api"
+import { useQuery } from "@tanstack/react-query"
 
 export const AdminEventsList = () => {
+  const query = useQuery({
+    queryKey: ["Activities"],
+    queryFn: getAllActivities,
+  })
+
+  if (query.isError) {
+    console.log(query.error.message)
+  }
+
+  if (query.isSuccess) {
+    console.log(query.data)
+  }
+
   return (
     <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-3">
@@ -28,14 +42,22 @@ export const AdminEventsList = () => {
         <h2 className="text-2xl mt-4 pb-6 text-[#444444]">Academic Calender</h2>
 
         <div className="w-full">
-          <TableModel
-            myData={eventsData}
-            columns={columns}
-            people={"Students"}
-            searchValue={"Activity"}
-            justTable={true}
-            // rowOnClick={rowOnClick}
-          />
+          {query.isSuccess && (
+            <TableModel
+              myData={query.data}
+              columns={columns}
+              people={"Students"}
+              searchValue={"Activity"}
+              justTable={true}
+              // rowOnClick={rowOnClick}
+            />
+          )}
+          {query.isLoading && (
+            <p className=" text-[#6270AE] pb-4">Loading...</p>
+          )}
+          {query.isError && (
+            <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+          )}
         </div>
       </main>
     </section>
@@ -60,30 +82,50 @@ Description.propTypes = {
   getValue: PropTypes.func,
 }
 
+const DateText = ({ getValue }) => {
+  const value = getValue()
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    return date.toISOString().split("T")[0]
+  }
+
+  const formattedDate = formatDate(value)
+
+  return <p>{formattedDate}</p>
+}
+
+DateText.propTypes = {
+  getValue: PropTypes.func,
+}
+
 const columns = [
   {
-    accessorKey: "S/N",
+    accessorKey: "id",
     header: "S/N",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "Activity",
+    accessorKey: "title",
     header: "Activity",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "Start Date",
+    accessorKey: "startDate",
     header: "Start Date",
-    cell: (props) => <p>{props.getValue()}</p>,
+    cell: DateText,
+    enableSorting: false,
   },
   {
-    accessorKey: "End Date",
+    accessorKey: "endDate",
     header: "End Date",
-    cell: (props) => <p>{props.getValue()}</p>,
+    cell: DateText,
+    enableSorting: false,
   },
   {
-    accessorKey: "Description",
+    accessorKey: "description",
     header: "Description",
     cell: Description,
     enableSorting: false,

@@ -53,9 +53,18 @@ export const login = async (email, password) => {
   }
 }
 
-// export const logOut = () => {
-//   clearToken()
-// }
+export const teacherLogin = async (email, password) => {
+  try {
+    console.log("is hitting")
+    const { data } = await axios.post(`${baseUrl}/admin/login`, {
+      email,
+      password,
+    })
+    return data
+  } catch (error) {
+    catchErrors(error)
+  }
+}
 
 export const getAllStudents = async () => {
   try {
@@ -115,9 +124,27 @@ export const createResult = async (email, file) => {
   }
 }
 
+export const getAllResults = async () => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/result/getAllResults`)
+    return data
+  } catch (error) {
+    return catchErrors(error)
+  }
+}
+
 export const getAllSubjects = async () => {
   try {
     const { data } = await axios.get(`${baseUrl}/subject/getAllSubjects`)
+    return data
+  } catch (error) {
+    return catchErrors(error)
+  }
+}
+
+export const getAllActivities = async () => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/activity/getAllActivities`)
     return data
   } catch (error) {
     return catchErrors(error)
@@ -130,6 +157,34 @@ export const createSubject = async (name, classLevel) => {
       name,
       classLevel,
     })
+    return data
+  } catch (error) {
+    catchErrors(error)
+  }
+}
+
+export const createRemark = async (studentId, remark, Class, term, subject) => {
+  try {
+    const { data } = await axios.post(`${baseUrl}/remark/createRemark`, {
+      studentId: studentId,
+      remark: remark,
+      Class: Class,
+      term: term,
+      subject: subject,
+    })
+    return data
+  } catch (error) {
+    catchErrors(error)
+  }
+}
+
+export const createActivity = async (activity) => {
+  try {
+    console.log("Is hitting", activity)
+    const { data } = await axios.post(
+      `${baseUrl}/activity/createActivity`,
+      activity
+    )
     return data
   } catch (error) {
     catchErrors(error)

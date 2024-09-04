@@ -1,21 +1,31 @@
 import { useState } from "react"
 import style from "./styles.module.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
 import { SidebarNavItem } from "../sidebarNav"
 import { IoMdMenu } from "react-icons/io"
 import {
   DashboardIcon,
-  ParentsIcon,
   SbAttendance,
   SbLogout,
-  TeachersIcon,
   TotalStudents,
 } from "../../../assets"
+import { LogOutNavItem } from "../logOutNav"
+import { useToken } from "../../../states/students"
+import TableIcon from "../../../assets/icons/teacherSidebar/table"
+import KyberIcon from "../../../assets/icons/teacherSidebar/kyber"
+import CalendarIcon from "../../../assets/icons/teacherSidebar/calendar"
 
 export const TeacherSidebar = () => {
+  const { clearToken } = useToken()
+  const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
-  // const [showMenu, setShowMenu] = useState(true)
+
+  const logOut = () => {
+    clearToken()
+    // clearStudentsData()
+    navigate("/")
+  }
 
   return (
     <aside className=" pl-6 pb-7 w-full sm:w-[250px]">
@@ -83,7 +93,7 @@ export const TeacherSidebar = () => {
               >
                 <SidebarNavItem
                   to={"/teacher/attendance"}
-                  Icon={SbAttendance}
+                  Icon={CalendarIcon}
                   label={"Attendance"}
                 />
               </div>
@@ -95,7 +105,7 @@ export const TeacherSidebar = () => {
               >
                 <SidebarNavItem
                   to={"/teacher/timetable"}
-                  Icon={TeachersIcon}
+                  Icon={TableIcon}
                   label={"Timetable"}
                 />
               </div>
@@ -107,7 +117,7 @@ export const TeacherSidebar = () => {
               >
                 <SidebarNavItem
                   to={"/teacher/schemeOfWork"}
-                  Icon={ParentsIcon}
+                  Icon={KyberIcon}
                   label={"Scheme Of Work"}
                 />
               </div>
@@ -115,7 +125,7 @@ export const TeacherSidebar = () => {
             </div>
 
             <div className="pt-11">
-              <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
+              <LogOutNavItem onClick={logOut} Icon={SbLogout} label="Log out" />
             </div>
           </div>
         </nav>

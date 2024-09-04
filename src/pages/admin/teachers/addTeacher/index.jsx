@@ -172,10 +172,10 @@ export const AddTeacher = () => {
                 </h4>
 
                 <div className="pt-4 grid grid-cols-2 w-[100%] gap-x-12 gap-y-6">
-                  <CustomInput
+                  <FormDropdown
                     label={"Subject"}
                     name={`employmentRole`}
-                    type="text"
+                    options={["Maths", "English", "Basic Science"]}
                     required={true}
                   />
                   <FormDropdown
