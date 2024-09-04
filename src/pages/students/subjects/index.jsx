@@ -1,9 +1,14 @@
 // import PropTypes from 'prop-types'
 
+import { useQuery } from "@tanstack/react-query"
 import { BackIcon, StudentIcon, TableModel } from "../../../components"
-import { subjectsData } from "../../../testData"
+import { getAllSubjects } from "../../../api"
 
 export const StudentsSubjectList = () => {
+  const subjects = useQuery({ queryKey: ["Subjects"], queryFn: getAllSubjects })
+
+  const subjectsData = subjects.data
+
   return (
     <section className="w-full px-7 sm:px-[5rem] bg-[#f4f4f4] h-full pt-8 pb-40 sm:pb-14 overflow-auto">
       <main className="grid gap-4">
@@ -29,13 +34,13 @@ export const StudentsSubjectList = () => {
 
 const columns = [
   {
-    accessorKey: "S/N",
+    accessorKey: "id",
     header: "S/N",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "Subjects",
+    accessorKey: "name",
     header: "Subjects",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,

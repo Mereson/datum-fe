@@ -1,17 +1,7 @@
 import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 export const useStudentsList = create((set) => ({
-  studentsData: {
-    message: "",
-    parent: {},
-  },
-  setStudentsData: (studentData) =>
-    set(() => ({
-      studentsData: {
-        message: studentData.message,
-        parent: studentData.parent,
-      },
-    })),
   studentsList: [],
   setStudentsList: (studentList) =>
     set(() => ({
@@ -24,8 +14,29 @@ export const useStudentsList = create((set) => ({
     })),
 }))
 
+
+export const useStudentsData = create((set) => ({
+  studentsData: JSON.parse(sessionStorage.getItem("studentsData")) || {
+    message: "",
+    parent: {},
+  },
+  setStudentsData: (newStudentsData) => {
+    sessionStorage.setItem("studentsData", JSON.stringify(newStudentsData))
+    set({
+      studentsData: {
+        message: newStudentsData.message,
+        parent: newStudentsData.parent,
+      },
+    })
+  },
+  clearStudentsData: () => {
+    sessionStorage.removeItem("studentsData")
+    set({ studentsData: { message: "", parent: {} } })
+  },
+}))
+
 export const useToken = create((set) => ({
-  token: sessionStorage.getItem("authToken") || null, // Initialize token from session storage
+  token: sessionStorage.getItem("authToken") || null,
   saveToken: (newToken) => {
     sessionStorage.setItem("authToken", newToken)
     set({ token: newToken })

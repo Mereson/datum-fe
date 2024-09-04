@@ -53,9 +53,9 @@ export const login = async (email, password) => {
   }
 }
 
-export const logOut = () => {
-  clearToken()
-}
+// export const logOut = () => {
+//   clearToken()
+// }
 
 export const getAllStudents = async () => {
   try {

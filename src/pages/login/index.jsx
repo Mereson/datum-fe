@@ -8,11 +8,11 @@ import { useMutation } from "@tanstack/react-query"
 import { Field, Form, Formik } from "formik"
 import { FormButton } from "../../components"
 import { loginSchema } from "../../api/validationSchema"
-import { useStudentsList, useToken } from "../../states/students"
+import { useStudentsData, useToken } from "../../states/students"
 
 export const Login = () => {
   const { saveToken, clearToken, token } = useToken()
-  const {setStudentsData} = useStudentsList()
+  const {setStudentsData} = useStudentsData()
   const [showPassword, setShowPassword] = useState(false)
   const showeye = () => {
     setShowPassword(!showPassword)

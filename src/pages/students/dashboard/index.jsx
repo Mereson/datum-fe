@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { ReadingStudent, SchoolChild } from "../../../assets"
+import { HeroLady, ReadingStudent, SchoolChild } from "../../../assets"
 import {
   ActivitySection,
   AttendanceBarChart,
@@ -10,19 +10,15 @@ import {
 } from "../../../components"
 
 import styles from "./style.module.css"
-import { useStudentsList } from "../../../states/students"
+import { useStudentsData } from "../../../states/students"
 import { useQuery } from "@tanstack/react-query"
 import { getAllSubjects } from "../../../api"
 
 export const StudentsDashboard = () => {
-  const { studentsData } = useStudentsList()
+  const { studentsData } = useStudentsData()
+
   const studentInfo = studentsData?.parent?.students[0]
-
-  console.log(studentInfo)
-
   const subjects = useQuery({ queryKey: ["Subjects"], queryFn: getAllSubjects })
-  console.log(subjects.data)
-
   const score = 14
   const total = 20
   const percentage = Math.floor((score / total) * 100)
@@ -38,11 +34,11 @@ export const StudentsDashboard = () => {
       >
         <WelcomeBox
           bg={"bg-[#132985]"}
-          avatar={ReadingStudent}
+          avatar={studentInfo.gender == "Female" ? ReadingStudent : HeroLady}
           student
           studentInfo={studentInfo}
         />
-        {/* <CoreSubjects subjects={subjects} /> */}
+        {subjects.isSuccess && <CoreSubjects subjects={subjects.data} />}
         <StudentsAttendance
           score={score}
           total={total}

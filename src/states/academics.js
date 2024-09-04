@@ -6,4 +6,10 @@ export const useAcademicsStore = create((set) => ({
     set(() => ({
       subjectsData: subjectData,
     })),
+
+  studentsSubjects: [],
+  setStudentsSubjects: (studentSubjects) =>
+    set(() => ({
+      studentsSubjects: studentSubjects,
+    })),
 }))
