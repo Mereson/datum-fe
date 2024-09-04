@@ -1,25 +1,38 @@
-import { TableModel, TeacherAvater } from "../../../components"
+import { TableModel } from "../../../components"
 import { data } from "../../../testData"
 import { Button } from "../../../components/button"
+import { SchoolTeacher } from "../../../assets"
 
 export const UploadResult = () => {
   return (
-    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] pb-[9.563rem]">
+    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 pr-3 pl-4 sm:px-[6.25rem] pb-7 sm:pb-[9.563rem]">
       <div className="flex gap-5 items-center justify-end">
-        <TeacherAvater />
+        <div
+          onClick={onclick}
+          className="flex gap-2 cursor-pointer items-center"
+        >
+          <figure className="size-[50px] rounded-full">
+            <img
+              className="rounded-full"
+              src={SchoolTeacher}
+              alt="student image"
+            />
+          </figure>
+          <div className="text-[15px]">
+            <p className="font-bold">Okafor Chinyere</p>
+            <p>Teacher</p>
+          </div>
+        </div>
       </div>
-
-      {/* This is the div for the upload result */}
 
       <Button
         link={"/teacher/uploadresult/uploadresult1"}
         type="submit"
         content="Upload result"
         className={
-          "bg-[#132985] w-[20%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+          "bg-[#132985] sm:w-[20%] px-4 py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
         }
       />
-
       <section className="w-full">
         <TableModel
           myData={data}
