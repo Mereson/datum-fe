@@ -4,6 +4,7 @@ import {
   ActivitySection,
   AttendanceBarChart,
   CoreSubjects,
+  StudentIcon,
   StudentsAttendance,
   WelcomeBox,
 } from "../../../components"
@@ -27,9 +28,13 @@ export const StudentsDashboard = () => {
   const percentage = Math.floor((score / total) * 100)
 
   return (
-    <section className="flex w-full h-[100%] bg-[#f4f4f4] justify-between">
+    <section className="sm:flex pb-16 overflow-auto w-full h-[100%] bg-[#f4f4f4] justify-between">
+      <div className="sm:hidden flex justify-end pr-4 pt-6 sm:pb-14">
+        <StudentIcon />
+      </div>
+
       <section
-        className={`${styles.scrollbar} px-[80px] pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 w-[71%]`}
+        className={`${styles.scrollbar} sm:px-[80px] px-[2rem] pt-[40px] pb-[30px] overflow-auto grid grid-cols-2 gap-[35px] gap-x-7 w-full sm:w-[71%]`}
       >
         <WelcomeBox
           bg={"bg-[#132985]"}

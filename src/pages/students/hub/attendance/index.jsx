@@ -5,21 +5,20 @@ import { studentsAttendance } from "../../../../testData"
 
 export const StudentsAttendancePage = () => {
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
-      <div className="flex justify-between pb-14">
-        <div className="flex items-end">
-          <BackIcon link={"/students/hub"} />
-        </div>
+    <section className="w-full sm:px-[5rem] bg-[#f4f4f4] h-full pt-8 pb-36 sm:pb-14 overflow-auto px-6">
+      <div className="flex justify-between pb-16 sm:pb-14">
+        <BackIcon link={"/students/hub"} />
         <StudentIcon />
       </div>
-      <h2 className="pb-[51px] text-2xl">My Attendance</h2>
-
-      <TableModel
-        myData={studentsAttendance}
-        columns={columns}
-        people={"Students Attendance"}
-        justTable={true}
-      />
+      <h2 className="pb-[51px]  text-xl sm:text-2xl">My Attendance</h2>
+      <div className="overflow-x-auto">
+        <TableModel
+          myData={studentsAttendance}
+          columns={columns}
+          people={"Students Attendance"}
+          justTable={true}
+        />
+      </div>
     </section>
   )
 }

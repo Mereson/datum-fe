@@ -1,161 +1,159 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
 }
 
-:root{
-    --background-color: #132985;
-    --text-black: #1E1E1E;
-    --modal-white: #F4F4F4;
-    --textfield-bg: #ECECEC;
-    --pure-wite: #ffffff;
-    --textfield-txt: #BFBFBF;
-    --textfield-eyecolor: #7C7B7B;
-    --success: #28B411;
-    --success-btn:#369926;
+:root {
+  --background-color: #132985;
+  --text-black: #1e1e1e;
+  --modal-white: #f4f4f4;
+  --textfield-bg: #ececec;
+  --pure-wite: #ffffff;
+  --textfield-txt: #bfbfbf;
+  --textfield-eyecolor: #7c7b7b;
+  --success: #28b411;
+  --success-btn: #369926;
 }
 
 /* width */
 .scrollbar::-webkit-scrollbar {
-    width: 0;
-  }
-  
-
-.teacher_Container{
-    width: 100%;
-    display: flex;   
-}
-.teacher_hero{
-    margin-top: 3.5rem;
-    min-height: 27vh;
-    background-image: url(../../../assets/images/teacherHeroImg.png);
-    padding: 30px;
-    background-repeat: no-repeat;
-    background-origin: padding-box;
-    background-size: cover;
-    border-radius: 18px;
-    color: var(--textfield-bg);
-    position: relative;
-}
-.teacher_hero h1{
-    font-size: 30px;
-    font-weight: 600;
-}
-.teacher_hero p{
-    font-size: 14px;
-    margin-top: 1.5rem;
-    width: 70%;
-}
-.teacher_hero img{
-    width: 35%;
-}
-.board_section{
-    padding: 1rem 4rem;
-    background-color: var(--modal-white);
-    overflow: scroll;
-}
-.herolady{
-    position: absolute;
-    right: 6rem;
-    top: -4.9rem;
-}
-.timeline_panel{
-    padding: 2rem 0rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-}
-.timeline_card{
-    width: 100%;
-    border-radius: 10px;
-    padding: 1rem 2rem;
-    text-align: center;
-    background-color: var(--pure-wite);
-}
-.timeline_card > h1{
-    font-weight: 900;
+  width: 0;
 }
 
-.time_card{
-    display: flex;
-    align-items: start;
-    text-align: left;
-    color: var(--background-color);
-    justify-content: space-between;
-    padding: 1rem;
-    margin: 1rem 0rem;
-    border-radius: 8px;
-    background-color: var(--textfield-bg);
+.teacher_Container {
+  width: 100%;
+  display: flex;
 }
-.piechart{
-    width: 100%;    
-    display: grid;
-    place-items: center;
-    margin: 1.5rem auto;
+.teacher_hero {
+  margin-top: 3.5rem;
+  min-height: 27vh;
+  background-image: url(../../../assets/images/teacherHeroImg.png);
+  padding: 30px;
+  background-repeat: no-repeat;
+  background-origin: padding-box;
+  background-size: cover;
+  border-radius: 18px;
+  color: var(--textfield-bg);
+  position: relative;
 }
-.attendance_chart{
-    padding: 2rem 4rem;
-    border-radius: 8px;
-    background-color: var(--pure-wite);
-    height: 60vh;
+.teacher_hero h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.teacher_hero p {
+  font-size: 14px;
+  margin-top: 1.5rem;
+  width: 70%;
+}
+.teacher_hero img {
+  width: 35%;
+}
+.board_section {
+  padding: 1rem 4rem;
+  background-color: var(--modal-white);
+  overflow: scroll;
+}
+.herolady {
+  position: absolute;
+  right: 6rem;
+  top: -4.9rem;
+}
+.timeline_panel {
+  padding: 2rem 0rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.timeline_card {
+  width: 100%;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  text-align: center;
+  background-color: var(--pure-wite);
+}
+.timeline_card > h1 {
+  font-weight: 900;
+}
+
+.time_card {
+  display: flex;
+  align-items: start;
+  text-align: left;
+  color: var(--background-color);
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem 0rem;
+  border-radius: 8px;
+  background-color: var(--textfield-bg);
+}
+.piechart {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin: 1.5rem auto;
+}
+.attendance_chart {
+  padding: 2rem 4rem;
+  border-radius: 8px;
+  background-color: var(--pure-wite);
+  height: 60vh;
 }
 
 /* Activity Section */
-.activity_section{
-    display: grid;
-    place-items: center;
-    width: 30%;
-    overflow-y: scroll;
-    padding-top: 2rem;
+.activity_section {
+  display: grid;
+  place-items: center;
+  width: 30%;
+  overflow-y: scroll;
+  padding-top: 2rem;
 }
-.teacher_avata{
-    width: 100%;
-    display: grid;
-    place-items: center;
-    text-align: center;
+.teacher_avata {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
-.teacher_avata > img{
-    width: 30%;
+.teacher_avata > img {
+  width: 30%;
 }
-.teacher_avata > h1{
-    width: 100%;
-    font-size: 20px;
-    font-weight: 800;
+.teacher_avata > h1 {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 800;
 }
-.activity{
-    width: 90%;
-    margin-top: 2rem;
-    border-radius: 18px;
-    border: 1px solid var(--textfield-txt);
+.activity {
+  width: 90%;
+  margin-top: 2rem;
+  border-radius: 18px;
+  border: 1px solid var(--textfield-txt);
 }
-.calender{
-    width: 90%;
-    border: 1px solid var(--textfield-txt);
-    margin: 1.5rem 0rem;
-    padding: 1.5rem;
-    border-radius: 18px;
+.calender {
+  width: 90%;
+  border: 1px solid var(--textfield-txt);
+  margin: 1.5rem 0rem;
+  padding: 1.5rem;
+  border-radius: 18px;
 }
 
-@media (max-width: 667px){
-    .teacher_Container{
-        flex-direction: column;  
-    }
-    .board_section{
-        padding: 1rem 1rem;
-        width: 100%;        
-    }
-    .herolady{
-        right: 1rem;
-        top: 2rem;
-    }
-    .timeline_panel{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .attendance_chart{
-        padding: 2rem 0rem;
-        
-    }
+@media (max-width: 667px) {
+  .teacher_Container {
+    flex-direction: column;
+  }
+  .board_section {
+    padding: 1rem 1rem;
+    width: 100%;
+  }
+  .herolady {
+    right: 1rem;
+    top: 2rem;
+  }
+  .timeline_panel {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .attendance_chart {
+    padding: 2rem 0rem;
+  }
 }

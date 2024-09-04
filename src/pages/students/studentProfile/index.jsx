@@ -3,6 +3,7 @@ import { Edit, ProfileImage, SchoolGirl } from "../../../assets"
 import design from "./style.module.css"
 import PropTypes from "prop-types"
 import { useStudentsList } from "../../../states/students"
+import { BackIcon, StudentIcon } from "../../../components"
 
 export const StudentProfile = () => {
   const { studentsIdData } = useStudentsList()
@@ -12,14 +13,18 @@ export const StudentProfile = () => {
   }, [])
 
   return (
-    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] ">
+    <section className=" bg-[#f4f4f4] w-full h-full overflow-auto pt-8 sm:px-[6.25rem] ">
+      <div className="flex justify-between">
+        <BackIcon link={"/students/dashboard"} />
+        <StudentIcon />
+      </div>
       {/* This is the div containing the main  */}
 
-      <main className="mt-[1.725rem] bg-[#fafafa]">
+      <main className="mt-[50px] bg-[#fafafa]">
         {/* This is the div containing the profile picture and the picture frame */}
         <div>
-          <figure className="pb-[1.313rem]  flex relative ">
-            <img src={ProfileImage} alt="Profile-Picture-Frame" />
+          <figure className="pb-[1.313rem] flex relative ">
+            <img className="" src={ProfileImage} alt="Profile-Picture-Frame" />
             <img
               className={`${design.image} rounded-full absolute w-40 h-40 top-[42px] left-[44px]`}
               src={SchoolGirl}
@@ -40,7 +45,7 @@ export const StudentProfile = () => {
           </div>
         </div>
 
-        <main className="grid grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
+        <main className="grid grid-cols-1 sm:grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
           <div className=" grid gap-7">
             <h3 className="text-[22px] font-bold"> Student Info </h3>
             <StudentInfo title={"Surname"} content={"Ene"} />

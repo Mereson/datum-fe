@@ -1,6 +1,7 @@
 import {
   ActivitySection,
   AttendanceBarChart,
+  TeacherAvater,
   WelcomeBox,
 } from "../../../components"
 import { HeroLady, SchoolTeacher } from "../../../assets"
@@ -12,8 +13,11 @@ export const TeachersDashboard = () => {
   return (
     <section className={`${styles.teacher_Container} w-full`}>
       <section
-        className={`${styles.board_section} ${styles.scrollbar} pt-[70px] sm:w-[71%]`}
+        className={`${styles.board_section} ${styles.scrollbar} pt-8 sm:pt-[70px] sm:w-[71%]`}
       >
+        <div className="flex w-full sm:px-[3rem] justify-end bg-bfbfbf sm:hidden pb-7">
+          <TeacherAvater />
+        </div>
         <WelcomeBox avatar={HeroLady} bg={"bg-[#132985]"} teacher />
 
         <div className={styles.timeline_panel}>
