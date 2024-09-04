@@ -31,17 +31,17 @@ export const AddTeacher = () => {
   }
 
   return (
-    <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
+    <section className="sm:px-[6.25rem] px-4 pt-8 pb-40 w-full h-full bg-[#f4f4f4] overflow-auto ">
       <div>
         {/* This div is for Add teacher and import csv */}
         <div className="flex justify-between items-start">
           <h2 className="font-semibold text-3xl text-[#4f4f4f]">Add Teacher</h2>
-          <div className="flex gap-12 pt-5 font-bold">
+          {/* <div className="flex gap-12 pt-5 font-bold">
             <p className="text-[#0d1b59] underline underline-offset-8 ">
               Manually
             </p>
             <p className="text-[#8A8A8A]">Import CSV </p>
-          </div>
+          </div> */}
         </div>
 
         <div className="pt-[55px] grid place-items-center">
@@ -70,7 +70,7 @@ export const AddTeacher = () => {
                 <h4 className="font-extrabold text-xl text-[#696969]">
                   Personal Information
                 </h4>
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                   <CustomInput
                     label={"Surname"}
                     name="surName"
@@ -115,7 +115,7 @@ export const AddTeacher = () => {
                 <h4 className="font-extrabold text-xl text-[#696969]">
                   Education Background
                 </h4>
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                   <FormDropdown
                     label={"Qualification"}
                     name={`qualification`}
@@ -161,7 +161,7 @@ export const AddTeacher = () => {
                   Teaching details
                 </h4>
 
-                <div className="pt-4 grid grid-cols-2 w-[100%] gap-x-12 gap-y-6">
+                <div className="pt-4 grid sm:grid-cols-2 w-[100%] gap-x-12 gap-y-6">
                   <CustomInput
                     label={"Subject"}
                     name={`employmentRole`}
@@ -182,7 +182,7 @@ export const AddTeacher = () => {
                 <h4 className="font-extrabold text-xl text-[#696969]">
                   Contact Information
                 </h4>
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                   <CustomInput
                     label={"Phone Number"}
                     name={`phoneNumber`}

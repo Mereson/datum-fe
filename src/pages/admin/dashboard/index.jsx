@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { AdminProfileImg, HeroLady, NotificationSvg } from "../../../assets"
+import { AdminProfileImg, HeroLady } from "../../../assets"
 import {
   ActivitySection,
   AsAttendanceView,
@@ -23,13 +23,7 @@ export const AdminDashboard = () => {
   return (
     <section className="sm:flex w-full h-full sm:px-0 px-4 overflow-auto bg-[#f4f4f4] justify-between">
       <div className="sm:hidden flex gap-5 justify-end pb-5 pt-8">
-        <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-          <img
-            src={NotificationSvg}
-            className="sm:size-[20px] size-[15px]"
-            alt="notification icon"
-          />
-        </div>
+        <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]"></div>
         <div className="flex gap-2 items-center">
           <figure className="size-[50px] rounded-full">
             <img src={AdminProfileImg} alt="" />
