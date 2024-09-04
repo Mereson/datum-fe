@@ -1,33 +1,32 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
 }
 
-:root{
-    --background-color: #132985;
-    --text-black: #1E1E1E;
-    --modal-white: #F4F4F4;
-    --textfield-bg: #ECECEC;
-    --pure-wite: #ffffff;
-    --textfield-txt: #BFBFBF;
-    --textfield-eyecolor: #7C7B7B;
-    --success: #28B411;
-    --success-btn:#369926;
+:root {
+  --background-color: #132985;
+  --text-black: #1e1e1e;
+  --modal-white: #f4f4f4;
+  --textfield-bg: #ececec;
+  --pure-wite: #ffffff;
+  --textfield-txt: #bfbfbf;
+  --textfield-eyecolor: #7c7b7b;
+  --success: #28b411;
+  --success-btn: #369926;
 }
 
-.students_Container{
-    width: 100%;
+.students_Container {
+  width: 100%;
 }
-.board_section{  
-    display: flex; 
-    justify-content: space-between;
-    width: 100%;
-    gap: 2rem;
-    padding: 4rem 3rem;
+.board_section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
 }
-.search{
-    width: 50%;
+.search {
+  width: 50%;
 }

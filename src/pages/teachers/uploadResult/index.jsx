@@ -5,7 +5,7 @@ import { SchoolTeacher } from "../../../assets"
 
 export const UploadResult = () => {
   return (
-    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 pr-3 pl-4 sm:px-[6.25rem] pb-7 sm:pb-[9.563rem]">
+    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 pl-4 sm:px-[6.25rem] pb-7 sm:pb-[9.563rem]">
       <div className="flex gap-5 items-center justify-end">
         <div
           onClick={onclick}
