@@ -1,7 +1,22 @@
+import { useQuery } from "@tanstack/react-query"
 import { BackIcon, StudentIcon, TableModel } from "../../../../components"
-import { eventsData } from "../../../../testData"
+import { getAllActivities } from "../../../../api"
+import PropTypes from "prop-types"
 
 export const StudentsCalenderPage = () => {
+  const query = useQuery({
+    queryKey: ["Activities"],
+    queryFn: getAllActivities,
+  })
+
+  if (query.isError) {
+    console.log(query.error.message)
+  }
+
+  if (query.isSuccess) {
+    console.log(query.data)
+  }
+
   return (
     <section className="w-full px-6 sm:px-[5rem] h-full bg-[#f4f4f4] pt-8 pb-36 sm:pb-14 overflow-auto">
       <main>
@@ -14,47 +29,72 @@ export const StudentsCalenderPage = () => {
         </h2>
 
         <div className="w-full overflow-x-auto">
-          <TableModel
-            myData={eventsData}
-            columns={columns}
-            people={"Students"}
-            searchValue={"Activity"}
-            justTable={true}
-            // rowOnClick={rowOnClick}
-          />
+          {query.isSuccess && (
+            <TableModel
+              myData={query.data}
+              columns={columns}
+              people={"Students"}
+              searchValue={"Activity"}
+              justTable={true}
+              // rowOnClick={rowOnClick}
+            />
+          )}
+          {query.isLoading && (
+            <p className=" text-[#6270AE] pb-4">Loading...</p>
+          )}
+          {query.isError && (
+            <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+          )}
         </div>
       </main>
     </section>
   )
 }
 
+const DateText = ({ getValue }) => {
+  const value = getValue()
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    return date.toISOString().split("T")[0]
+  }
+
+  const formattedDate = formatDate(value)
+
+  return <p>{formattedDate}</p>
+}
+
+DateText.propTypes = {
+  getValue: PropTypes.func,
+}
+
 const columns = [
   {
-    accessorKey: "S/N",
+    accessorKey: "id",
     header: "S/N",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "Activity",
+    accessorKey: "title",
     header: "Activity",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "Start Date",
+    accessorKey: "startDate",
     header: "Start Date",
-    cell: (props) => <p>{props.getValue()}</p>,
+    cell: DateText,
     enableSorting: false,
   },
   {
-    accessorKey: "End Date",
+    accessorKey: "endDate",
     header: "End Date",
-    cell: (props) => <p>{props.getValue()}</p>,
+    cell: DateText,
     enableSorting: false,
   },
   {
-    accessorKey: "Description",
+    accessorKey: "description",
     header: "Description",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,

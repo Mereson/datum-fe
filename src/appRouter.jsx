@@ -45,15 +45,12 @@ import {
   Scheme,
 } from "./pages"
 import { AdminLayout, StudentLayout, TeacherLayout } from "./layout"
-import Api from "./api/api"
-import Api2 from "./api/api2"
 import { AdminAddClass } from "./pages/admin/academics/classes/addClass"
 import { StudentDetailsAdmin } from "./pages/admin/students/studentDetails"
 import { StudentsAttendancePage } from "./pages/students/hub/attendance"
 import { StudentsCalenderPage } from "./pages/students/hub/calender"
 import { StudentsSOWPage } from "./pages/students/hub/schemeOfWork"
 import { TeachersAttendanceList } from "./pages/teachers/attendance"
-// import { Dump } from "./api/dump"
 
 const router = createBrowserRouter([
   {
@@ -62,16 +59,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/forgotpassword",
-    // path: "/",
     element: <ForgotPassword />,
-  },
-  {
-    path: "/testApi",
-    element: <Api />,
-  },
-  {
-    path: "/testApi2",
-    element: <Api2 />,
   },
   {
     path: "/forgotpassword2",
@@ -85,11 +73,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <LandingPage />,
   },
-  // {
-  //   path: "/",
-  //   element: <Dump />,
-  // },
-  {
+    {
     path: "/students",
     element: <StudentLayout />,
     children: [

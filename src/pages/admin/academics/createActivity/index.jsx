@@ -1,30 +1,46 @@
 import { Form, Formik } from "formik"
 import { CustomInput, FormButton } from "../../../../components"
 import { Button } from "../../../../components/button"
-import { useAcademicsStore } from "../../../../states/academics"
 import { activitiesSchema } from "../../../../api/validationSchema"
 import { useNavigate } from "react-router-dom"
+import { useMutation } from "@tanstack/react-query"
+import { createActivity } from "../../../../api"
 
 export const AdminCreateActivity = () => {
-  const { activities, setActivities, resetActivities } = useAcademicsStore()
-
   const navigate = useNavigate()
 
-  const onSubmit = (values) => {
-    setActivities(values)
-    console.log(values)
-    resetActivities()
+
+  const mutation = useMutation({
+    mutationFn: (activity) => createActivity(activity),
+  })
+
+  if (mutation.isSuccess) {
+    console.log(mutation.data)
     navigate("/admin/academics/events")
+  }
+
+  if (mutation.isError) {
+    console.error("Mutation error:", mutation.error)
+  }
+
+  const onSubmit = async (values) => {
+    console.log(values)
+    mutation.mutate(values)
   }
 
   return (
     <section className="w-full flex px-[6.5rem] bg-[#f4f4f4] pt-20 pb-14 overflow-auto">
       <main className="w-full">
         <h2 className="font-semibold text-3xl text-[#4F4F4F]">
-          Create Activity
+          Create Activity 
         </h2>
         <Formik
-          initialValues={activities}
+          initialValues={{
+            title: "",
+            description: "",
+            startDate: "",
+            endDate: "",
+          }}
           validationSchema={activitiesSchema}
           onSubmit={onSubmit}
         >
@@ -32,7 +48,7 @@ export const AdminCreateActivity = () => {
             <Form className="pt-10 grid grid-cols-2 gap-x-12 gap-y-6">
               <CustomInput
                 label={"Activity"}
-                name="activity"
+                name="title"
                 type="text"
                 required={true}
               />
@@ -41,17 +57,18 @@ export const AdminCreateActivity = () => {
                 name="description"
                 type="text"
                 required={true}
+                capitalize={false}
               />
               <CustomInput
                 label={"Start Date"}
                 name="startDate"
-                type="text"
+                type="date"
                 required={true}
               />
               <CustomInput
                 label={"End Date"}
                 name="endDate"
-                type="text"
+                type="date"
                 required={true}
               />
               <div className="col-span-2 flex gap-6">

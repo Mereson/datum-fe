@@ -1,18 +1,18 @@
-import styles from "./style.module.css"
-import schoolchild from "../../assets/schoolchild.png"
-import { Link, useNavigate } from "react-router-dom"
-import { LuEye, LuEyeOff } from "react-icons/lu"
 import { useState } from "react"
-import { login } from "../../api"
+import styles from "./style.module.css"
+import { Link, useNavigate } from "react-router-dom"
 import { useMutation } from "@tanstack/react-query"
 import { Field, Form, Formik } from "formik"
-import { FormButton } from "../../components"
-import { loginSchema } from "../../api/validationSchema"
-import { useStudentsData, useToken } from "../../states/students"
+import { loginSchema } from "../../../api/validationSchema"
+import { LuEye, LuEyeOff } from "react-icons/lu"
+import { FormButton } from "../../../components"
+import { schoolchild } from "../../../assets"
+import { useTeacher, useTeacherToken } from "../../../states/teachers"
+import { teacherLogin } from "../../../api"
 
-export const Login = () => {
-  const { saveToken } = useToken()
-  const { setStudentsData } = useStudentsData()
+export const TeacherLogin = () => {
+  const { saveTeacherToken } = useTeacherToken()
+  const { setTeacher } = useTeacher()
   const [showPassword, setShowPassword] = useState(false)
   const showeye = () => {
     setShowPassword(!showPassword)
@@ -21,14 +21,14 @@ export const Login = () => {
   const navigate = useNavigate()
 
   const mutation = useMutation({
-    mutationFn: ({ email, password }) => login(email, password),
+    mutationFn: ({ email, password }) => teacherLogin(email, password),
   })
 
   if (mutation.isSuccess) {
-    setStudentsData(mutation.data)
-    saveToken(mutation.data.token)
+    setTeacher(mutation.data)
+    saveTeacherToken(mutation.data.token)
     console.log("Login Successfull")
-    navigate("/students/dashboard")
+    navigate("/teacher/dashboard")
   }
 
   if (mutation.isError) {
@@ -80,7 +80,6 @@ export const Login = () => {
                   )}
                 </div>
 
-                {/* This is the label for Password */}
                 <div className={styles.label}>
                   <label htmlFor="Password">Password </label>
 
@@ -110,7 +109,7 @@ export const Login = () => {
                   )}
                 </div>
 
-                <Link to="/forgotpassword">
+                <Link>
                   <p className={styles.forgotpassword}>Forgot password?</p>
                 </Link>
                 <div className={styles.buttonsection}>

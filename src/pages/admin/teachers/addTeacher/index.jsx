@@ -1,5 +1,4 @@
 import {
-  AddBtn,
   AdminIcon,
   BackIcon,
   CustomInput,
@@ -13,7 +12,6 @@ import { createTeacher } from "../../../../api"
 import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import PropTypes from "prop-types"
-import { Button } from "../../../../components/button"
 
 export const AddTeacher = () => {
   const { teacher, setTeacher, resetTeachersForm } = useCreateTeacherForm()
@@ -174,10 +172,10 @@ export const AddTeacher = () => {
                 </h4>
 
                 <div className="pt-4 grid grid-cols-2 w-[100%] gap-x-12 gap-y-6">
-                  <CustomInput
+                  <FormDropdown
                     label={"Subject"}
                     name={`employmentRole`}
-                    type="text"
+                    options={["Maths", "English", "Basic Science"]}
                     required={true}
                   />
                   <FormDropdown

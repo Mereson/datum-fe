@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import {
   DashboardIcon,
   HubIcon,
@@ -11,14 +11,25 @@ import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
 import { FeesIcon } from "../../../assets/icons/adminDashboard/fees"
 import { IoMdMenu } from "react-icons/io"
 import { useState } from "react"
+import { useStudentsData, useToken } from "../../../states/students"
+import { LogOutNavItem } from "../logOutNav"
 
 export const StudentSidebar = () => {
+  const { clearToken } = useToken()
+  const { clearStudentsData } = useStudentsData()
   const [menuOpen, setMenuOpen] = useState(false)
 
   const onClick = () => {
     setMenuOpen(!menuOpen)
   }
 
+  const navigate = useNavigate()
+
+  const logOut = () => {
+    clearToken()
+    clearStudentsData()
+    navigate("/")
+  }
   return (
     <aside className=" sm:h-[100vh] w-full sm:w-[250px] pl-6 pb-10 bg-[#132985] flex flex-col">
       <div className={`flex justify-between items-center pr-6`}>
@@ -74,7 +85,7 @@ export const StudentSidebar = () => {
           </div>
         </div>
         <div className="pt-[12rem]">
-          <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
+          <LogOutNavItem onClick={logOut} Icon={SbLogout} label="Log out" />
         </div>
       </div>
     </aside>

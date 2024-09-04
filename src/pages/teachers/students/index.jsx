@@ -1,40 +1,66 @@
-import { TableModel, TeacherAvater } from "../../../components"
+import { MockTableLayout, TableModel, TeacherAvater } from "../../../components"
 import styles from "./styles.module.css"
-import { data } from "../../../testData"
+import { useStudentsList } from "../../../states/students"
+import { useNavigate } from "react-router-dom"
+import { useQuery } from "@tanstack/react-query"
+import { getAllStudents, getStudentById } from "../../../api"
 
 export const TeachersStudents = () => {
-  const onClick = (value) => {
-    console.log(value)
-    alert(`Wecome ${value.firstName}`)
+  const { setStudentsIdData } = useStudentsList()
+
+
+  const query = useQuery({ queryKey: ["Students"], queryFn: getAllStudents })
+
+  let newData
+
+  if (query.isError) {
+    console.log(query.error.message)
+    // return <h2 className=" text-[#6270AE] pb-4">{query.error}</h2>
+  }
+
+  if (query.isSuccess) {
+    newData = formattedData(query.data)
+  }
+
+  const rowOnClick = async (row) => {
+    const studentId = row["Reg No"]
+    const data = await getStudentById(studentId)
+    setStudentsIdData(data)
+    console.log(data)
   }
 
   return (
-    <section
-      className={`${styles.students_Container} bg-[#f4f4f4] h-full pb-8 overflow-auto px-0`}
-    >
+    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <div className="flex w-full pr-4 sm:px-[3rem] pt-6 justify-end">
         <TeacherAvater />
       </div>
 
       <section className={`${styles.board_section} w-full`}>
-        <TableModel
-          myData={data}
-          columns={columns}
-          people={"Students"}
-          searchValue={"firstName"}
-          rowOnClick={onClick}
-        >
-          <h2 className="text-xl font-bold text-[#1e1e1e]">Students List</h2>
-        </TableModel>
+        {query.isSuccess && (
+          <TableModel
+            myData={newData}
+            columns={columns}
+            people={"Students"}
+            searchValue={"Surname"}
+            rowOnClick={rowOnClick}
+          >
+            <h2 className="text-2xl font-bold text-[#1e1e1e]">Students List</h2>
+          </TableModel>
+        )}
       </section>
+      {query.isLoading && <MockTableLayout title={"Students List"} isLoading />}
+      {query.isError && <MockTableLayout title={"Students List"} />}
     </section>
   )
 }
 
 const Remark = () => {
+  const navigate = useNavigate()
+
   const click = () => {
-    alert("How far")
+    navigate("/teacher/remark")
   }
+
   return (
     <p
       onClick={click}
@@ -45,39 +71,51 @@ const Remark = () => {
   )
 }
 
+const formattedData = (data) => {
+  return data.map((student) => ({
+    "Reg No": student.id,
+    Surname: student.surName,
+    "First Name": student.firstName,
+    "Other Name": student.otherName,
+    Gender: student.gender,
+    Class: `${student.class} ${" "} ${student.classTier}`,
+    "Reg Date": student.enrollmentDate.slice(0, 10),
+  }))
+}
+
 const columns = [
   {
-    accessorKey: "regNo",
+    accessorKey: "Reg No",
     header: "Reg No",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "surname",
+    accessorKey: "Surname",
     header: "Surname",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "firstName",
+    accessorKey: "First Name",
     header: "First Name",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "otherName",
+    accessorKey: "Other Name",
     header: "Other Name",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "gender",
+    accessorKey: "Gender",
     header: "Gender",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "class",
+    accessorKey: "Class",
     header: "Class",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,

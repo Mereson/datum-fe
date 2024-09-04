@@ -10,6 +10,7 @@ import { useState } from "react"
 import { FilteredSearch } from "../filteredSearch"
 import { CustomTable } from "../customTable"
 import { ListPagination } from "../../admin"
+import { CustomSelect } from "../../students"
 
 export const TableModel = ({
   myData,
@@ -73,18 +74,20 @@ export const TableModel = ({
               />
             </div>
             <div className="flex gap-5 ">
-              <select className="p-[0.4rem] rounded" name="Class" id="">
-                <option value="">Class</option>
-                <option value="">JSS 1</option>
-                <option value="">JSS 2</option>
-                <option value="">JSS 3</option>
-              </select>
-
-              <select className="p-[0.4rem] rounded" name="Class" id="">
-                <option value="">Gender</option>
-                <option value="JSS1">Male</option>
-                <option value="JSS1">Female</option>
-              </select>
+              <CustomSelect
+                query={"Class"}
+                options={classes}
+                index={1}
+                width="w-[5rem]"
+                padding="px-[6px] py-[6px]"
+              />
+              <CustomSelect
+                query={"Gender"}
+                options={["Male", "Female"]}
+                index={2}
+                width="w-[5rem]"
+                padding="px-[6px] py-[6px]"
+              />
             </div>
           </div>
           {children}
@@ -132,3 +135,5 @@ TableModel.propTypes = {
   isLoading: PropTypes.bool,
   isError: PropTypes.bool,
 }
+
+const classes = ["JSS 1", "JSS 2", "JSS 3", "SSS 1", "SSS 2", "SSS 3"]

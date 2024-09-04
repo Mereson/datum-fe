@@ -20,13 +20,14 @@ export const CustomInput = ({
   }
 
   const handleChange = (event) => {
+
     const value =
       props.name === "email"
         ? event.target.value
         : capitalize
         ? capitalizeFirstLetter(event.target.value)
         : event.target.value
-        // : event.target?.files?.[0]
+    // : event.target?.files?.[0]
     helpers.setValue(value)
   }
 
