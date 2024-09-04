@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { AdminProfileImg, HeroLady } from "../../../assets"
+import { AdminProfileImg, HeroLady, NotificationSvg } from "../../../assets"
 import {
   ActivitySection,
   AsAttendanceView,
@@ -21,13 +21,32 @@ export const AdminDashboard = () => {
     navigate("/admin/fees")
   }
   return (
-    <section className="flex w-[100%] h-[100%] bg-[#f4f4f4] justify-between">
+    <section className="sm:flex w-full h-full sm:px-0 px-4 overflow-auto bg-[#f4f4f4] justify-between">
+      <div className="sm:hidden flex gap-5 justify-end pb-5 pt-8">
+        <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
+          <img
+            src={NotificationSvg}
+            className="sm:size-[20px] size-[15px]"
+            alt="notification icon"
+          />
+        </div>
+        <div className="flex gap-2 items-center">
+          <figure className="size-[50px] rounded-full">
+            <img src={AdminProfileImg} alt="" />
+          </figure>
+          <div className="text-[15px]">
+            <p className="font-bold">Nkechi Nduka</p>
+            <p>Admin</p>
+          </div>
+        </div>
+      </div>
       <section
-        className={`${styles.scrollbar} px-[80px] pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[45px] w-[71%]`}
+        className={`${styles.scrollbar} sm:px-[80px] pt-4 sm:pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[45px] w-full sm:w-[71%]`}
       >
         <WelcomeBox avatar={HeroLady} bg={"bg-[#D0D4E7]"} admin />
+
         <MembersGrid />
-        <div className="col-span-2 grid grid-cols-2 gap-8">
+        <div className="col-span-2 grid sm:grid-cols-2 gap-8">
           <AsAttendanceView />
           <StudentsDemography />
         </div>
@@ -47,12 +66,14 @@ export const AdminDashboard = () => {
               padding="px-[6px] py-[6px]"
             />
           </div>
-          <TableModel
-            myData={paymentsData}
-            columns={columns}
-            justTable
-            pageSize={"4"}
-          />
+          <div className="overflow-x-auto">
+            <TableModel
+              myData={paymentsData}
+              columns={columns}
+              justTable
+              pageSize={"4"}
+            />
+          </div>
         </section>
       </section>
       <ActivitySection name={"Mrs Nkechi Nduka"} img={AdminProfileImg} />

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
+import styles from "./style.module.css"
 
 export const HubPage = () => {
   return (
@@ -23,7 +24,9 @@ export const HubPage = () => {
 const HubCard = ({ text, link }) => {
   return (
     <Link to={link}>
-      <div className="h-56 border-2 grid place-items-center rounded-2xl shadow-lg ">
+      <div
+        className={`${styles.hubcard} h-56 grid place-items-center rounded-2xl border-2 shadow-lg`}
+      >
         <h3 className="font-semibold text-xl text-[#0b132e]">{text}</h3>
       </div>
     </Link>

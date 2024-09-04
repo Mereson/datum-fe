@@ -3,7 +3,7 @@ import { AdminSidebar } from "../../components"
 
 export const AdminLayout = () => {
   return (
-    <main className="flex overflow-hidden h-screen">
+    <main className="flex  flex-wrap sm:flex-nowrap overflow-hidden h-screen">
       <AdminSidebar />
       <Outlet />
     </main>

@@ -72,7 +72,7 @@ export const TableModel = ({
                 searchValue={searchValue}
               />
             </div>
-            <div className="flex gap-5 ">
+            <div className="  flex gap-5 ">
               <select className="p-[0.4rem] rounded" name="Class" id="">
                 <option value="">Class</option>
                 <option value="">JSS 1</option>

@@ -2,23 +2,31 @@ import { FormButton } from "../../../components"
 
 export const Remark = () => {
   return (
-    <section className="flex justify-center border-2 w-full pt-20">
-      <form className="flex flex-col " action="/submit-remark" method="post">
+    <section className="flex justify-center  w-full pt-20">
+      <form
+        className="flex flex-col overflow-x-auto sm:overflow-x-hidden px-5 "
+        action="/submit-remark"
+        method="post "
+      >
         <label
-          className="text-[#4f4f4f] text-[32px] font-semibold mb-[24px]"
+          className="text-[#4f4f4f] text-2xl pl-4 sm:text-3xl font-semibold sm:mb-6"
           htmlFor="remarks"
         >
           Remarks
         </label>
-        <textarea
-          className="mb-[24px] pl-4"
-          id="remarks"
-          name="remarks"
-          placeholder="Write your remark..."
-          rows="8"
-          cols="59"
-        ></textarea>
-        <div className="flex gap-6">
+
+        <div className="w-full">
+          <textarea
+            className="mb-6 pl-4 "
+            id="remarks"
+            name="remarks"
+            placeholder="Write your remark..."
+            rows="8"
+            cols="59"
+          ></textarea>
+        </div>
+
+        <div className="pl-5 flex gap-6">
           <FormButton
             type="submit"
             content="Save"
