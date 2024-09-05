@@ -19,7 +19,6 @@ export const StudentsList = () => {
 
   if (query.isError) {
     console.log(query.error.message)
-    // return <h2 className=" text-[#6270AE] pb-4">{query.error}</h2>
   }
 
   if (query.isSuccess) {
@@ -113,35 +112,42 @@ const columns = [
     accessorKey: "Reg No",
     header: "Reg No",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "Surname",
     header: "Surname",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "First Name",
     header: "First Name",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "Other Name",
     header: "Other Name",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "Gender",
     header: "Gender",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "Class",
     header: "Class",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
     accessorKey: "Reg Date",
     header: "Reg Date",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
 ]

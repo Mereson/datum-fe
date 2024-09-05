@@ -37,11 +37,10 @@ export const AdminDashboard = () => {
       <section
         className={`${styles.scrollbar} sm:px-[80px] pt-4 sm:pt-[70px] pb-[30px] overflow-auto grid grid-cols-2 gap-[45px] w-full sm:w-[71%]`}
       >
-        <WelcomeBox avatar={HeroLady} bg={"bg-[#D0D4E7]"} admin />
-
+        <WelcomeBox avatar={HeroLady} bg={"bg-[#132985]"} admin />
         <MembersGrid />
-        <div className="col-span-2 grid sm:grid-cols-2 gap-8">
-          <AsAttendanceView />
+        <div className="col-span-2">
+          {/* <AsAttendanceView /> */}
           <StudentsDemography />
         </div>
         <section

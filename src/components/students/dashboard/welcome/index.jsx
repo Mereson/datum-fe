@@ -22,13 +22,13 @@ export const WelcomeBox = ({
     >
       {admin && (
         <>
-          <span className="flex gap-[16.5px] items-center pt-[30px] pb-[6px]">
-            <h3 className="text-[27px] font-bold text-[#132985]">
+          <span className="flex gap-[16.5px] items-center w-full pt-[30px] pb-[6px]">
+            <h3 className="text-[27px] font-bold text-[#ffffff]">
               Hello Nkechi
             </h3>
             <SbEmojiWave />
           </span>
-          <p className="text-xs sm:text-sm text-[#1E1E1E] absolute z-20 font-semibold w-[27rem]">
+          <p className="text-xs sm:text-sm text-[#ffffff] absolute z-20 font-semibold w-[27rem]">
             Ready for a new term? Check your subjects, assignments, <br /> and
             schedule. We&apos;re here to help you succeed.
           </p>
