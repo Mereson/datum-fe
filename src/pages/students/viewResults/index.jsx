@@ -1,4 +1,4 @@
-import { CustomSelect, StudentIcon } from "../../../components"
+import { BackIcon, CustomSelect, StudentIcon } from "../../../components"
 import { useState } from "react"
 import { ResultAnalysis } from "../resultAnalysis"
 
@@ -12,8 +12,12 @@ export const ViewResults = () => {
 
   return (
     <section className="bg-[#f4f4f4] w-full h-full overflow-auto pt-8 px-[1.5rem] sm:px-[6.25rem] pb-[9.563rem]">
-      <StudentIcon />
-      <div className="flex flex-wrap gap-3 text-sm sm:text-base items-center justify-between pt-14 pb-8">
+      <div className="flex justify-between">
+        <BackIcon link={"/students/dashboard"} />
+
+        <StudentIcon />
+      </div>
+      <div className="sm:flex flex-wrap gap-3 text-sm sm:text-base items-center justify-between pt-14 pb-8">
         <div className="flex gap-4 font-bold items-center">
           <p
             onClick={handleTabSwitch}
@@ -50,13 +54,13 @@ export const ViewResults = () => {
           </p>
         </div>
 
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-3 items-center pt-4">
           <p className="font-bold text-[#444444]">Filter by:</p>
           <CustomSelect
             index={1}
             query={"Class"}
             width={"6.8rem"}
-            options={[]}
+            options={["Jss1", "Jss2", "Jss3"]}
           />
         </div>
       </div>
@@ -125,7 +129,7 @@ const columns = [
 const results = [
   {
     "s/n": 1,
-    subject: "English",
+    subject: "English Language",
     assessment: 6,
     exam: 25,
     total: 31,
@@ -142,7 +146,7 @@ const results = [
 
   {
     "s/n": 3,
-    subject: "Biology",
+    subject: "Basic Science",
     assessment: 19,
     exam: 58,
     total: 77,
@@ -150,7 +154,7 @@ const results = [
   },
   {
     "s/n": 4,
-    subject: "Physics",
+    subject: "Basic Technology",
     assessment: 17,
     exam: 60,
     total: 77,
@@ -158,7 +162,7 @@ const results = [
   },
   {
     "s/n": 5,
-    subject: "Chemistry",
+    subject: "Health Science",
     assessment: 20,
     exam: 20,
     total: 40,
@@ -166,7 +170,7 @@ const results = [
   },
   {
     "s/n": 6,
-    subject: "Geography",
+    subject: "Business Studies",
     assessment: 19,
     exam: 40,
     total: 59,
@@ -182,7 +186,7 @@ const results = [
   },
   {
     "s/n": 8,
-    subject: "Igbo language",
+    subject: "Social Science",
     assessment: 30,
     exam: 56,
     total: 86,
@@ -214,7 +218,7 @@ const results = [
   },
   {
     "s/n": 12,
-    subject: "Health Science",
+    subject: "Fine Arts",
     assessment: 25,
     exam: 50,
     total: 75,
