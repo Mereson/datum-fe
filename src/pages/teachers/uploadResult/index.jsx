@@ -5,18 +5,21 @@ import { useQuery } from "@tanstack/react-query"
 import { SchoolTeacher } from "../../../assets"
 
 export const UploadResult = () => {
-  const query = useQuery({ queryKey: ["Result"], queryFn: getAllResults })
+  const query = useQuery({ queryKey: ["Results"], queryFn: getAllResults })
 
   if (query.isError) {
     console.log(query.error.message)
   }
 
+  let newData
+
   if (query.isSuccess) {
     console.log(query.data)
+    newData = formattedData(query.data)
   }
 
   return (
-    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 pl-4 sm:px-[6.25rem] pb-7 sm:pb-[9.563rem]">
+    <section className=" bg-[#f4f4f4] w-full h-full overflow-auto pt-8 pl-4 sm:px-[6.25rem] pb-7 sm:pb-[9.563rem]">
       <div className="flex gap-5 items-center justify-end">
         <div
           onClick={onclick}
@@ -43,10 +46,11 @@ export const UploadResult = () => {
           "bg-[#132985] sm:w-[20%] px-4 py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
         }
       />
-      <section className="w-full overflow-x-auto">
+
+      <section>
         {query.isSuccess && (
           <TableModel
-            myData={query.data}
+            myData={newData}
             columns={columns}
             people={"Teachers"}
             searchValue={"First Name"}
@@ -54,6 +58,7 @@ export const UploadResult = () => {
             <h2 className="text-2xl font-bold text-[#1e1e1e]">Teachers List</h2>
           </TableModel>
         )}
+
         {query.isLoading && (
           <MockTableLayout title={"Teachers List"} isLoading />
         )}
@@ -62,47 +67,60 @@ export const UploadResult = () => {
     </section>
   )
 }
+
+const formattedData = (data) => {
+  return data.map((student) => ({
+    id: student.studentId,
+    "Student Name": `${student.surName} ${student.firstName}`,
+    Subject: student.subject,
+    Assesment: student.assignment,
+    Exam: student.exam,
+    Total: student.total,
+    Grade: student.grade,
+  }))
+}
+
 const columns = [
   {
-    accessorKey: "studentId",
+    accessorKey: "id",
     header: "Reg No",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "surName",
-    header: "Surname",
+    accessorKey: "Student Name",
+    header: "Student Name",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "class",
-    header: "Class",
-    cell: (props) => <p>{props.getValue()}</p>,
-    enableSorting: false,
-  },
-  {
-    accessorKey: "subject",
+    accessorKey: "Subject",
     header: "Subject",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "assessment",
-    header: "Assessment",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    accessorKey: "Assesment",
+    header: "Assesment",
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "exam",
+    accessorKey: "Exam",
     header: "Exam",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "total",
+    accessorKey: "Total",
     header: "Total",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "Grade",
+    header: "Grade",
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
 ]
