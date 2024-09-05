@@ -1,8 +1,9 @@
 import { useEffect } from "react"
-import { Edit, ProfileImage, SchoolGirl } from "../../../assets"
+import { ProfileImage, SchoolGirl } from "../../../assets"
 import design from "./style.module.css"
 import PropTypes from "prop-types"
 import { useStudentsList } from "../../../states/students"
+import { StudentIcon } from "../../../components"
 
 export const StudentProfile = () => {
   const { studentsIdData } = useStudentsList()
@@ -12,14 +13,17 @@ export const StudentProfile = () => {
   }, [])
 
   return (
-    <section className=" bg-[#f4f4f4] w-full overflow-auto pt-8 px-[6.25rem] ">
-      <main className="mt-[1.725rem] bg-[#fafafa]">
+    <section className=" bg-[#f4f4f4] w-full h-full overflow-auto pb-24 sm:pt-8 sm:px-[6.25rem] ">
+      <main className="mt-[1.725rem] bg-[#f4f4f4] sm:bg-[#fafafa]">
         {/* This is the div containing the profile picture and the picture frame */}
         <div>
-          <figure className="pb-[1.313rem]  flex relative ">
+          <div className="sm:hidden flex justify-end pr-4 sm:pt-6 sm:pb-14">
+            <StudentIcon />
+          </div>
+          <figure className="pb-[1.313rem] hidden sm:block flex relative ">
             <img src={ProfileImage} alt="Profile-Picture-Frame" />
             <img
-              className={`${design.image} rounded-full absolute w-40 h-40 top-[42px] left-[44px]`}
+              className={`${design.image} hidden sm:block rounded-full absolute w-40 h-40 top-[42px] left-[44px]`}
               src={SchoolGirl}
               alt="Schoolchild-Image"
             />
@@ -27,18 +31,16 @@ export const StudentProfile = () => {
           <div className="flex justify-end">
             <div className="flex justify-between w-[80%] pr-8">
               <div>
-                <h4 className="text-[22px] font-normal ">Ene Maria</h4>
-                <p> Student </p>
+                <h4 className=" hidden sm:block text-[22px] font-normal ">
+                  Ene Maria
+                </h4>
+                <p className="hidden sm:block"> Student </p>
               </div>
-
-              <figure>
-                <img src={Edit} alt="EditButton" />
-              </figure>
             </div>
           </div>
         </div>
 
-        <main className="grid grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
+        <main className="grid sm:grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
           <div className=" grid gap-7">
             <h3 className="text-[22px] font-bold"> Student Info </h3>
             <StudentInfo title={"Surname"} content={"Ene"} />

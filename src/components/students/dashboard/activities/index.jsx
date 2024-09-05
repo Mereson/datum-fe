@@ -1,6 +1,5 @@
 import PropTypes from "prop-types"
 import { Button } from "../../../landingPage"
-import { Link } from "react-router-dom"
 
 export const Activites = () => {
   return (
@@ -31,12 +30,11 @@ export const Activites = () => {
             </li>
           </ul>
 
-          <Link to="/students/hub/studentsCalender">
-            <Button
-              text={"View activities"}
-              style={"py-[7px] px-7 mt-4 font-bold text-sm text-white"}
-            />
-          </Link>
+          <Button
+            text={"View activities"}
+            style={"py-[7px] px-7 mt-4 font-bold text-sm text-white"}
+            link={"/students/hub/studentsCalender"}
+          />
         </Activity>
         <Activity
           title={"Resumption Date"}

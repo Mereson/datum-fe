@@ -70,7 +70,11 @@ export const AdminDashboard = () => {
           </div>
         </section>
       </section>
-      <ActivitySection name={"Mrs Nkechi Nduka"} img={AdminProfileImg} />
+      <ActivitySection
+        name={"Mrs Nkechi Nduka"}
+        img={AdminProfileImg}
+        path={"/students/studentProfile"}
+      />
     </section>
   )
 }
