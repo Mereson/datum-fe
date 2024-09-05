@@ -10,7 +10,6 @@ export const AdminUploadedResults = () => {
   const [openTab, setOpenTab] = useState(true)
   const navigate = useNavigate()
 
-
   const query = useQuery({ queryKey: ["Results"], queryFn: getAllResults })
 
   let newData
@@ -30,7 +29,7 @@ export const AdminUploadedResults = () => {
 
   return (
     <section className="w-full h-full pl-4 sm:px-[5rem] bg-[#f4f4f4] pt-8 pb-40 sm:pb-14 overflow-auto">
-      <main className="grid gap-4">
+      <main className="grid gap-4 w-full">
         <div className="flex flex-col">
           <div className="flex justify-between pr-4 pb-10">
             <BackIcon link={"/admin/academics"} />
@@ -38,12 +37,7 @@ export const AdminUploadedResults = () => {
             <AdminIcon />
           </div>
           <div className=" flex gap-4 pt-3 font-semibold text-lg items-center">
-            <p
-              className={`cursor-pointer text-[#132985]`}
-            >
-              Uploaded Results
-            </p>
-            
+            <p className={`cursor-pointer text-[#132985]`}>Uploaded Results</p>
           </div>
         </div>
 
