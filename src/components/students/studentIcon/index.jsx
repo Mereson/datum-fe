@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import { SchoolChild } from "../../../assets"
+import { useStudentsData } from "../../../states/students"
 
 export const StudentIcon = () => {
+  const { studentsData } = useStudentsData()
+  const student = studentsData.parent.students[0]
+
   const navigate = useNavigate()
   const onClick = () => {
     navigate("/students/studentProfile")
@@ -14,7 +18,7 @@ export const StudentIcon = () => {
           <img className="rounded-full" src={SchoolChild} alt="student image" />
         </figure>
         <div className="text-[15px]">
-          <p className="font-bold">Ene Maria</p>
+          <p className="font-bold">{`${student.firstName} ${student.surName}`}</p>
           <p>Student</p>
         </div>
       </div>

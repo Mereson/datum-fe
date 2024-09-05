@@ -50,14 +50,13 @@ export const AddStudents = () => {
 
     const updatedStudentsData = values.students.map((student, index) => {
       return {
-        ...studentsFormData[index], // Keep the existing data if any
-        ...student, // Overwrite with the new data
+        ...studentsFormData[index],
+        ...student, 
       }
     })
 
     setStudentsFormData(updatedStudentsData)
 
-    // Call the mutation function
     mutation.mutate({
       parents: parentsFormData,
       students: updatedStudentsData,

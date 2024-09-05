@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import {
   DashboardIcon,
   SbHome,
@@ -12,12 +12,23 @@ import { datumLogoWhite } from "../../../assets/icons/teacherSidebar"
 import { FeesIcon } from "../../../assets/icons/adminDashboard/fees"
 import { useState } from "react"
 import { IoMdMenu } from "react-icons/io"
+import { LogOutNavItem } from "../logOutNav"
+import { useToken } from "../../../states/students"
 
 export const AdminSidebar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const onClick = () => {
     setMenuOpen(!menuOpen)
+  }
+
+  const { clearToken } = useToken()
+  const navigate = useNavigate()
+
+  const logOut = () => {
+    clearToken()
+    // clearStudentsData()
+    navigate("/")
   }
 
   return (
@@ -71,18 +82,14 @@ export const AdminSidebar = () => {
               Icon={SbHome}
               label={"Academics"}
             />
-            <SidebarNavItem
-              onClick={onClick}
-              to={"/admin/fees"}
-              Icon={FeesIcon}
-              label={"Fees"}
-            />
+            <SidebarNavItem to={"/admin/fees"} Icon={FeesIcon} label={"Fees"} />
+
             <hr className="mt-2" />
           </div>
         </div>
-        <div className="pt-[12rem]">
-          <SidebarNavItem to={"/"} Icon={SbLogout} label="Log out" />
-        </div>
+      </div>
+      <div className="pt-11">
+        <LogOutNavItem onClick={logOut} Icon={SbLogout} label="Log out" />
       </div>
     </aside>
   )
