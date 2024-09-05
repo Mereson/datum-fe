@@ -81,7 +81,11 @@ export const TeachersDashboard = () => {
         </div> */}
       </section>
 
-      <ActivitySection img={SchoolTeacher} name={"Mrs Chinyere"} />
+      <ActivitySection
+        img={SchoolTeacher}
+        name={"Mrs Chinyere"}
+        path={"/students/studentProfile"}
+      />
     </section>
   )
 }

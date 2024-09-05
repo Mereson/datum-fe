@@ -57,7 +57,10 @@ export const CustomTable = ({ table, rowOnClick, center }) => {
             onClick={() => rowOnClick(row.original)}
           >
             {row.getVisibleCells().map((cell) => (
-              <td key={cell.id} className={` ${center} py-3 px-4 text-sm text-[#1e1e1e]`}>
+              <td
+                key={cell.id}
+                className={` ${center} py-3 px-4 text-sm text-[#1e1e1e]`}
+              >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>
             ))}

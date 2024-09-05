@@ -131,7 +131,7 @@ const router = createBrowserRouter([
         element: <SubjectAnalysis />,
       },
       {
-        path: "/viewResults/feedBack",
+        path: "viewResults/feedBack",
         element: <Feedback />,
       },
       {

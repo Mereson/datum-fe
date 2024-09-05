@@ -1,15 +1,14 @@
-import PropTypes from "prop-types"
+
 import { ProfileImage, StudentIcon } from "../../../assets"
 import { BackIcon } from "../../../components"
 import { getFeedback } from "../../../api"
 import { useQuery } from "@tanstack/react-query"
 import { useStudentsData } from "../../../states/students"
-import { useState } from "react"
 
-export const Feedback = (props) => {
+export const Feedback = () => {
   const { studentsData } = useStudentsData()
   const studentInfo = studentsData?.parent?.students[0]
-  const [term, setTerm] = useState("FirstTerm")
+  const term = "FirstTerm"
 
   const query = useQuery({
     queryKey: ["StudentFeedback", studentInfo.id, studentInfo.class, term],

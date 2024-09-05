@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import { MockTableLayout, TableModel } from "../../../../components"
 import { Button } from "../../../../components/button"
 import { FaPlus } from "react-icons/fa6"
-import { AdminProfileImg, NotificationSvg } from "../../../../assets"
+import { AdminProfileImg } from "../../../../assets"
 import { getAllStudents, getStudentById } from "../../../../api"
 import { useStudentsList } from "../../../../states/students"
 import { useNavigate } from "react-router-dom"
@@ -33,17 +33,11 @@ export const StudentsList = () => {
   }
 
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full h-full px-4 sm:px-[5rem] bg-[#f4f4f4] pt-8 pb-40 overflow-auto">
       <main className="grid gap-4">
         <div className="flex flex-col">
-          <div className="flex gap-5 items-center justify-end">
-            <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-              <img
-                src={NotificationSvg}
-                className="size-[20px]"
-                alt="notification icon"
-              />
-            </div>
+          <div className="flex gap-5 items-center justify-end pb-7">
+            <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]"></div>
             <div className="flex gap-2 items-center">
               <figure className="size-[50px] rounded-full">
                 <img src={AdminProfileImg} alt="" />
@@ -59,7 +53,7 @@ export const StudentsList = () => {
             link={"/admin/studentsList/addParents"}
             content={<AddBtn text={"Add Students"} />}
             className={
-              "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
+              "bg-[#132985] sm:w-[12rem] px-2 text-sm sm:text-base py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
             }
           />
         </div>

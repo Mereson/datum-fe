@@ -1,6 +1,11 @@
 import { FieldArray, Form, Formik } from "formik"
 import { createStudent } from "../../../../api"
-import { CustomInput, FormButton, FormDropdown } from "../../../../components"
+import {
+  BackIcon,
+  CustomInput,
+  FormButton,
+  FormDropdown,
+} from "../../../../components"
 import { Button } from "../../../../components/button"
 import { useCreateStudentForm } from "../../../../states/createStudentStore"
 import { Link, useNavigate } from "react-router-dom"
@@ -61,8 +66,9 @@ export const AddStudents = () => {
   }
 
   return (
-    <section className="px-[6.25rem] py-20 w-full bg-[#f4f4f4] overflow-auto ">
-      <div>
+    <section className="sm:px-[6.25rem] px-5 sm:py-20 h-full pb-36 w-full sm:pt-6 pt-5 bg-[#f4f4f4] overflow-auto ">
+      <BackIcon link={"/admin/studentsList/addParents"} />
+      <div className="pt-5">
         <h2 className="font-semibold text-3xl text-[#4f4f4f]">Add Students</h2>
 
         <div className="pt-[4.875rem] grid place-items-center">
@@ -72,7 +78,7 @@ export const AddStudents = () => {
               to={"/admin/studentsList/addParents"}
               className="grid place-items-center  gap-3"
             >
-              <p className=" border-[#8a8a8a] border-[1.47px] text-[13.26px]  text-[#132985] size-[29.46px] rounded-full grid place-items-center">
+              <p className=" border-[#8a8a8a] border-[1.47px] text-[13.26px] text-[#132985] size-[29.46px] rounded-full grid place-items-center">
                 <IoCheckmark />
               </p>
               <p className="text-[#444] font-semibold text-[11.05px]">
@@ -83,7 +89,7 @@ export const AddStudents = () => {
               <p className="bg-[#132985] text-[13.26px] size-[29.46px]  text-[#fff] rounded-full grid place-items-center  ">
                 2
               </p>
-              <p className="text-[#444] font-semibold text-[11.05px]">
+              <p className="text-[#444] font-semibold text-[9px] sm:text-[11.05px]">
                 Student Details
               </p>
             </div>
@@ -112,7 +118,7 @@ export const AddStudents = () => {
                         <h4 className="font-extrabold text-xl text-[#696969]">
                           Personal Information
                         </h4>
-                        <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                        <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                           <CustomInput
                             label={"Surname"}
                             name={`students[${index}].surName`}
@@ -156,7 +162,7 @@ export const AddStudents = () => {
                         <h4 className="font-extrabold text-xl text-[#696969]">
                           Contact Information
                         </h4>
-                        <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                        <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                           <CustomInput
                             label={"Nationality"}
                             name={`students[${index}].nationality`}
@@ -188,7 +194,7 @@ export const AddStudents = () => {
                         <h4 className="font-extrabold text-xl text-[#696969]">
                           School Information
                         </h4>
-                        <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                        <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                           <CustomInput
                             label={"Class"}
                             name={`students[${index}].class`}
@@ -251,7 +257,7 @@ export const AddStudents = () => {
                     <FormButton
                       type="submit"
                       content="Submit"
-                      className="bg-[#132985] w-[30%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
+                      className="bg-[#132985] w-[30%] sm:w-[12%] py-[8px] mt-8 text-center rounded-[8px] font-bold text-white cursor-pointer"
                     />
                   </div>
                 </>

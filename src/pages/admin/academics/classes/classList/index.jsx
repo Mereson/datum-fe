@@ -7,7 +7,7 @@ export const AdminClassesList = () => {
     alert("This should lead to class tier")
   }
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full h-full px-3 sm:px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-3">
         <div className="flex justify-between pb-10">
           <div className="flex items-end">
@@ -23,11 +23,11 @@ export const AdminClassesList = () => {
               "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
             }
           /> */}
-          <h2 className="text-2xl mt-2 font-bold text-[#1e1e1e]">
+          <h2 className="sm:text-2xl text-lg mt-2 font-bold text-[#1e1e1e]">
             List of Classes
           </h2>
 
-          <div className="w-[70%]">
+          <div className="sm:w-[70%] w-[90%]">
             <TableModel
               myData={classData}
               columns={columns}

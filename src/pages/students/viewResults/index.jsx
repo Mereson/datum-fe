@@ -1,4 +1,4 @@
-import { CustomSelect, StudentIcon } from "../../../components"
+import { BackIcon, CustomSelect, StudentIcon } from "../../../components"
 import { useState } from "react"
 import { ResultAnalysis } from "../resultAnalysis"
 import { useQuery } from "@tanstack/react-query"
@@ -47,8 +47,12 @@ export const ViewResults = () => {
 
   return (
     <section className="bg-[#f4f4f4] w-full h-full overflow-auto pt-8 px-[1.5rem] sm:px-[6.25rem] pb-[9.563rem]">
-      <StudentIcon />
-      <div className="flex flex-wrap gap-3 text-sm sm:text-base items-center justify-between pt-14 pb-8">
+      <div className="flex justify-between">
+        <BackIcon link={"/students/dashboard"} />
+
+        <StudentIcon />
+      </div>
+      <div className="sm:flex flex-wrap gap-3 text-sm sm:text-base items-center justify-between pt-14 pb-8">
         <div className="flex gap-4 font-bold items-center">
           <p
             onClick={handleTabSwitch}
@@ -85,13 +89,13 @@ export const ViewResults = () => {
           </p>
         </div>
 
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-3 items-center pt-4">
           <p className="font-bold text-[#444444]">Filter by:</p>
           <CustomSelect
             index={1}
             query={"Class"}
             width={"6.8rem"}
-            options={[]}
+            options={["Jss1", "Jss2", "Jss3"]}
           />
         </div>
       </div>

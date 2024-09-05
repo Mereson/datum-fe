@@ -8,7 +8,6 @@ import { getAllStudents, getStudentById } from "../../../api"
 export const TeachersStudents = () => {
   const { setStudentsIdData } = useStudentsList()
 
-
   const query = useQuery({ queryKey: ["Students"], queryFn: getAllStudents })
 
   let newData
@@ -30,7 +29,9 @@ export const TeachersStudents = () => {
   }
 
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section
+      className={`${styles.students_Container} bg-[#f4f4f4] sm:px-24 h-full pb-8 overflow-auto px-0`}
+    >
       <div className="flex w-full pr-4 sm:px-[3rem] pt-6 justify-end">
         <TeacherAvater />
       </div>

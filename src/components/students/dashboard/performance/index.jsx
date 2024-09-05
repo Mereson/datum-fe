@@ -13,8 +13,8 @@ import {
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     const assessmentScore = payload.find((p) => p.name === "Assesment")?.value
-    const examScore = payload.find((p) => p.name === "Exam")?.value
-    const totalScore = payload.find((p) => p.name === "Total")?.value
+    const examScore = payload.find((p) => p.name === "exam")?.value
+    const totalScore = payload.find((p) => p.name === "total")?.value
 
     return (
       <div className="bg-[#f4f4f4] font-semibold p-4">
