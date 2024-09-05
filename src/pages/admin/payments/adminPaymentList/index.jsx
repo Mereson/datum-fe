@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { AdminProfileImg, NotificationSvg } from "../../../../assets"
-import { TableModel } from "../../../../components"
+import { AdminProfileImg } from "../../../../assets"
+import { BackIcon, TableModel } from "../../../../components"
 import { paymentBreakdownData, paymentsData } from "../../../../testData"
 import { StatusCell } from "../paymentStatus"
 
@@ -12,18 +12,12 @@ export const AdminPaymentList = () => {
   }
 
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full h-full sm:px-[5rem] pl-4 bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
       <main className="grid gap-4">
+        <BackIcon link={"/admin/dashboard"} />
         <div className="flex flex-col">
           <div className="flex gap-5 items-center justify-end">
-            <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-              <img
-                src={NotificationSvg}
-                className="size-[20px]"
-                alt="notification icon"
-              />
-            </div>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center pr-4">
               <figure className="size-[50px] rounded-full">
                 <img src={AdminProfileImg} alt="" />
               </figure>
@@ -116,7 +110,7 @@ const dataColumn = [
 
 const BreakdownSection = () => {
   return (
-    <section>
+    <section className="w-full h-full overflow-auto pb-20 px-4">
       <TableModel
         myData={paymentBreakdownData}
         columns={breakdownColumn}
