@@ -86,10 +86,10 @@ export const AdminSidebar = () => {
 
             <hr className="mt-2" />
           </div>
+          <div className="pt-11">
+            <LogOutNavItem onClick={logOut} Icon={SbLogout} label="Log out" />
+          </div>
         </div>
-      </div>
-      <div className="pt-11">
-        <LogOutNavItem onClick={logOut} Icon={SbLogout} label="Log out" />
       </div>
     </aside>
   )
