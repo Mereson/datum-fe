@@ -1,19 +1,11 @@
-import { NotificationSvg, TeacherHeroImg } from "../../../assets"
+import { TeacherHeroImg } from "../../../assets"
 import styles from "./style.module.css"
 
 export const Scheme = () => {
   return (
-    <section className="bg-[#f4f4f4] w-full ">
+    <section className="bg-[#f4f4f4] w-full h-full overflow-auto pb-8">
       <div className={styles["scheme-container"]}>
-        <section className="flex gap-5 items-center justify-end pt-8 pr-20">
-          <div className="p-[12px] bg-[#EFEFEF] text-[17.57px] text-[#404040] font-bold rounded-[12.5px]">
-            <img
-              src={NotificationSvg}
-              className="size-[20px]"
-              alt="notification icon"
-            />
-          </div>
-
+        <section className="flex gap-5 justify-end pt-8 sm:pr-20 w-full">
           <div className="flex gap-2 items-center">
             <figure className="size-[50px] rounded-full">
               <img className="rounded-full" src={TeacherHeroImg} alt="" />
@@ -25,7 +17,7 @@ export const Scheme = () => {
           </div>
         </section>
 
-        <h2 className="font-normal text-2xl py-[44px]">
+        <h2 className="font-normal pt-14 text-xl sm:text-2xl py-[44px]">
           English Scheme of Work
         </h2>
         <table className={styles["scheme-table"]}>

@@ -133,6 +133,17 @@ export const getAllResults = async () => {
   }
 }
 
+
+export const getResultsById = async (id, studentClass, term) => {
+  try {
+    console.log(id, studentClass, term)
+    const { data } = await axios.get(`${baseUrl}/result/getResultByStudentId/${id}/${studentClass}/${term}`)
+    return data
+  } catch (error) {
+    return catchErrors(error)
+  }
+}
+
 export const getAllSubjects = async () => {
   try {
     const { data } = await axios.get(`${baseUrl}/subject/getAllSubjects`)
@@ -188,6 +199,15 @@ export const createActivity = async (activity) => {
     return data
   } catch (error) {
     catchErrors(error)
+  }
+}
+
+export const getFeedback = async (id, studentClass, term) => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/feedback/feedback/${id}/${studentClass}/${term}`)
+    return data
+  } catch (error) {
+    return catchErrors(error)
   }
 }
 

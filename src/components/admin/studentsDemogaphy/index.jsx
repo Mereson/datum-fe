@@ -6,7 +6,7 @@ export const StudentsDemography = () => {
   const girlsCount = 1750
 
   return (
-    <div className=" bg-[#fafafa] h-[309px] pt-[30px] shadow-sm rounded-2xl">
+    <div className=" bg-[#fafafa] border-2 h-[309px] pt-[30px] shadow-sm rounded-2xl">
       <div className="grid gap-8 place-items-center">
         <h4 className="font-bold text-center text-lg">
           {"Student’s Distribution"}

@@ -27,7 +27,7 @@ export const TeachersList = () => {
   }
 
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full h-full sm:px-[5rem] bg-[#f4f4f4] pl-4 pt-8 pb-40 sm:pb-14 overflow-auto">
       <main className="grid gap-4 ">
         <div className="flex flex-col">
           <AdminIcon />
@@ -35,7 +35,7 @@ export const TeachersList = () => {
             link={"/admin/teachers/addTeacher"}
             content={<AddBtn text={"Add Teacher"} />}
             className={
-              "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
+              "bg-[#132985] sm:w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
             }
           />
         </div>

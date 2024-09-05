@@ -1,9 +1,12 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
+import styles from "./style.module.css"
+import { BackIcon } from "../../../../components"
 
 export const HubPage = () => {
   return (
     <section className="overflow-auto w-full h-full px-[5.5rem] bg-[#f4f4f4] pt-8 pb-40 ">
+      <BackIcon link={"/students/dashboard"} />
       <main className="grid mt-9 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 overflow-auto">
         <HubCard
           text={"Attendance"}
@@ -23,7 +26,9 @@ export const HubPage = () => {
 const HubCard = ({ text, link }) => {
   return (
     <Link to={link}>
-      <div className="h-56 border-2 grid place-items-center rounded-2xl shadow-lg ">
+      <div
+        className={`${styles.hubcard} h-56 grid place-items-center rounded-2xl border-2 shadow-lg`}
+      >
         <h3 className="font-semibold text-xl text-[#0b132e]">{text}</h3>
       </div>
     </Link>

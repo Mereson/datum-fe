@@ -3,7 +3,7 @@ import { CustomSelect, GradesBarChart } from "../../students"
 export const AsAttendanceView = () => {
   return (
     <div className=" py-4 bg-[#fafafa] h-[309px] shadow-sm rounded-2xl">
-      <div className="px-[12px] flex items-center justify-between">
+      <div className="px-[12px] flex items-center sm:justify-between">
         <h3 className="text-lg font-bold">Students Attendance</h3>
         <CustomSelect
           query={"Week 1"}

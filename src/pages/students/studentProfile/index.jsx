@@ -1,7 +1,7 @@
-import { Edit, ProfileImage, SchoolGirl } from "../../../assets"
+import { ProfileImage, SchoolGirl } from "../../../assets"
 import design from "./style.module.css"
 import PropTypes from "prop-types"
-import { BackIcon, StudentIcon } from "../../../components"
+import { StudentIcon } from "../../../components"
 import { useStudentsData } from "../../../states/students"
 
 export const StudentProfile = () => {
@@ -17,20 +17,17 @@ export const StudentProfile = () => {
   const studentDOB = formatDate(student.dateOfBirth)
 
   return (
-    <section className=" bg-[#f4f4f4] w-full h-full overflow-auto pt-8 sm:px-[6.25rem] ">
-      <div className="flex justify-between">
-        <BackIcon link={"/students/dashboard"} />
-        <StudentIcon />
-      </div>
-      {/* This is the div containing the main  */}
-
-      <main className="mt-[50px] bg-[#fafafa]">
+    <section className=" bg-[#f4f4f4] w-full h-full overflow-auto pb-24 sm:pt-8 sm:px-[6.25rem] ">
+      <main className="mt-[1.725rem] bg-[#f4f4f4] sm:bg-[#fafafa]">
         {/* This is the div containing the profile picture and the picture frame */}
         <div>
-          <figure className="pb-[1.313rem] flex relative ">
-            <img className="" src={ProfileImage} alt="Profile-Picture-Frame" />
+          <div className="sm:hidden flex justify-end pr-4 sm:pt-6 sm:pb-14">
+            <StudentIcon />
+          </div>
+          <figure className="pb-[1.313rem] hidden sm:block flex relative ">
+            <img src={ProfileImage} alt="Profile-Picture-Frame" />
             <img
-              className={`${design.image} rounded-full absolute w-40 h-40 top-[42px] left-[44px]`}
+              className={`${design.image} hidden sm:block rounded-full absolute w-40 h-40 top-[42px] left-[44px]`}
               src={SchoolGirl}
               alt="Schoolchild-Image"
             />
@@ -41,15 +38,11 @@ export const StudentProfile = () => {
                 <h4 className="text-[22px] font-normal ">{`${student.firstName} ${student.surName}`}</h4>
                 <p> Student </p>
               </div>
-
-              <figure>
-                <img src={Edit} alt="EditButton" />
-              </figure>
             </div>
           </div>
         </div>
 
-        <main className="grid grid-cols-1 sm:grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
+        <main className="grid sm:grid-cols-2  text-[#1E1E1E] pt-[25px] pl-8 pb-8">
           <div className=" grid gap-7">
             <h3 className="text-[22px] font-bold"> Student Info </h3>
             <StudentInfo title={"Surname"} content={student.surName} />

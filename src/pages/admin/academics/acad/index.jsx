@@ -1,10 +1,12 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
+import { BackIcon } from "../../../../components"
 
 export const AdminAcad = () => {
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
-      <main className="grid mt-9 grid-cols-3 gap-9">
+    <section className="w-full h-full px-[5rem] bg-[#f4f4f4] pt-8 pb-40 sm:pb-14 overflow-auto">
+      <BackIcon link={"/admin/dashboard"} />
+      <main className="grid mt-9 sm:grid-cols-3 gap-9">
         <AcadCard text={"Attendance"} link={"/admin/academics/attendance"} />
         <AcadCard text={"Classes"} link={"/admin/academics/classes"} />
         <AcadCard text={"Calender"} link={"/admin/academics/events"} />
@@ -22,7 +24,7 @@ export const AdminAcad = () => {
 const AcadCard = ({ text, link }) => {
   return (
     <Link to={link}>
-      <div className="h-56 border-2 grid place-items-center rounded-2xl shadow-lg ">
+      <div className="h-56 border-2 grid place-items-center rounded-2xl shadow-lg hover:border-[#f4901f]">
         <h3 className="font-semibold text-xl text-[#0b132e]">{text}</h3>
       </div>
     </Link>
