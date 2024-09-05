@@ -12,9 +12,9 @@ import {
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
-    const assessmentScore = payload.find((p) => p.name === "assessment")?.value
-    const examScore = payload.find((p) => p.name === "exam")?.value
-    const totalScore = assessmentScore + examScore
+    const assessmentScore = payload.find((p) => p.name === "Assesment")?.value
+    const examScore = payload.find((p) => p.name === "Exam")?.value
+    const totalScore = payload.find((p) => p.name === "Total")?.value
 
     return (
       <div className="bg-[#f4f4f4] font-semibold p-4">
@@ -75,13 +75,13 @@ export const GradesBarChart = ({ subjects, bool = false }) => {
         <YAxis tickCount={10} hide={true} />
         <CartesianGrid vertical={false} horizontal={bool} />
         <XAxis
-          dataKey="subject"
+          dataKey="Subject"
           axisLine={false} // Hide the axis line
           tickLine={false} // Hide the tick lines
         />
         <Tooltip content={<CustomTooltip />} />
         {/* Assessment Bar */}
-        <Bar dataKey="assessment" stackId="a" fill="#8884d8" barSize={40} />
+        <Bar dataKey="Assesment" stackId="a" fill="#8884d8" barSize={40} />
         {/* Exam Bar */}
         <Bar dataKey="exam" stackId="a" fill="#132985" barSize={40}>
           <LabelList dataKey="total" position="top" />

@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import { GradesBarChart, TableModel } from "../../../components"
 import { Button } from "../../../components/button"
 import { useState } from "react"
+import { Navigate, useNavigate } from "react-router-dom"
 
 export const ResultAnalysis = ({ data, columns }) => {
   // const returnAverage = () => {
@@ -15,13 +16,13 @@ export const ResultAnalysis = ({ data, columns }) => {
   //   return average
   // }
   const [openTab, setOpenTab] = useState(false)
-
+  const navigate = useNavigate()
   const showAnalysis = () => {
     setOpenTab(!openTab)
   }
 
   const feedBackFn = () => {
-    alert("This leads to the feedback page")
+    navigate("/students/viewResults/feedBack")
   }
 
   return (

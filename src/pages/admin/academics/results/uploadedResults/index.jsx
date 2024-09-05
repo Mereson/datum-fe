@@ -3,13 +3,25 @@ import { AdminIcon, BackIcon, TableModel } from "../../../../../components"
 import { resultsData } from "../../../../../testData"
 import { useNavigate } from "react-router-dom"
 import { AdminStudentsResultList } from "../studentResult"
+import { getAllResults } from "../../../../../api"
+import { useQuery } from "@tanstack/react-query"
 
 export const AdminUploadedResults = () => {
   const [openTab, setOpenTab] = useState(true)
   const navigate = useNavigate()
 
-  const handleTabSwitch = () => {
-    setOpenTab((prevState) => !prevState)
+
+  const query = useQuery({ queryKey: ["Results"], queryFn: getAllResults })
+
+  let newData
+
+  if (query.isError) {
+    console.log(query.error.message)
+  }
+
+  if (query.isSuccess) {
+    console.log(query.data)
+    newData = formattedData(query.data)
   }
 
   const onClick = () => {
@@ -28,78 +40,90 @@ export const AdminUploadedResults = () => {
           </div>
           <div className=" flex gap-4 pt-3 font-semibold text-lg items-center">
             <p
-              onClick={handleTabSwitch}
-              className={`cursor-pointer ${
-                openTab
-                  ? "text-[#0D1B59] underline underline-offset-4"
-                  : "text-[#132985]"
-              } `}
+              className={`cursor-pointer text-[#132985]`}
             >
               Uploaded Results
             </p>
-            <p
-              onClick={handleTabSwitch}
-              className={`cursor-pointer ${
-                openTab
-                  ? "text-[#132985]"
-                  : "text-[#0D1B59] underline underline-offset-4 "
-              } `}
-            >
-              Students Result
-            </p>
+            
           </div>
         </div>
-        <div className="">
-          {openTab ? (
+
+        <section>
+          {query.isSuccess && (
             <TableModel
-              myData={resultsData}
+              myData={newData}
               columns={columns}
-              searchValue={"Surname"}
-              rowOnClick={onClick}
+              people={"Students"}
+              searchValue={"Activity"}
+              justTable={true}
+              // rowOnClick={rowOnClick}
             />
-          ) : (
-            <AdminStudentsResultList />
           )}
-        </div>
+          {query.isLoading && (
+            <p className=" text-[#6270AE] pb-4">Loading...</p>
+          )}
+          {query.isError && (
+            <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+          )}
+        </section>
       </main>
     </section>
   )
 }
 
+const formattedData = (data) => {
+  return data.map((student) => ({
+    id: student.studentId,
+    "Student Name": `${student.surName} ${student.firstName}`,
+    Subject: student.subject,
+    Assesment: student.assignment,
+    Exam: student.exam,
+    Total: student.total,
+    Grade: student.grade,
+  }))
+}
+
 const columns = [
   {
-    accessorKey: "S/N",
+    accessorKey: "id",
     header: "Reg No",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "Surname",
-    header: "Surname",
+    accessorKey: "Student Name",
+    header: "Student Name",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "FirstName",
-    header: "First Name",
+    accessorKey: "Subject",
+    header: "Subject",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "OtherName",
-    header: "Other Name",
+    accessorKey: "Assesment",
+    header: "Assesment",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "Gender",
-    header: "Gender",
+    accessorKey: "Exam",
+    header: "Exam",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "Class",
-    header: "Class",
+    accessorKey: "Total",
+    header: "Total",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
   {
-    accessorKey: "Subjects",
-    header: "Subjects",
+    accessorKey: "Grade",
+    header: "Grade",
     cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
   },
 ]

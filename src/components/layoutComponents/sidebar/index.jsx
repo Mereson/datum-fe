@@ -73,7 +73,7 @@ export const StudentSidebar = () => {
               onClick={onClick}
               to={"/students/hub"}
               Icon={HubIcon}
-              label={"Hub"}
+              label={"Academics"}
             />
             <SidebarNavItem
               onClick={onClick}

@@ -51,6 +51,7 @@ import { StudentsAttendancePage } from "./pages/students/hub/attendance"
 import { StudentsCalenderPage } from "./pages/students/hub/calender"
 import { StudentsSOWPage } from "./pages/students/hub/schemeOfWork"
 import { TeachersAttendanceList } from "./pages/teachers/attendance"
+import { Feedback } from "./pages/students/feedback"
 
 const router = createBrowserRouter([
   {
@@ -128,6 +129,10 @@ const router = createBrowserRouter([
       {
         path: "checkResults/subjectAnalysis",
         element: <SubjectAnalysis />,
+      },
+      {
+        path: "/viewResults/feedBack",
+        element: <Feedback />,
       },
       {
         path: "studentProfile",

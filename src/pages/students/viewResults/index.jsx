@@ -1,13 +1,48 @@
 import { CustomSelect, StudentIcon } from "../../../components"
 import { useState } from "react"
 import { ResultAnalysis } from "../resultAnalysis"
+import { useQuery } from "@tanstack/react-query"
+import { getResultsById } from "../../../api"
+import { useStudentsData } from "../../../states/students"
 
 export const ViewResults = () => {
+  const { studentsData } = useStudentsData()
   const [openTab, setOpenTab] = useState(1)
+  const studentInfo = studentsData?.parent?.students[0]
+  const [term, setTerm] = useState("FirstTerm")
+
+  console.log(studentInfo.id, studentInfo.class, term)
+  const query = useQuery({
+    queryKey: ["StudentResult", studentInfo.id, studentInfo.class, term],
+    queryFn: () =>
+      getResultsById(studentInfo.id, studentInfo.class, studentInfo.term),
+  })
+
+  // console.log(studentsData)
+  let newData
+
+  if (query.isError) {
+    console.log(query.error.message)
+  }
+
+  if (query.isSuccess) {
+    console.log(query.data)
+    newData = formattedData(query.data.result)
+  }
 
   const handleTabSwitch = (e) => {
     let { id } = e.target
     setOpenTab(id)
+
+    if (id == "1") {
+      setTerm("FirstTerm")
+    }
+    if (id == "2") {
+      setTerm("SecondTerm")
+    }
+    if (id == "3") {
+      setTerm("ThirdTerm")
+    }
   }
 
   return (
@@ -62,162 +97,98 @@ export const ViewResults = () => {
       </div>
       {openTab == 1 ? (
         <div className="overflow-x-auto">
-          <ResultAnalysis data={results} columns={columns} />
+          {query.isSuccess && (
+            <ResultAnalysis data={newData} columns={columns} />
+          )}
+          {query.isError && (
+            <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+          )}
+          {query.isLoading && (
+            <p className=" text-[#6270AE] pb-4">Loading...</p>
+          )}
         </div>
       ) : openTab == 2 ? (
-        <>
-          <p className="text-sm text-[#6270AE] pb-4">
-            Showing Second Term Results
-          </p>
-          <ResultAnalysis data={results} columns={columns} />
-        </>
+        <div className="overflow-x-auto">
+          {query.isSuccess && (
+            <ResultAnalysis data={newData} columns={columns} />
+          )}
+          {query.isError && (
+            <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+          )}
+          {query.isLoading && (
+            <p className=" text-[#6270AE] pb-4">Loading...</p>
+          )}
+        </div>
       ) : (
-        <>
-          <p className="text-sm text-[#6270AE] pb-4">
-            Showing Third Term Results
-          </p>
-          <ResultAnalysis data={results} columns={columns} />
-        </>
+        <div className="overflow-x-auto">
+          {query.isSuccess && (
+            <ResultAnalysis data={newData} columns={columns} />
+          )}
+          {query.isError && (
+            <p className=" text-[#6270AE] pb-4">Nothing to display</p>
+          )}
+          {query.isLoading && (
+            <p className=" text-[#6270AE] pb-4">Loading...</p>
+          )}
+        </div>
       )}
     </section>
   )
 }
 
+const formattedData = (data) => {
+  return data.map((student) => ({
+    id: student.studentId,
+    "Student Name": `${student.surName} ${student.firstName}`,
+    Subject: student.subject,
+    Assesment: student.assignment,
+    Exam: student.exam,
+    Total: student.total,
+    Grade: student.grade,
+  }))
+}
+
 const columns = [
   {
-    accessorKey: "s/n",
-    header: "S/N",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    accessorKey: "id",
+    header: "Reg No",
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "subject",
+    accessorKey: "Student Name",
+    header: "Student Name",
+    cell: (props) => <p>{props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "Subject",
     header: "Subject",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "assessment",
-    header: "Assessment",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    accessorKey: "Assesment",
+    header: "Assesment",
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "exam",
+    accessorKey: "Exam",
     header: "Exam",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "total",
+    accessorKey: "Total",
     header: "Total",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "grade",
+    accessorKey: "Grade",
     header: "Grade",
-    cell: (Props) => <p>{Props.getValue()}</p>,
+    cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
-  },
-]
-
-const results = [
-  {
-    "s/n": 1,
-    subject: "English",
-    assessment: 6,
-    exam: 25,
-    total: 31,
-    grade: "F",
-  },
-  {
-    "s/n": 2,
-    subject: "Mathematics",
-    assessment: 16,
-    exam: 49,
-    total: 65,
-    grade: "B",
-  },
-
-  {
-    "s/n": 3,
-    subject: "Biology",
-    assessment: 19,
-    exam: 58,
-    total: 77,
-    grade: "A",
-  },
-  {
-    "s/n": 4,
-    subject: "Physics",
-    assessment: 17,
-    exam: 60,
-    total: 77,
-    grade: "A",
-  },
-  {
-    "s/n": 5,
-    subject: "Chemistry",
-    assessment: 20,
-    exam: 20,
-    total: 40,
-    grade: "D",
-  },
-  {
-    "s/n": 6,
-    subject: "Geography",
-    assessment: 19,
-    exam: 40,
-    total: 59,
-    grade: "C",
-  },
-  {
-    "s/n": 7,
-    subject: "Agriculture",
-    assessment: 23,
-    exam: 39,
-    total: 62,
-    grade: "B",
-  },
-  {
-    "s/n": 8,
-    subject: "Igbo language",
-    assessment: 30,
-    exam: 56,
-    total: 86,
-    grade: "A",
-  },
-  {
-    "s/n": 9,
-    subject: "CRS",
-    assessment: 23,
-    exam: 40,
-    total: 63,
-    grade: "B",
-  },
-  {
-    "s/n": 10,
-    subject: "Civic Education",
-    assessment: 7,
-    exam: 54,
-    total: 78,
-    grade: "A",
-  },
-  {
-    "s/n": 11,
-    subject: "Computer Science",
-    assessment: 30,
-    exam: 48,
-    total: 72,
-    grade: "A",
-  },
-  {
-    "s/n": 12,
-    subject: "Health Science",
-    assessment: 25,
-    exam: 50,
-    total: 75,
-    grade: "A",
   },
 ]
