@@ -7,12 +7,11 @@ import { GoTrash } from "react-icons/go"
 
 export const AdminEventsList = () => {
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full h-full pl-4 sm:px-[5rem] bg-[#f4f4f4] pt-8 pb-32 sm:pb-14 overflow-auto">
       <main className="grid gap-3">
-        <div className="flex justify-between pb-10">
-          <div className="flex items-end">
-            <BackIcon link={"/admin/academics"} />
-          </div>
+        <div className="flex justify-between  pr-4 pb-10">
+          <BackIcon link={"/admin/academics"} />
+
           <AdminIcon />
         </div>
         <div className="flex flex-col gap-4">
@@ -20,14 +19,14 @@ export const AdminEventsList = () => {
             link={"/admin/academics/addActivity"}
             content={"Add Event"}
             className={
-              "bg-[#132985] w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
+              "bg-[#132985] w-28 sm:w-[12rem] py-3 flex justify-center text-center rounded-[8px] font-bold text-white cursor-pointer"
             }
           />
         </div>
 
         <h2 className="text-2xl mt-4 pb-6 text-[#444444]">Academic Calender</h2>
 
-        <div className="w-full">
+        <div className="w-full overflow-x-auto">
           <TableModel
             myData={eventsData}
             columns={columns}

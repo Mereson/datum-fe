@@ -9,12 +9,14 @@ export const AdminStudentsResultList = () => {
       columns={columns}
       searchValue={"Surname"}
       people={"Students"}
-    //   rowOnClick={onClick}
+      //   rowOnClick={onClick}
     />
   )
 }
 
-AdminStudentsResultList.propTypes = {}
+AdminStudentsResultList.propTypes = {
+  getValue: PropTypes.func,
+}
 
 const columns = [
   {

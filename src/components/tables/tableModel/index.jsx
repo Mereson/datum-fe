@@ -63,7 +63,7 @@ export const TableModel = ({
   return (
     <>
       {!justTable ? (
-        <section className="grid gap-4 w-full">
+        <section className="grid gap-4 h-full w-full overflow-auto">
           <div className="sm:flex sm:justify-between items-center pb-6">
             <div className="w-[50%]">
               <FilteredSearch
