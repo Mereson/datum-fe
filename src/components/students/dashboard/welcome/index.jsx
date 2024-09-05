@@ -20,15 +20,16 @@ export const WelcomeBox = ({
     <div className={`relative col-span-2 ${bg} pl-4 h-[142px] rounded-2xl`}>
       {admin && (
         <>
-          <span className="flex gap-[16.5px] items-center pt-[30px] pb-[6px]">
-            <h3 className="text-[27px] font-bold text-[#132985]">
+          <span className="flex gap-[16.5px] items-center w-full pt-[30px] pb-[6px]">
+            <h3 className="sm:pl-8 text-[27px] font-bold text-[#ffffff]">
               Hello Nkechi
             </h3>
             <SbEmojiWave />
           </span>
-          <p className="text-sm text-[#1E1E1E] absolute z-20 font-semibold w-[432px]">
-            Ready for a new term? Check your subjects, assignments, and
-            schedule. We&apos;re here to help you succeed.
+          <p className=" sm:pl-8 text-sm text-[#ffffff] absolute z-20 font-semibold w-[27rem]">
+            Ready to inspire and lead? {"Let's"} make this term <br /> amazing
+            together! Check your <br />
+            schedule, update your plans, and dive in.
           </p>
           <img
             className="absolute  bottom-0 right-[82.48px]"
