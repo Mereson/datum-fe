@@ -1,4 +1,3 @@
-import React from "react"
 import { AdminProfileImg } from "../../../assets"
 import { CustomSelect, SearchBox } from "../../../components"
 
