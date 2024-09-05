@@ -64,32 +64,14 @@ export const UploadResult = () => {
 }
 const columns = [
   {
-    accessorKey: "regNo",
+    accessorKey: "studentId",
     header: "Reg No",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
   {
-    accessorKey: "surname",
+    accessorKey: "surName",
     header: "Surname",
-    cell: (props) => <p>{props.getValue()}</p>,
-    enableSorting: false,
-  },
-  {
-    accessorKey: "firstName",
-    header: "First Name",
-    cell: (props) => <p>{props.getValue()}</p>,
-    enableSorting: false,
-  },
-  {
-    accessorKey: "otherName",
-    header: "Other Name",
-    cell: (props) => <p>{props.getValue()}</p>,
-    enableSorting: false,
-  },
-  {
-    accessorKey: "gender",
-    header: "Gender",
     cell: (props) => <p>{props.getValue()}</p>,
     enableSorting: false,
   },
@@ -100,9 +82,27 @@ const columns = [
     enableSorting: false,
   },
   {
-    accessorKey: "regDate",
-    header: "Reg Date",
-    cell: (props) => <p>{props.getValue()}</p>,
+    accessorKey: "subject",
+    header: "Subject",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "assessment",
+    header: "Assessment",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "exam",
+    header: "Exam",
+    cell: (Props) => <p>{Props.getValue()}</p>,
+    enableSorting: false,
+  },
+  {
+    accessorKey: "total",
+    header: "Total",
+    cell: (Props) => <p>{Props.getValue()}</p>,
     enableSorting: false,
   },
 ]
