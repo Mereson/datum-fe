@@ -17,13 +17,12 @@ export const AdminUploadedResults = () => {
   }
 
   return (
-    <section className="w-full px-[5rem] bg-[#f4f4f4] pt-8 pb-14 overflow-auto">
+    <section className="w-full h-full pl-4 sm:px-[5rem] bg-[#f4f4f4] pt-8 pb-40 sm:pb-14 overflow-auto">
       <main className="grid gap-4">
         <div className="flex flex-col">
-          <div className="flex justify-between pb-10">
-            <div className="flex items-end">
-              <BackIcon link={"/admin/academics"} />
-            </div>
+          <div className="flex justify-between pr-4 pb-10">
+            <BackIcon link={"/admin/academics"} />
+
             <AdminIcon />
           </div>
           <div className=" flex gap-4 pt-3 font-semibold text-lg items-center">

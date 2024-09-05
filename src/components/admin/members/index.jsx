@@ -3,7 +3,7 @@ import { TotalParents, TotalStudents, TotalTeachers } from "../../../assets"
 
 export const MembersGrid = () => {
   return (
-    <div className="grid grid-cols-3 col-span-2 gap-[20px]">
+    <div className="grid sm:grid-cols-3 col-span-2 gap-[20px]">
       <Members
         Icon={TotalStudents}
         iconInside={"#132985"}

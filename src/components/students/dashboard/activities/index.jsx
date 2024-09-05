@@ -29,9 +29,11 @@ export const Activites = () => {
               January 6
             </li>
           </ul>
+
           <Button
             text={"View activities"}
             style={"py-[7px] px-7 mt-4 font-bold text-sm text-white"}
+            link={"/students/hub/studentsCalender"}
           />
         </Activity>
         <Activity

@@ -1,0 +1,4 @@
+.hubcard:hover {
+  border: 1px solid #f4901f;
+  cursor: pointer;
+}

@@ -24,7 +24,7 @@ export const StudentsDashboard = () => {
   const percentage = Math.floor((score / total) * 100)
 
   return (
-    <section className="sm:flex  overflow-auto w-full h-[100%] bg-[#f4f4f4] justify-between">
+    <section className="sm:flex overflow-auto w-full h-[100%] bg-[#f4f4f4] justify-between">
       <div className="sm:hidden flex justify-end pr-4 pt-6 sm:pb-14">
         <StudentIcon />
       </div>

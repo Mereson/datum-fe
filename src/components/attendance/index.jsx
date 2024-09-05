@@ -47,8 +47,8 @@ export const AttendanceComponent = ({
   const totalRows = table.getRowCount()
   return (
     <>
-      <section className="grid gap-4 w-full">
-        <div className="flex justify-between items-center">
+      <section className="grid gap-4 w-full pl-4">
+        <div className="sm:flex sm:justify-between items-center">
           <div className="w-[50%]">
             <FilteredSearch
               columnFilters={columnFilters}
@@ -75,14 +75,16 @@ export const AttendanceComponent = ({
             </select>
           </div>
         </div>
-        <h2 className="text-2xl pt-3 font-semibold text-[#1e1e1e]">
+        <h2 className="sm:text-2xl text-xl pt-3 font-semibold text-[#1e1e1e]">
           {title}
         </h2>
         <p className="text-sm text-[#6270AE] pb-4">
           Showing {table.getState().pagination.pageIndex + 1} -{" "}
           {table.getPageCount()} of {totalRows} {people}
         </p>
-        <CustomTable table={table} center={center} rowOnClick={rowOnClick} />
+        <div className="overflow-x-auto">
+          <CustomTable table={table} center={center} rowOnClick={rowOnClick} />{" "}
+        </div>
         {totalRows > 12 && (
           <div className="mt-8">
             <ListPagination
@@ -194,13 +196,11 @@ const columns = [
   },
 ]
 
-
 AttendanceComponent.propTypes = {
-    myData: PropTypes.object,
-    people: PropTypes.string,
-    searchValue: PropTypes.string,
-    title: PropTypes.any,
-    rowOnClick: PropTypes.func,
-    center: PropTypes.string,
-  }
-  
+  myData: PropTypes.object,
+  people: PropTypes.string,
+  searchValue: PropTypes.string,
+  title: PropTypes.any,
+  rowOnClick: PropTypes.func,
+  center: PropTypes.string,
+}

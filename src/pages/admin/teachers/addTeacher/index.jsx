@@ -1,10 +1,4 @@
-import {
-  AdminIcon,
-  BackIcon,
-  CustomInput,
-  FormButton,
-  FormDropdown,
-} from "../../../../components"
+import { CustomInput, FormButton, FormDropdown } from "../../../../components"
 import { Form, Formik, useField } from "formik"
 import { useCreateTeacherForm } from "../../../../states/createTeacherStore"
 import { teacherDetailsSchema } from "../../../../api/validationSchema"
@@ -38,25 +32,17 @@ export const AddTeacher = () => {
   }
 
   return (
-    <section className="px-[6.25rem] pt-7 pb-20 w-full bg-[#f4f4f4] overflow-auto ">
-      <div className="flex flex-col">
-        <div className="flex justify-between pb-16">
-          <div className="flex items-end">
-            <BackIcon link={"/admin/teachers"} />
-          </div>
-          <AdminIcon />
-        </div>
-      </div>
+    <section className="sm:px-[6.25rem] px-4 pt-8 pb-40 w-full h-full bg-[#f4f4f4] overflow-auto ">
       <div>
         {/* This div is for Add teacher and import csv */}
         <div className="flex justify-between items-start">
-          <h2 className="font-semibold text-3xl text-[#1e1e1e]">Add Teacher</h2>
-          <div className="flex gap-12 pt-5 font-bold">
+          <h2 className="font-semibold text-3xl text-[#4f4f4f]">Add Teacher</h2>
+          {/* <div className="flex gap-12 pt-5 font-bold">
             <p className="text-[#0d1b59] underline underline-offset-8 ">
               Manually
             </p>
             <p className="text-[#8A8A8A]">Import CSV </p>
-          </div>
+          </div> */}
         </div>
 
         <div className="pt-[5rem] grid place-items-center">
@@ -80,7 +66,7 @@ export const AddTeacher = () => {
                 <h4 className="font-extrabold text-xl text-[#696969]">
                   Personal Information
                 </h4>
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                   <CustomInput
                     label={"Surname"}
                     name="surName"
@@ -125,7 +111,7 @@ export const AddTeacher = () => {
                 <h4 className="font-extrabold text-xl text-[#696969]">
                   Education Background
                 </h4>
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                   <FormDropdown
                     label={"Qualification"}
                     name={`qualification`}
@@ -192,7 +178,7 @@ export const AddTeacher = () => {
                 <h4 className="font-extrabold text-xl text-[#696969]">
                   Contact Information
                 </h4>
-                <div className="pt-4 grid grid-cols-2 gap-x-12 gap-y-6">
+                <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
                   <CustomInput
                     label={"Phone Number"}
                     name={`phoneNumber`}

@@ -17,7 +17,9 @@ export const WelcomeBox = ({
   console.log(studentInfo)
 
   return (
-    <div className={`relative col-span-2 ${bg} pl-4 h-[142px] rounded-2xl`}>
+    <div
+      className={`pb-3 relative col-span-2 ${bg} pl-3 h-[142px] rounded-2xl`}
+    >
       {admin && (
         <>
           <span className="flex gap-[16.5px] items-center pt-[30px] pb-[6px]">
@@ -26,12 +28,12 @@ export const WelcomeBox = ({
             </h3>
             <SbEmojiWave />
           </span>
-          <p className="text-sm text-[#1E1E1E] absolute z-20 font-semibold w-[432px]">
-            Ready for a new term? Check your subjects, assignments, and
+          <p className="text-xs sm:text-sm text-[#1E1E1E] absolute z-20 font-semibold w-[27rem]">
+            Ready for a new term? Check your subjects, assignments, <br /> and
             schedule. We&apos;re here to help you succeed.
           </p>
           <img
-            className="absolute  bottom-0 right-[82.48px]"
+            className="absolute sm:block hidden bottom-0 right-[82.48px]"
             src={avatar}
             alt=""
           />
@@ -70,7 +72,7 @@ export const WelcomeBox = ({
             </h3>
             <SbEmojiWave />
           </span>
-          <p className=" sm:pl-8 text-sm text-[#ffffff] absolute z-20 font-semibold w-[27rem]">
+          <p className=" sm:pl-8 text-xs sm:text-sm text-[#ffffff] absolute z-20 font-semibold w-[27rem]">
             Ready to inspire and lead? {"Let's"} make this term <br /> amazing
             together! Check your <br />
             schedule, update your plans, and dive in.
