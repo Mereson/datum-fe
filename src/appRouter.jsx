@@ -59,6 +59,10 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: "selectProfile",
+    element: <SelectStudent />,
+  },
+  {
     path: "/forgotpassword",
     element: <ForgotPassword />,
   },
@@ -74,7 +78,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <LandingPage />,
   },
-    {
+  {
     path: "/students",
     element: <StudentLayout />,
     children: [
@@ -86,10 +90,7 @@ const router = createBrowserRouter([
         path: "viewResults",
         element: <ViewResults />,
       },
-      {
-        path: "selectProfile",
-        element: <SelectStudent />,
-      },
+
       {
         path: "personalInfo",
         element: <PersonalInfo />,
