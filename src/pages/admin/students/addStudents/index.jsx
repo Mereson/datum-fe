@@ -1,4 +1,4 @@
-import { FieldArray, Form, Formik } from "formik"
+import { FieldArray, Form, Formik, useField } from "formik"
 import { createStudent } from "../../../../api"
 import {
   BackIcon,
@@ -51,7 +51,7 @@ export const AddStudents = () => {
     const updatedStudentsData = values.students.map((student, index) => {
       return {
         ...studentsFormData[index],
-        ...student, 
+        ...student,
       }
     })
 
@@ -140,7 +140,7 @@ export const AddStudents = () => {
                           <CustomInput
                             label={"Date of Birth"}
                             name={`students[${index}].dateOfBirth`}
-                            type="text"
+                            type="date"
                             required={true}
                           />
                           <FormDropdown
@@ -195,16 +195,23 @@ export const AddStudents = () => {
                           School Information
                         </h4>
                         <div className="pt-4 grid sm:grid-cols-2 gap-x-12 gap-y-6">
-                          <CustomInput
+                          <FormDropdown
                             label={"Class"}
                             name={`students[${index}].class`}
-                            type="text"
+                            options={[
+                              "Jss1",
+                              "Jss2",
+                              "Jss3",
+                              "Sss1",
+                              "Sss2",
+                              "Sss3",
+                            ]}
                             required={true}
                           />
-                          <CustomInput
+                          <FormDropdown
                             label={"Term"}
                             name={`students[${index}].term`}
-                            type="text"
+                            options={["FirstTerm", "SecondTerm", "ThirdTerm"]}
                             required={true}
                           />
                           <CustomInput
@@ -270,5 +277,34 @@ export const AddStudents = () => {
         <h2 className=" text-[red] pb-4">{mutation.error}</h2>
       )} */}
     </section>
+  )
+}
+
+const FileInput = ({ label, ...props }) => {
+  const [field, meta, helpers] = useField(props)
+  const isFilled = Boolean(field.value)
+
+  const handleChange = (event) => {
+    const file = event.target.files[0] || null
+    helpers.setValue(file)
+  }
+
+  return (
+    <div className="grid">
+      <label className="text-[#444] pb-1" htmlFor={props.id || props.name}>
+        {label}
+      </label>
+      <input
+        type="file"
+        className={`h-11 rounded-lg border-[0.5px] px-2 bg-[#f4f4f4]
+            ${isFilled ? "border-green-500" : "border-[#a7a7a7]"} 
+            ${meta.touched && meta.error ? "border-red-500" : ""}`}
+        onChange={handleChange}
+        {...props}
+      />
+      {meta.touched && meta.error ? (
+        <div className="text-red-500 text-sm mt-1">{meta.error}</div>
+      ) : null}
+    </div>
   )
 }

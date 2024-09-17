@@ -1,7 +1,7 @@
-import { HeroImg } from "../../../assets";
-import { HeroStripes } from "../../../assets";
-import styles from "./styles.module.css";
-import { Link } from "react-router-dom";
+import { HeroImg } from "../../../assets"
+import { HeroStripes } from "../../../assets"
+import styles from "./styles.module.css"
+import { Link } from "react-router-dom"
 
 export const Hero = () => {
   return (
@@ -17,14 +17,8 @@ export const Hero = () => {
             intuitive, user-friendly interface.
           </p>
 
-          <Link to="/login">
+          <Link to="/selectProfile">
             <button className={styles.herobtn}>Get Started</button>
-          </Link>
-          <Link className="pl-3" to="/teacher/dashboard">
-            <button className={styles.herobtn}>Teacher</button>
-          </Link>
-          <Link className="pl-3" to="/admin/dashboard">
-            <button className={styles.herobtn}>Admin</button>
           </Link>
         </div>
         <div className={styles.heroright}>
@@ -33,5 +27,5 @@ export const Hero = () => {
       </div>
       <img src={HeroStripes} alt="" className={styles.hero_stripe} />
     </section>
-  );
-};
+  )
+}
